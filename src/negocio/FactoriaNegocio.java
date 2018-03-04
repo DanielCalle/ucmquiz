@@ -1,5 +1,7 @@
 package negocio;
 
+import negocio.pregunta.SAPregunta;
+import negocio.usuario.SAUsuario;
 
 public abstract class FactoriaNegocio {
 
@@ -9,5 +11,9 @@ public abstract class FactoriaNegocio {
 		if(instance == null) instance = new FactoriaNegocioImp();
 		return instance;
 	}
+	
+	public abstract SAUsuario generateSAUsuario();
+	
+	public abstract SAPregunta generateSAPregunta();
 
 }
