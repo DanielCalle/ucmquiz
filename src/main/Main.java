@@ -23,7 +23,7 @@ public class Main extends Application {
     
         Scene scene = new Scene(root, 800, 575);
     
-        stage.setTitle("FXML Welcome");
+        stage.setTitle("Hello World!");
         stage.setScene(scene);
         stage.show();
     }
