@@ -5,10 +5,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Version;
 
 @Entity
-@NamedQueries({})
+
+@NamedQueries({
+	@NamedQuery(name = "negocio.usuario.Usuario.findBynombre", query = "select obj from Usuario obj where obj.nombre = :nombre")})
+
 public class Usuario {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
