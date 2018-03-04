@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+	
+	<command id="101">presentacion.command.commandTrabajador.CommandAltaTrabajadorTiempoParcial</command>
+	<command id="102">presentacion.command.commandTrabajador.CommandAltaTrabajadorTiempoCompleto</command>
+	<command id="103">presentacion.command.commandTrabajador.CommandBuscarTrabajador</command>
+	<command id="104">presentacion.command.commandTrabajador.CommandListarTrabajador</command>
+	<command id="105">presentacion.command.commandTrabajador.CommandActualizarTrabajador</command>
+	<command id="106">presentacion.command.commandTrabajador.CommandBajaTrabajador</command>
+    <command id="152">presentacion.command.commandTrabajador.CommandBuscarActualizarTrabajador</command>
+
+    <command id="201">presentacion.command.commandCurso.CommandAltaCurso</command>
+	<command id="202">presentacion.command.commandCurso.CommandBuscarCurso</command>
+	<command id="203">presentacion.command.commandCurso.CommandListarCurso</command>
+	<command id="204">presentacion.command.commandCurso.CommandActualizarCurso</command>
+	<command id="205">presentacion.command.commandCurso.CommandBajaCurso</command>
+    <command id="206">presentacion.command.commandCurso.CommandMatricularTrabajador</command>
+    <command id="207">presentacion.command.commandCurso.CommandDesmatricularTrabajador</command>
+
+    <command id="301">presentacion.command.commandDepartamento.CommandAltaDepartamento</command>
+    <command id="302">presentacion.command.commandDepartamento.CommandBuscarDepartamento</command>
+    <command id="303">presentacion.command.commandDepartamento.CommandListarDepartamento</command>
+    <command id="304">presentacion.command.commandDepartamento.CommandActualizarDepartamento</command>
+    <command id="305">presentacion.command.commandDepartamento.CommandBajaDepartamento</command>
+    <command id="306">presentacion.command.commandDepartamento.CommandCalcularNominaPorDepartamento</command>
+    
+    <command id="401">presentacion.command.commandProducto.CommandAltaProducto</command>
+    <command id="402">presentacion.command.commandProducto.CommandBuscarProducto</command>
+    <command id="403">presentacion.command.commandProducto.CommandListarProductos</command>
+    <command id="404">presentacion.command.commandProducto.CommandActualizarProducto</command>
+    <command id="405">presentacion.command.commandProducto.CommandBajaProducto</command>
+    
+    <command id="501">presentacion.command.commandVenta.CommandAbrirVenta</command>
+    <command id="502">presentacion.command.commandVenta.CommandBuscarVenta</command>
+    <command id="503">presentacion.command.commandVenta.CommandListarVentas</command>
+    <command id="504">presentacion.command.commandVenta.CommandDevolucionVenta</command>
+    <command id="505">presentacion.command.commandVenta.CommandCerrarVenta</command>
+    
+    <command id="601">presentacion.command.commandCliente.CommandAltaClienteNoVip</command>
+    <command id="602">presentacion.command.commandCliente.CommandAltaClienteVip</command>
+    <command id="603">presentacion.command.commandCliente.CommandBuscarCliente</command>
+    <command id="604">presentacion.command.commandCliente.CommandListarClientes</command>
+    <command id="605">presentacion.command.commandCliente.CommandActualizarCliente</command>
+    <command id="606">presentacion.command.commandCliente.CommandBajaCliente</command>
+    <command id="607">presentacion.command.commandCliente.CommandProductoMasComprado</command>
+    <command id="608">presentacion.command.commandCliente.CommandProductosCompradosPorClienteVIP</command>
+    <command id="652">presentacion.command.commandCliente.CommandBuscarActualizarCliente</command>
+
+</commands>

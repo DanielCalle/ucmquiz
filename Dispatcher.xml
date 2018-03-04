@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<events>
+    
+    <event id="110">presentacion.trabajador.GUITrabajador</event>
+    <event id="111">presentacion.trabajador.GUITrabajador</event>
+    <event id="120">presentacion.trabajador.GUITrabajador</event>
+    <event id="121">presentacion.trabajador.GUITrabajador</event>
+    <event id="130">presentacion.trabajador.GUITrabajador</event>
+    <event id="131">presentacion.trabajador.GUITrabajador</event>
+    <event id="140">presentacion.trabajador.GUITrabajador</event>
+    <event id="141">presentacion.trabajador.GUITrabajador</event>
+    <event id="150">presentacion.trabajador.GUITrabajador</event>
+    <event id="151">presentacion.trabajador.GUITrabajador</event>
+    <event id="152">presentacion.trabajador.GUITrabajador</event>
+    <event id="153">presentacion.trabajador.GUITrabajador</event>
+    <event id="154">presentacion.trabajador.GUITrabajador</event>
+    <event id="160">presentacion.trabajador.GUITrabajador</event>
+    <event id="161">presentacion.trabajador.GUITrabajador</event>
+    
+    <event id="210">presentacion.curso.GUICurso</event>
+    <event id="211">presentacion.curso.GUICurso</event>
+    <event id="220">presentacion.curso.GUICurso</event>
+    <event id="221">presentacion.curso.GUICurso</event>
+    <event id="230">presentacion.curso.GUICurso</event>
+    <event id="231">presentacion.curso.GUICurso</event>
+    <event id="240">presentacion.curso.GUICurso</event>
+    <event id="241">presentacion.curso.GUICurso</event>
+    <event id="250">presentacion.curso.GUICurso</event>
+    <event id="251">presentacion.curso.GUICurso</event>
+    <event id="260">presentacion.curso.GUICurso</event>
+    <event id="261">presentacion.curso.GUICurso</event>
+    <event id="270">presentacion.curso.GUICurso</event>
+    <event id="271">presentacion.curso.GUICurso</event>
+    
+    <event id="310">presentacion.departamento.GUIDepartamento</event>
+	<event id="311">presentacion.departamento.GUIDepartamento</event>
+	<event id="320">presentacion.departamento.GUIDepartamento</event>
+	<event id="321">presentacion.departamento.GUIDepartamento</event>
+	<event id="330">presentacion.departamento.GUIDepartamento</event>
+	<event id="331">presentacion.departamento.GUIDepartamento</event>
+	<event id="340">presentacion.departamento.GUIDepartamento</event>
+	<event id="341">presentacion.departamento.GUIDepartamento</event>
+	<event id="350">presentacion.departamento.GUIDepartamento</event>
+	<event id="351">presentacion.departamento.GUIDepartamento</event>
+	<event id="360">presentacion.departamento.GUIDepartamento</event>
+	<event id="361">presentacion.departamento.GUIDepartamento</event>
+	
+	<event id="410">presentacion.producto.GUIProducto</event>
+	<event id="411">presentacion.producto.GUIProducto</event>
+	<event id="420">presentacion.producto.GUIProducto</event>
+	<event id="421">presentacion.producto.GUIProducto</event>
+	<event id="430">presentacion.producto.GUIProducto</event>
+	<event id="431">presentacion.producto.GUIProducto</event>
+	<event id="440">presentacion.producto.GUIProducto</event>
+	<event id="441">presentacion.producto.GUIProducto</event>
+	<event id="450">presentacion.producto.GUIProducto</event>
+	<event id="451">presentacion.producto.GUIProducto</event>
+    
+	<event id="510">presentacion.venta.GUIVenta</event>
+	<event id="511">presentacion.venta.GUIVenta</event>
+	<event id="520">presentacion.venta.GUIVenta</event>
+	<event id="521">presentacion.venta.GUIVenta</event>	
+	<event id="530">presentacion.venta.GUIVenta</event>
+	<event id="531">presentacion.venta.GUIVenta</event>
+	<event id="540">presentacion.venta.GUIVenta</event>
+	<event id="541">presentacion.venta.GUIVenta</event>
+	<event id="550">presentacion.venta.GUIVenta</event>
+	<event id="551">presentacion.venta.GUIVenta</event>
+	<event id="552">presentacion.venta.GUIVenta</event>
+	<event id="560">presentacion.venta.GUIVenta</event>
+	<event id="561">presentacion.venta.GUIVenta</event>
+	<event id="570">presentacion.venta.GUIVenta</event>
+	<event id="571">presentacion.venta.GUIVenta</event>
+    
+	<event id="607">presentacion.cliente.GUICliente</event>
+	<event id="608">presentacion.cliente.GUICliente</event>
+    <event id="610">presentacion.cliente.GUICliente</event>
+	<event id="611">presentacion.cliente.GUICliente</event>
+	<event id="620">presentacion.cliente.GUICliente</event>
+	<event id="621">presentacion.cliente.GUICliente</event>
+	<event id="630">presentacion.cliente.GUICliente</event>
+	<event id="631">presentacion.cliente.GUICliente</event>
+	<event id="640">presentacion.cliente.GUICliente</event>
+	<event id="641">presentacion.cliente.GUICliente</event>
+	<event id="650">presentacion.cliente.GUICliente</event>
+	<event id="651">presentacion.cliente.GUICliente</event>
+	<event id="652">presentacion.cliente.GUICliente</event>
+	<event id="653">presentacion.cliente.GUICliente</event>
+	<event id="654">presentacion.cliente.GUICliente</event>
+	<event id="660">presentacion.cliente.GUICliente</event>
+	<event id="661">presentacion.cliente.GUICliente</event>
+    <event id="670">presentacion.cliente.GUICliente</event>
+	<event id="671">presentacion.cliente.GUICliente</event> 
+    <event id="680">presentacion.cliente.GUICliente</event>
+	<event id="681">presentacion.cliente.GUICliente</event>
+	
+	<event id="801">presentacion.trabajador.GUITrabajador</event>
+    <event id="802">presentacion.curso.GUICurso</event>
+    <event id="803">presentacion.departamento.GUIDepartamento</event>
+    <event id="804">presentacion.producto.GUIProducto</event>
+    <event id="805">presentacion.venta.GUIVenta</event>
+    <event id="806">presentacion.cliente.GUICliente</event>
+    
+	<event id="901">presentacion.trabajador.GUITrabajador</event>
+    <event id="902">presentacion.curso.GUICurso</event>
+    <event id="903">presentacion.departamento.GUIDepartamento</event>
+    <event id="904">presentacion.producto.GUIProducto</event>
+	<event id="905">presentacion.venta.GUIVenta</event>
+	<event id="906">presentacion.cliente.GUICliente</event>
+	
+    <event id="1000">presentacion.GUIMain</event>
+	
+</events>
