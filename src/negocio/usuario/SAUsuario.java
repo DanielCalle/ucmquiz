@@ -1,6 +1,6 @@
 package negocio.usuario;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface SAUsuario {
 
@@ -8,7 +8,7 @@ public interface SAUsuario {
 	
 	public Usuario read(int id);
 
-	public ArrayList<Usuario> readAll();
+	public List<Usuario> readAll();
 
 	public int update(Usuario usuario);
 

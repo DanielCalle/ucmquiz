@@ -11,6 +11,7 @@ import javax.persistence.Version;
 @Entity
 
 @NamedQueries({
+	@NamedQuery(name = "negocio.usuario.Usuario.readAll", query = "select obj from Usuario obj where obj.activo = 1"),
 	@NamedQuery(name = "negocio.usuario.Usuario.findBynombre", query = "select obj from Usuario obj where obj.nombre = :nombre")})
 
 public class Usuario {
@@ -26,7 +27,26 @@ public class Usuario {
 	private String nombre;
 	
 	private String password;
+	
+	private boolean activo;
 
+	public Usuario() {}
+	
+	public Usuario(String email, String nombre, String password) {
+		this.email = email;
+		this.nombre = nombre;
+		this.password = password;
+		this.activo = true;
+	}
+	
+	public Usuario(Integer id, String email, String nombre, String password) {
+		this.id = id;
+		this.email = email;
+		this.nombre = nombre;
+		this.password = password;
+		this.activo = true;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -57,6 +77,14 @@ public class Usuario {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public boolean isActivo() {
+		return activo;
+	}
+
+	public void setActivo(boolean activo) {
+		this.activo = activo;
 	}
 	
 	

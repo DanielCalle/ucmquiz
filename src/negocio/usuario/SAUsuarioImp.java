@@ -1,6 +1,5 @@
 package negocio.usuario;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -15,27 +14,35 @@ public class SAUsuarioImp implements SAUsuario {
 	@Override
 	public int create(Usuario usuario) {
 		int id = 1;
-		if(usuario != null) {
+		if (usuario != null) {
 			EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("");
 			try {
 				EntityManager entitymanager = emfactory.createEntityManager();
 				EntityTransaction entitytransaction = entitymanager.getTransaction();
 				entitytransaction.begin();
-				TypedQuery<Usuario> query = entitymanager.createNamedQuery("negocio.usuario.Usuario.findBynombre", Usuario.class).setParameter("nombre", usuario.getNombre());
+				TypedQuery<Usuario> query = entitymanager
+						.createNamedQuery("negocio.usuario.Usuario.findBynombre", Usuario.class)
+						.setParameter("nombre", usuario.getNombre());
 				List<Usuario> lista = query.getResultList();
-				if(lista.isEmpty()) {
+				if (lista.isEmpty()) {
 					entitymanager.persist(usuario);
 					entitytransaction.commit();
 					id = usuario.getId();
-				}
-				else {
-					entitytransaction.rollback();
-					id = -1;
-					
+				} else {
+					if (!lista.get(0).isActivo()) {
+						Usuario usuarioResult = lista.get(0);
+						usuarioResult.setActivo(true);
+						entitytransaction.commit();
+						id = 1;
+					} else {
+						entitytransaction.rollback();
+						id = -1;
+					}
+
 				}
 				entitymanager.close();
 				emfactory.close();
-			} catch(PersistenceException ex) {
+			} catch (PersistenceException ex) {
 				id = -1;
 			}
 		}
@@ -44,26 +51,95 @@ public class SAUsuarioImp implements SAUsuario {
 
 	@Override
 	public Usuario read(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Usuario usuario = null;
+		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("");
+		try {
+			EntityManager entitymanager = emfactory.createEntityManager();
+			EntityTransaction entitytransaction = entitymanager.getTransaction();
+			entitytransaction.begin();
+			usuario = entitymanager.find(Usuario.class, id);
+			if (usuario == null)
+				entitytransaction.rollback();
+			else
+				entitytransaction.commit();
+			entitymanager.close();
+			emfactory.close();
+		} catch (PersistenceException ex) {
+		}
+		return usuario;
 	}
 
 	@Override
-	public ArrayList<Usuario> readAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Usuario> readAll() {
+		List<Usuario> lista = null;
+		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("");
+
+		EntityManager entitymanager = emfactory.createEntityManager();
+		EntityTransaction entitytransaction = entitymanager.getTransaction();
+		entitytransaction.begin();
+
+		TypedQuery<Usuario> query = entitymanager.createNamedQuery("negocio.usuario.Usuario.readAll", Usuario.class);
+		lista = query.getResultList();
+		entitytransaction.commit();
+
+		entitymanager.close();
+		emfactory.close();
+
+		return lista;
 	}
 
 	@Override
 	public int update(Usuario usuario) {
-		// TODO Auto-generated method stub
-		return 0;
+		int id = -1;
+		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("");
+
+		EntityManager entitymanager = emfactory.createEntityManager();
+		EntityTransaction entitytransaction = entitymanager.getTransaction();
+		entitytransaction.begin();
+		
+		Usuario usuarioResult = entitymanager.find(Usuario.class, usuario.getId());
+		if(usuario.isActivo()) {
+			usuarioResult.setEmail(usuario.getEmail());
+			usuarioResult.setNombre(usuario.getNombre());
+			usuarioResult.setPassword(usuario.getPassword());
+			entitytransaction.commit();
+			id = 1;
+		}
+		else {
+			entitytransaction.rollback();
+		}
+		return id;
 	}
 
 	@Override
 	public int delete(int id) {
-		// TODO Auto-generated method stub
-		return 0;
+		int id_res = -1;
+		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("");
+		try {
+			EntityManager entitymanager = emfactory.createEntityManager();
+			EntityTransaction entitytransaction = entitymanager.getTransaction();
+			entitytransaction.begin();
+			Usuario usuario = entitymanager.find(Usuario.class, id);
+			if (usuario != null) {
+				if (usuario.isActivo()) {
+
+					usuario.setActivo(false);
+
+					entitytransaction.commit();
+					id_res = 1;
+				} else {
+					entitytransaction.rollback();
+				}
+
+			} else {
+				entitytransaction.rollback();
+			}
+			entitymanager.close();
+			emfactory.close();
+		} catch (PersistenceException ex) {
+			id = -100;
+		}
+		return id_res;
 	}
 
 }
