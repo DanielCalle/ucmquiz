@@ -1,6 +1,6 @@
 package negocio.pregunta;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface SAPregunta {
 
@@ -8,7 +8,7 @@ public interface SAPregunta {
 	
 	public Pregunta read(int id);
 
-	public ArrayList<Pregunta> readAll();
+	public List<Pregunta> readAll();
 
 	public int update(Pregunta pregunta);
 
