@@ -15,4 +15,15 @@
 			<property name="eclipselink.ddl-generation.output-mode" value="both"/>
 		</properties>			
 	</persistence-unit>
+	<persistence-unit name="ucmquizPostgres">
+		<class>postgresqlTest.Student</class>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/ucmquiz" />
+			<property name="javax.persistence.jdbc.user" value="postgres" />
+			<property name="javax.persistence.jdbc.password" value="admin" />
+			<property name="eclipselink.ddl-generation" value="create-tables" />
+      		<property name="eclipselink.ddl-generation.output-mode" value="database" />
+		</properties>			
+	</persistence-unit>
 </persistence>
