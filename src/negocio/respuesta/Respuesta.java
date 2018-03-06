@@ -25,6 +25,8 @@ public class Respuesta {
 		this.setCorrecto(respuesta);
 		this.setTitulo(titulo);
 	}
+	
+	
 	public int getId() {
 		return this.id;
 	}
@@ -39,7 +41,7 @@ public class Respuesta {
 	public boolean isCorrecto() {
 		return correcto;
 	}
-
+	
 	public void setCorrecto(boolean correcto) {
 		this.correcto = correcto;
 	}
