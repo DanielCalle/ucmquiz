@@ -1,11 +1,13 @@
 package negocio.usuario;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.persistence.Version;
 
 @Entity
@@ -14,20 +16,28 @@ import javax.persistence.Version;
 	@NamedQuery(name = "negocio.usuario.Usuario.readAll", query = "select obj from Usuario obj where obj.activo = 1"),
 	@NamedQuery(name = "negocio.usuario.Usuario.findBynombre", query = "select obj from Usuario obj where obj.nombre = :nombre")})
 
+@Table(name = "USUARIO")
 public class Usuario {
 	
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id 
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "USERID")
 	private Integer id;
 	
 	@Version
+	@Column(name = "USERVERSION")
 	private int version;
 	
+	@Column(name = "USEREMAIL")
 	private String email;
 
+	@Column(name = "USERNOMBRE")
 	private String nombre;
 	
+	@Column(name = "USERPASSWORD")
 	private String password;
 	
+	@Column(name = "USERACTIVO")
 	private boolean activo;
 
 	public Usuario() {}
