@@ -15,7 +15,7 @@ public class SAUsuarioImp implements SAUsuario {
 	public int create(Usuario usuario) {
 		int id = 1;
 		if (usuario != null) {
-			EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("");
+			EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquizPostgres");
 			try {
 				EntityManager entitymanager = emfactory.createEntityManager();
 				EntityTransaction entitytransaction = entitymanager.getTransaction();
@@ -52,7 +52,7 @@ public class SAUsuarioImp implements SAUsuario {
 	@Override
 	public Usuario read(int id) {
 		Usuario usuario = null;
-		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("");
+		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquizPostgres");
 		try {
 			EntityManager entitymanager = emfactory.createEntityManager();
 			EntityTransaction entitytransaction = entitymanager.getTransaction();
@@ -72,7 +72,7 @@ public class SAUsuarioImp implements SAUsuario {
 	@Override
 	public List<Usuario> readAll() {
 		List<Usuario> lista = null;
-		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("");
+		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquizPostgres");
 
 		EntityManager entitymanager = emfactory.createEntityManager();
 		EntityTransaction entitytransaction = entitymanager.getTransaction();
@@ -91,7 +91,7 @@ public class SAUsuarioImp implements SAUsuario {
 	@Override
 	public int update(Usuario usuario) {
 		int id = -1;
-		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("");
+		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquiz");
 
 		EntityManager entitymanager = emfactory.createEntityManager();
 		EntityTransaction entitytransaction = entitymanager.getTransaction();
@@ -114,7 +114,7 @@ public class SAUsuarioImp implements SAUsuario {
 	@Override
 	public int delete(int id) {
 		int id_res = -1;
-		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("");
+		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquizPostgres");
 		try {
 			EntityManager entitymanager = emfactory.createEntityManager();
 			EntityTransaction entitytransaction = entitymanager.getTransaction();
@@ -145,7 +145,7 @@ public class SAUsuarioImp implements SAUsuario {
 	@Override
 	public Usuario readByName(String name) {
 		Usuario usuario = null;
-		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("");
+		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquizPostgres");
 			EntityManager entitymanager = emfactory.createEntityManager();
 			EntityTransaction entitytransaction = entitymanager.getTransaction();
 			entitytransaction.begin();

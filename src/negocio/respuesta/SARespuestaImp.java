@@ -17,7 +17,7 @@ public class SARespuestaImp implements SARespuesta {
 	public int create(Respuesta respuesta) {
 		int id = 1;
 		if (respuesta != null) {
-			EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("");
+			EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquiz");
 			try {
 				EntityManager entitymanager = emfactory.createEntityManager();
 				EntityTransaction entitytransaction = entitymanager.getTransaction();
@@ -42,7 +42,7 @@ public class SARespuestaImp implements SARespuesta {
 	@Override
 	public Respuesta read(int id) {
 		Respuesta respuesta = null;
-		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("");
+		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquiz");
 		try {
 			EntityManager entitymanager = emfactory.createEntityManager();
 			EntityTransaction entitytransaction = entitymanager.getTransaction();
@@ -62,7 +62,7 @@ public class SARespuestaImp implements SARespuesta {
 	@Override
 	public List<Respuesta> readAll() {
 		List<Respuesta> lista = null;
-		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("");
+		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquiz");
 
 		EntityManager entitymanager = emfactory.createEntityManager();
 		EntityTransaction entitytransaction = entitymanager.getTransaction();
@@ -82,7 +82,7 @@ public class SARespuestaImp implements SARespuesta {
 	@Override
 	public int update(Respuesta respuesta) {
 		int id = -1;
-		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("");
+		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquiz");
 
 		EntityManager entitymanager = emfactory.createEntityManager();
 		EntityTransaction entitytransaction = entitymanager.getTransaction();
@@ -103,7 +103,7 @@ public class SARespuestaImp implements SARespuesta {
 	@Override
 	public int delete(int id) {
 		int id_res = -1;
-		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("");
+		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquiz");
 		try {
 			EntityManager entitymanager = emfactory.createEntityManager();
 			EntityTransaction entitytransaction = entitymanager.getTransaction();
