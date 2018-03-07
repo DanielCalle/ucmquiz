@@ -29,7 +29,7 @@ public class Pregunta {
 	
 	public Pregunta(String titulo, boolean activo) {
 		this.titulo = titulo;
-		this.setActivo(activo);
+		this.activo = activo;
 	}
 	
 	public int getId() {

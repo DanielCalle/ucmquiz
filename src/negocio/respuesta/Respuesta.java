@@ -16,6 +16,13 @@ public class Respuesta {
 	@ManyToOne
 	private Pregunta pregunta;
 	
+	public Pregunta getPregunta() {
+		return this.pregunta;
+	}
+	public void setPregunta(Pregunta p) {
+		this.pregunta = p;
+	}
+	
 	private boolean correcto;
 	private String titulo;
 	private boolean activo;

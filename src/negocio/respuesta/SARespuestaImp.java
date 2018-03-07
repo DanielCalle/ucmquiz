@@ -22,26 +22,14 @@ public class SARespuestaImp implements SARespuesta {
 				EntityManager entitymanager = emfactory.createEntityManager();
 				EntityTransaction entitytransaction = entitymanager.getTransaction();
 				entitytransaction.begin();
-				TypedQuery<Respuesta> query = entitymanager
-						.createNamedQuery("negocio.respuesta.respuesta.findBytitulo", Respuesta.class)
-						.setParameter("titulo", respuesta.getTitulo());
-				List<Respuesta> lista = query.getResultList();
-				if (lista.isEmpty()) {
-					entitymanager.persist(respuesta);
-					entitytransaction.commit();
-					id = respuesta.getId();
-				} else {
-					if (!lista.get(0).getActivo()) {
-						Respuesta respuestaResult = lista.get(0);
-						respuestaResult.setActivo(true);
-						entitytransaction.commit();
-						id = 1;
-					} else {
-						entitytransaction.rollback();
-						id = -1;
-					}
+				int pregunta_id = respuesta.getPregunta().getId();
 
-				}
+				Pregunta preguntaResult = entitymanager.find(Pregunta.class, pregunta_id);
+				respuesta.setPregunta(preguntaResult);
+				entitymanager.persist(respuesta);
+				entitytransaction.commit();
+				id = respuesta.getId();
+
 				entitymanager.close();
 				emfactory.close();
 			} catch (PersistenceException ex) {
@@ -80,7 +68,8 @@ public class SARespuestaImp implements SARespuesta {
 		EntityTransaction entitytransaction = entitymanager.getTransaction();
 		entitytransaction.begin();
 
-		TypedQuery<Respuesta> query = entitymanager.createNamedQuery("negocio.respuesta.Respuesta.readAll", Respuesta.class);
+		TypedQuery<Respuesta> query = entitymanager.createNamedQuery("negocio.respuesta.Respuesta.readAll",
+				Respuesta.class);
 		lista = query.getResultList();
 		entitytransaction.commit();
 
@@ -98,15 +87,14 @@ public class SARespuestaImp implements SARespuesta {
 		EntityManager entitymanager = emfactory.createEntityManager();
 		EntityTransaction entitytransaction = entitymanager.getTransaction();
 		entitytransaction.begin();
-		
+
 		Respuesta respuestaResult = entitymanager.find(Respuesta.class, respuesta.getId());
-		if(respuesta.getActivo()) {
+		if (respuesta.getActivo()) {
 			respuestaResult.setTitulo(respuestaResult.getTitulo());
 			respuestaResult.setActivo(respuestaResult.getActivo());
 			entitytransaction.commit();
 			id = 1;
-		}
-		else {
+		} else {
 			entitytransaction.rollback();
 		}
 		return id;
