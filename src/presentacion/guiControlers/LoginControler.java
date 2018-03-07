@@ -5,6 +5,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import negocio.usuario.Usuario;
+import presentacion.Contexto;
+import presentacion.Events;
+import presentacion.controlador.Controlador;
 
 public class LoginControler {
 
@@ -15,15 +19,19 @@ public class LoginControler {
 	private PasswordField txtPassword;
 	
 	@FXML
-	private void btnGoListener(ActionEvent e) {
+	private void btnGoListener(ActionEvent event) {
 		
-		if(txtUsuario.getText().compareTo("admin") == 0 && txtPassword.getText().compareTo("admin") == 0)
+		try {
 		
-			JOptionPane.showMessageDialog(null,"Bien venido usuario administrador.");
+			Usuario user = new Usuario(null, txtUsuario.getText(), txtPassword.getText());
 			
-		else
+			Controlador.getInstance().accion(new Contexto(Events.USER_LOGIN,user));
 			
-			JOptionPane.showMessageDialog(null,"No existe el usuario.");
+		} catch (Exception exception) {
+			
+			JOptionPane.showMessageDialog(null,"Error: " + exception.getMessage());
+			
+		}
 		
 	}	
 	
