@@ -38,7 +38,7 @@
                   </Label>
                   <TextField fx:id="txtQuestion" prefHeight="30.0" prefWidth="320.0" promptText="Escribir pregunta" GridPane.columnIndex="1">
                      <GridPane.margin>
-                        <Insets left="10.0" right="10.0" />
+                        <Insets left="10.0" right="20.0" />
                      </GridPane.margin>
                   </TextField>
                   <Label text="Respuesta correcta:" GridPane.halignment="CENTER" GridPane.rowIndex="1">
@@ -58,17 +58,17 @@
                   </Label>
                   <TextField fx:id="txtCorrectAnswer" prefHeight="30.0" prefWidth="320.0" promptText="Escribir respuesta correcta" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
-                        <Insets left="10.0" right="10.0" />
+                        <Insets left="10.0" right="20.0" />
                      </GridPane.margin>
                   </TextField>
                   <TextField fx:id="txtWrongAnswer1" prefHeight="30.0" prefWidth="320.0" promptText="Escribir respuesta incorrecta" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
-                        <Insets left="10.0" right="10.0" />
+                        <Insets left="10.0" right="20.0" />
                      </GridPane.margin>
                   </TextField>
                   <TextField fx:id="txtWrongAnswer2" prefHeight="30.0" prefWidth="320.0" promptText="Escribir respuesta incorrecta" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
-                        <Insets left="10.0" right="10.0" />
+                        <Insets left="10.0" right="20.0" />
                      </GridPane.margin>
                   </TextField>
                </children>
