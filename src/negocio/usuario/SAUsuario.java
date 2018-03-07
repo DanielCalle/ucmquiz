@@ -7,6 +7,8 @@ public interface SAUsuario {
 	public int create(Usuario usuario);
 	
 	public Usuario read(int id);
+	
+	public Usuario readByName(String name);
 
 	public List<Usuario> readAll();
 

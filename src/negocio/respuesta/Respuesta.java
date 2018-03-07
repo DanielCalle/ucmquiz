@@ -5,6 +5,11 @@ import javax.persistence.*;
 import negocio.pregunta.Pregunta;
 
 @Entity
+@NamedQueries({
+	
+	@NamedQuery(name = "negocio.respuesta.Respuesta.readAll", query = "select obj from Respuesta obj where obj.activo = 1"),
+	
+	})
 public class Respuesta {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)

@@ -142,4 +142,24 @@ public class SAUsuarioImp implements SAUsuario {
 		return id_res;
 	}
 
+	@Override
+	public Usuario readByName(String name) {
+		Usuario usuario = null;
+		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("");
+			EntityManager entitymanager = emfactory.createEntityManager();
+			EntityTransaction entitytransaction = entitymanager.getTransaction();
+			entitytransaction.begin();
+			TypedQuery<Usuario> query = entitymanager
+					.createNamedQuery("negocio.usuario.Usuario.findBynombre", Usuario.class)
+					.setParameter("nombre", name);
+			List<Usuario> lista = query.getResultList();
+			if(!lista.isEmpty()) {
+				usuario = lista.get(0);
+			}
+			entitytransaction.commit();
+			entitymanager.close();
+			emfactory.close();
+			return usuario;
+	}
+
 }
