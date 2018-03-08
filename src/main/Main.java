@@ -17,13 +17,12 @@ import javafx.stage.Stage;
 import negocio.usuario.SAUsuario;
 import negocio.usuario.SAUsuarioImp;
 import negocio.usuario.Usuario;
-import postgresqlTest.Student;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-       
+       /*
     	Parent root = FXMLLoader.load(getClass().getResource("/presentacion/GUI/login.fxml"));
     	
     	stage.setTitle("Login");
@@ -32,25 +31,11 @@ public class Main extends Application {
     	
     	stage.setScene(new Scene(root));
     	
-    	stage.show();
-    	/*
-    	EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquizPostgres");
-    	Usuario usuario = new Usuario("zhong.9745@gmail.com", "Zihao", "Hong");
-    	//Usuario usuario = new Usuario();
-		EntityManager entityManager = emfactory.createEntityManager();
-		try {
-			entityManager.getTransaction().begin();
-			usuario.setNombre("Zihao");
-			usuario = entityManager.merge(usuario);
-			entityManager.getTransaction().commit();
-		} catch (Exception e) {
-			entityManager.getTransaction().rollback();
-			System.out.print("hola");
-		}
-		*/
-    	/*SAUsuario sa = new SAUsuarioImp();
-    	Usuario usuario = new Usuario("zhong.9745@gmail.com", "Hong", "Zihao");
-    	sa.create(usuario);*/
+    	stage.show();*/
+    	SAUsuario sa = new SAUsuarioImp();
+    	Usuario usuario = new Usuario("zhong.9745@gmail.com", "Hongdd", "Zihao");
+    	//sa.create(usuario);
+    	sa.delete(3);
     }
 	
 	public static void main(String[] args) {

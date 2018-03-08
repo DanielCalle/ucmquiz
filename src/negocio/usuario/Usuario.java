@@ -21,23 +21,17 @@ public class Usuario {
 	
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "USERID")
 	private Integer id;
 	
 	@Version
-	@Column(name = "USERVERSION")
 	private int version;
 	
-	@Column(name = "USEREMAIL")
 	private String email;
 
-	@Column(name = "USERNOMBRE")
 	private String nombre;
 	
-	@Column(name = "USERPASSWORD")
 	private String password;
 	
-	@Column(name = "USERACTIVO")
 	private boolean activo;
 
 	public Usuario() {}
