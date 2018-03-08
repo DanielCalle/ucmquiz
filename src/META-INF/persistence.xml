@@ -16,6 +16,8 @@
 		</properties>			
 	</persistence-unit>
 	<persistence-unit name="ucmquizPostgres">
+		<class>negocio.pregunta.Pregunta</class>
+		<class>negocio.respuesta.Respuesta</class>
 		<class>negocio.usuario.Usuario</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />

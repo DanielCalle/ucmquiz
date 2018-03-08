@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
+import negocio.EntityManagerUtil;
 import negocio.pregunta.Pregunta;
 
 public class SARespuestaImp implements SARespuesta {
@@ -17,24 +18,18 @@ public class SARespuestaImp implements SARespuesta {
 	public int create(Respuesta respuesta) {
 		int id = 1;
 		if (respuesta != null) {
-			EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquiz");
-			try {
-				EntityManager entitymanager = emfactory.createEntityManager();
-				EntityTransaction entitytransaction = entitymanager.getTransaction();
-				entitytransaction.begin();
-				int pregunta_id = respuesta.getPregunta().getId();
+			EntityManager entitymanager = EntityManagerUtil.getEntityManager();
+			EntityTransaction entitytransaction = entitymanager.getTransaction();
+			entitytransaction.begin();
+			int pregunta_id = respuesta.getPregunta().getId();
 
-				Pregunta preguntaResult = entitymanager.find(Pregunta.class, pregunta_id);
-				respuesta.setPregunta(preguntaResult);
-				entitymanager.persist(respuesta);
-				entitytransaction.commit();
-				id = respuesta.getId();
+			Pregunta preguntaResult = entitymanager.find(Pregunta.class, pregunta_id);
+			respuesta.setPregunta(preguntaResult);
+			entitymanager.persist(respuesta);
+			entitytransaction.commit();
+			id = respuesta.getId();
 
-				entitymanager.close();
-				emfactory.close();
-			} catch (PersistenceException ex) {
-				id = -1;
-			}
+			entitymanager.close();
 		}
 		return id;
 	}
@@ -42,29 +37,23 @@ public class SARespuestaImp implements SARespuesta {
 	@Override
 	public Respuesta read(int id) {
 		Respuesta respuesta = null;
-		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquiz");
-		try {
-			EntityManager entitymanager = emfactory.createEntityManager();
-			EntityTransaction entitytransaction = entitymanager.getTransaction();
-			entitytransaction.begin();
-			respuesta = entitymanager.find(Respuesta.class, id);
-			if (respuesta == null)
-				entitytransaction.rollback();
-			else
-				entitytransaction.commit();
-			entitymanager.close();
-			emfactory.close();
-		} catch (PersistenceException ex) {
-		}
+		EntityManager entitymanager = EntityManagerUtil.getEntityManager();
+		EntityTransaction entitytransaction = entitymanager.getTransaction();
+		entitytransaction.begin();
+		respuesta = entitymanager.find(Respuesta.class, id);
+		if (respuesta == null)
+			entitytransaction.rollback();
+		else
+			entitytransaction.commit();
+		entitymanager.close();
 		return respuesta;
 	}
 
 	@Override
 	public List<Respuesta> readAll() {
 		List<Respuesta> lista = null;
-		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquiz");
-
-		EntityManager entitymanager = emfactory.createEntityManager();
+		
+		EntityManager entitymanager = EntityManagerUtil.getEntityManager();
 		EntityTransaction entitytransaction = entitymanager.getTransaction();
 		entitytransaction.begin();
 
@@ -74,7 +63,6 @@ public class SARespuestaImp implements SARespuesta {
 		entitytransaction.commit();
 
 		entitymanager.close();
-		emfactory.close();
 
 		return lista;
 	}
@@ -82,9 +70,8 @@ public class SARespuestaImp implements SARespuesta {
 	@Override
 	public int update(Respuesta respuesta) {
 		int id = -1;
-		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquiz");
-
-		EntityManager entitymanager = emfactory.createEntityManager();
+		
+		EntityManager entitymanager = EntityManagerUtil.getEntityManager();
 		EntityTransaction entitytransaction = entitymanager.getTransaction();
 		entitytransaction.begin();
 
@@ -103,31 +90,25 @@ public class SARespuestaImp implements SARespuesta {
 	@Override
 	public int delete(int id) {
 		int id_res = -1;
-		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquiz");
-		try {
-			EntityManager entitymanager = emfactory.createEntityManager();
-			EntityTransaction entitytransaction = entitymanager.getTransaction();
-			entitytransaction.begin();
-			Respuesta respuesta = entitymanager.find(Respuesta.class, id);
-			if (respuesta != null) {
-				if (respuesta.getActivo()) {
+		EntityManager entitymanager = EntityManagerUtil.getEntityManager();
+		EntityTransaction entitytransaction = entitymanager.getTransaction();
+		entitytransaction.begin();
+		Respuesta respuesta = entitymanager.find(Respuesta.class, id);
+		if (respuesta != null) {
+			if (respuesta.getActivo()) {
 
-					respuesta.setActivo(false);
+				respuesta.setActivo(false);
 
-					entitytransaction.commit();
-					id_res = 1;
-				} else {
-					entitytransaction.rollback();
-				}
-
+				entitytransaction.commit();
+				id_res = 1;
 			} else {
 				entitytransaction.rollback();
 			}
-			entitymanager.close();
-			emfactory.close();
-		} catch (PersistenceException ex) {
-			id = -100;
+
+		} else {
+			entitytransaction.rollback();
 		}
+		entitymanager.close();
 		return id_res;
 	}
 

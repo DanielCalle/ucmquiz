@@ -9,6 +9,8 @@ import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
+import negocio.EntityManagerUtil;
+
 
 
 public class SAPreguntaImp implements SAPregunta{
@@ -17,36 +19,30 @@ public class SAPreguntaImp implements SAPregunta{
 	public int create(Pregunta pregunta) {
 		int id = 1;
 		if (pregunta != null) {
-			EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquiz");
-			try {
-				EntityManager entitymanager = emfactory.createEntityManager();
-				EntityTransaction entitytransaction = entitymanager.getTransaction();
-				entitytransaction.begin();
-				TypedQuery<Pregunta> query = entitymanager
-						.createNamedQuery("negocio.pregunta.Pregunta.findBytitulo", Pregunta.class)
-						.setParameter("titulo", pregunta.getTitulo());
-				List<Pregunta> lista = query.getResultList();
-				if (lista.isEmpty()) {
-					entitymanager.persist(pregunta);
+			EntityManager entitymanager = EntityManagerUtil.getEntityManager();
+			EntityTransaction entitytransaction = entitymanager.getTransaction();
+			entitytransaction.begin();
+			TypedQuery<Pregunta> query = entitymanager
+					.createNamedQuery("negocio.pregunta.Pregunta.findBytitulo", Pregunta.class)
+					.setParameter("titulo", pregunta.getTitulo());
+			List<Pregunta> lista = query.getResultList();
+			if (lista.isEmpty()) {
+				entitymanager.persist(pregunta);
+				entitytransaction.commit();
+				id = pregunta.getId();
+			} else {
+				if (!lista.get(0).getActivo()) {
+					Pregunta preguntaResult = lista.get(0);
+					preguntaResult.setActivo(true);
 					entitytransaction.commit();
-					id = pregunta.getId();
+					id = 1;
 				} else {
-					if (!lista.get(0).getActivo()) {
-						Pregunta preguntaResult = lista.get(0);
-						preguntaResult.setActivo(true);
-						entitytransaction.commit();
-						id = 1;
-					} else {
-						entitytransaction.rollback();
-						id = -1;
-					}
-
+					entitytransaction.rollback();
+					id = -1;
 				}
-				entitymanager.close();
-				emfactory.close();
-			} catch (PersistenceException ex) {
-				id = -1;
+
 			}
+			entitymanager.close();
 		}
 		return id;
 	}
@@ -54,29 +50,23 @@ public class SAPreguntaImp implements SAPregunta{
 	@Override
 	public Pregunta read(int id) {
 		Pregunta pregunta = null;
-		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquiz");
-		try {
-			EntityManager entitymanager = emfactory.createEntityManager();
-			EntityTransaction entitytransaction = entitymanager.getTransaction();
-			entitytransaction.begin();
-			pregunta = entitymanager.find(Pregunta.class, id);
-			if (pregunta == null)
-				entitytransaction.rollback();
-			else
-				entitytransaction.commit();
-			entitymanager.close();
-			emfactory.close();
-		} catch (PersistenceException ex) {
-		}
+		EntityManager entitymanager = EntityManagerUtil.getEntityManager();
+		EntityTransaction entitytransaction = entitymanager.getTransaction();
+		entitytransaction.begin();
+		pregunta = entitymanager.find(Pregunta.class, id);
+		if (pregunta == null)
+			entitytransaction.rollback();
+		else
+			entitytransaction.commit();
+		entitymanager.close();
 		return pregunta;
 	}
 
 	@Override
 	public List<Pregunta> readAll() {
 		List<Pregunta> lista = null;
-		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquiz");
-
-		EntityManager entitymanager = emfactory.createEntityManager();
+		
+		EntityManager entitymanager = EntityManagerUtil.getEntityManager();
 		EntityTransaction entitytransaction = entitymanager.getTransaction();
 		entitytransaction.begin();
 
@@ -85,7 +75,6 @@ public class SAPreguntaImp implements SAPregunta{
 		entitytransaction.commit();
 
 		entitymanager.close();
-		emfactory.close();
 
 		return lista;
 	}
@@ -93,9 +82,8 @@ public class SAPreguntaImp implements SAPregunta{
 	@Override
 	public int update(Pregunta pregunta) {
 		int id = -1;
-		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquiz");
 
-		EntityManager entitymanager = emfactory.createEntityManager();
+		EntityManager entitymanager = EntityManagerUtil.getEntityManager();
 		EntityTransaction entitytransaction = entitymanager.getTransaction();
 		entitytransaction.begin();
 		
@@ -115,31 +103,25 @@ public class SAPreguntaImp implements SAPregunta{
 	@Override
 	public int delete(int id) {
 		int id_res = -1;
-		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ucmquiz");
-		try {
-			EntityManager entitymanager = emfactory.createEntityManager();
-			EntityTransaction entitytransaction = entitymanager.getTransaction();
-			entitytransaction.begin();
-			Pregunta pregunta = entitymanager.find(Pregunta.class, id);
-			if (pregunta != null) {
-				if (pregunta.getActivo()) {
+		EntityManager entitymanager = EntityManagerUtil.getEntityManager();
+		EntityTransaction entitytransaction = entitymanager.getTransaction();
+		entitytransaction.begin();
+		Pregunta pregunta = entitymanager.find(Pregunta.class, id);
+		if (pregunta != null) {
+			if (pregunta.getActivo()) {
 
-					pregunta.setActivo(false);
+				pregunta.setActivo(false);
 
-					entitytransaction.commit();
-					id_res = 1;
-				} else {
-					entitytransaction.rollback();
-				}
-
+				entitytransaction.commit();
+				id_res = 1;
 			} else {
 				entitytransaction.rollback();
 			}
-			entitymanager.close();
-			emfactory.close();
-		} catch (PersistenceException ex) {
-			id = -100;
+
+		} else {
+			entitytransaction.rollback();
 		}
+		entitymanager.close();
 		return id_res;
 	}
 }
