@@ -3,7 +3,6 @@ package presentacion.controlador;
 
 import presentacion.Command;
 import presentacion.Contexto;
-import presentacion.Events;
 import presentacion.command.FactoriaCommand;
 import presentacion.dispatcher.Dispatcher;
 
@@ -17,13 +16,13 @@ public class ControladorImp extends Controlador {
 		
 			// Real
 			
-			// Contexto contextoResult = command.execute(contexto.getDato());
+			Contexto contextoResult = command.execute(contexto.getDato());
 			
-			// Dispatcher.getInstance().updateView(contextoResult);
+			Dispatcher.getInstance().updateView(contextoResult);
 			
 			// Pruebas
 			
-			Dispatcher.getInstance().updateView(new Contexto(Events.USER_LOGIN_OK, contexto.getDato()));
+			// Dispatcher.getInstance().updateView(new Contexto(Events.USER_LOGIN_OK, contexto.getDato()));
 		
 		} else {
 			
