@@ -1,43 +1,19 @@
 package main;
 
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-import javax.persistence.PersistenceException;
-import javax.persistence.TypedQuery;
-
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-import negocio.pregunta.Pregunta;
-import negocio.pregunta.SAPregunta;
-import negocio.pregunta.SAPreguntaImp;
-import negocio.respuesta.Respuesta;
-import negocio.respuesta.SARespuesta;
-import negocio.respuesta.SARespuestaImp;
-import negocio.usuario.SAUsuario;
-import negocio.usuario.SAUsuarioImp;
-import negocio.usuario.Usuario;
+import presentacion.Contexto;
+import presentacion.Events;
+import presentacion.controlador.Controlador;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-       /*
-    	Parent root = FXMLLoader.load(getClass().getResource("/presentacion/GUI/login.fxml"));
+       
+    	Controlador.getInstance().accion(new Contexto(Events.SHOW_LOGIN,null));
     	
-    	stage.setTitle("Login");
-    	
-    	stage.setResizable(false);
-    	
-    	stage.setScene(new Scene(root));
-    	
-    	stage.show();*/
+    	/*
     	SAPregunta saPregunta = new SAPreguntaImp();
     	SARespuesta saRespuesta = new SARespuestaImp();
     	SAUsuario saUsuario = new SAUsuarioImp();
@@ -60,6 +36,7 @@ public class Main extends Application {
     	for (Pregunta u : saPregunta.readAll()) {
     		System.out.println(u.getId() + " " + u.getTitulo() + " " + u.getActivo());
     	}
+    	*/
     	/*
     	Respuesta respuesta = new Respuesta(true, "dos");
     	saRespuesta.create(respuesta);
@@ -80,6 +57,7 @@ public class Main extends Application {
     		System.out.println(u.getId() + " " + u.getTitulo() + " " + u.getActivo() + " " + u.getPregunta());
     	}
     	*/
+    	/*
     	Usuario usuario = new Usuario("zhong.9745@gmail.com", "Zihao", "Zihao");
     	saUsuario.create(usuario);
     	System.out.println("After create");
@@ -98,6 +76,7 @@ public class Main extends Application {
     	for (Usuario u : saUsuario.readAll()) {
     		System.out.println(u.getId() + " " + u.getEmail() + " " + u.getNombre() + " " + u.getPassword() + " " + u.isActivo());
     	}
+    	*/
     }
 	
 	public static void main(String[] args) {

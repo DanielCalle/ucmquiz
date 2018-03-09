@@ -3,6 +3,7 @@ package presentacion.controlador;
 
 import presentacion.Command;
 import presentacion.Contexto;
+import presentacion.Events;
 import presentacion.command.FactoriaCommand;
 import presentacion.dispatcher.Dispatcher;
 
@@ -12,17 +13,21 @@ public class ControladorImp extends Controlador {
 		
 		Command command = FactoriaCommand.getInstance().generateCommand(contexto.getEvent());
 		
-		Contexto contextoResult = null;
-		
 		if(command != null) {
-			
-			contextoResult = command.execute(contexto.getDato());
 		
-			Dispatcher.getInstance().generateVista(contextoResult);
+			// Real
+			
+			// Contexto contextoResult = command.execute(contexto.getDato());
+			
+			// Dispatcher.getInstance().updateView(contextoResult);
+			
+			// Pruebas
+			
+			Dispatcher.getInstance().updateView(new Contexto(Events.USER_LOGIN_OK, contexto.getDato()));
 		
 		} else {
 			
-			Dispatcher.getInstance().generateVista(contexto);
+			Dispatcher.getInstance().generateView(contexto);
 	
 		}
 			

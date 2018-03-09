@@ -6,8 +6,10 @@ import javax.swing.JOptionPane;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import presentacion.Contexto;
+import presentacion.GUI;
 
-public class CreateQuestion {
+public class CreateQuestionControlerImp extends CreateQuestionControler implements GUI {
 	
 	@FXML
 	private TextField txtQuestion;
@@ -29,6 +31,12 @@ public class CreateQuestion {
 	@FXML
 	private void btnCancel (ActionEvent e) {
 		JOptionPane.showMessageDialog(null,"Cancelar");
+	}
+
+	@Override
+	public void update(Contexto contexto) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

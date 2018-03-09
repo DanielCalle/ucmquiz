@@ -13,5 +13,8 @@ public abstract class Dispatcher {
 		return instance;
 	}
 
-	public abstract void generateVista(Contexto contexto);
+	public abstract void updateView(Contexto contexto);
+	
+	public abstract void generateView(Contexto contexto);
+	
 }

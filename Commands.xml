@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <commands>
 	
-	<command id="0">presentacion.command.CommandUserLogin</command>
+	<command id="1">presentacion.command.CommandUserLogin</command>
 	
 </commands>

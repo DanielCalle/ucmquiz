@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: linear-gradient(from 25px 25px to 100px 100px, #dc143c,#32cd32);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.guiControlers.MainMenu">
+<AnchorPane fx:id="root" prefHeight="536.0" prefWidth="640.0" style="-fx-background-color: linear-gradient(from 25px 25px to 100px 100px, #dc143c,#32cd32);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane layoutX="220.0" layoutY="57.0" prefHeight="480.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <bottom>
@@ -21,13 +21,13 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="btnCreateQuestion" mnemonicParsing="false" prefHeight="25.0" prefWidth="177.0" text="Crear Pregunta" GridPane.halignment="CENTER" />
-                  <Button fx:id="btnAnswerQuestion" mnemonicParsing="false" prefHeight="25.0" prefWidth="177.0" text="Responder Pregunta" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                  <Button fx:id="btnCreateQuestion" mnemonicParsing="false" onAction="#btnCreateQuestionListener" prefHeight="25.0" prefWidth="177.0" text="Crear Pregunta" GridPane.halignment="CENTER" />
+                  <Button fx:id="btnAnswerQuestion" mnemonicParsing="false" onAction="#btnAnswerQuestionListener" prefHeight="25.0" prefWidth="177.0" text="Responder Pregunta" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                </children>
             </GridPane>
          </bottom>
          <center>
-            <ImageView fitHeight="342.0" fitWidth="513.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+            <ImageView fitHeight="482.0" fitWidth="627.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@../../../resources/Logo.png" />
                </image>
