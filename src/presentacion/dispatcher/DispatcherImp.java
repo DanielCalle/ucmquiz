@@ -83,8 +83,6 @@ public class DispatcherImp extends Dispatcher {
 	        
 			Node element = (Node) xpath.evaluate(regularExpression,inputSource,XPathConstants.NODE);
 			
-			System.out.println("Evento: " + contexto.getEvent());
-			
 			String controlerClassPath = element.getChildNodes().item(5).getTextContent();
 			
 			Class<?> controlerClass = Class.forName(controlerClassPath);
