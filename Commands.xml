@@ -2,5 +2,6 @@
 <commands>
 	
 	<command id="1">presentacion.command.CommandUserLogin</command>
-	
+	<command id="4">presentacion.command.CommandCreateQuestion</command>
+
 </commands>
