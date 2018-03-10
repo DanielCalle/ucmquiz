@@ -32,8 +32,6 @@ public class LoginControlerImp extends LoginControler implements GUI {
 			
 			Controlador.getInstance().accion(new Contexto(Events.USER_LOGIN,user));
 			
-			// Controlador.getInstance().accion(new Contexto(Events.SHOW_MAIN_MENU,null));
-			
 		} catch (Exception exception) {
 			
 			JOptionPane.showMessageDialog(null,"Error: " + exception.getMessage());

@@ -5,12 +5,10 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
@@ -21,9 +19,6 @@ import presentacion.GUI;
 import presentacion.controlador.Controlador;
 
 public class AnswerQuestionControlerImp extends AnswerQuestionControler implements Initializable, GUI {
-	
-	@FXML
-	private Button btnExit;
 	
 	@FXML
 	private Label lblQuestion;
@@ -38,18 +33,23 @@ public class AnswerQuestionControlerImp extends AnswerQuestionControler implemen
 	private RadioButton txtOption3;
 	
 	@FXML
-	private void btnConfirm (ActionEvent e) {
+	private Button btnReturnMainMenu;
+	
+	@FXML
+	private void btnConfirmListener(ActionEvent e) {
 		
 		JOptionPane.showMessageDialog(null,"Evento de confirmar");
 	
 	}
 	
 	@FXML
-	private void btnExit (ActionEvent e) {
+	private void btnReturnMainMenuListener(ActionEvent e) {
 		
-		Stage stage = (Stage) btnExit.getScene().getWindow();
+		Stage stage = (Stage) btnReturnMainMenu.getScene().getWindow();
 		
 		stage.close();
+		
+		Controlador.getInstance().accion(new Contexto(Events.SHOW_MAIN_MENU, null));
 		
 	}
 
@@ -71,7 +71,7 @@ public class AnswerQuestionControlerImp extends AnswerQuestionControler implemen
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		// Controlador.getInstance().accion(new Contexto(Events.LOAD_QUESTION, null));
+		Controlador.getInstance().accion(new Contexto(Events.LOAD_QUESTION, null));
 		
 	}
 

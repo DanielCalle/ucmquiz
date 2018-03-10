@@ -19,6 +19,9 @@ public class Events {
 	public static final int CREATE_QUESTION = 41;
 	public static final int CREATE_QUESTION_OK = 42;
 	public static final int CREATE_QUESTION_KO = 43;
+	public static final int CREATE_ANSWER = 44;
+	public static final int CREATE_ANSWER_OK = 45;
+	public static final int CREATE_ANSWER_KO = 46;
 	
 	// AnserQuestion events [60 - 79]
 	

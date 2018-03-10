@@ -21,7 +21,7 @@ public class CommandUserLogin implements Command {
 		
 		else
 			
-			context = new Contexto(Events.USER_LOGIN_KO, user);
+			context = new Contexto(Events.USER_LOGIN_KO, null);
 		
 		return context;
 	
