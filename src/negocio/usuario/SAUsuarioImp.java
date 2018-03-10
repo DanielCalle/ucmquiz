@@ -10,6 +10,7 @@ import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
 import negocio.EntityManagerUtil;
+import negocio.pregunta.Pregunta;
 
 public class SAUsuarioImp implements SAUsuario {
 
@@ -20,8 +21,26 @@ public class SAUsuarioImp implements SAUsuario {
 			EntityManager entitymanager = EntityManagerUtil.getEntityManager();
 			EntityTransaction entitytransaction = entitymanager.getTransaction();
 			entitytransaction.begin();
-			entitymanager.persist(usuario);
-			entitytransaction.commit();
+			TypedQuery<Usuario> query = entitymanager
+					.createNamedQuery("negocio.usuario.Usuario.findBynombre", Usuario.class)
+					.setParameter("nombre", usuario.getNombre());
+			List<Usuario> lista = query.getResultList();
+			if (lista.isEmpty()) {
+				entitymanager.persist(usuario);
+				entitytransaction.commit();
+				id = usuario.getId();
+			} else {
+				if (!lista.get(0).isActivo()) {
+					Usuario usuarioResult = lista.get(0);
+					usuarioResult.setActivo(true);
+					entitytransaction.commit();
+					id = 1;
+				} else {
+					entitytransaction.rollback();
+					id = -1;
+				}
+
+			}
 			entitymanager.close();
 		}
 		return id;
