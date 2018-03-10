@@ -9,7 +9,7 @@ import negocio.respuesta.Respuesta;
 @Entity
 
 @NamedQueries({
-	@NamedQuery(name = "negocio.pregunta.Pregunta.readAll", query = "select obj from Pregunta obj where obj.activo = 1"),
+	@NamedQuery(name = "negocio.pregunta.Pregunta.readAll", query = "select obj from Pregunta obj where obj.activo = true"),
 	@NamedQuery(name = "negocio.pregunta.Pregunta.findBytitulo", query = "select obj from Pregunta obj where obj.titulo = :titulo")})
 
 public class Pregunta {

@@ -1,6 +1,5 @@
 package negocio.usuario;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +12,7 @@ import javax.persistence.Version;
 @Entity
 
 @NamedQueries({
-	@NamedQuery(name = "negocio.usuario.Usuario.readAll", query = "select obj from Usuario obj where obj.activo = 1"),
+	@NamedQuery(name = "negocio.usuario.Usuario.readAll", query = "select obj from Usuario obj where obj.activo = true"),
 	@NamedQuery(name = "negocio.usuario.Usuario.findBynombre", query = "select obj from Usuario obj where obj.nombre = :nombre")})
 
 @Table(name = "USUARIO")
