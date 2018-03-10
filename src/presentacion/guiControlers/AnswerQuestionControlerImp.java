@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
 import negocio.pregunta.Pregunta;
 import presentacion.Contexto;
@@ -28,13 +29,13 @@ public class AnswerQuestionControlerImp extends AnswerQuestionControler implemen
 	private Label lblQuestion;
 	
 	@FXML
-	private CheckBox txtOption1;
+	private RadioButton txtOption1;
 	
 	@FXML
-	private CheckBox txtOption2;
+	private RadioButton txtOption2;
 	
 	@FXML
-	private CheckBox txtOption3;
+	private RadioButton txtOption3;
 	
 	@FXML
 	private void btnConfirm (ActionEvent e) {
