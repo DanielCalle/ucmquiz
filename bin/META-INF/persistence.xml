@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-	<persistence-unit name="ucmquiz">
-		<class>negocio.usuario.Usuario</class>
-		<class>negocio.pregunta.Pregunta</class>
-		<properties>
-			<property name="eclipselink.cache.shared.default" value="false"/>
-			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/ucmquiz" />
-			<property name="javax.persistence.jdbc.user" value="quiz" />
-			<property name="javax.persistence.jdbc.password" value="1234" />
-			<property name="eclipselink.ddl-generation" value="create-tables"/>
-			<property name="eclipselink.create-ddl-jdbc-file-name" value="createDDL_ddlGeneration.jdbc"/>
-			<property name="eclipselink.drop-ddl-jdbc-file-name" value="dropDDL_ddlGeneration.jdbc"/>
-			<property name="eclipselink.ddl-generation.output-mode" value="both"/>
-		</properties>			
-	</persistence-unit>
 	<persistence-unit name="ucmquizPostgres">
 		<class>negocio.pregunta.Pregunta</class>
 		<class>negocio.respuesta.Respuesta</class>
@@ -26,6 +11,22 @@
 			<property name="javax.persistence.jdbc.password" value="admin" />
 			<property name="eclipselink.ddl-generation" value="create-tables" />
       		<property name="eclipselink.ddl-generation.output-mode" value="database" />
+		</properties>			
+	</persistence-unit>
+	<persistence-unit name="ucmquizMySql">
+		<class>negocio.pregunta.Pregunta</class>
+		<class>negocio.respuesta.Respuesta</class>
+		<class>negocio.usuario.Usuario</class>
+		<properties>
+			<property name="eclipselink.cache.shared.default" value="false"/>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/ucmquiz" />
+			<property name="javax.persistence.jdbc.user" value="quiz" />
+			<property name="javax.persistence.jdbc.password" value="1234" />
+			<property name="eclipselink.ddl-generation" value="create-tables"/>
+			<property name="eclipselink.create-ddl-jdbc-file-name" value="createDDL_ddlGeneration.jdbc"/>
+			<property name="eclipselink.drop-ddl-jdbc-file-name" value="dropDDL_ddlGeneration.jdbc"/>
+			<property name="eclipselink.ddl-generation.output-mode" value="both"/>
 		</properties>			
 	</persistence-unit>
 </persistence>
