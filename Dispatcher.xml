@@ -48,5 +48,11 @@
     	<file>/presentacion/GUI/answerQuestion.fxml</file>
     	<controler>presentacion.guiControlers.AnswerQuestionControler</controler>
     </gui>
-    
+    <gui id="5">
+    	<file>/presentacion/GUI/mainMenu.fxml</file>
+    	<controler>presentacion.guiControlers.MainMenuControler</controler></gui>
+    <gui id="6">
+    	<file>/presentacion/GUI/mainMenu.fxml</file>
+    	<controler>presentacion.guiControlers.MainMenuControler</controler></gui>
+
 </guis>

@@ -37,6 +37,11 @@ public class Respuesta {
 		this.setCorrecto(respuesta);
 		this.setTitulo(titulo);
 	}
+	public Respuesta(boolean respuesta, String titulo, Pregunta p) {
+		this.setCorrecto(respuesta);
+		this.setTitulo(titulo);
+		this.pregunta = p;
+	}
 	
 	
 	public int getId() {

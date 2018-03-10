@@ -52,5 +52,8 @@ public class Pregunta {
 		this.activo = activo;
 	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	
 }

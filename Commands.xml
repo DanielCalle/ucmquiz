@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <commands>
 	
+<<<<<<< HEAD
 	<command id="1">presentacion.commands.CommandUserLogin</command>
 	<command id="41">presentacion.commands.CommandCreateQuestion</command>
 	<command id="61">presentacion.commands.CommandLoadQuestion</command>
 	
+=======
+	<command id="1">presentacion.command.CommandUserLogin</command>
+	<command id="4">presentacion.command.CommandCreateQuestion</command>
+
+>>>>>>> branch 'master' of https://GCCodeWarrior@github.com/DanielCalle/ucmquiz.git
 </commands>

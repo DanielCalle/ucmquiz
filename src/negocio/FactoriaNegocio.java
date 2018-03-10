@@ -1,6 +1,7 @@
 package negocio;
 
 import negocio.pregunta.SAPregunta;
+import negocio.respuesta.SARespuesta;
 import negocio.usuario.SAUsuario;
 
 public abstract class FactoriaNegocio {
@@ -15,5 +16,8 @@ public abstract class FactoriaNegocio {
 	public abstract SAUsuario generateSAUsuario();
 	
 	public abstract SAPregunta generateSAPregunta();
+	
+	public abstract SARespuesta generat
+	eSAREspuesta();
 
 }
