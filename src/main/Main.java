@@ -2,7 +2,6 @@ package main;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import negocio.pregunta.SAPregunta;
 import negocio.usuario.SAUsuario;
 import negocio.usuario.SAUsuarioImp;
 import negocio.usuario.Usuario;

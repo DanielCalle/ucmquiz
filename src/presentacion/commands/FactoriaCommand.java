@@ -1,5 +1,5 @@
 
-package presentacion.command;
+package presentacion.commands;
 
 import presentacion.Command;
 

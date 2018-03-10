@@ -31,6 +31,18 @@
     	<controler>presentacion.guiControlers.CreateQuestionControler</controler>
     </gui>
     
+    <gui id="42">
+    	<title>Crear Pregunta</title>
+    	<file>/presentacion/GUI/createQuestion.fxml</file>
+    	<controler>presentacion.guiControlers.CreateQuestionControler</controler>
+    </gui>
+    
+    <gui id="43">
+    	<title>Crear Pregunta</title>
+    	<file>/presentacion/GUI/createQuestion.fxml</file>
+    	<controler>presentacion.guiControlers.CreateQuestionControler</controler>
+    </gui>
+    
     <gui id="60">
     	<title>Responder Pregunta</title>
     	<file>/presentacion/GUI/answerQuestion.fxml</file>

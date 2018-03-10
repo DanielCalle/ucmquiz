@@ -1,4 +1,4 @@
-package presentacion.command;
+package presentacion.commands;
 
 import negocio.FactoriaNegocio;
 import negocio.usuario.Usuario;

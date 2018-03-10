@@ -18,7 +18,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import presentacion.Contexto;
 import presentacion.GUI;
-import presentacion.guiControlers.LoginControler;
 
 public class DispatcherImp extends Dispatcher {
 
@@ -83,6 +82,8 @@ public class DispatcherImp extends Dispatcher {
 			String regularExpression = "//*[@id='"+ contexto.getEvent() +"'][1]";
 	        
 			Node element = (Node) xpath.evaluate(regularExpression,inputSource,XPathConstants.NODE);
+			
+			System.out.println("Evento: " + contexto.getEvent());
 			
 			String controlerClassPath = element.getChildNodes().item(5).getTextContent();
 			

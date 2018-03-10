@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <commands>
 	
-	<command id="1">presentacion.command.CommandUserLogin</command>
+	<command id="1">presentacion.commands.CommandUserLogin</command>
+	<command id="41">presentacion.commands.CommandCreateQuestion</command>
+	<command id="61">presentacion.commands.CommandLoadQuestion</command>
 	
 </commands>

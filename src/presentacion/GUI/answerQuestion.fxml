@@ -23,7 +23,7 @@
          <center>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <top>
-                  <Label fx:id="txtQuestion" text="Pregunta:" BorderPane.alignment="CENTER">
+                  <Label fx:id="lblQuestion" text="Pregunta:" BorderPane.alignment="CENTER">
                      <padding>
                         <Insets top="15.0" />
                      </padding>
@@ -73,15 +73,21 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#btnConfirm" prefHeight="40.0" prefWidth="107.0" text="Confirmar" GridPane.halignment="CENTER">
+                  <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#btnConfirm" prefHeight="40.0" prefWidth="108.0" text="Confirmar" GridPane.halignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="20.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#btnExit" prefHeight="40.0" prefWidth="75.0" text="Salir" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                  <Button fx:id="btnExit" mnemonicParsing="false" onAction="#btnExit" prefHeight="40.0" prefWidth="108.0" text="Salir" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="20.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                   </Button>
                </children>
             </GridPane>

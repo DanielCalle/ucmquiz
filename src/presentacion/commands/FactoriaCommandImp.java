@@ -1,5 +1,5 @@
 
-package presentacion.command;
+package presentacion.commands;
 
 import java.lang.reflect.Constructor;
 
@@ -32,7 +32,7 @@ public class FactoriaCommandImp extends FactoriaCommand {
 			
 			if(element != null) {
 				
-				String className = element.getTextContent().trim();
+				String className = element.getTextContent();
 				
 				Class<?> commandClass = Class.forName(className);
 				
