@@ -17,7 +17,6 @@ public abstract class FactoriaNegocio {
 	
 	public abstract SAPregunta generateSAPregunta();
 	
-	public abstract SARespuesta generat
-	eSAREspuesta();
+	public abstract SARespuesta generateSAREspuesta();
 
 }

@@ -9,10 +9,6 @@ public class Events {
 	public static final int USER_LOGIN_OK = 2; // Login correcto.
 	public static final int USER_LOGIN_KO = 3; // Login incorrecto.
 	
-	public static final int CREATE_QUESTION = 4;
-	public static final int CREATE_QUESTION_OK = 5;
-	public static final int CREATE_QUESTION_KO = 6;
-	
 	// MainMenu events [20 - 39]
 	
 	public static final int SHOW_MAIN_MENU = 20;
