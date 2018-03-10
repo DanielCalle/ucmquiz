@@ -20,26 +20,8 @@ public class SAUsuarioImp implements SAUsuario {
 			EntityManager entitymanager = EntityManagerUtil.getEntityManager();
 			EntityTransaction entitytransaction = entitymanager.getTransaction();
 			entitytransaction.begin();
-			TypedQuery<Usuario> query = entitymanager
-					.createNamedQuery("negocio.usuario.Usuario.findBynombre", Usuario.class)
-					.setParameter("nombre", usuario.getNombre());
-			List<Usuario> lista = query.getResultList();
-			if (lista.isEmpty()) {
-				entitymanager.persist(usuario);
-				entitytransaction.commit();
-				id = usuario.getId();
-			} else {
-				if (!lista.get(0).isActivo()) {
-					Usuario usuarioResult = lista.get(0);
-					usuarioResult.setActivo(true);
-					entitytransaction.commit();
-					id = 1;
-				} else {
-					entitytransaction.rollback();
-					id = -1;
-				}
-
-			}
+			entitymanager.persist(usuario);
+			entitytransaction.commit();
 			entitymanager.close();
 		}
 		return id;

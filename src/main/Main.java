@@ -2,6 +2,10 @@ package main;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import negocio.pregunta.SAPregunta;
+import negocio.usuario.SAUsuario;
+import negocio.usuario.SAUsuarioImp;
+import negocio.usuario.Usuario;
 import presentacion.Contexto;
 import presentacion.Events;
 import presentacion.controlador.Controlador;
@@ -13,11 +17,11 @@ public class Main extends Application {
        
     	Controlador.getInstance().accion(new Contexto(Events.SHOW_LOGIN,null));
     	
-    	/*
-    	SAPregunta saPregunta = new SAPreguntaImp();
-    	SARespuesta saRespuesta = new SARespuestaImp();
-    	SAUsuario saUsuario = new SAUsuarioImp();
     	
+    	//SAPregunta saPregunta = new SAPreguntaImp();
+    	//SARespuesta saRespuesta = new SARespuestaImp();
+    	SAUsuario saUsuario = new SAUsuarioImp();
+    	/*
     	Pregunta pregunta = new Pregunta("uno mas uno", true);
     	saPregunta.create(pregunta);
     	System.out.println("After create");
@@ -57,9 +61,12 @@ public class Main extends Application {
     		System.out.println(u.getId() + " " + u.getTitulo() + " " + u.getActivo() + " " + u.getPregunta());
     	}
     	*/
-    	/*
-    	Usuario usuario = new Usuario("zhong.9745@gmail.com", "Zihao", "Zihao");
+    	
+    	Usuario usuario = new Usuario("admin@ucm.es", "admin", "admin");
     	saUsuario.create(usuario);
+    	Usuario u = saUsuario.readByName("admin");
+    	System.out.println(u.getId() + " " + u.getEmail() + " " + u.getNombre() + " " + u.getPassword() + " " + u.isActivo());
+    	/*
     	System.out.println("After create");
     	for (Usuario u : saUsuario.readAll()) {
     		System.out.println(u.getId() + " " + u.getEmail() + " " + u.getNombre() + " " + u.getPassword() + " " + u.isActivo());
