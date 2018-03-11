@@ -32,5 +32,8 @@ public class Events {
 	public static final int ANSWER_QUESTION = 64;
 	public static final int ANSWER_QUESTION_OK = 65;
 	public static final int ANSWER_QUESTION_KO = 66;
-
+	public static final int LOAD_ANSWER = 67;
+	public static final int LOAD_ANSWER_OK = 68;
+	public static final int LOAD_ANSWER_KO = 69;
+	
 }

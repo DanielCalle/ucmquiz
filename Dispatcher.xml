@@ -67,10 +67,10 @@
     	<controler>presentacion.guiControlers.AnswerQuestionControler</controler>
     </gui>
     
-    <gui id="62">
+    <gui id="68">
     	<title>Responder Pregunta</title>
     	<file>/presentacion/GUI/answerQuestion.fxml</file>
     	<controler>presentacion.guiControlers.AnswerQuestionControler</controler>
     </gui>
-    
+       
 </guis>

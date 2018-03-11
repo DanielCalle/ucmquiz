@@ -55,13 +55,13 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <RadioButton fx:id="txtOption1" mnemonicParsing="false" text="Opcion 1" translateX="275.0">
+                        <RadioButton fx:id="rdbOption1" mnemonicParsing="false" selected="true" text="Opcion 1" translateX="275.0">
                            <toggleGroup>
                               <ToggleGroup fx:id="Answer" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="txtOption3" mnemonicParsing="false" text="Opcion 3" toggleGroup="$Answer" translateX="275.0" GridPane.rowIndex="2" />
-                        <RadioButton fx:id="txtOption3" mnemonicParsing="false" text="Opcion 3" toggleGroup="$Answer" translateX="275.0" GridPane.rowIndex="1" />
+                        <RadioButton fx:id="rdbOption3" mnemonicParsing="false" text="Opcion 3" toggleGroup="$Answer" translateX="275.0" GridPane.rowIndex="2" />
+                        <RadioButton fx:id="rdbOption2" mnemonicParsing="false" text="Opcion 2" toggleGroup="$Answer" translateX="275.0" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </center>

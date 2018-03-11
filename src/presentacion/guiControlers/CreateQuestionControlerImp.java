@@ -43,6 +43,12 @@ public class CreateQuestionControlerImp extends CreateQuestionControler implemen
 		
 		Respuesta respuestaIncorrecta2 = new Respuesta(false, txtWrongAnswer2.getText(), pregunta);
 		
+		respuestaCorrecta.setActivo(true);
+		
+		respuestaIncorrecta1.setActivo(true);
+		
+		respuestaIncorrecta2.setActivo(true);
+		
 		Controlador.getInstance().accion(new Contexto(Events.CREATE_QUESTION, pregunta));
 		
 		Controlador.getInstance().accion(new Contexto(Events.CREATE_ANSWER, respuestaCorrecta));

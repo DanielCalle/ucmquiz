@@ -13,11 +13,9 @@ public class CommandUserLogin implements Command {
 		
 		Contexto context = null;
 		
-		
 		Usuario user = FactoriaNegocio.getInstance().generateSAUsuario().readByName(((Usuario)data).getNombre());
 		
-		
-		if(user != null && ((Usuario)data).getPassword().equalsIgnoreCase(user.getPassword()))
+		if(user != null && ((Usuario)data).getPassword().compareTo(user.getPassword()) == 0)
 			
 			context = new Contexto(Events.USER_LOGIN_OK, user);
 		
