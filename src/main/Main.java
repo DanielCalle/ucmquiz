@@ -2,6 +2,12 @@ package main;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import negocio.pregunta.Pregunta;
+import negocio.pregunta.SAPregunta;
+import negocio.pregunta.SAPreguntaImp;
+import negocio.respuesta.Respuesta;
+import negocio.respuesta.SARespuesta;
+import negocio.respuesta.SARespuestaImp;
 import negocio.usuario.SAUsuario;
 import negocio.usuario.SAUsuarioImp;
 import negocio.usuario.Usuario;
@@ -17,16 +23,16 @@ public class Main extends Application {
     	Controlador.getInstance().accion(new Contexto(Events.SHOW_LOGIN,null));
     	
     	
-    	//SAPregunta saPregunta = new SAPreguntaImp();
-    	//SARespuesta saRespuesta = new SARespuestaImp();
+    	SAPregunta saPregunta = new SAPreguntaImp();
+    	SARespuesta saRespuesta = new SARespuestaImp();
     	SAUsuario saUsuario = new SAUsuarioImp();
     	/*
     	Pregunta pregunta = new Pregunta("uno mas uno", true);
     	saPregunta.create(pregunta);
-    	System.out.println("After create");
+    	System.out.println("After create");*/
     	for (Pregunta u : saPregunta.readAll()) {
     		System.out.println(u.getId() + " " + u.getTitulo() + " " + u.getActivo());
-    	}
+    	}/*
     	pregunta = saPregunta.read(1);
     	pregunta.setTitulo("uno por uno");
     	saPregunta.update(pregunta);
@@ -55,21 +61,21 @@ public class Main extends Application {
     		System.out.println(u.getId() + " " + u.getTitulo() + " " + u.getActivo() + " " + u.getPregunta());
     	}
     	saRespuesta.delete(1);
-    	System.out.println("After delete");
+    	System.out.println("After delete");*/
     	for (Respuesta u : saRespuesta.readAll()) {
     		System.out.println(u.getId() + " " + u.getTitulo() + " " + u.getActivo() + " " + u.getPregunta());
     	}
-    	*/
+    	/**/
     	
     	Usuario usuario = new Usuario("admin@ucm.es", "admin", "admin");
-    	saUsuario.create(usuario);
+    	saUsuario.create(usuario);/*
     	Usuario u = saUsuario.readByName("admin");
     	System.out.println(u.getId() + " " + u.getEmail() + " " + u.getNombre() + " " + u.getPassword() + " " + u.isActivo());
-    	/*
-    	System.out.println("After create");
+    	*/
+    	//System.out.println("After create");
     	for (Usuario u : saUsuario.readAll()) {
     		System.out.println(u.getId() + " " + u.getEmail() + " " + u.getNombre() + " " + u.getPassword() + " " + u.isActivo());
-    	}
+    	}/*
     	usuario = saUsuario.read(1);
     	usuario.setPassword("hong");
     	saUsuario.update(usuario);

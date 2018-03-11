@@ -2,6 +2,8 @@ package presentacion.commands;
 
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import negocio.FactoriaNegocio;
 import negocio.pregunta.Pregunta;
 import presentacion.Command;
@@ -17,13 +19,16 @@ public class CommandLoadQuestion implements Command {
 		
 		List<Pregunta> questionList = FactoriaNegocio.getInstance().generateSAPregunta().readAll();
 		
-		if(questionList == null)
-		
-			context = new Contexto(Events.LOAD_QUESTION_KO, null);
-		
-		else
-			
+		if(questionList != null && questionList.size() > 0)
+
 			context = new Contexto(Events.LOAD_QUESTION_OK, questionList.get(0));
+		
+		else {
+
+			JOptionPane.showMessageDialog(null, "No hay preguntas.");
+			context = new Contexto(Events.LOAD_QUESTION_KO, null);
+			
+		}
 		
 		return context;
 	

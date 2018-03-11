@@ -17,7 +17,7 @@ public class CommandLoadAnswer implements Command {
 		
 		List<Respuesta> respuestas = FactoriaNegocio.getInstance().generateSAREspuesta().readAll();
 		
-		if(respuestas != null)
+		if(respuestas != null && respuestas.size() > 0)
 			
 			context = new Contexto(Events.LOAD_ANSWER_OK, respuestas);
 		
