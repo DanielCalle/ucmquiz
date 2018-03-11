@@ -82,7 +82,7 @@ public class CreateQuestionControlerImp extends CreateQuestionControler implemen
 			break;
 			case Events.CREATE_ANSWER_OK:
 				
-				JOptionPane.showMessageDialog(null,"La respuesta se creo correctamente.");
+				//JOptionPane.showMessageDialog(null,"La respuesta se creo correctamente.");
 				
 			break;
 			default:
