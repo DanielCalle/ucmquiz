@@ -12,7 +12,7 @@ public abstract class EntityManagerUtil {
 	public synchronized static EntityManager getEntityManager() {
 		if(entityManagerFactory == null) {
 			try {
-				entityManagerFactory = Persistence.createEntityManagerFactory("ucmquizPostgres");
+				entityManagerFactory = Persistence.createEntityManagerFactory("ucmquizSQLite");
 			} catch (Throwable ex) {
 				System.err.println("Initial SessionFactory creation failed." + ex);
 				throw new ExceptionInInitializerError(ex);
