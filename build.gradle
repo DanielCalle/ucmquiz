@@ -22,8 +22,27 @@ dependencies {
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:21.0'
+    implementation 'org.xerial:sqlite-jdbc:3.21.0'
+    implementation 'com.jfoenix:jfoenix:8.0.3'
+    
+    
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+    testImplementation 'pl.pragmatists:JUnitParams:1.1'
+	testImplementation "org.mockito:mockito-core:1.+"
+    
 }
 
+jar {
+  excludes = [ 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA' ] 
+  manifest {
+    attributes("Implementation-Title" : "ucmquiz",
+               "Implementation-Version": 0.1,
+	       "Main-Class": "main.Main")
+  }
+
+  from configurations.runtime.collect {
+    it.isDirectory() ? it : zipTree(it)
+  }
+}
