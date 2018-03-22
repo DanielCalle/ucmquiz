@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+	
+	<command id="1">presentacion.commands.CommandUserLogin</command>
+	<command id="41">presentacion.commands.CommandCreateQuestion</command>
+	<command id="44">presentacion.commands.CommandCreateAnswer</command>
+	<command id="61">presentacion.commands.CommandLoadQuestion</command>
+	<command id="67">presentacion.commands.CommandLoadAnswer</command>
+	
+</commands>
