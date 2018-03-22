@@ -1,1 +1,64 @@
-bin
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Editor Files #
+################
+*~
+*.swp
+
+# Eclipse specific files/directories
+.classpath
+.project
+.settings
+.metadata
+
+# Intellij project files
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# NetBeans specific files/directories
+.nbattrs
+
+#Gradle
+.gradletasknamecache
+.gradle/
+build/
+bin/
+
+# Build output directies
+/target
+*/target
+/build
+*/build
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Logs and databases #
+######################
+*.log
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
