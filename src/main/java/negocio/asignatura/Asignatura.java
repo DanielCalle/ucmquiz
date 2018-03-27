@@ -1,4 +1,4 @@
-package negocio.asignatura;
+package negocio.asignatura; 
 
 import java.util.Collection;
 
