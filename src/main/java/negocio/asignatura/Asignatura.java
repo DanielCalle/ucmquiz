@@ -1,10 +1,6 @@
 package negocio.asignatura; 
 
-import java.util.Collection;
-
 import javax.persistence.*;
-
-import negocio.pregunta.Pregunta;
 
 @Entity
 @NamedQueries({
@@ -35,9 +31,6 @@ public class Asignatura {
 		this.titulo = titulo;
 		this.activo = activo;
 	}
-	
-	@OneToMany(mappedBy="asignatura")
-	private Collection<Pregunta> preguntas;
 
 	private String titulo;
 
