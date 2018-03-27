@@ -24,13 +24,12 @@ dependencies {
     implementation 'com.google.guava:guava:21.0'
     implementation 'org.xerial:sqlite-jdbc:3.21.0'
     implementation 'com.jfoenix:jfoenix:8.0.3'
-    implementation 'org.eclipse.persistence:eclipselink:2.7.1'
-    
+    implementation 'org.eclipse.persistence:org.eclipse.persistence.jpa:2.7.1'
     
     
 
     // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12' 
     testImplementation 'pl.pragmatists:JUnitParams:1.1'
 	testImplementation "org.mockito:mockito-core:1.+"
     
