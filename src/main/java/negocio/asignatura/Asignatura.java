@@ -7,8 +7,13 @@ import javax.persistence.*;
 import negocio.pregunta.Pregunta;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(
+		name = "negocio.asignatura.Asignatura.findBytitulo", 
+		query = "select obj from Asignatura obj where obj.titulo = :titulo"
+	)
+})
 public class Asignatura {
-
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
