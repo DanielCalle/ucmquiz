@@ -21,14 +21,14 @@ public class Asignatura {
 	}
 	
 	public Asignatura(Integer id, String titulo, boolean activo) {
-		this.setId(id);
-		this.setTitulo(titulo);
-		this.setActivo(activo);
+		this.id = id;
+		this.titulo = titulo;
+		this.activo = activo;
 	}
 	
 	public Asignatura(String titulo, boolean activo) {
-		this.setTitulo(titulo);
-		this.setActivo(activo);
+		this.titulo = titulo;
+		this.activo = activo;
 	}
 	
 	@OneToMany(mappedBy="asignatura")
