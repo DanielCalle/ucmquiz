@@ -7,6 +7,10 @@ import javax.persistence.*;
 import negocio.pregunta.Pregunta;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name = "negocio.asignatura.Asignatura.readAll", query = "select obj from A obj where obj.activo = 1"),
+})
+
 public class Asignatura {
 
 
