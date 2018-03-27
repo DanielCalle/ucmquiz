@@ -1,14 +1,13 @@
 package negocio.pregunta; 
 
-import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
-import negocio.respuesta.Respuesta;
+import negocio.asignatura.Asignatura;
 
 @Entity
 public class Pregunta {
@@ -20,8 +19,8 @@ public class Pregunta {
 	@Version
 	private int version;
 	
-	@OneToMany(mappedBy="pregunta")
-	private Collection<Respuesta> respuestas;
+	@ManyToOne
+	private Asignatura asignatura;
 	
 	private String texto;
 	
@@ -62,6 +61,14 @@ public class Pregunta {
 
 	public void setActiva(boolean activa) {
 		this.activa = activa;
+	}
+
+	public Asignatura getAsignatura() {
+		return asignatura;
+	}
+
+	public void setAsignatura(Asignatura asignatura) {
+		this.asignatura = asignatura;
 	}
 
 }
