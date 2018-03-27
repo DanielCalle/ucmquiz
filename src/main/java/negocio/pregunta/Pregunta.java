@@ -1,4 +1,4 @@
-package negocio.pregunta;
+package negocio.pregunta; 
 
 import java.util.Collection;
 import javax.persistence.Entity;
