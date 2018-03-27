@@ -3,7 +3,7 @@
 	<persistence-unit name="ucmquizSQLite">
 		<class>negocio.pregunta.Pregunta</class>
 		<class>negocio.respuesta.Respuesta</class>
-		<class>negocio.usuario.Usuario</class>
+		<class>negocio.asignatura.Asignatura</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:sqlite:ucmquizDB.db" />
