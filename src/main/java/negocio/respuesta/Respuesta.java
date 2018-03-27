@@ -1,4 +1,4 @@
-package negocio.respuesta;
+package negocio.respuesta; 
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
