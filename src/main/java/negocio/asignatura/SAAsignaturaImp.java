@@ -29,7 +29,7 @@ public class SAAsignaturaImp implements SAAsignatura {
 					List<Pregunta> lista = query.getResultList();
 					if(lista.isEmpty()) {
 						asignatura.setActivo(false);
-						entityManager.persist(asignatura);
+						entityManager.refresh(asignatura);
 						entityTransaction.commit();
 					}
 					else {
