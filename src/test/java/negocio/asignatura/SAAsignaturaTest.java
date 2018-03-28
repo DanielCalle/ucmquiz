@@ -17,7 +17,7 @@ public class SAAsignaturaTest {
 		
 		int id = sa.create(asignatura);
 		
-		assertTrue("Si la asignatura no existe id > 0, si existe id = -1", id > 0 || id == -1);
+		assertTrue("Si la asignatura no existe id > 0, si existe id = -1.", id > 0 || id == -1);
 		
 	}
 	
@@ -30,20 +30,26 @@ public class SAAsignaturaTest {
 		
 		int id = sa.create(asignatura);
 	
-		assertThat( "No se puede crear una asignatura nula" , id , IsEqual.equalTo(-1) );
+		assertThat( "No se puede crear una asignatura nula." , id , IsEqual.equalTo(-1) );
 	
 	}
 	
 	@Test
 	public void testCrearAsignaturaNoActiva() {
 		
-		Asignatura asignatura = new Asignatura("IW", false);
+		Asignatura asignatura = new Asignatura("GPS", false);
 		
 		SAAsignatura sa = new  SAAsignaturaImp();
 		
 		int id = sa.create(asignatura);
 	
-		System.out.println("ID ASIGNATURA: " + id);
+		assertTrue( 
+			"Es posible meter una asignatura no activa. " +
+			"Si se mete una segunda vez, esta es reactivada automaticamente " +
+			"si su estado de activo en la BBDD es false, en caso contrario devuelve -1."
+			,  
+			id > 0 || id == -1
+		);
 	
 	}
 	
