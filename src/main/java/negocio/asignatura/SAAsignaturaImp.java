@@ -47,7 +47,7 @@ public class SAAsignaturaImp implements SAAsignatura {
 					
 					entitytransaction.commit();
 					
-					id = asignatura.getId();
+					id = asignaturaResult.getId();
 				
 				} else {
 					
