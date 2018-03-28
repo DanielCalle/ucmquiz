@@ -37,7 +37,7 @@ public class SAAsignaturaTest {
 	@Test
 	public void testCrearAsignaturaNoActiva() {
 		
-		Asignatura asignatura = new Asignatura("ASR", false);
+		Asignatura asignatura = new Asignatura("IW", false);
 		
 		SAAsignatura sa = new  SAAsignaturaImp();
 		
