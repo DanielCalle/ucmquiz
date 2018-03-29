@@ -15,7 +15,7 @@ import negocio.asignatura.Asignatura;
 @NamedQueries({
 	@NamedQuery(
 		name = "negocio.pregunta.Pregunta.findByAsignatura",
-		query = "select obj from Pregunta obj where obj.asignatura = :asignatura and obj.activo = 1"
+		query = "select obj from Pregunta obj where obj.asignatura = :asignatura"
 	)
 })
 public class Pregunta {
