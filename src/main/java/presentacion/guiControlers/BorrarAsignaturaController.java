@@ -15,15 +15,15 @@ public class BorrarAsignaturaController {
     private JFXTextField textfieldAsignatura;
 
     @FXML
-    private JFXButton btncrear;
+    private JFXButton btnborrar;
 
     @FXML
-    void btnCancelar(ActionEvent event) {
+    void btnBorrar(ActionEvent event) {
 
     }
 
     @FXML
-    void btnCrear(ActionEvent event) {
+    void btnCancelar(ActionEvent event) {
 
     }
 
