@@ -5,11 +5,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Version;
 
 import negocio.asignatura.Asignatura;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(
+		name = "negocio.pregunta.Pregunta.findByAsignatura",
+		query = "select obj from Pregunta obj where obj.asignatura = :asignatura"
+	)
+})
 public class Pregunta {
 	
 	@Id 
