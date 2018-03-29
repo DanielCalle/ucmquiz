@@ -23,7 +23,7 @@
             <JFXButton fx:id="btncancelar" buttonType="RAISED" cache="true" cancelButton="true" depthTest="DISABLE" layoutX="281.0" layoutY="236.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#btnCancelar" prefHeight="37.0" prefWidth="135.0" ripplerFill="BLACK" style="-fx-background-color: white;" text="Cancelar" textOverrun="CLIP" />
             <JFXTextField fx:id="textfieldAsignatura" focusColor="#d32f2f" layoutX="214.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#textFieldAsignatura" unFocusColor="#ff5252" />
             <Label layoutX="214.0" layoutY="67.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="135.0" text="Nombre de la asignatura" textFill="#9e9e9e" />
-            <JFXButton fx:id="btncrear" layoutX="443.0" layoutY="236.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnCrear" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #F44336;" text="Borrar" textFill="WHITE" />
+            <JFXButton fx:id="btnborrar" layoutX="443.0" layoutY="236.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnBorrar" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #F44336;" text="Borrar" textFill="WHITE" />
          </children>
       </AnchorPane>
    </children>
