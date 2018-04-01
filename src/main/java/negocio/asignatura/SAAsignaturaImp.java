@@ -9,53 +9,52 @@ import negocio.EntityManagerUtil;
 public class SAAsignaturaImp implements SAAsignatura {
 
 	@Override
-	public int activaAsignatura(int id) {
+	public boolean activaAsignatura(int id) {
+		boolean estado = true;
+		
 		if (ComprobadorSintactico.isPositive(id)) {
 			EntityManager entityManager = EntityManagerUtil.getEntityManager();
 			EntityTransaction entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 
 			Asignatura asignatura = entityManager.find(Asignatura.class, id);
-
-			if (asignatura != null) {
-				if (!asignatura.isActivo()) {
-					asignatura.setActivo(true);
-					entityTransaction.commit();
-				} else {
-					entityTransaction.rollback();
-				}
+			estado = asignatura.isActivo();
+			
+			if (!estado) {
+				asignatura.setActivo(true);
+				estado = true;
+				entityTransaction.commit();
 			} else {
-				id = -1;
 				entityTransaction.rollback();
 			}
 			entityManager.close();
 		}
-		return id;
+		
+		return estado;
 	}
 	
 	@Override
-	public int desactivaAsignatura(int id) {
+	public boolean desactivaAsignatura(int id) {
+		boolean estado = true;
+		
 		if (ComprobadorSintactico.isPositive(id)) {
 			EntityManager entityManager = EntityManagerUtil.getEntityManager();
 			EntityTransaction entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 
 			Asignatura asignatura = entityManager.find(Asignatura.class, id);
+			estado = asignatura.isActivo();
 
-			if (asignatura != null) {
-				if (asignatura.isActivo()) {
-					asignatura.setActivo(false);
-					entityTransaction.commit();
-				} else {
-					entityTransaction.rollback();
-				}
+			if (estado) {
+				asignatura.setActivo(false);
+				estado = false;
+				entityTransaction.commit();
 			} else {
-				id = -1;
 				entityTransaction.rollback();
 			}
 			entityManager.close();
 		}
-		return id;
+		return estado ;
 	}
 
 }
