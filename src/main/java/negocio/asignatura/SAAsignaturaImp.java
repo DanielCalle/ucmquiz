@@ -49,8 +49,7 @@ public class SAAsignaturaImp implements SAAsignatura {
 				asignatura.setActivo(false);
 				estado = false;
 				entityTransaction.commit();
-			} else {
-				entityTransaction.rollback();
+			} else {			entityTransaction.rollback();
 			}
 			entityManager.close();
 		}
