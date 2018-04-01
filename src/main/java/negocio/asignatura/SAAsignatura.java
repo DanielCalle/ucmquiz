@@ -2,6 +2,8 @@ package negocio.asignatura;
 
 public interface SAAsignatura {
 
-	public int acticaDesactivaAsignatura(int id);
+	public int activaAsignatura(int id);
+	
+	public int desactivaAsignatura(int id);
 	
 }
