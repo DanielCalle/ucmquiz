@@ -41,7 +41,7 @@ public class SAPreguntaTest {
 	
 	@Test
 	public void testCrearPreguntaInactiva() {
-		
+		 
 		Pregunta p = new Pregunta("¿ Cual es la definicion de Kernel para un sistema operativo ?", false);
 		
 		SAPreguntaImp sa = new SAPreguntaImp();
