@@ -5,6 +5,8 @@ import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import negocio.FactoriaNegocio;
+import negocio.asignatura.SAAsignatura;
 
 public class BorrarAsignaturaController {
 
@@ -19,7 +21,9 @@ public class BorrarAsignaturaController {
 
     @FXML
     void btnBorrar(ActionEvent event) {
-
+    	int id = Integer.parseInt(textfieldAsignatura.getText());
+    	SAAsignatura sa = FactoriaNegocio.getInstance().createSAAsignatura();
+    	sa.delete(id);
     }
 
     @FXML
