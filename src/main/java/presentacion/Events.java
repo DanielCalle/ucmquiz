@@ -29,9 +29,16 @@ public enum Events {
 	;
 
 	private InputSource inputSource;
+	private Filter filter;
 	
 	private Events() {
 		this.inputSource = new InputSource("Events.xml");
+		this.filter = new Filter();
+	}
+	
+	public Events setFilter(Filter filter) {
+		this.filter = filter;
+		return this;
 	}
 	
 	public String getMessage() {
@@ -54,7 +61,7 @@ public enum Events {
 		
 		}
 		
-		return message;
+		return filter.filter(message);
 		
 	}
 	
