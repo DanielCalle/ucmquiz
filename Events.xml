@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Events>
+	<Event id="CRUD_CREATE_OK">
+		Se dio de alta correctamente la {entity}.
+	</Event>
+	<Event id="CRUD_CREATE_KO">
+		No se pudo dar de alta la {entity} debido a {reason}.
+	</Event>
+	<Event id="CRUD_READ_OK">
+		Se leyo correctamente la {entity}.
+	</Event>
+	<Event id="CRUD_READ_KO">
+		No se pudo leer correctamenta la {entity} debido a {reason}.
+	</Event>
+	<Event id="CRUD_READ_ALL_OK">
+		Se leyeron correctamente las {entity}s.
+	</Event>
+	<Event id="CRUD_READ_ALL_KO">
+		No se pudieron leer correctamente las {entity}s debido a {reason}.
+	</Event>
+	<Event id="CRUD_UPDATE_OK">
+		Se actualizo correctamente la {entity}.
+	</Event>
+	<Event id="CRUD_UPDATE_KO">
+		No se pudo actualizar la {entity} debido a {reason}.
+	</Event>
+</Events>
