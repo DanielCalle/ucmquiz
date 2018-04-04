@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Events>
+	<Event id="CRUD_CREATE_OK">
+		Se dio de alta correctamente la {entity}.
+	</Event>
+	<Event id="CRUD_CREATE_KO">
+		No se pudo dar de alta la {entity} debido a {reason}.
+	</Event>
+	<Event id="CRUD_READ_OK">
+		Se leyo correctamente la {entity}.
+	</Event>
+	<Event id="CRUD_READ_KO">
+		No se pudo leer correctamenta la {entity} debido a {reason}.
+	</Event>
+	<Event id="CRUD_READ_ALL_OK">
+		Se leyeron correctamente las {entity}s.
+	</Event>
+	<Event id="CRUD_READ_ALL_KO">
+		No se pudieron leer correctamente las {entity}s debido a {reason}.
+	</Event>
+	<Event id="CRUD_UPDATE_OK">
+		Se actualizo correctamente la {entity}.
+	</Event>
+	<Event id="CRUD_UPDATE_KO">
+		No se pudo actualizar la {entity} debido a {reason}.
+	</Event>
+	<Event id="WRONG_TYPE_PARAMETER">
+		Tipo del parametro erroneo.
+	</Event>
+	<Event id="NO_ENTITY">
+		No existe la {entity} con el id {id}.
+	</Event>
+	<Event id="ENTITY_NOT_ACTIVE">
+		{entity} no esta activa.
+	</Event>
+	<Event id="ENTITY_WITH_DEPENDENCIES">
+		{entity} tiene dependencias.
+	</Event>
+	<Event id="ACTIVATE_OK">
+		Se activo correctamente la {entity}.
+	</Event>
+	<Event id="ACTIVATE_KO">
+		No se activo correctamente la {entity} debido a {reason}.
+	</Event>
+	<Event id="DESACTIVATE_OK">
+		Se activo correctamente la {entity}.
+	</Event>
+	<Event id="DESACTIVATE_KO">
+		No se activo correctamente las {entity} debido a {reason}.
+	</Event>
+</Events>
