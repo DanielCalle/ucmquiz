@@ -17,7 +17,7 @@ import negocio.pregunta.Pregunta;
 import com.jfoenix.controls.JFXButton;
 import javafx.scene.layout.AnchorPane;
 
-public class CreateQuestionController implements Initializable {
+public class CrearPreguntaController implements Initializable {
 	
 	@FXML
 	private AnchorPane root;
