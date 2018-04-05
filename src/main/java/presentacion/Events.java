@@ -8,7 +8,21 @@ import javax.xml.xpath.XPathFactory;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 
+/**
+ * Clase que representa todos los eventos internos de la aplicacion.
+ */
 public enum Events {
+	
+	/**
+	 * Los eventos CRUD_ estan relacionados con el resultado de  operaciones
+	 * basicas Create, Read / ReadAll, Delete y Update.
+	 * 
+	 * Los eventos SHOW_ son eventos creados para mostrar una ventana.
+	 * 
+	 * Los eventos COMMAND_ se utilizan para invocar operaciones de negocio,
+	 * su resultado es mostrado al usuario mostrandole a este un mensaje en
+	 * la interfaz correspondiente.
+	 */
 	
 	CRUD_CREATE_OK,
 	CRUD_CREATE_KO,
@@ -36,11 +50,18 @@ public enum Events {
 		this.inputSource = new InputSource("Events.xml");
 	}
 	
+	/**
+	 * @param filter Filtro que se aplica al mensaje del evento actual.
+	 * @return Devuelve el evento actual con el filtro asignado.
+	 */
 	public Events setFilter(Filter filter) {
 		this.filter = filter;
 		return this;
 	}
 	
+	/**
+	 * @return Devuelve el mensaje asociado a un evento concreto.
+	 */
 	public String getMessage() {
 
 		String message = null;
