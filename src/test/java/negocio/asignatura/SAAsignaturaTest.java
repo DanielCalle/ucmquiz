@@ -1,10 +1,11 @@
 package negocio.asignatura;
 
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import org.hamcrest.core.IsEqual;
 import org.junit.Test;
+
+import presentacion.Contexto;
 
 public class SAAsignaturaTest {
 
@@ -15,9 +16,14 @@ public class SAAsignaturaTest {
 		
 		SAAsignatura sa = new  SAAsignaturaImp();
 		
-		int id = sa.create(asignatura);
+		Contexto contexto = sa.create(asignatura);
 		
-		assertTrue("Si la asignatura no existe id > 0, si existe id = -1.", id > 0 || id == -1);
+		Integer id = (Integer) contexto.getDato();
+		
+		assertTrue(
+			"Si la asignatura no existe el id es positivo, si existe el id es null",  
+			id >= 0 ||  id == null
+		);
 		
 	}
 	
@@ -28,10 +34,15 @@ public class SAAsignaturaTest {
 		
 		SAAsignatura sa = new  SAAsignaturaImp();
 		
-		int id = sa.create(asignatura);
+		Contexto contexto = sa.create(asignatura);
 	
-		assertThat( "No se puede crear una asignatura nula." , id , IsEqual.equalTo(-1) );
-	
+		Integer id = (Integer) contexto.getDato();
+		
+		assertNull(
+			"No se puede crear una asignatura nula.", 
+			id
+		);
+		
 	}
 	
 	@Test
@@ -41,14 +52,16 @@ public class SAAsignaturaTest {
 		
 		SAAsignatura sa = new  SAAsignaturaImp();
 		
-		int id = sa.create(asignatura);
+		Contexto contexto = sa.create(asignatura);
 	
+		Integer id = (Integer) contexto.getDato();
+		
 		assertTrue( 
 			"Es posible meter una asignatura no activa. " +
 			"Si se mete una segunda vez, esta es reactivada automaticamente " +
-			"si su estado de activo en la BBDD es false, en caso contrario devuelve -1."
+			"si su estado de activo en la BBDD es false, en caso contrario devuelve null."
 			,  
-			id > 0 || id == -1
+			id > 0 || id == null
 		);
 	
 	}

@@ -87,7 +87,7 @@ public class SAAsignaturaImp implements SAAsignatura {
 					
 					event.setFilter(filter);
 					
-					contexto = new Contexto(event, asignatura.getId());
+					contexto = new Contexto(event, null);
 					
 				}
 
