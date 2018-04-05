@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
@@ -17,6 +19,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TreeItem;
@@ -27,10 +30,15 @@ import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.input.TouchEvent;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.util.Callback;
 import negocio.asignatura.Asignatura;
 
 public class unocontroller implements Initializable {
+
+	@FXML
+	private StackPane stackpane;
 
 	@FXML
 	private JFXButton botonNuevo;
@@ -69,8 +77,8 @@ public class unocontroller implements Initializable {
 		users.add(new Asignatura("MS", true));
 
 		final TreeItem<Asignatura> root = new RecursiveTreeItem<Asignatura>(users, RecursiveTreeObject::getChildren);
-		treeView.getColumns().setAll(deptName,deptEstado);
-		//treeView.getColumns().setAll(deptEstado);
+		treeView.getColumns().setAll(deptName, deptEstado);
+		// treeView.getColumns().setAll(deptEstado);
 		treeView.setRoot(root);
 		treeView.setShowRoot(false);
 		treeView.getSelectionModel().getSelectedItem();
@@ -88,7 +96,23 @@ public class unocontroller implements Initializable {
 
 	@FXML
 	void botonNuevoAction(ActionEvent event) {
+		JFXDialogLayout content = new JFXDialogLayout();
+    	content.setHeading(new Text("Correcto"));
+    	content.setBody(new Text("Se ha creado correctamente"));
+    	JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
 
+    	JFXButton button = new JFXButton("Done");
+    	button.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				dialog.close();
+				
+			}
+    		
+    	});
+    	content.setActions(button);
+    	dialog.show();
 	}
 
 }
