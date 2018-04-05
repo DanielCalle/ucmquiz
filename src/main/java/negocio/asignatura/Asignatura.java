@@ -2,12 +2,13 @@ package negocio.asignatura;
 
 import javax.persistence.*;
 
-@Entity
-@NamedQueries({
-	@NamedQuery(name = "negocio.asignatura.Asignatura.readAll", query = "select obj from A obj where obj.activo = 1"),
-})
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
-public class Asignatura {
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
+@Entity
+public class Asignatura extends RecursiveTreeObject<Asignatura>{
 
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -57,6 +58,14 @@ public class Asignatura {
 
 	public void setActivo(boolean activo) {
 		this.activo = activo;
+	}
+	public StringProperty getTituloStringProperty() {
+		return new SimpleStringProperty(titulo);
+	}
+	public StringProperty getActivoStringProperty() {
+		if(activo)return new SimpleStringProperty("Activada");
+		else return new SimpleStringProperty("Desactivada");
+		
 	}
 	
 }
