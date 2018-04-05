@@ -28,12 +28,12 @@ public enum Events {
 	
 	;
 
-	private InputSource inputSource;
 	private Filter filter;
+	private InputSource inputSource;
 	
 	private Events() {
-		this.inputSource = new InputSource("Events.xml");
 		this.filter = new Filter();
+		this.inputSource = new InputSource("Events.xml");
 	}
 	
 	public Events setFilter(Filter filter) {
@@ -55,13 +55,15 @@ public enum Events {
 			
 			message = element.getTextContent().trim();
 			
+			message = filter.filter(message); 
+			
 		} catch (XPathExpressionException e) {
 			
 			e.printStackTrace();
 		
 		}
 		
-		return filter.filter(message);
+		return message;
 		
 	}
 	
