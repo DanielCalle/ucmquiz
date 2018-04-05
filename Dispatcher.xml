@@ -4,6 +4,7 @@
     <gui id="SHOW_LOGIN">
     	<title>Login</title>
     	<file>/presentacion/login.fxml</file>
+    	<controler>presentacion.guiControlers.SeleccionUsuarioController</controler>
     </gui>
        
 </guis>
