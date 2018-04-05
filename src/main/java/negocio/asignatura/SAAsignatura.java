@@ -1,9 +1,9 @@
 package negocio.asignatura;
 
-import presentacion.Events;
+import presentacion.Contexto;
 
 public interface SAAsignatura {
 	
-	public Events delete(int id);
+	public Contexto delete(int id);
 
 }
