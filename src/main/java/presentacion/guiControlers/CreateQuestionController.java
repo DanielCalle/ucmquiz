@@ -5,7 +5,7 @@ import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.Event;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -14,17 +14,30 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import negocio.FactoriaNegocio;
 import negocio.pregunta.Pregunta;
+import com.jfoenix.controls.JFXButton;
+import javafx.scene.layout.AnchorPane;
 
 public class CreateQuestionController implements Initializable {
+	
+	@FXML
+	private AnchorPane root;
 
 	@FXML
 	public TextArea txtText;
 	
 	@FXML
+    private JFXButton btnCancelar;
+	
+	@FXML
 	public Button btnConfirm;
 	
 	@FXML
-	public void btnConfirmListener(Event event) {
+    void btnCancelListener(ActionEvent event) {
+
+    }
+	
+	@FXML
+	public void btnConfirmListener(ActionEvent event) {
 		
 		if(txtText.getLength() > 0) {
 			
