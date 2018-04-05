@@ -8,14 +8,25 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import negocio.EntityManagerUtil;
+import presentacion.Contexto;
+import presentacion.Events;
+import presentacion.Filter;
 
 public class SAPreguntaImp implements SAPregunta {
 
+	/**
+	 * @param pregunta Objeto que contiene los datos de una pregunta que se  quiere crear. 
+	 * @return Objeto que contiene un evento que indica el resultado de las operaciones y un dato.
+	 */
 	@Override
-	public int create(Pregunta pregunta) {
-			
-		int id = -1;
-			
+	public Contexto create(Pregunta pregunta) {
+		
+		Events event = null;
+		
+		Contexto contexto = null;
+		
+		Filter filter = new Filter();
+		
 		if (pregunta != null) {
 				
 			EntityManager entitymanager = EntityManagerUtil.getEntityManager();
@@ -35,8 +46,14 @@ public class SAPreguntaImp implements SAPregunta {
 					entitymanager.persist(pregunta);
 					
 					entitytransaction.commit();
+		
+					event = Events.CRUD_CREATE_OK;
 					
-					id = pregunta.getId();
+					filter.addFilter("entity","pregunta");
+					
+					event.setFilter(filter);
+					
+					contexto = new Contexto(event,pregunta.getId());
 					
 				} else {
 					
@@ -47,13 +64,29 @@ public class SAPreguntaImp implements SAPregunta {
 						preguntaResult.setActiva(true);
 						
 						entitytransaction.commit();
+					
+						event = Events.CRUD_CREATE_OK;
 						
-						id = preguntaResult.getId();
+						filter.addFilter("entity","pregunta");
+						
+						event.setFilter(filter);
+						
+						contexto = new Contexto(event,preguntaResult.getId());
 					
 					} else {
 						
 						entitytransaction.rollback();
 		
+						event = Events.CRUD_CREATE_OK;
+						
+						filter.addFilter("entity","pregunta");
+						
+						filter.addFilter("entity","que ya existia");
+						
+						event.setFilter(filter);
+						
+						contexto = new Contexto(event,null);
+						
 					}
 
 				}
@@ -62,7 +95,7 @@ public class SAPreguntaImp implements SAPregunta {
 			
 			}
 			
-			return id;
+			return contexto;
 		
 	}
 
