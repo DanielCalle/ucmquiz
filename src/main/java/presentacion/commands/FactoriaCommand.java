@@ -2,6 +2,7 @@
 package presentacion.commands;
 
 import presentacion.Command;
+import presentacion.Events;
 
 public abstract class FactoriaCommand {
 
@@ -13,5 +14,6 @@ public abstract class FactoriaCommand {
 		return instance;
 	}
 
-	public abstract Command generateCommand(int event);
+	public abstract Command generateCommand(Events event);
+	
 }
