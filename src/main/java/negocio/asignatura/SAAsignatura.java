@@ -1,7 +1,9 @@
 package negocio.asignatura;
 
+import presentacion.Contexto;
+
 public interface SAAsignatura {
 
-	int create(Asignatura asignatura);
+	Contexto create(Asignatura asignatura);
 	
 }

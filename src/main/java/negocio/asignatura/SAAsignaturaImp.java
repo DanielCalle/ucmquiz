@@ -7,13 +7,27 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import negocio.EntityManagerUtil;
+import presentacion.Contexto;
+import presentacion.Events;
+import presentacion.Filter;
 
+/**
+ * Servicio de aplicacion de la entidad Asignatura.
+ */
 public class SAAsignaturaImp implements SAAsignatura {
 
+	/**
+	 * @param asignatura --> Objeto que contiene los datos de la asignatura que se quiere crear.
+	 * @return Contexto --> Objeto que contiene el resultado de la operacion y un dato.
+	 */
 	@Override
-	public int create(Asignatura asignatura) {
+	public Contexto create(Asignatura asignatura) {
 		
-		int id = -1;
+		Events event = null;
+		
+		Contexto contexto = null;
+		
+		Filter filter = new Filter();
 		
 		if (asignatura != null) {
 			
@@ -35,7 +49,13 @@ public class SAAsignaturaImp implements SAAsignatura {
 				
 				entitytransaction.commit();
 				
-				id = asignatura.getId();
+				event = Events.CRUD_CREATE_OK;
+			
+				filter.addFilter("entity","Asignatura");
+				
+				event.setFilter(filter);
+				
+				contexto = new Contexto(event, asignatura.getId());
 				
 			} else {
 				
@@ -47,12 +67,28 @@ public class SAAsignaturaImp implements SAAsignatura {
 					
 					entitytransaction.commit();
 					
-					id = asignaturaResult.getId();
+					event = Events.CRUD_CREATE_OK;
+					
+					filter.addFilter("entity","Asignatura");
+					
+					event.setFilter(filter);
+					
+					contexto = new Contexto(event, asignaturaResult.getId());
 				
 				} else {
 					
 					entitytransaction.rollback();
 	
+					event = Events.CRUD_CREATE_KO;
+					
+					filter.addFilter("entity","Asignatura");
+					
+					filter.addFilter("reason","que ya esta activa");
+					
+					event.setFilter(filter);
+					
+					contexto = new Contexto(event, asignatura.getId());
+					
 				}
 
 			}
@@ -61,7 +97,7 @@ public class SAAsignaturaImp implements SAAsignatura {
 		
 		}
 		
-		return id;
+		return contexto;
 
 	}
 
