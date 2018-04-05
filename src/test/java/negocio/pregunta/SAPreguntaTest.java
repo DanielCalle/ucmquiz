@@ -1,12 +1,11 @@
 package negocio.pregunta;
 
-import static org.hamcrest.Matchers.equalTo;
-
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-
 import org.junit.Test;
+
+import presentacion.Contexto;
 
 public class SAPreguntaTest {
 
@@ -17,13 +16,15 @@ public class SAPreguntaTest {
 		
 		SAPreguntaImp sa = new SAPreguntaImp();
 		
-		int id = sa.create(p);
+		Contexto contexto = sa.create(p);
+		
+		Integer id = (Integer) contexto.getDato(); 
 		
 		assertTrue(
 			"Si la pregunta ya esta en la BBDD se ha de retornar " +
 			"-1, si no el identificador ha de ser un numero positivo."
 			, 
-			id == -1 || id > 0
+			id == null || id > 0
 		);
 		
 	}
@@ -35,7 +36,7 @@ public class SAPreguntaTest {
 				
 		SAPreguntaImp sa = new SAPreguntaImp();
 		
-		assertThat("No se puede crear una pregunta nula.", sa.create(p), equalTo(-1));
+		assertNull("No se puede crear una pregunta nula.", sa.create(p).getDato() );
 		
 	}
 	
@@ -46,7 +47,9 @@ public class SAPreguntaTest {
 		
 		SAPreguntaImp sa = new SAPreguntaImp();
 		
-		int id = sa.create(p);
+		Contexto contexto = sa.create(p);
+		
+		Integer id = (Integer) contexto.getDato(); 
 		
 		assertTrue(
 			"Podemos insertar una pregunta desactivada, su identificador " +
@@ -54,8 +57,9 @@ public class SAPreguntaTest {
 			"en la BBDD es false, esta es automaticamente reactivada. Si ya existia " +
 			"y su estado de activacion era true, entonces se ha de retornar -1."
 			, 
-			id == -1 || id > 0
+			id == null || id > 0
 		);
+		
 	}
 	
 }
