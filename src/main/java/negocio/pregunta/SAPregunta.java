@@ -1,7 +1,9 @@
 package negocio.pregunta;
 
+import presentacion.Contexto;
+
 public interface SAPregunta {
 
-	public int create(Pregunta pregunta);
+	public Contexto create(Pregunta pregunta);
 	
 }
