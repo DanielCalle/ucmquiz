@@ -1,9 +1,101 @@
 package presentacion;
 
-public class Events {
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+
+import org.w3c.dom.Node;
+import org.xml.sax.InputSource;
+
+/**
+ * Clase que representa todos los eventos internos de la aplicacion.
+ */
+public enum Events {
 	
-	public static final int WRONG_TYPE_PARAMETER = 901;
-	public static final int NO_ENTITY = 902;
-	public static final int ENTITY_NOT_ACTIVE = 903;
-	public static final int ENTITY_WITH_DEPENDENCIES = 904;
+	/**
+	 * Los eventos CRUD_ estan relacionados con el resultado de  operaciones
+	 * basicas Create, Read / ReadAll, Delete y Update.
+	 * 
+	 * Los eventos SHOW_ son eventos creados para mostrar una ventana.
+	 * 
+	 * Los eventos COMMAND_ se utilizan para invocar operaciones de negocio,
+	 * su resultado es mostrado al usuario mostrandole a este un mensaje en
+	 * la interfaz correspondiente.
+	 */
+	
+	CRUD_CREATE_OK,
+	CRUD_CREATE_KO,
+	CRUD_READ_OK,
+	CRUD_READ_KO,
+	CRUD_READ_ALL_OK,
+	CRUD_READ_ALL_KO,
+	CRUD_UPDATE_OK,
+	CRUD_UPDATE_KO,
+	CRUD_DELETE_OK,
+	CRUD_DELETE_KO,
+	
+	ACTIVATE_OK,
+	ACTIVATE_KO,
+	DESACTIVATE_OK,
+	DESACTIVATE_KO,
+	
+	SHOW_LOGIN,
+	SHOW_ROL_MENU,
+	
+	COMMAND_USER_LOGIN,
+
+	WRONG_TYPE_PARAMETER,
+	NO_ENTITY,
+	ENTITY_NOT_ACTIVE,
+	ENTITY_WITH_DEPENDENCIES,
+	
+	;
+
+	private Filter filter;
+	private InputSource inputSource;
+	
+	private Events() {
+		this.filter = new Filter();
+		this.inputSource = new InputSource("Events.xml");
+	}
+	
+	/**
+	 * @param filter Filtro que se aplica al mensaje del evento actual.
+	 * @return Devuelve el evento actual con el filtro asignado.
+	 */
+	public Events setFilter(Filter filter) {
+		this.filter = filter;
+		return this;
+	}
+	
+	/**
+	 * @return Devuelve el mensaje asociado a un evento concreto.
+	 */
+	public String getMessage() {
+
+		String message = null;
+		
+		try {
+		
+			XPathFactory xPathFactory = XPathFactory.newInstance();
+			
+			XPath xpath = xPathFactory.newXPath();
+	        
+			Node element = (Node) xpath.evaluate("//*[@id='"+ this.name() +"'][1]",inputSource,XPathConstants.NODE);
+			
+			message = element.getTextContent().trim();
+			
+			message = filter.filter(message); 
+			
+		} catch (XPathExpressionException e) {
+			
+			e.printStackTrace();
+		
+		}
+		
+		return message;
+		
+	}
+	
 }
