@@ -9,47 +9,22 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import negocio.FactoriaNegocio;
+import negocio.FactoriaNegocioImp;
 import presentacion.Contexto;
 import presentacion.Events;
+import presentacion.Filter;
+import presentacion.GUI;
 import presentacion.controlador.Controlador;
 
-public class BorrarAsignaturaController {
-	
-    @FXML
-    private JFXButton btncancelar;
-
-    @FXML
-    private JFXTextField textfieldAsignatura;
-
-    @FXML
-    private JFXButton btnborrar;
-    
+public abstract class BorrarAsignaturaController implements GUI {
 	
 	private static BorrarAsignaturaController instance;
-	
-	public BorrarAsignaturaController() {
-		instance = this;
-	}
 
-	public static BorrarAsignaturaController getInstance() {
+	public synchronized static BorrarAsignaturaController getInstance() {
+		if(instance == null) instance = new BorrarAsignaturaControllerImp();
 		return instance;
 	}
-	
-
-    @FXML
-    void btnBorrar(ActionEvent event) {
-    	Integer id = Integer.parseInt(textfieldAsignatura.getText());
-    	Contexto contexto = new Contexto(Events.COMMAND_ASIGNATURA_DELETE, id);
-    	Controlador.getInstance().accion(contexto);
-    }
-
-    @FXML
-    void btnCancelar(ActionEvent event) {
-    }
-
-    @FXML
-    void textFieldAsignatura(ActionEvent event) {
-
-    }
 
 }

@@ -24,4 +24,10 @@
 	<Event id="CRUD_UPDATE_KO">
 		No se pudo actualizar la {entity} debido a {reason}.
 	</Event>
+		<Event id="CRUD_DELETE_OK">
+		Se borro correctamente la {entity}.
+	</Event>
+	<Event id="CRUD_DELETE_KO">
+		No se pudo borrar la {entity} debido a {reason}.
+	</Event>
 </Events>
