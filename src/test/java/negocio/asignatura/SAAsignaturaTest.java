@@ -16,7 +16,7 @@ public class SAAsignaturaTest {
 		//int idAsig = sa.create(asignatura);
 		//System.out.println(idAsig);
 		
-		estado = sa.activaAsignatura(8);
+		//estado = sa.activaAsignatura(8);
 		
 		System.out.println(estado);
 	
@@ -35,7 +35,7 @@ public class SAAsignaturaTest {
 		//System.out.println(idAsig);
 		
 		
-		estado = sa.desactivaAsignatura(7);
+		//estado = sa.desactivaAsignatura(7);
 		
 		System.out.println(estado);
 	

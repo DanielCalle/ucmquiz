@@ -24,4 +24,16 @@
 	<Event id="CRUD_UPDATE_KO">
 		No se pudo actualizar la {entity} debido a {reason}.
 	</Event>
+	<Event id="WRONG_TYPE_PARAMETER">
+		Tipo del parametro erroneo.
+	</Event>
+	<Event id="NO_ENTITY">
+		No existe la {entity} con el id {id}.
+	</Event>
+	<Event id="ENTITY_NOT_ACTIVE">
+		{entity} no esta activa.
+	</Event>
+	<Event id="ENTITY_WITH_DEPENDENCIES">
+		{entity} tiene dependencias.
+	</Event>
 </Events>

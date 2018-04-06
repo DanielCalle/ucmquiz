@@ -6,5 +6,10 @@
     	<file>/presentacion/login.fxml</file>
     	<controler>presentacion.guiControlers.SeleccionUsuarioController</controler>
     </gui>
+    <gui id="SHOW_ASIGNATURA_ACTIVATE_DESACTIVATE">
+    	<title>Activar/Desactivar asignatura</title>
+    	<file>/presentacion/ActivarDesactivarAsig.fxml</file>
+    	<controler>presentacion.guiControlers.ActivarDesactivarAsigController</controler>
+    </gui>
        
 </guis>
