@@ -6,7 +6,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-public class BorrarAsignaturaAdminController {
+public class BorrarAsignaturaAdminControllerImp extends BorrarAsignaturaAdminController {
 
     @FXML
     private JFXButton btncancelar;
