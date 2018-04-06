@@ -19,6 +19,9 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * Clase que maneja los eventos de la interfaz de crear pregunta.
+ */
 public class CrearPreguntaController implements Initializable {
 	
 	@FXML
@@ -36,6 +39,10 @@ public class CrearPreguntaController implements Initializable {
     @FXML
     private JFXTextArea txtText;
 
+    /**
+     * Metodo que llama al menu anterior
+     * @param event Evento que se genera al pulsarse el boton.
+     */
     @FXML
     void btnGoBackListener(ActionEvent event) {
 
@@ -45,6 +52,10 @@ public class CrearPreguntaController implements Initializable {
     	
     }
 
+    /**
+     * Metodo que crea una pregunta.
+     * @param event Evento que se genera al pulsarse el boton
+     */
 	@FXML
 	public void btnConfirmListener(ActionEvent event) {
 		
@@ -83,9 +94,15 @@ public class CrearPreguntaController implements Initializable {
 		
 	}
 
+	/**
+	 * Metodo que contiene el codigo que debe inicializarse al cargar la vista.
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
+		/**
+		 * Codigo que cambia el color del campo de texto.
+		 */
 		txtText.textProperty().addListener(new ChangeListener<String>() {
 
 			@Override
