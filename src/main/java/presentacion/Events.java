@@ -8,18 +8,71 @@ import javax.xml.xpath.XPathFactory;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 
+/**
+ * Clase que representa todos los eventos internos de la aplicacion.
+ */
 public enum Events {
 	
-	CRUD_CREATE_OK,
-	CRUD_CREATE_KO,
-	CRUD_READ_OK,
-	CRUD_READ_KO,
-	CRUD_READ_ALL_OK,
-	CRUD_READ_ALL_KO,
-	CRUD_UPDATE_OK,
-	CRUD_UPDATE_KO,
-	CRUD_DELETE_OK,
-	CRUD_DELETE_KO,
+	/**
+	 * Los eventos CRUD_ estan relacionados con el resultado de  operaciones
+	 * basicas Create, Read / ReadAll, Delete y Update.
+	 * 
+	 * Los eventos SHOW_ son eventos creados para mostrar una ventana.
+	 * 
+	 * Los eventos COMMAND_ se utilizan para invocar operaciones de negocio,
+	 * su resultado es mostrado al usuario mostrandole a este un mensaje en
+	 * la interfaz correspondiente.
+	 */
+	
+	CRUD_CREATE_USUARIO_OK,
+	CRUD_CREATE_PREGUNTA_OK,
+	CRUD_CREATE_RESPUESTA_OK,
+	CRUD_CREATE_ASIGNATURA_OK,
+	
+	CRUD_CREATE_USUARIO_KO,
+	CRUD_CREATE_PREGUNTA_KO,
+	CRUD_CREATE_RESPUESTA_KO,
+	CRUD_CREATE_ASIGNATURA_KO,
+	
+	CRUD_READ_USUARIO_OK,
+	CRUD_READ_PREGUNTA_OK,
+	CRUD_READ_RESPUESTA_OK,
+	CRUD_READ_ASIGNATURA_OK,
+	
+	CRUD_READ_USUARIO_KO,
+	CRUD_READ_PREGUNTA_KO,
+	CRUD_READ_RESPUESTA_KO,
+	CRUD_READ_ASIGNATURA_KO,
+	
+	CRUD_READ_ALL_USUARIO_OK,
+	CRUD_READ_ALL_PREGUNTA_OK,
+	CRUD_READ_ALL_RESPUESTA_OK,
+	CRUD_READ_ALL_ASIGNATURA_OK,
+	
+	CRUD_READ_ALL_USUARIO_KO,
+	CRUD_READ_ALL_PREGUNTA_KO,
+	CRUD_READ_ALL_RESPUESTA_KO,
+	CRUD_READ_ALL_ASIGNATURA_KO,
+	
+	CRUD_UPDATE_USUARIO_OK,
+	CRUD_UPDATE_PREGUNTA_OK,
+	CRUD_UPDATE_RESPUESTA_OK,
+	CRUD_UPDATE_ASIGNATURA_OK,
+	
+	CRUD_UPDATE_USUARIO_KO,
+	CRUD_UPDATE_PREGUNTA_KO,
+	CRUD_UPDATE_RESPUESTA_KO,
+	CRUD_UPDATE_ASIGNATURA_KO,
+	
+	CRUD_DELETE_USUARIO_OK,
+	CRUD_DELETE_PREGUNTA_OK,
+	CRUD_DELETE_RESPUESTA_OK,
+	CRUD_DELETE_ASIGNATURA_OK,
+	
+	CRUD_DELETE_USUARIO_KO,
+	CRUD_DELETE_PREGUNTA_KO,
+	CRUD_DELETE_RESPUESTA_KO,
+	CRUD_DELETE_ASIGNATURA_KO,
 	
 	SHOW_LOGIN,
 	SHOW_ROL_MENU,
@@ -28,19 +81,26 @@ public enum Events {
 	
 	;
 
-	private InputSource inputSource;
 	private Filter filter;
+	private InputSource inputSource;
 	
 	private Events() {
-		this.inputSource = new InputSource("Events.xml");
 		this.filter = new Filter();
+		this.inputSource = new InputSource("Events.xml");
 	}
 	
+	/**
+	 * @param filter Filtro que se aplica al mensaje del evento actual.
+	 * @return Devuelve el evento actual con el filtro asignado.
+	 */
 	public Events setFilter(Filter filter) {
 		this.filter = filter;
 		return this;
 	}
 	
+	/**
+	 * @return Devuelve el mensaje asociado a un evento concreto.
+	 */
 	public String getMessage() {
 
 		String message = null;
@@ -55,13 +115,15 @@ public enum Events {
 			
 			message = element.getTextContent().trim();
 			
+			message = filter.filter(message); 
+			
 		} catch (XPathExpressionException e) {
 			
 			e.printStackTrace();
 		
 		}
 		
-		return filter.filter(message);
+		return message;
 		
 	}
 	
