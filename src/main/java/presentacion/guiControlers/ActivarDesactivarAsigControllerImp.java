@@ -7,7 +7,7 @@ import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-public class ActivarDesactivarAsigController {
+public class ActivarDesactivarAsigControllerImp extends ActivarDesactivarAsigController {
 
     @FXML
     private JFXButton btncancelar;
