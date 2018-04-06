@@ -3,59 +3,81 @@ package presentacion.guiControlers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
+import com.jfoenix.controls.JFXTextArea;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import negocio.FactoriaNegocio;
-import negocio.pregunta.Pregunta;
-import com.jfoenix.controls.JFXButton;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class CrearPreguntaController implements Initializable {
 	
 	@FXML
-	private AnchorPane root;
+    private StackPane root;
 
-	@FXML
-	public TextArea txtText;
-	
-	@FXML
-    private JFXButton btnCancelar;
-	
-	@FXML
-	public Button btnConfirm;
-	
-	@FXML
-    void btnCancelListener(ActionEvent event) {
+    @FXML
+    private AnchorPane anchorPane;
 
+    @FXML
+    private JFXButton btnGoBack;
+
+    @FXML
+    private JFXButton btnConfirm;
+
+    @FXML
+    private JFXTextArea txtText;
+
+    @FXML
+    void btnGoBackListener(ActionEvent event) {
+
+    	Stage stage = (Stage) root.getScene().getWindow();
+    	
+    	stage.close();
+    	
     }
-	
+
 	@FXML
 	public void btnConfirmListener(ActionEvent event) {
 		
 		if(txtText.getLength() > 0) {
 			
-			Alert alert = new Alert(AlertType.WARNING);
 			
-			alert.setTitle("Advertencia");
-			
-			alert.setHeaderText("Accion incorrecta");
-			
-			alert.setContentText("No se pueden crear una pregunta en blanco");
-			
-			alert.showAndWait();
 			
 		} else {
 			
-			Pregunta pregunta = new Pregunta(txtText.getText(), true); 
+			JFXDialogLayout content = new JFXDialogLayout();
 			
-			FactoriaNegocio.getInstance().generateSAPregunta().create(pregunta);
+			content.setHeading(new Text("Advertencia"));
+			
+			content.setBody(new Text("No se puede crear una pregunta vacia."));
+			
+			JFXDialog dialog = new JFXDialog(root, content, JFXDialog.DialogTransition.CENTER);
+			
+			JFXButton confirmButton = new JFXButton("OK");
+			
+			confirmButton.setOnAction(new EventHandler<ActionEvent>() {
+				
+				@Override
+				public void handle(ActionEvent event) {
+					
+					dialog.close();
+			
+				}
+				
+			});
+			
+			content.setActions(confirmButton);
+			
+			dialog.show();
 			
 		}
 		
