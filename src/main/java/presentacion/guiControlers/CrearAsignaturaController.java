@@ -1,6 +1,8 @@
 package presentacion.guiControlers;
 
-public abstract class CrearAsignaturaController {
+import presentacion.GUI;
+
+public abstract class CrearAsignaturaController implements GUI {
 	
 	public static CrearAsignaturaController instance;
 	

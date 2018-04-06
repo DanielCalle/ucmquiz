@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import presentacion.Contexto;
 
 public class CrearAsignaturaControllerImp extends CrearAsignaturaController {
     @FXML
@@ -31,5 +32,11 @@ public class CrearAsignaturaControllerImp extends CrearAsignaturaController {
     void textfieldAsignaturaListener(ActionEvent event) {
 
     }
+
+	@Override
+	public void update(Contexto contexto) {
+		// TODO Auto-generated method stub
+		
+	}
 }
 
