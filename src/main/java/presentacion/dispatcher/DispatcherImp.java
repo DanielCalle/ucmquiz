@@ -1,12 +1,10 @@
 
 package presentacion.dispatcher;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
 import org.w3c.dom.Node;
@@ -32,7 +30,7 @@ public class DispatcherImp extends Dispatcher {
             
 			InputSource inputSource = new InputSource("Dispatcher.xml");
             
-			String regularExpression = "//*[@id='"+ contexto.getEvent() +"'][1]";
+			String regularExpression = "//*[@id='"+ contexto.getEvent().name() +"'][1]";
             
 			Node element = (Node) xpath.evaluate(regularExpression,inputSource,XPathConstants.NODE);
 			
@@ -79,7 +77,7 @@ public class DispatcherImp extends Dispatcher {
 	        
 			InputSource inputSource = new InputSource("Dispatcher.xml");
 	        
-			String regularExpression = "//*[@id='"+ contexto.getEvent() +"'][1]";
+			String regularExpression = "//*[@id='"+ contexto.getEvent().name() +"'][1]";
 	        
 			Node element = (Node) xpath.evaluate(regularExpression,inputSource,XPathConstants.NODE);
 			
@@ -93,15 +91,7 @@ public class DispatcherImp extends Dispatcher {
 			
 			view.update(contexto);
 			
-		} catch (XPathExpressionException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException e) {
-			
-			e.printStackTrace();
-		
-		} catch (IllegalAccessException e) {
-			
-			e.printStackTrace();
-		
-		} catch (IllegalArgumentException e) {
+		} catch (Exception e) {
 			
 			e.printStackTrace();
 		
