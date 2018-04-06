@@ -16,8 +16,12 @@ public class ControladorImp extends Controlador {
 
 		if(command != null)
 
+<<<<<<< HEAD
 		
 		dispatcher.updateView(command.execute(contexto.getDato()));
+=======
+			dispatcher.updateView(command.execute(contexto.getDato()));
+>>>>>>> master
 		
 		else
 			
