@@ -1,35 +1,15 @@
 package presentacion.guiControlers;
 
+public abstract class CrearAsignaturaController {
+	
+	public static CrearAsignaturaController instance;
+	
+	public static CrearAsignaturaController getInstance () {
+		
+		if (instance == null)
+			instance = new CrearAsignaturaControllerImp();
+		
+		return instance;
+	}
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextField;
-
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-
-public class CrearAsignaturaController {
-    @FXML
-    private JFXButton btncancelar;
-
-    @FXML
-    private JFXTextField textfieldAsignatura;
-
-    @FXML
-    private JFXButton btncrear;
-
-    @FXML
-    void btncancelarListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btncrearListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void textfieldAsignaturaListener(ActionEvent event) {
-
-    }
 }
-
