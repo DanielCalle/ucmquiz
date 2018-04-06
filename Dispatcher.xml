@@ -6,5 +6,9 @@
     	<file>/presentacion/login.fxml</file>
     	<controler>presentacion.guiControlers.SeleccionUsuarioController</controler>
     </gui>
-       
+    <gui id="SHOW_PREGUNTA_CREATE">
+    	<title>Crear pregunta</title>
+    	<file>/presentacion/CrearPregunta.fxml</file>
+    	<controler>presentacion.guiControlers.CrearPreguntaController</controler></gui>
+
 </guis>
