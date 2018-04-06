@@ -7,7 +7,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-public class CrearAsignaturaController {
+public class CrearAsignaturaControllerImp extends CrearAsignaturaController {
     @FXML
     private JFXButton btncancelar;
 
