@@ -9,12 +9,13 @@ import javax.persistence.TypedQuery;
 import negocio.ComprobadorSintactico;
 import negocio.EntityManagerUtil;
 import negocio.pregunta.Pregunta;
+import presentacion.Contexto;
 import presentacion.Events;
 
 public class SAAsignaturaImp implements SAAsignatura {
 
 	@Override
-	public int delete(int id) {
+	public Contexto delete(int id) {
 		
 		if (ComprobadorSintactico.isPositive(id)) {
 			EntityManager entityManager = EntityManagerUtil.getEntityManager();
@@ -33,24 +34,24 @@ public class SAAsignaturaImp implements SAAsignatura {
 					}
 					else {
 						entityTransaction.rollback();
-						return Events.ENTITY_WITH_DEPENDENCIES;
+						return new Contexto(Events.CRUD_DELETE_KO, id);
 					}
 				}
 				else {
 					entityTransaction.rollback();
-					return Events.ENTITY_NOT_ACTIVE;
+					return new Contexto(Events.CRUD_DELETE_KO, id);
 				}
 			}
 			else {
 				entityTransaction.rollback();
-				return Events.NO_ENTITY;
+				return new Contexto(Events.CRUD_DELETE_KO, id);
 			}
 			
 			entityManager.close();
 		}
-		else return Events.WRONG_TYPE_PARAMETER;
+		else return new Contexto(Events.CRUD_DELETE_KO, id);
 		
-		return id;
+		return new Contexto(Events.CRUD_DELETE_OK, id);
 	}
 	
 }

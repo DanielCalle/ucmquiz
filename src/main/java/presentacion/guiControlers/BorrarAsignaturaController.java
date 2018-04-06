@@ -1,15 +1,20 @@
 package presentacion.guiControlers;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import negocio.FactoriaNegocio;
-import negocio.asignatura.SAAsignatura;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
+import presentacion.Contexto;
+import presentacion.Events;
+import presentacion.controlador.Controlador;
 
 public class BorrarAsignaturaController {
-
+	
     @FXML
     private JFXButton btncancelar;
 
@@ -18,17 +23,28 @@ public class BorrarAsignaturaController {
 
     @FXML
     private JFXButton btnborrar;
+    
+	
+	private static BorrarAsignaturaController instance;
+	
+	public BorrarAsignaturaController() {
+		instance = this;
+	}
+
+	public static BorrarAsignaturaController getInstance() {
+		return instance;
+	}
+	
 
     @FXML
     void btnBorrar(ActionEvent event) {
-    	int id = Integer.parseInt(textfieldAsignatura.getText());
-    	SAAsignatura sa = FactoriaNegocio.getInstance().createSAAsignatura();
-    	sa.delete(id);
+    	Integer id = Integer.parseInt(textfieldAsignatura.getText());
+    	Contexto contexto = new Contexto(Events.COMMAND_ASIGNATURA_DELETE, id);
+    	Controlador.getInstance().accion(contexto);
     }
 
     @FXML
     void btnCancelar(ActionEvent event) {
-
     }
 
     @FXML

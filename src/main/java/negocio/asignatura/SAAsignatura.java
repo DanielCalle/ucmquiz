@@ -1,7 +1,9 @@
 package negocio.asignatura;
 
+import presentacion.Contexto;
+
 public interface SAAsignatura {
 	
-	public int delete(int id);
+	public Contexto delete(int id);
 
 }

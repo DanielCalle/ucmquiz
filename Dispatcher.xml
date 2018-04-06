@@ -6,5 +6,11 @@
     	<file>/presentacion/login.fxml</file>
     	<controler>presentacion.guiControlers.SeleccionUsuarioController</controler>
     </gui>
+    <gui id="SHOW_ASIGNATURA_DELETE">
+    	<title>Borrar asignatura</title>
+    	<file>/presentacion/BorrarAsignatura.fxml</file>
+    	<controler>presentacion.guiControlers.BorrarAsignaturaController</controler>
+    </gui>
+    
        
 </guis>
