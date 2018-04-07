@@ -49,9 +49,9 @@ public class SAAsignaturaImp implements SAAsignatura {
 				
 				entitytransaction.commit();
 				
-				event = Events.CRUD_CREATE_OK;
+				event = Events.CRUD_CREATE_ASIGNATURA_OK;
 			
-				filter.addFilter("entity","Asignatura");
+				filter.addFilter("info", asignatura.getTitulo());
 				
 				event.setFilter(filter);
 				
@@ -67,9 +67,9 @@ public class SAAsignaturaImp implements SAAsignatura {
 					
 					entitytransaction.commit();
 					
-					event = Events.CRUD_CREATE_OK;
+					event = Events.CRUD_CREATE_ASIGNATURA_OK;
 					
-					filter.addFilter("entity","Asignatura");
+					filter.addFilter("info", asignaturaResult.getTitulo());
 					
 					event.setFilter(filter);
 					
@@ -79,11 +79,11 @@ public class SAAsignaturaImp implements SAAsignatura {
 					
 					entitytransaction.rollback();
 	
-					event = Events.CRUD_CREATE_KO;
-					
-					filter.addFilter("entity","Asignatura");
+					event = Events.CRUD_CREATE_ASIGNATURA_KO;
 					
 					filter.addFilter("reason","que ya esta activa");
+					
+					filter.addFilter("info","la asignatura " + asignatura.getTitulo());
 					
 					event.setFilter(filter);
 					
