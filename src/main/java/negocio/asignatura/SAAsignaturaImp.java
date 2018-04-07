@@ -83,7 +83,7 @@ public class SAAsignaturaImp implements SAAsignatura {
 					
 					filter.addFilter("reason","que ya esta activa");
 					
-					filter.addFilter("info","");
+					filter.addFilter("info","la asignatura " + asignatura.getTitulo());
 					
 					event.setFilter(filter);
 					
