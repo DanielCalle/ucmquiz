@@ -11,12 +11,16 @@ import negocio.EntityManagerUtil;
 import negocio.pregunta.Pregunta;
 import presentacion.Contexto;
 import presentacion.Events;
+import presentacion.Filter;
 
 public class SAAsignaturaImp implements SAAsignatura {
 
 	@Override
 	public Contexto delete(int id) {
 		
+		Events e;
+		Filter filter = new Filter();
+
 		if (ComprobadorSintactico.isPositive(id)) {
 			EntityManager entityManager = EntityManagerUtil.getEntityManager();
 			EntityTransaction entityTransaction = entityManager.getTransaction();
@@ -31,27 +35,31 @@ public class SAAsignaturaImp implements SAAsignatura {
 					if(lista.isEmpty()) {
 						entityManager.remove(asignatura);
 						entityTransaction.commit();
+						e = Events.CRUD_DELETE_RESPUESTA_OK;
 					}
 					else {
 						entityTransaction.rollback();
-						return new Contexto(Events.CRUD_DELETE_KO, id);
+						e = Events.CRUD_DELETE_RESPUESTA_KO;
 					}
 				}
 				else {
 					entityTransaction.rollback();
-					return new Contexto(Events.CRUD_DELETE_KO, id);
+					e = Events.CRUD_DELETE_RESPUESTA_KO;
 				}
 			}
 			else {
 				entityTransaction.rollback();
-				return new Contexto(Events.CRUD_DELETE_KO, id);
+				e = Events.CRUD_DELETE_RESPUESTA_KO;
 			}
 			
 			entityManager.close();
 		}
-		else return new Contexto(Events.CRUD_DELETE_KO, id);
+		else e = Events.CRUD_DELETE_RESPUESTA_KO;
 		
-		return new Contexto(Events.CRUD_DELETE_OK, id);
+		//filter.addFilter("info","asignatura");
+		e.setFilter(filter);
+		
+		return new Contexto(e,id);
 	}
 	
 }
