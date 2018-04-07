@@ -47,7 +47,7 @@ public class SAPreguntaImp implements SAPregunta {
 					
 					entitytransaction.commit();
 		
-					event = Events.CRUD_CREATE_OK;
+					event = Events.CRUD_CREATE_PREGUNTA_OK;
 					
 					filter.addFilter("entity","pregunta");
 					
@@ -65,7 +65,7 @@ public class SAPreguntaImp implements SAPregunta {
 						
 						entitytransaction.commit();
 					
-						event = Events.CRUD_CREATE_OK;
+						event = Events.CRUD_CREATE_PREGUNTA_OK;
 						
 						filter.addFilter("entity","pregunta");
 						
@@ -77,7 +77,7 @@ public class SAPreguntaImp implements SAPregunta {
 						
 						entitytransaction.rollback();
 		
-						event = Events.CRUD_CREATE_OK;
+						event = Events.CRUD_CREATE_PREGUNTA_KO;
 						
 						filter.addFilter("entity","pregunta");
 						

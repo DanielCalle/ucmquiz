@@ -1,28 +1,135 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Events>
-	<Event id="CRUD_CREATE_OK">
-		Se dio de alta correctamente la {entity}.
-	</Event>
-	<Event id="CRUD_CREATE_KO">
-		No se pudo dar de alta la {entity} debido a {reason}.
-	</Event>
-	<Event id="CRUD_READ_OK">
-		Se leyo correctamente la {entity}.
-	</Event>
-	<Event id="CRUD_READ_KO">
-		No se pudo leer correctamenta la {entity} debido a {reason}.
-	</Event>
-	<Event id="CRUD_READ_ALL_OK">
-		Se leyeron correctamente las {entity}s.
-	</Event>
-	<Event id="CRUD_READ_ALL_KO">
-		No se pudieron leer correctamente las {entity}s debido a {reason}.
-	</Event>
-	<Event id="CRUD_UPDATE_OK">
-		Se actualizo correctamente la {entity}.
-	</Event>
-	<Event id="CRUD_UPDATE_KO">
-		No se pudo actualizar la {entity} debido a {reason}.
-	</Event>
+<?xml version="1.0" encoding="UTF-8" ?>
+<events>
 	
-</Events>
+	<event id="CRUD_CREATE_ASIGNATURA_OK">
+		Se dio de alta correctamente la asignatura {info}
+	</event>
+	<event id="CRUD_CREATE_PREGUNTA_OK">
+		Se dio de alta correctamente la pregunta {info}
+	</event>
+	<event id="CRUD_CREATE_RESPUESTA_OK">
+		Se dio de alta correctamente la respuesta {info}
+	</event>
+	<event id="CRUD_CREATE_USUARIO_OK">
+		Se dio de alta correctamente al usuario {info}
+	</event>
+	
+	<event id="CRUD_CREATE_ASIGNATURA_KO">
+		No se pudo dar de alta la {entity} debido a {reason} {info}
+	</event>
+	<event id="CRUD_CREATE_PREGUNTA_KO">
+		No se pudo dar de alta la pregunta debido a {reason} {info}
+	</event>
+	<event id="CRUD_CREATE_RESPUESTA_KO">
+		No se pudo dar de alta la respuesta debido a {reason} {info}
+	</event>
+	<event id="CRUD_CREATE_USUARIO_KO">
+		No se pudo dar de alta al usuario debido a {reason} {info}
+	</event>
+	
+	<event id="CRUD_READ_ASIGNATURA_OK">
+		Se leyo correctamente la asignatura {info}
+	</event>
+	<event id="CRUD_READ_PREGUNTA_OK">
+		Se leyo correctamente la pregunta {info}
+	</event>
+	<event id="CRUD_READ_RESPUESTA_OK">
+		Se leyo correctamente la respuesta {info}
+	</event>
+	<event id="CRUD_READ_USUARIO_OK">
+		Se leyo correctamente el usuario {info}
+	</event>
+	
+	<event id="CRUD_READ_ASIGNATURA_KO">
+		No se leyo correctamente la asignatura debido a {reason} {info}
+	</event>
+	<event id="CRUD_READ_PREGUNTA_KO">
+		No se leyo correctamente la pregunta debido a {reason} {info}
+	</event>
+	<event id="CRUD_READ_RESPUESTA_KO">
+		No se leyo correctamente la respuesta debido a {reason} {info}
+	</event>
+	<event id="CRUD_READ_USUARIO_KO">
+		No se leyo correctamente el usuario debido a {reason} {info}
+	</event>
+	
+	<event id="CRUD_READ_ALL_ASIGNATURA_OK">
+		Se leyeron correctamente las asignaturas {info}
+	</event>
+	<event id="CRUD_READ_ALL_PREGUNTA_OK">
+		Se leyeron correctamente las preguntas {info}
+	</event>
+	<event id="CRUD_READ_ALL_RESPUESTA_OK">
+		Se leyeron correctamente las respuestas {info}
+	</event>
+	<event id="CRUD_READ_ALL_USUARIO_OK">
+		Se leyeron correctamente los usuarios {info}
+	</event>
+	
+	<event id="CRUD_READ_ALL_ASIGNATURA_KO">
+		No se leyeron correctamente las asignaturas debido a {reason} {info}
+	</event>
+	<event id="CRUD_READ_ALL_PREGUNTA_KO">
+		No se leyeron correctamente las preguntas debido a {reason} {info}
+	</event>
+	<event id="CRUD_READ_ALL_RESPUESTA_KO">
+		No se leyeron correctamente las respuestas debido a {reason} {info}
+	</event>
+	<event id="CRUD_READ_ALL_USUARIO_KO">
+		No se leyeron correctamente los usuarios debido a {reason} {info}
+	</event>
+	
+	<event id="CRUD_UPDATE_ASIGNATURA_OK">
+		Se actualizo correctamente la asignatura {info}
+	</event>
+	<event id="CRUD_UPDATE_PREGUNTA_OK">
+		Se actualizo correctamente la pregunta {info}
+	</event>
+	<event id="CRUD_UPDATE_RESPUESTA_OK">
+		Se actualizo correctamente la respuesta {info}
+	</event>
+	<event id="CRUD_UPDATE_USUARIO_OK">
+		Se actualizo correctamente el usuario {info}
+	</event>
+	
+	<event id="CRUD_UPDATE_ASIGNATURA_KO">
+		No se actualizo correctamente la asignatura debido a {reason} {info}
+	</event>
+	<event id="CRUD_UPDATE_PREGUNTA_KO">
+		No se actualizo correctamente la pregunta debido a {reason} {info}
+	</event>
+	<event id="CRUD_UPDATE_RESPUESTA_KO">
+		No se actualizo correctamente la respuesta debido a {reason} {info}
+	</event>
+	<event id="CRUD_UPDATE_USUARIO_KO">
+		No se actualizo correctamente el usuario debido a {reason} {info}
+	</event>
+	
+	<event id="CRUD_DELETE_ASIGNATURA_OK">
+		Se borro correctamente la asignatura {info}
+	</event>
+	<event id="CRUD_DELETE_PREGUNTA_OK">
+		Se borro correctamente la pregunta {info}
+	</event>
+	<event id="CRUD_DELETE_RESPUESTA_OK">
+		Se borro correctamente la respuesta {info}
+	</event>
+	<event id="CRUD_DELETE_USUARIO_OK">
+		Se borro correctamente el usuario {info}
+	</event>
+	
+	<event id="CRUD_DELETE_ASIGNATURA_KO">
+		No se borro correctamente la asignatura debido a {reason} {info}
+	</event>
+	<event id="CRUD_DELETE_PREGUNTA_KO">
+		No se borro correctamente la pregunta debido a {reason} {info}
+	</event>
+	<event id="CRUD_DELETE_RESPUESTA_KO">
+		No se borro correctamente la respuesta debido a {reason} {info}
+	</event>
+	<event id="CRUD_DELETE_USUARIO_KO">
+		No se borro correctamente el usuario debido a {reason} {info}
+	</event>
+	
+</events>
+

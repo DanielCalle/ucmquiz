@@ -4,12 +4,22 @@
     <gui id="SHOW_LOGIN">
     	<title>Login</title>
     	<file>/presentacion/login.fxml</file>
-    	<controler>presentacion.guiControlers.SeleccionUsuarioController</controler>
+    	<controler>presentacion.guiControlers.LoginController</controler>
     </gui>
-    <gui id="SHOW_PREGUNTA_CREATE">
+    
+    <gui id="CRUD_CREATE_USUARIO_OK">
+    	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
+    </gui>
+     <gui id="SHOW_PREGUNTA_CREATE">
     	<title>Crear pregunta</title>
     	<file>/presentacion/CrearPregunta.fxml</file>
     	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
+    </gui>
+    <gui id="CRUD_CREATE_PREGUNTA_OK">
+     	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
+    </gui>
+     <gui id="CRUD_CREATE_PREGUNTA_KO">
+     	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
     </gui>
 	
 </guis>
