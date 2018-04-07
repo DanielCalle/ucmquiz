@@ -1,6 +1,8 @@
 
 package presentacion.dispatcher;
 
+import java.lang.reflect.Method;
+
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
@@ -22,7 +24,9 @@ public class DispatcherImp extends Dispatcher {
 		
 		try {
 			
-			XPath xpath = XPathFactory.newInstance().newXPath();
+			XPathFactory xPathFactory = XPathFactory.newInstance();
+			
+			XPath xpath = xPathFactory.newXPath();
             
 			InputSource inputSource = new InputSource("Dispatcher.xml");
             
@@ -34,7 +38,11 @@ public class DispatcherImp extends Dispatcher {
 			
 			String windowTitle = element.getChildNodes().item(1).getTextContent();
 			
+			String controlerClass = element.getChildNodes().item(5).getTextContent();
+			
 			FXMLLoader loader = new FXMLLoader();
+			
+			loader.setController(Class.forName(controlerClass).getMethod("getInstance").invoke(null));
 			
 			loader.setLocation(getClass().getResource(filePath));
 			
@@ -61,9 +69,33 @@ public class DispatcherImp extends Dispatcher {
 	@Override
 	public void updateView(Contexto contexto) {
 		
-		GUI gui = (GUI) contexto.getDato();
+		try {
+			
+			XPathFactory xPathFactory = XPathFactory.newInstance();
+			
+			XPath xpath = xPathFactory.newXPath();
+	        
+			InputSource inputSource = new InputSource("Dispatcher.xml");
+	        
+			String regularExpression = "//*[@id='"+ contexto.getEvent().name() +"'][1]";
+	        
+			Node element = (Node) xpath.evaluate(regularExpression,inputSource,XPathConstants.NODE);
+			
+			String controlerClassPath = element.getChildNodes().item(1).getTextContent();
+			
+			Class<?> controlerClass = Class.forName(controlerClassPath);
+			
+			Method method = controlerClass.getMethod("getInstance");
+			
+			GUI view = (GUI) method.invoke(null);
+			
+			view.update(contexto);
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
 		
-		gui.update(contexto);
+		}
 		
 	}
 	

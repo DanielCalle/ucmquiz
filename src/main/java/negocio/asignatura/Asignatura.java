@@ -2,6 +2,10 @@ package negocio.asignatura;
 
 import javax.persistence.*;
 
+/**
+ * Entidad de negocio Asignatura.
+ * Esta clase contiene una relacion 1 : N con la entidad Pregunta.
+ */
 @Entity
 @NamedQueries({
 	@NamedQuery(

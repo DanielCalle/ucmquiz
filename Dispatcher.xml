@@ -4,6 +4,11 @@
     <gui id="SHOW_LOGIN">
     	<title>Login</title>
     	<file>/presentacion/login.fxml</file>
+    	<controler>presentacion.guiControlers.LoginController</controler>
+    </gui>
+    
+    <gui id="CRUD_CREATE_USUARIO_OK">
+    	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
     </gui>
        
 </guis>
