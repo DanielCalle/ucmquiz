@@ -15,7 +15,7 @@
 	</event>
 	
 	<event id="CRUD_CREATE_ASIGNATURA_KO">
-		No se pudo dar de alta la {entity} debido a {reason} {info}
+		No se pudo dar de alta la asignatura debido a {reason} {info}
 	</event>
 	<event id="CRUD_CREATE_PREGUNTA_KO">
 		No se pudo dar de alta la pregunta debido a {reason} {info}

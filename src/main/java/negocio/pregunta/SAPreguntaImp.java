@@ -49,7 +49,7 @@ public class SAPreguntaImp implements SAPregunta {
 		
 					event = Events.CRUD_CREATE_PREGUNTA_OK;
 					
-					filter.addFilter("entity","pregunta");
+					filter.addFilter("info", "");
 					
 					event.setFilter(filter);
 					
@@ -67,7 +67,7 @@ public class SAPreguntaImp implements SAPregunta {
 					
 						event = Events.CRUD_CREATE_PREGUNTA_OK;
 						
-						filter.addFilter("entity","pregunta");
+						filter.addFilter("info", "");
 						
 						event.setFilter(filter);
 						
@@ -79,9 +79,9 @@ public class SAPreguntaImp implements SAPregunta {
 		
 						event = Events.CRUD_CREATE_PREGUNTA_KO;
 						
-						filter.addFilter("entity","pregunta");
+						filter.addFilter("reason","que ya existia");
 						
-						filter.addFilter("entity","que ya existia");
+						filter.addFilter("info", "");
 						
 						event.setFilter(filter);
 						
