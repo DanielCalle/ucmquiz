@@ -40,7 +40,7 @@ public enum Events {
 	SHOW_PREGUNTA_CREATE,
 	
 	COMMAND_USER_LOGIN,
-	COMMAND_PREGUNTA_CREATE
+	COMMAND_PREGUNTA_CREATE,
 	;
 
 	private Filter filter;

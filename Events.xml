@@ -24,4 +24,5 @@
 	<Event id="CRUD_UPDATE_KO">
 		No se pudo actualizar la {entity} debido a {reason}.
 	</Event>
+	
 </Events>
