@@ -81,7 +81,7 @@ public class SAPreguntaImp implements SAPregunta {
 						
 						filter.addFilter("reason","que ya existia");
 						
-						filter.addFilter("entity", "");
+						filter.addFilter("info", "");
 						
 						event.setFilter(filter);
 						
