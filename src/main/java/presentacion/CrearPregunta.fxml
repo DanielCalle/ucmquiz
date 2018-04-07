@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<<<<<<< HEAD
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
@@ -33,3 +34,28 @@
       </AnchorPane>
    </children>
 </StackPane>
+=======
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F44336;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.guiControlers.CrearPreguntaController">
+   <children>
+      <Label layoutX="46.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="175.0" text="Crear Pregunta" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="44.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="12.0" prefWidth="414.0" text="Introduzca el enunciado de la pregunta" textFill="#ffcdd2">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutY="82.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="318.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF; -fx-background-size: 10000;">
+         <children>
+            <JFXButton fx:id="btnCancelar" buttonType="RAISED" cache="true" cancelButton="true" depthTest="DISABLE" layoutX="281.0" layoutY="236.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#btnCancelListener" prefHeight="37.0" prefWidth="135.0" ripplerFill="BLACK" style="-fx-background-color: white;" text="Cancelar" textOverrun="CLIP" />
+            <JFXButton fx:id="btnConfirm" layoutX="443.0" layoutY="236.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnConfirmListener" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #F44336;" text="Confirmar" textFill="WHITE" />
+            <JFXTextArea fx:id="txtText" focusColor="BLACK" layoutX="68.0" layoutY="28.0" unFocusColor="#d32f2f" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
+>>>>>>> refs/remotes/origin/T22
