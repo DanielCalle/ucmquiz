@@ -36,6 +36,7 @@ import javafx.util.Callback;
 import negocio.asignatura.Asignatura;
 import presentacion.Contexto;
 import presentacion.Events;
+import presentacion.controlador.Controlador;
 
 public class unocontroller implements Initializable {
 
@@ -73,11 +74,8 @@ public class unocontroller implements Initializable {
 				});
 
 		ObservableList<Asignatura> users = FXCollections.observableArrayList();
-		users.add
-		users.add(new Asignatura("EDA", true));
-		users.add(new Asignatura("TAIS", true));
-		users.add(new Asignatura("GPS", true));
-		users.add(new Asignatura("MS", true));
+		Contexto contexto = new Contexto(Events.CRUD_READ_ALL_OK, null);
+		Controlador.getInstance().accion(contexto);
 
 		final TreeItem<Asignatura> root = new RecursiveTreeItem<Asignatura>(users, RecursiveTreeObject::getChildren);
 		treeView.getColumns().setAll(deptName, deptEstado);
