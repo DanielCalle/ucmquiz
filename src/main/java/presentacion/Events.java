@@ -76,9 +76,10 @@ public enum Events {
 	
 	SHOW_LOGIN,
 	SHOW_ROL_MENU,
+	SHOW_PREGUNTA_CREATE,
 	
 	COMMAND_USER_LOGIN,
-	
+	COMMAND_PREGUNTA_CREATE,
 	;
 
 	private Filter filter;
