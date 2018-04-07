@@ -35,28 +35,28 @@ public class SAAsignaturaImp implements SAAsignatura {
 					if(lista.isEmpty()) {
 						entityManager.remove(asignatura);
 						entityTransaction.commit();
-						e = Events.CRUD_DELETE_RESPUESTA_OK;
+						e = Events.CRUD_DELETE_ASIGNATURA_OK;
 					}
 					else {
 						entityTransaction.rollback();
-						e = Events.CRUD_DELETE_RESPUESTA_KO;
+						e = Events.CRUD_DELETE_ASIGNATURA_KO;
 					}
 				}
 				else {
 					entityTransaction.rollback();
-					e = Events.CRUD_DELETE_RESPUESTA_KO;
+					e = Events.CRUD_DELETE_ASIGNATURA_KO;
 				}
 			}
 			else {
 				entityTransaction.rollback();
-				e = Events.CRUD_DELETE_RESPUESTA_KO;
+				e = Events.CRUD_DELETE_ASIGNATURA_KO;
 			}
 			
 			entityManager.close();
 		}
-		else e = Events.CRUD_DELETE_RESPUESTA_KO;
+		else e = Events.CRUD_DELETE_ASIGNATURA_KO;
 		
-		//filter.addFilter("info","asignatura");
+		filter.addFilter("info", "");
 		e.setFilter(filter);
 		
 		return new Contexto(e,id);
