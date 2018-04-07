@@ -34,6 +34,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 import negocio.asignatura.Asignatura;
+import presentacion.Contexto;
+import presentacion.Events;
 
 public class unocontroller implements Initializable {
 
@@ -71,6 +73,7 @@ public class unocontroller implements Initializable {
 				});
 
 		ObservableList<Asignatura> users = FXCollections.observableArrayList();
+		users.add
 		users.add(new Asignatura("EDA", true));
 		users.add(new Asignatura("TAIS", true));
 		users.add(new Asignatura("GPS", true));

@@ -11,10 +11,11 @@ import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 
 import presentacion.Command;
+import presentacion.Events;
 
 public class FactoriaCommandImp extends FactoriaCommand {
 
-	public Command generateCommand(int event) {
+	public Command generateCommand(Events event) {
 		
 		Command command = null;
 		

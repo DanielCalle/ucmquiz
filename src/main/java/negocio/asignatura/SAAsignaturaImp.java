@@ -8,11 +8,13 @@ import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
 import negocio.EntityManagerUtil;
+import presentacion.Contexto;
+import presentacion.Events;
 
 public class SAAsignaturaImp implements SAAsignatura {
 
 	@Override
-	public List<Asignatura> readAll() {
+	public Contexto readAll() {
 		List<Asignatura> lista = null;
 		try {
 			EntityManager entitymanager = EntityManagerUtil.getEntityManager();
@@ -24,9 +26,11 @@ public class SAAsignaturaImp implements SAAsignatura {
 			entitytransaction.commit();
 				
 			entitymanager.close();
-		} catch(PersistenceException ex) {}
-		
-		return lista;
+		} catch(PersistenceException ex) {
+		}
+		if (lista.equals(null))
+			return new Contexto(Events.CRUD_READ_ALL_KO, null);
+		return new Contexto(Events.CRUD_READ_ALL_OK, lista);
 	}
 
 }

@@ -2,8 +2,10 @@ package negocio.asignatura;
 
 import java.util.List;
 
+import presentacion.Contexto;
+
 public interface SAAsignatura {
 	
-	public List<Asignatura> readAll();
+	public Contexto readAll();
 
 }

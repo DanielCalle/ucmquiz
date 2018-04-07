@@ -2,15 +2,15 @@ package presentacion;
 
 public class Contexto {
 	
-	private int evento;
+	private Events evento;
 	private Object dato;
 
-	public Contexto(int evento, Object dato) {
+	public Contexto(Events evento, Object dato) {
 		this.dato = dato;
 		this.evento = evento;
 	}
 
-	public int getEvent() {
+	public Events getEvent() {
 		return evento;
 	}
 
@@ -18,7 +18,7 @@ public class Contexto {
 		return dato;
 	}
 
-	public void setEvent(int event) {
+	public void setEvent(Events event) {
 		this.evento = event;
 	}
 
