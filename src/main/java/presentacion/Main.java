@@ -15,7 +15,7 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage stage) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/presentacion/SeleccionUsuario.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/presentacion/CrearAsignatura.fxml"));
 		stage.setTitle("UCM QUIZ");
 		
 		//stage.setResizable(false);
@@ -23,6 +23,24 @@ public class Main extends Application {
 		stage.show();
 		/*stage.setScene(new Scene(root2));
 		stage.show();*/
+		
+		/*FXMLLoader loader = new FXMLLoader();
+		   
+		loader.setController(Main.forName("/presentacion/guiControlers/CrearAsignaturaController").getMethod("getInstance").invoke(null));
+		   
+		loader.setLocation(getClass().getResource("/presentacion/CrearAsignatura.fxml"));
+		   
+		Parent root = loader.load();
+		   
+		Stage stage1 = new Stage();
+		   
+		stage1.setTitle("Crear Asignatura");
+		      
+		stage1.setResizable(false);
+		      
+		stage1.setScene(new Scene(root));
+		      
+		stage1.show();*/
 		
 		
 	}

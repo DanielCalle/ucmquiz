@@ -78,6 +78,7 @@ public enum Events {
 	SHOW_ROL_MENU,
 	
 	COMMAND_USER_LOGIN,
+	COMMAND_CREATE_SUBJECT,
 	
 	;
 
