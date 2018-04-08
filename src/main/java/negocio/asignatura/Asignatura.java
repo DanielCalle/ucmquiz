@@ -7,6 +7,10 @@ import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+/**
+ * Entidad de negocio Asignatura.
+ * Esta clase contiene una relacion 1 : N con la entidad Pregunta.
+ */
 @Entity
 public class Asignatura extends RecursiveTreeObject<Asignatura>{
 

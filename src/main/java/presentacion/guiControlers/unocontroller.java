@@ -74,7 +74,7 @@ public class unocontroller implements Initializable {
 				});
 
 		ObservableList<Asignatura> users = FXCollections.observableArrayList();
-		Contexto contexto = new Contexto(Events.CRUD_READ_ALL_OK, null);
+		Contexto contexto = new Contexto(Events.CRUD_READ_ALL_ASIGNATURA_OK, null);
 		Controlador.getInstance().accion(contexto);
 
 		final TreeItem<Asignatura> root = new RecursiveTreeItem<Asignatura>(users, RecursiveTreeObject::getChildren);

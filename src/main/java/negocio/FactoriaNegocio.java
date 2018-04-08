@@ -1,6 +1,7 @@
 package negocio;
 
 import negocio.asignatura.SAAsignaturaImp;
+import negocio.pregunta.SAPregunta;
 
 public abstract class FactoriaNegocio {
 
@@ -10,6 +11,8 @@ public abstract class FactoriaNegocio {
 		if(instance == null) instance = new FactoriaNegocioImp();
 		return instance;
 	}
+	
+	public abstract SAPregunta generateSAPregunta();
 
 	abstract public SAAsignaturaImp createSAAsignatura();
 

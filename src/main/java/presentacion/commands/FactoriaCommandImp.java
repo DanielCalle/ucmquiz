@@ -21,15 +21,11 @@ public class FactoriaCommandImp extends FactoriaCommand {
 		
 		try {
 			
-			XPathFactory xPathFactory = XPathFactory.newInstance();
-			
-			XPath xpath = xPathFactory.newXPath();
-            
 			InputSource inputSource = new InputSource("Commands.xml");
+			
+			XPath xpath = XPathFactory.newInstance().newXPath();
             
-            String regularExpression = "//*[@id='"+ event +"'][1]";
-            
-            Node element = (Node) xpath.evaluate(regularExpression,inputSource,XPathConstants.NODE);
+            Node element = (Node) xpath.evaluate("//*[@id='"+ event.name() +"'][1]", inputSource, XPathConstants.NODE);
 			
 			if(element != null) {
 				

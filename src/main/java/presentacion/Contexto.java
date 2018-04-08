@@ -3,8 +3,8 @@ package presentacion;
 public class Contexto {
 	
 	private Events evento;
-	private Object dato;
-
+	private Object dato;	
+	
 	public Contexto(Events evento, Object dato) {
 		this.dato = dato;
 		this.evento = evento;

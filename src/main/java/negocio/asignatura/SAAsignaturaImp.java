@@ -30,8 +30,8 @@ public class SAAsignaturaImp implements SAAsignatura {
 			if (lista.isEmpty()) {
 				entitytransaction.rollback();
 				
-				event = Events.CRUD_READ_ALL_KO;
-				
+
+				event = Events.CRUD_READ_ALL_PREGUNTA_KO;
 				filter.addFilter("reason","no existen asignaturas");
 				
 				filter.addFilter("info", "");
@@ -42,7 +42,7 @@ public class SAAsignaturaImp implements SAAsignatura {
 			}
 			else {
 			entitytransaction.commit();
-			event = Events.CRUD_READ_ALL_OK;
+			event = Events.CRUD_READ_PREGUNTA_OK;
 			
 			filter.addFilter("info", "");
 			
