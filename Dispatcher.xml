@@ -22,6 +22,11 @@
      	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
     </gui>
     
-    //meter aqui CRUD_READ_ALL_ASIGNATURA_OK KO AQUI METO CONTROLLER ABSTRACTO
+    <gui id="CRUD_READ_ALL_ASIGNATURA_OK">
+    <controler> presentacion.guiControlers.unoController</controler>
+    </gui>
+    <gui id="CRUD_READ_ALL_ASIGNATURA_KO">
+    	<controler>presentacion.guiControlers.unoController</controler>
+    </gui>
 	
 </guis>
