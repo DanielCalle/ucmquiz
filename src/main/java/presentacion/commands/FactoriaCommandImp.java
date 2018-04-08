@@ -11,24 +11,21 @@ import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 
 import presentacion.Command;
+import presentacion.Events;
 
 public class FactoriaCommandImp extends FactoriaCommand {
 
-	public Command generateCommand(int event) {
+	public Command generateCommand(Events event) {
 		
 		Command command = null;
 		
 		try {
 			
-			XPathFactory xPathFactory = XPathFactory.newInstance();
-			
-			XPath xpath = xPathFactory.newXPath();
-            
 			InputSource inputSource = new InputSource("Commands.xml");
+			
+			XPath xpath = XPathFactory.newInstance().newXPath();
             
-            String regularExpression = "//*[@id='"+ event +"'][1]";
-            
-            Node element = (Node) xpath.evaluate(regularExpression,inputSource,XPathConstants.NODE);
+            Node element = (Node) xpath.evaluate("//*[@id='"+ event.name() +"'][1]", inputSource, XPathConstants.NODE);
 			
 			if(element != null) {
 				
