@@ -1,11 +1,13 @@
 package negocio.asignatura;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 import presentacion.Contexto;
+import presentacion.Events;
 
 public class SAAsignaturaTest {
 
@@ -64,6 +66,26 @@ public class SAAsignaturaTest {
 			id > 0 || id == null
 		);
 	
+	}
+	
+	@Test
+	public void testBorrarAsignatura() {
+		
+		Asignatura asignatura = new Asignatura("GPS5", true);
+		
+		SAAsignatura sa = new  SAAsignaturaImp();
+		
+		Contexto contexto = sa.create(asignatura);
+		
+		Integer id = (Integer) contexto.getDato();
+		
+		contexto = sa.delete(id);
+		
+		assertEquals("El evento de la operacion Delete en Asignatura tiene que estar OK"
+				,contexto.getEvent(),
+				Events.CRUD_DELETE_ASIGNATURA_OK);
+		
+		
 	}
 	
 }

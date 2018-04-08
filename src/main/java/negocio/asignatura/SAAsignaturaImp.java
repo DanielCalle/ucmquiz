@@ -40,7 +40,7 @@ public class SAAsignaturaImp implements SAAsignatura {
 			
 			if (asignatura != null) {
 				if (asignatura.isActivo()) {
-					TypedQuery<Pregunta> query = entityManager.createNamedQuery("negocio.trabajador.Trabajador.findByAsignatura", Pregunta.class).setParameter("asignatura", asignatura);
+					TypedQuery<Pregunta> query = entityManager.createNamedQuery("negocio.pregunta.Pregunta.findByAsignatura", Pregunta.class).setParameter("asignatura", asignatura);
 					List<Pregunta> lista = query.getResultList();
 					if(lista.isEmpty()) {
 						entityManager.remove(asignatura);

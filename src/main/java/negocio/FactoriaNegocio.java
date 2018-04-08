@@ -1,10 +1,7 @@
 package negocio;
 
 import negocio.asignatura.SAAsignatura;
-<<<<<<< HEAD
-=======
 import negocio.pregunta.SAPregunta;
->>>>>>> refs/remotes/origin/develop
 
 public abstract class FactoriaNegocio {
 
@@ -15,8 +12,6 @@ public abstract class FactoriaNegocio {
 		return instance;
 	}
 	
-	public abstract SAAsignatura createSAAsignatura();
-
 	public abstract SAPregunta generateSAPregunta();
 
 	public abstract SAAsignatura generateSAAsignatura();

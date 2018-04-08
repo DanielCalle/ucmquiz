@@ -20,7 +20,11 @@ import negocio.asignatura.Asignatura;
 	@NamedQuery(
 		name = "negocio.pregunta.Pregunta.findBytexto", 
 		query = "select obj from Pregunta obj where obj.texto = :texto"
-	)
+	),
+	@NamedQuery(
+			name = "negocio.pregunta.Pregunta.findByAsignatura", 
+			query = "select obj from Pregunta obj where obj.asignatura = :asignatura"
+		)
 })
 public class Pregunta {
 	
