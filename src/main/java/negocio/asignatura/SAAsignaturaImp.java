@@ -42,7 +42,7 @@ public class SAAsignaturaImp implements SAAsignatura {
 			}
 			else {
 			entitytransaction.commit();
-			event = Events.CRUD_READ_PREGUNTA_OK;
+			event = Events.CRUD_READ_ALL_PREGUNTA_OK;
 			
 			filter.addFilter("info", "");
 			

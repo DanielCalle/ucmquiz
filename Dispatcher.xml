@@ -21,5 +21,7 @@
      <gui id="CRUD_CREATE_PREGUNTA_KO">
      	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
     </gui>
+    
+    //meter aqui CRUD_READ_ALL_ASIGNATURA_OK KO AQUI METO CONTROLLER ABSTRACTO
 	
 </guis>
