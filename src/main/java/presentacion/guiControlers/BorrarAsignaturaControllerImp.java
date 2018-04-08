@@ -86,6 +86,10 @@ public class BorrarAsignaturaControllerImp extends BorrarAsignaturaController {
 
     @FXML
     void btnCancelar(ActionEvent event) {
+    	
+    	Stage stage = (Stage) root.getScene().getWindow();
+    	
+    	stage.close();
     }
 
     

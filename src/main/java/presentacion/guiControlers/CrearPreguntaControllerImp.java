@@ -20,6 +20,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import negocio.FactoriaNegocio;
 import negocio.pregunta.Pregunta;
 import presentacion.Contexto;
@@ -45,7 +46,10 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
 
 	@FXML
 	void btnCancelListener(ActionEvent event) {
-
+		
+		Stage stage = (Stage) stackpane.getScene().getWindow();
+    	
+    	stage.close();
 	}
 
 	@FXML

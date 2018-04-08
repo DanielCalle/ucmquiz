@@ -15,9 +15,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import negocio.asignatura.Asignatura;
 import presentacion.Contexto;
@@ -85,6 +87,10 @@ public class MenuProfesorasignaturasControllerImp extends MenuProfesorasignatura
 
 	@FXML
 	void botonNuevoAction(ActionEvent event) {
+		/*
+		Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		https://www.youtube.com/watch?v=LDVztNtJWOo&t=790s
+		*/
 		
 		Contexto contexto = new Contexto(Events.SHOW_ASIGNATURA_CREATE,null);
 		Controlador.getInstance().accion(contexto);

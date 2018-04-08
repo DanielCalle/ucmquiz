@@ -70,6 +70,8 @@ public class CrearAsignaturaControllerImp extends CrearAsignaturaController impl
 			Contexto contexto = new Contexto(Events.COMMAND_CREATE_SUBJECT, asignatura);
 
 			Controlador.getInstance().accion(contexto);
+			
+			
 
 		}
 
