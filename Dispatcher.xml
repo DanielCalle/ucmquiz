@@ -15,6 +15,11 @@
     	<file>/presentacion/CrearPregunta.fxml</file>
     	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
     </gui>
+    <gui id="SHOW_SELECCION_USUARIO">
+    	<title>Seleccion Usuario</title>
+    	<file>/presentacion/SeleccionUsuario.fxml</file>
+    	<controler>presentacion.guiControlers.SeleccionUsuarioController</controler>
+    </gui>
     <gui id="CRUD_CREATE_PREGUNTA_OK">
      	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
     </gui>
