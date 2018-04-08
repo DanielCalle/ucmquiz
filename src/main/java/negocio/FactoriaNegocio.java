@@ -2,6 +2,9 @@ package negocio;
 
 import negocio.asignatura.SAAsignatura;
 
+import negocio.asignatura.SAAsignatura;
+import negocio.pregunta.SAPregunta;
+
 public abstract class FactoriaNegocio {
 
 	private static FactoriaNegocio instance;
@@ -12,5 +15,7 @@ public abstract class FactoriaNegocio {
 	}
 	
 	public abstract SAAsignatura generateSAAsignatura();
+	
+	public abstract SAPregunta generateSAPregunta();
 
 }
