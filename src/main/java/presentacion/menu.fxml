@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="488.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.guiControlers.unocontroller">
+   <children>
+      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="777.0">
+         <children>
+            <Pane prefHeight="480.0" prefWidth="751.0">
+               <children>
+                  <Pane prefHeight="54.0" prefWidth="791.0" style="-fx-background-color: white;">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="44.0" prefWidth="171.0" style="-fx-background-color: #F44336;" text="UCM QUIZ" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutY="44.0" prefHeight="447.0" prefWidth="171.0" style="-fx-background-color: #2D435A;">
+                     <children>
+                        <JFXButton alignment="CENTER" prefHeight="35.0" prefWidth="171.0" style="-fx-border-color: grey;" text="Prguntas" textFill="#bdbdbd" />
+                        <JFXButton alignment="CENTER" layoutY="35.0" prefHeight="35.0" prefWidth="171.0" style="-fx-border-color: grey;" text="Respuestas" textFill="#bdbdbd" />
+                        <JFXButton alignment="CENTER" layoutY="70.0" prefHeight="35.0" prefWidth="171.0" style="-fx-border-color: grey;" text="Asignaturas" textFill="#bdbdbd" />
+                     </children>
+                  </Pane>
+                  <JFXTreeTableView id="tabla" fx:id="treeView" layoutX="171.0" layoutY="44.0" prefHeight="348.0" prefWidth="608.0" stylesheets="@main.css" />
+                  <Pane layoutX="521.0" layoutY="392.0" prefHeight="84.0" prefWidth="242.0">
+                     <children>
+                        <JFXButton fx:id="botonNuevo" alignment="CENTER" layoutX="27.0" layoutY="33.0" onAction="#botonNuevoAction" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #BDBDBD;" text="Nueva" textFill="#d32f2f" />
+                        <JFXButton fx:id="botonEliminar" layoutX="140.0" layoutY="33.0" onAction="#botonEliminarAction" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #F44336;" text="Eliminar" textFill="WHITE" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>
