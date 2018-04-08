@@ -1,88 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <guis>
     
-    <gui id="0">
+    <gui id="SHOW_LOGIN">
     	<title>Login</title>
-    	<file>/presentacion/GUI/login.fxml</file>
-    	<controler>presentacion.guiControlers.LoginControler</controler>
+    	<file>/presentacion/login.fxml</file>
+    	<controler>presentacion.guiControlers.SeleccionUsuarioController</controler>
+    </gui>
+    <gui id="SHOW_ASIGNATURA_DELETE">
+    	<title>Borrar asignatura</title>
+    	<file>/presentacion/BorrarAsignatura.fxml</file>
+    	<controler>presentacion.guiControlers.BorrarAsignaturaController</controler>
+    </gui>
+    <gui id="CRUD_DELETE_ASIGNATURA_OK">
+     	<controler>presentacion.guiControlers.BorrarAsignaturaController</controler>
+    </gui>
+    <gui id="CRUD_DELETE_ASIGNATURA_KO">
+     	<controler>presentacion.guiControlers.BorrarAsignaturaController</controler>
+	</gui>
+    
+    <gui id="CRUD_CREATE_ASIGNATURA_OK">
+    	<controler>presentacion.guiControlers.CrearAsignaturaController</controler>
     </gui>
     
-    <gui id="2">
-    	<title>Login</title>
-    	<file>/presentacion/GUI/login.fxml</file>
-    	<controler>presentacion.guiControlers.LoginControler</controler>
+    <gui id="CRUD_CREATE_ASIGNATURA_KO">
+    	<controler>presentacion.guiControlers.CrearAsignaturaController</controler>
     </gui>
-    
-    <gui id="3">
-    	<title>Login</title>
-    	<file>/presentacion/GUI/login.fxml</file>
-    	<controler>presentacion.guiControlers.LoginControler</controler>
+     <gui id="SHOW_PREGUNTA_CREATE">
+    	<title>Crear pregunta</title>
+    	<file>/presentacion/CrearPregunta.fxml</file>
+    	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
     </gui>
-    
-    <gui id="20">
-    	<title>Menu Principal</title>
-    	<file>/presentacion/GUI/mainMenu.fxml</file>
-    	<controler>presentacion.guiControlers.MainMenuControler</controler>
+    <gui id="CRUD_CREATE_PREGUNTA_OK">
+     	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
     </gui>
-    
-    <gui id="40">
-    	<title>Crear Pregunta</title>
-    	<file>/presentacion/GUI/createQuestion.fxml</file>
-    	<controler>presentacion.guiControlers.CreateQuestionControler</controler>
+     <gui id="CRUD_CREATE_PREGUNTA_KO">
+     	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
     </gui>
-    
-    <gui id="42">
-    	<title>Crear Pregunta</title>
-    	<file>/presentacion/GUI/createQuestion.fxml</file>
-    	<controler>presentacion.guiControlers.CreateQuestionControler</controler>
-    </gui>
-    
-    <gui id="43">
-    	<title>Crear Pregunta</title>
-    	<file>/presentacion/GUI/createQuestion.fxml</file>
-    	<controler>presentacion.guiControlers.CreateQuestionControler</controler>
-    </gui>
-    
-    <gui id="45">
-    	<title>Crear Pregunta</title>
-    	<file>/presentacion/GUI/createQuestion.fxml</file>
-    	<controler>presentacion.guiControlers.CreateQuestionControler</controler>
-    </gui>
-    
-    <gui id="46">
-    	<title>Crear Pregunta</title>
-    	<file>/presentacion/GUI/createQuestion.fxml</file>
-    	<controler>presentacion.guiControlers.CreateQuestionControler</controler>
-    </gui>
-    
-    <gui id="60">
-    	<title>Responder Pregunta</title>
-    	<file>/presentacion/GUI/answerQuestion.fxml</file>
-    	<controler>presentacion.guiControlers.AnswerQuestionControler</controler>
-    </gui>
-    
-    <gui id="62">
-    	<title>Responder Pregunta</title>
-    	<file>/presentacion/GUI/answerQuestion.fxml</file>
-    	<controler>presentacion.guiControlers.AnswerQuestionControler</controler>
-    </gui>
-    
-    <gui id="63">
-    	<title>No Preguntas</title>
-    	<file>/presentacion/GUI/mainMenu.fxml</file>
-    	<controler>presentacion.guiControlers.MainMenuControler</controler>
-    </gui>
-    
-    <gui id="68">
-    	<title>Responder Pregunta</title>
-    	<file>/presentacion/GUI/answerQuestion.fxml</file>
-    	<controler>presentacion.guiControlers.AnswerQuestionControler</controler>
-    </gui>
-    
-    <gui id="69">
-    	<title>Responder Pregunta</title>
-    	<file>/presentacion/GUI/mainMenu.fxml</file>
-    	<controler>presentacion.guiControlers.MainMenuControler</controler>
-    </gui>
-       
 </guis>
