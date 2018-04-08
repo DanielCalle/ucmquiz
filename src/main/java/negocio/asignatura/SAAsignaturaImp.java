@@ -46,27 +46,37 @@ public class SAAsignaturaImp implements SAAsignatura {
 						entityManager.remove(asignatura);
 						entityTransaction.commit();
 						e = Events.CRUD_DELETE_ASIGNATURA_OK;
+						filter.addFilter("info","con ID " + id);
 					}
 					else {
 						entityTransaction.rollback();
 						e = Events.CRUD_DELETE_ASIGNATURA_KO;
+						filter.addFilter("reason","que tiene preguntas asignadas");
+						filter.addFilter("info","con ID " + id);
 					}
 				}
 				else {
 					entityTransaction.rollback();
 					e = Events.CRUD_DELETE_ASIGNATURA_KO;
+					filter.addFilter("reason","que la asignatura no esta activa");
+					filter.addFilter("info","con ID " + id);
 				}
 			}
 			else {
 				entityTransaction.rollback();
 				e = Events.CRUD_DELETE_ASIGNATURA_KO;
+				filter.addFilter("reason","que la asignatura no existe");
+				filter.addFilter("info","con ID " + id);
 			}
 			
 			entityManager.close();
 		}
-		else e = Events.CRUD_DELETE_ASIGNATURA_KO;
+		else {
+			e = Events.CRUD_DELETE_ASIGNATURA_KO;
+			filter.addFilter("reason","el ID que se quiere borrar no tiene formato adecuado");
+			filter.addFilter("info","con ID " + id);
+		}
 		
-		filter.addFilter("info", "");
 		e.setFilter(filter);
 		
 		return new Contexto(e,id);
