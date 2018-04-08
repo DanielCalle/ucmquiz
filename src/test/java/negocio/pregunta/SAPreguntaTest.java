@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import presentacion.Contexto;
+import negocio.FactoriaNegocio;
 
 public class SAPreguntaTest {
 
@@ -14,11 +14,7 @@ public class SAPreguntaTest {
 		
 		Pregunta p = new Pregunta("¿ Cual es la definicion sencilla del teorema de la integral de Riemann ?", true);
 		
-		SAPreguntaImp sa = new SAPreguntaImp();
-		
-		Contexto contexto = sa.create(p);
-		
-		Integer id = (Integer) contexto.getDato(); 
+		Integer id = (Integer) FactoriaNegocio.getInstance().generateSAPregunta().create(p).getDato();
 		
 		assertTrue(
 			"Si la pregunta ya esta en la BBDD se ha de retornar " +
@@ -33,10 +29,8 @@ public class SAPreguntaTest {
 	public void testCrearPreguntaNula() {
 		
 		Pregunta p = null;
-				
-		SAPreguntaImp sa = new SAPreguntaImp();
 		
-		assertNull("No se puede crear una pregunta nula.", sa.create(p).getDato() );
+		assertNull("No se puede crear una pregunta nula.", FactoriaNegocio.getInstance().generateSAPregunta().create(p) );
 		
 	}
 	
@@ -45,11 +39,7 @@ public class SAPreguntaTest {
 		 
 		Pregunta p = new Pregunta("¿ Cual es la definicion de Kernel para un sistema operativo ?", false);
 		
-		SAPreguntaImp sa = new SAPreguntaImp();
-		
-		Contexto contexto = sa.create(p);
-		
-		Integer id = (Integer) contexto.getDato(); 
+		Integer id = (Integer) FactoriaNegocio.getInstance().generateSAPregunta().create(p).getDato(); 
 		
 		assertTrue(
 			"Podemos insertar una pregunta desactivada, su identificador " +
