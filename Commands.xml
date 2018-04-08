@@ -2,6 +2,8 @@
 <commands>
 	
 	<command id="COMMAND_USER_LOGIN">presentacion.commands.CommandUserLogin</command>
+	
+	<command id="COMMAND_ASIGNATURA_DELETE">presentacion.commands.asignatura.CommandAsignaturaDelete</command>
 
 	<command id="COMMAND_PREGUNTA_CREATE">presentacion.commands.pregunta.CommandPreguntaCreate</command>
 
