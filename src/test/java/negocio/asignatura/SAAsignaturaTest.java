@@ -6,19 +6,20 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import negocio.FactoriaNegocio;
 import presentacion.Contexto;
 import presentacion.Events;
 
 public class SAAsignaturaTest {
 
 	@Test
-	public void testCrearAsignatura() {
+	public void testCrearAsignaturaNueva() {
 		
-		Asignatura asignatura = new Asignatura("MMI", true);
+		Asignatura asignatura = new Asignatura("ABD", true);
 		
-		SAAsignatura sa = new  SAAsignaturaImp();
+		SAAsignatura saAsignatura = FactoriaNegocio.getInstance().generateSAAsignatura();
 		
-		Contexto contexto = sa.create(asignatura);
+		Contexto contexto = saAsignatura.create(asignatura);
 		
 		Integer id = (Integer) contexto.getDato();
 		
@@ -31,18 +32,10 @@ public class SAAsignaturaTest {
 	
 	@Test
 	public void testCrearAsignaturaNula() {
-		
-		Asignatura asignatura = null;
-		
-		SAAsignatura sa = new  SAAsignaturaImp();
-		
-		Contexto contexto = sa.create(asignatura);
 	
-		Integer id = (Integer) contexto.getDato();
-		
 		assertNull(
 			"No se puede crear una asignatura nula.", 
-			id
+			FactoriaNegocio.getInstance().generateSAAsignatura().create(null)
 		);
 		
 	}
@@ -51,19 +44,15 @@ public class SAAsignaturaTest {
 	public void testCrearAsignaturaNoActiva() {
 		
 		Asignatura asignatura = new Asignatura("GPS", false);
-		
-		SAAsignatura sa = new  SAAsignaturaImp();
-		
-		Contexto contexto = sa.create(asignatura);
 	
-		Integer id = (Integer) contexto.getDato();
+		Integer id = (Integer) FactoriaNegocio.getInstance().generateSAAsignatura().create(asignatura).getDato();
 		
 		assertTrue( 
 			"Es posible meter una asignatura no activa. " +
 			"Si se mete una segunda vez, esta es reactivada automaticamente " +
 			"si su estado de activo en la BBDD es false, en caso contrario devuelve null."
 			,  
-			id > 0 || id == null
+			id >= 0 || id == null
 		);
 	
 	}
