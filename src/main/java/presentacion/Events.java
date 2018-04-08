@@ -81,6 +81,8 @@ public enum Events {
 	
 	COMMAND_USER_LOGIN,
 	COMMAND_PREGUNTA_CREATE,
+	COMMAND_CREATE_SUBJECT
+
 	;
 
 	private Filter filter;

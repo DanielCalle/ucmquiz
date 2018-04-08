@@ -6,7 +6,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import presentacion.Contexto;
 
-public class SeleccionUsuarioControllerImp extends SeleccionUsuarioController{
+
+public class SeleccionUsuarioControllerImp extends SeleccionUsuarioController {
+
 
 	@FXML
     private JFXButton btnprofesor;
@@ -38,6 +40,5 @@ public class SeleccionUsuarioControllerImp extends SeleccionUsuarioController{
 		// TODO Auto-generated method stub
 		
 	}
-
 
 }

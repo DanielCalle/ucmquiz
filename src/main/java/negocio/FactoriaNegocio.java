@@ -1,5 +1,6 @@
 package negocio;
 
+import negocio.asignatura.SAAsignatura;
 import negocio.pregunta.SAPregunta;
 
 public abstract class FactoriaNegocio {
@@ -12,5 +13,7 @@ public abstract class FactoriaNegocio {
 	}
 	
 	public abstract SAPregunta generateSAPregunta();
+
+	public abstract SAAsignatura generateSAAsignatura();
 
 }

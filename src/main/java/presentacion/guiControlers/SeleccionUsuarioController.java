@@ -2,6 +2,7 @@ package presentacion.guiControlers;
 
 import presentacion.GUI;
 
+
 public abstract class SeleccionUsuarioController implements GUI{
 
 	public static SeleccionUsuarioController instance;
@@ -9,4 +10,5 @@ public abstract class SeleccionUsuarioController implements GUI{
 		if(instance == null) instance = new SeleccionUsuarioControllerImp();
 		return instance;
 	}
+
 }

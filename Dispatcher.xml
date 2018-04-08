@@ -7,8 +7,12 @@
     	<controler>presentacion.guiControlers.LoginController</controler>
     </gui>
     
-    <gui id="CRUD_CREATE_USUARIO_OK">
-    	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
+    <gui id="CRUD_CREATE_ASIGNATURA_OK">
+    	<controler>presentacion.guiControlers.CrearAsignaturaController</controler>
+    </gui>
+    
+    <gui id="CRUD_CREATE_ASIGNATURA_KO">
+    	<controler>presentacion.guiControlers.CrearAsignaturaController</controler>
     </gui>
      <gui id="SHOW_PREGUNTA_CREATE">
     	<title>Crear pregunta</title>
