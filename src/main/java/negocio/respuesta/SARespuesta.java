@@ -1,5 +1,7 @@
 package negocio.respuesta;
 
+import presentacion.Contexto;
+
 public interface SARespuesta {
-	public int create(Respuesta respuesta);
+	public Contexto create(Respuesta respuesta);
 }
