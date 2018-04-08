@@ -13,46 +13,66 @@ import org.junit.Test;
 
 import presentacion.Contexto;
 import presentacion.Events;
+import presentacion.Filter;
 
 public class SAAsignaturaTest {
 	
+	/**
+	 * 
+	 * Test para probar la clase activaAsignatura
+	 * Se ingresa el id de una asignatura y se espera COMMAND_ASIGNATURA_ACTIVATE si se ha hecho correctamente
+	 */
+	
 	@Test
 	public void testActivaAsignatura () {
-		boolean estado = false;
+	
 		
-		//Asignatura asignatura = new Asignatura("MOG", false); //8
+		Asignatura asignatura = new Asignatura("MDL", false);
+		
 		SAAsignatura sa = new  SAAsignaturaImp();
-		//int idAsig = sa.create(asignatura);
-		//System.out.println(idAsig);
 		
-		//estado = sa.activaAsignatura(8);
+		Contexto contexto = sa.create(asignatura);
 		
-		System.out.println(estado);
+		int id = (int) contexto.getDato();
+		
+		contexto = sa.activaAsignatura(id);
+		
+		assertEquals("El evento de la operacion Activar en Asignatura tiene que dar el comando COMMAND_ASIGNATURA_ACTIVATE"
+				,contexto.getEvent(),Events.COMMAND_ASIGNATURA_ACTIVATE);
+		
 	
-	
-		assertThat(estado, IsEqual.equalTo(true));
 	}
+	
+	/**
+	 * Test para probar la clase desactivaAsignatura
+	 * Se ingresa el id de una asignatura y se espera COMMAND_ASIGNATURA_DESACTIVATE si se ha hecho correctamente
+	 */
 	
 	@Test 
 	public void testDesactivaAsignatura () {
 		
-		boolean estado = true;
+		Filter filter = new Filter();
+		filter
+			.addFilter("entity", "asignatura")
+			.addFilter("operation", "activar");
 		
-		//Asignatura asignatura = new Asignatura("ASR", true); //7
+		Asignatura asignatura = new Asignatura("MMI", true);
+		
 		SAAsignatura sa = new  SAAsignaturaImp();
-		//int idAsig = sa.create(asignatura);
-		//System.out.println(idAsig);
 		
+		Contexto contexto = sa.create(asignatura);
 		
-		//estado = sa.desactivaAsignatura(7);
+		int id = (int) contexto.getDato();
 		
-		System.out.println(estado);
+		contexto = sa.desactivaAsignatura(id);
+		
+		assertEquals("El evento de la operacion Desactivar en Asignatura tiene que dar el comando COMMAND_ASIGNATURA_DESACTIVATE "
+				,contexto.getEvent(),Events.COMMAND_ASIGNATURA_DESACTIVATE.setFilter(filter));
 	
-	
-		assertThat(estado, IsEqual.equalTo(false));
 		
 	}
-
+	
+	/*
 	@Test
 	public void testCrearAsignatura() {
 		
@@ -128,6 +148,6 @@ public class SAAsignaturaTest {
 				Events.CRUD_DELETE_ASIGNATURA_OK);
 		
 		
-	}
+	}*/
 	
 }

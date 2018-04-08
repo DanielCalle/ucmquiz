@@ -64,7 +64,7 @@ public class SAAsignaturaImp implements SAAsignatura {
 		}
 		else return new Contexto(Events.WRONG_TYPE_PARAMETER.setFilter(filter), id);
 		
-		return new Contexto(Events.COMMAND_ASIGNATURA_ACTIVATE.setFilter(filter), id);
+		return new Contexto(Events.COMMAND_ASIGNATURA_ACTIVATE, id);
 	}
 	
 	@Override
