@@ -2,6 +2,11 @@ package negocio.asignatura;
 
 import javax.persistence.*;
 
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 /**
  * Entidad de negocio Asignatura.
  * Esta clase contiene una relacion 1 : N con la entidad Pregunta.
@@ -13,7 +18,7 @@ import javax.persistence.*;
 		query = "select obj from Asignatura obj where obj.titulo = :titulo"
 	)
 })
-public class Asignatura {
+public class Asignatura extends RecursiveTreeObject<Asignatura> {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
@@ -63,5 +68,12 @@ public class Asignatura {
 	public void setActivo(boolean activo) {
 		this.activo = activo;
 	}
-	
+	public StringProperty getTituloStringProperty() {
+		return new SimpleStringProperty(titulo);
+	}
+	public StringProperty getActivoStringProperty() {
+		if(activo)return new SimpleStringProperty("Activada");
+		else return new SimpleStringProperty("Desactivada");
+		
+	}
 }

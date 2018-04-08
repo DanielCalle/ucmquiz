@@ -41,4 +41,16 @@
      <gui id="CRUD_CREATE_PREGUNTA_KO">
      	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
     </gui>
+    <gui id="SHOW_MENU_PROFESORES_ASIGNATURAS">
+    	<title>Menu asignatura profesores</title>
+    	<file>/presentacion/MenuProfesorAsignaturas.fxml</file>
+    	<controler>presentacion.guiControlers.MenuProfesorasignaturasController</controler>
+    </gui>
+    <gui id="SHOW_ASIGNATURA_CREATE">
+    	<title>Crear asignatura</title>
+    	<file>/presentacion/CrearAsignatura.fxml</file>
+    	<controler>presentacion.guiControlers.CrearAsignaturaController</controler>
+    </gui>
+    
+    
 </guis>
