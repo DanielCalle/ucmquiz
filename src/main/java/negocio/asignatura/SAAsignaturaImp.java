@@ -24,57 +24,48 @@ public class SAAsignaturaImp implements SAAsignatura {
 	@Override
 	public Contexto delete(int id) {
 		
-		// Filtro para los mensajes que se vayan a mostrar
+		Events e;
 		Filter filter = new Filter();
-		filter
-			.addFilter("entity", "Asignatura")
-			.addFilter("operation", "delete");
-		
-		// Comprueba la sintaxis del parametro de entrada que tiene que ser un int positivo
+
 		if (ComprobadorSintactico.isPositive(id)) {
-			filter.addFilter("id", Integer.toString(id));
-			
-			// Se comienza la transaccion
 			EntityManager entityManager = EntityManagerUtil.getEntityManager();
 			EntityTransaction entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			
-			// Busca en la base de datos la Asignatura
 			Asignatura asignatura = entityManager.find(Asignatura.class, id);
 			
-			// Si se encuentra
 			if (asignatura != null) {
-				// Si es activo
 				if (asignatura.isActivo()) {
-					// Se crea la query para ver si hay preguntas que dependen de esta asignatura a borrar
 					TypedQuery<Pregunta> query = entityManager.createNamedQuery("negocio.trabajador.Trabajador.findByAsignatura", Pregunta.class).setParameter("asignatura", asignatura);
 					List<Pregunta> lista = query.getResultList();
-					// Si no hay dependencias
 					if(lista.isEmpty()) {
-						// Borrado y commit
 						entityManager.remove(asignatura);
 						entityTransaction.commit();
+						e = Events.CRUD_DELETE_ASIGNATURA_OK;
 					}
 					else {
 						entityTransaction.rollback();
-						return new Contexto(Events.ENTITY_WITH_DEPENDENCIES.setFilter(filter), id);
+						e = Events.CRUD_DELETE_ASIGNATURA_KO;
 					}
 				}
 				else {
 					entityTransaction.rollback();
-					return new Contexto(Events.ENTITY_NOT_ACTIVE.setFilter(filter), id);
+					e = Events.CRUD_DELETE_ASIGNATURA_KO;
 				}
 			}
 			else {
 				entityTransaction.rollback();
-				return new Contexto(Events.NO_ENTITY.setFilter(filter), id);
+				e = Events.CRUD_DELETE_ASIGNATURA_KO;
 			}
 			
 			entityManager.close();
 		}
-		else return new Contexto(Events.WRONG_TYPE_PARAMETER.setFilter(filter), id);
+		else e = Events.CRUD_DELETE_ASIGNATURA_KO;
 		
-		return new Contexto(Events.CRUD_DELETE_OK.setFilter(filter), id);
+		filter.addFilter("info", "");
+		e.setFilter(filter);
+		
+		return new Contexto(e,id);
 	}
 	
 }
