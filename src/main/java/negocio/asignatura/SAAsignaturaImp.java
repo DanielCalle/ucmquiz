@@ -1,7 +1,11 @@
 package negocio.asignatura;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceException;
+import javax.persistence.TypedQuery;
 
 import negocio.ComprobadorSintactico;
 import negocio.EntityManagerUtil;
@@ -88,6 +92,37 @@ public class SAAsignaturaImp implements SAAsignatura {
 		else return new Contexto(Events.WRONG_TYPE_PARAMETER.setFilter(filter), id);
 		
 		return new Contexto(Events.COMMAND_ASIGNATURA_DESACTIVATE.setFilter(filter), id);
+	}
+	
+	/**
+	 * Devuelve la lista con todas las asignaturas
+	 * @author Daniel Calle
+	 */
+	@Override
+	public Contexto readAll() {
+		Events e;
+		Filter filter = new Filter();
+		List<Asignatura> lista = null;
+		
+		try {
+			EntityManager entitymanager = EntityManagerUtil.getEntityManager();
+			EntityTransaction entitytransaction = entitymanager.getTransaction();
+			entitytransaction.begin();
+				
+			TypedQuery<Asignatura> query = entitymanager.createNamedQuery("negocio.asignatura.Asignatura.readAll", Asignatura.class);
+			lista = query.getResultList();
+			entitytransaction.commit();
+			e = Events.CRUD_READ_ALL_ASIGNATURA_OK;
+			filter.addFilter("info","");
+				
+			entitymanager.close();
+		} catch(PersistenceException ex) {
+			e = Events.CRUD_READ_ALL_ASIGNATURA_KO;
+			filter.addFilter("reason","problemas técnicos");
+			filter.addFilter("info","");
+		}
+		
+		return new Contexto(e,lista);
 	}
 
 }

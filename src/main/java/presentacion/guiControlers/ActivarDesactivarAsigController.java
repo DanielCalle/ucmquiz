@@ -1,6 +1,8 @@
 package presentacion.guiControlers;
 
-public abstract class ActivarDesactivarAsigController {
+import presentacion.GUI;
+
+public abstract class ActivarDesactivarAsigController implements GUI {
 	
 	public static ActivarDesactivarAsigController instance;
 	

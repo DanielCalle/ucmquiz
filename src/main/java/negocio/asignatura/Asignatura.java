@@ -7,6 +7,8 @@ import javax.persistence.*;
  * Esta clase contiene una relacion 1 : N con la entidad Pregunta.
  */
 @Entity
+@NamedQueries({
+	@NamedQuery(name = "negocio.asignatura.Asignatura.readAll", query = "select obj from Asignatura obj where obj.activo = 1") })
 public class Asignatura {
 
 
