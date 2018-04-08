@@ -6,4 +6,6 @@ public interface SAAsignatura {
 	
 	public Contexto delete(int id);
 
+	Contexto create(Asignatura asignatura);
+	
 }

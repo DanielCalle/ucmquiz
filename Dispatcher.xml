@@ -18,5 +18,22 @@
      	<controler>presentacion.guiControlers.BorrarAsignaturaController</controler>
 	</gui>
     
-       
+    <gui id="CRUD_CREATE_ASIGNATURA_OK">
+    	<controler>presentacion.guiControlers.CrearAsignaturaController</controler>
+    </gui>
+    
+    <gui id="CRUD_CREATE_ASIGNATURA_KO">
+    	<controler>presentacion.guiControlers.CrearAsignaturaController</controler>
+    </gui>
+     <gui id="SHOW_PREGUNTA_CREATE">
+    	<title>Crear pregunta</title>
+    	<file>/presentacion/CrearPregunta.fxml</file>
+    	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
+    </gui>
+    <gui id="CRUD_CREATE_PREGUNTA_OK">
+     	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
+    </gui>
+     <gui id="CRUD_CREATE_PREGUNTA_KO">
+     	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
+    </gui>
 </guis>

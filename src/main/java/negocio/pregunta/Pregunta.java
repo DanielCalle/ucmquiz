@@ -18,8 +18,8 @@ import negocio.asignatura.Asignatura;
 @Entity
 @NamedQueries({
 	@NamedQuery(
-		name = "negocio.pregunta.Pregunta.findByAsignatura",
-		query = "select obj from Pregunta obj where obj.asignatura = :asignatura"
+		name = "negocio.pregunta.Pregunta.findBytexto", 
+		query = "select obj from Pregunta obj where obj.texto = :texto"
 	)
 })
 public class Pregunta {
