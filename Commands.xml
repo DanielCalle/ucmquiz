@@ -2,5 +2,9 @@
 <commands>
 	
 	<command id="COMMAND_USER_LOGIN">presentacion.commands.CommandUserLogin</command>
+
 	<command id="COMMAND_PREGUNTA_CREATE">presentacion.commands.pregunta.CommandPreguntaCreate</command>
+
+	<command id="COMMAND_CREATE_SUBJECT">presentacion.commands.CommandCrearAsignatura</command>
+	
 </commands>
