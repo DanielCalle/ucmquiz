@@ -9,7 +9,7 @@ public class CommandAsignaturaDelete implements Command {
 	@Override
 	public Contexto execute(Object data) {
 		Integer id = (Integer) data;
-		return FactoriaNegocio.getInstance().createSAAsignatura().delete(id);
+		return FactoriaNegocio.getInstance().generateSAAsignatura().delete(id);
 	}
 	
 }
