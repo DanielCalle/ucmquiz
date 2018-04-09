@@ -31,10 +31,11 @@
                      </children>
                   </Pane>
                   <JFXTreeTableView id="tabla" fx:id="treeView" layoutX="171.0" layoutY="44.0" prefHeight="348.0" prefWidth="608.0" stylesheets="@main.css" />
-                  <Pane layoutX="521.0" layoutY="392.0" prefHeight="84.0" prefWidth="242.0">
+                  <Pane layoutX="421.0" layoutY="392.0" prefHeight="84.0" prefWidth="342.0">
                      <children>
                         <JFXButton fx:id="botonNuevo" alignment="CENTER" layoutX="27.0" layoutY="33.0" onAction="#botonNuevoAction" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #BDBDBD;" text="Nueva" textFill="#d32f2f" />
                         <JFXButton fx:id="botonEliminar" layoutX="140.0" layoutY="33.0" onAction="#botonEliminarAction" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #F44336;" text="Eliminar" textFill="WHITE" />
+                        <JFXButton fx:id="botonActivarDesactivar" layoutX="241.0" layoutY="33.0" onAction="#botonActivarDesactivarAction" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #F44336;" text="Activar/Desactivar" textFill="WHITE" />
                      </children>
                   </Pane>
                </children>

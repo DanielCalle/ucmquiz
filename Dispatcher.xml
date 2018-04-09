@@ -51,6 +51,10 @@
     	<file>/presentacion/CrearAsignatura.fxml</file>
     	<controler>presentacion.guiControlers.CrearAsignaturaController</controler>
     </gui>
-    
+    <gui id="SHOW_ASIGNATURA_ACTIVATE_DESACTIVATE">
+    	<title>Crear asignatura</title>
+    	<file>/presentacion/ActivarDesactivarAsig.fxml</file>
+    	<controler>presentacion.guiControlers.ActivarDesactivarAsigController</controler>
+    </gui>
     
 </guis>

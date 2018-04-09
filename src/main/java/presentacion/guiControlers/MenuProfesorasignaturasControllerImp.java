@@ -33,6 +33,9 @@ public class MenuProfesorasignaturasControllerImp extends MenuProfesorasignatura
 
 	@FXML
 	private JFXButton botonEliminar;
+	
+	@FXML
+    private JFXButton botonActivarDesactivar;
 
 	@FXML
 	private JFXTreeTableView<Asignatura> treeView;
@@ -102,5 +105,11 @@ public class MenuProfesorasignaturasControllerImp extends MenuProfesorasignatura
 		// TODO Auto-generated method stub
 		
 	}
+	@FXML
+    void botonActivarDesactivarAction(ActionEvent event) {
+		Contexto contexto = new Contexto(Events.SHOW_ASIGNATURA_ACTIVATE_DESACTIVATE,null);
+		Controlador.getInstance().accion(contexto);
+    }
+
 
 }
