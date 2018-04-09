@@ -40,7 +40,7 @@ public class SAAsignaturaTest {
 		contexto = sa.activeAsignatura(id);
 		
 		assertEquals("El evento de la operacion Activar en Asignatura tiene que dar el comando COMMAND_ASIGNATURA_ACTIVATE"
-				,contexto.getEvent(),Events.COMMAND_ASIGNATURA_ACTIVATE);
+				,contexto.getEvent(),Events.ASIGNATURA_ACTIVATE_OK);
 		
 	
 	}
@@ -56,9 +56,9 @@ public class SAAsignaturaTest {
 		Filter filter = new Filter();
 		filter
 			.addFilter("entity", "asignatura")
-			.addFilter("operation", "activar");
+			.addFilter("operation", "desactivar");
 		
-		Asignatura asignatura = new Asignatura("MMI", true);
+		Asignatura asignatura = new Asignatura("IS", true);
 		
 		SAAsignatura sa = new  SAAsignaturaImp();
 		
@@ -69,7 +69,9 @@ public class SAAsignaturaTest {
 		contexto = sa.desactiveAsignatura(id);
 		
 		assertEquals("El evento de la operacion Desactivar en Asignatura tiene que dar el comando COMMAND_ASIGNATURA_DESACTIVATE "
-				,contexto.getEvent(),Events.COMMAND_ASIGNATURA_DESACTIVATE.setFilter(filter));
+				,contexto.getEvent(),Events.ASIGNATURA_DESACTIVATE_OK.setFilter(filter));
+//		assertEquals("El evento de la operacion Desactivar en Asignatura tiene que dar el comando COMMAND_ASIGNATURA_DESACTIVATE "
+//				,contexto.getEvent(),Events.COMMAND_ASIGNATURA_DESACTIVATE.setFilter(filter));
 	
 		
 	}
