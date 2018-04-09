@@ -1,16 +1,12 @@
 package negocio.asignatura;
 
-import static org.junit.Assert.assertThat;
-
-import org.hamcrest.core.IsEqual;
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import negocio.FactoriaNegocio;
 import presentacion.Contexto;
 import presentacion.Events;
 import presentacion.Filter;
@@ -72,7 +68,6 @@ public class SAAsignaturaTest {
 		
 	}
 	
-	/*
 	@Test
 	public void testCrearAsignatura() {
 		
@@ -94,17 +89,9 @@ public class SAAsignaturaTest {
 	@Test
 	public void testCrearAsignaturaNula() {
 		
-		Asignatura asignatura = null;
-		
-		SAAsignatura sa = new  SAAsignaturaImp();
-		
-		Contexto contexto = sa.create(asignatura);
-	
-		Integer id = (Integer) contexto.getDato();
-		
 		assertNull(
 			"No se puede crear una asignatura nula.", 
-			id
+			FactoriaNegocio.getInstance().generateSAAsignatura().create(null)
 		);
 		
 	}
@@ -148,6 +135,6 @@ public class SAAsignaturaTest {
 				Events.CRUD_DELETE_ASIGNATURA_OK);
 		
 		
-	}*/
+	}
 	
 }

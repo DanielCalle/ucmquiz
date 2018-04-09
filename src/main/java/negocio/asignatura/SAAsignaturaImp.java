@@ -1,14 +1,5 @@
 package negocio.asignatura;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-
-import negocio.ComprobadorSintactico;
-import negocio.EntityManagerUtil;
-import presentacion.Contexto;
-import presentacion.Events;
-import presentacion.Filter;
-
 import java.util.List;
 
 import javax.persistence.EntityManager;
