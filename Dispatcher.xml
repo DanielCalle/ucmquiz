@@ -43,6 +43,12 @@
     <gui id="CRUD_READ_ALL_ASIGNATURA_KO">
     	<controler>presentacion.guiControlers.unoController</controler>
     </gui>
+    
+    <gui id="SHOW_ASIGNATURA_LISTAR">
+    <title>Listar asignaturas</title>
+    <file>/presentacion/uno.fxml</file>
+    <controler>presentacion.guiControlers.unoController</controler>
+    </gui>
 	
 
 </guis>
