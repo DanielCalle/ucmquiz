@@ -81,7 +81,7 @@ public class MenuProfesorasignaturasControllerImp extends MenuProfesorasignatura
 		final TreeItem<Asignatura> root = new RecursiveTreeItem<Asignatura>(users, RecursiveTreeObject::getChildren);
 		treeView.getColumns().setAll(deptName, deptEstado);
 		// treeView.getColumns().setAll(deptEstado);
-		treeView.setRoot(root);
+		//treeView.setRoot(root);
 		treeView.setShowRoot(false);
 		treeView.getSelectionModel().getSelectedItem();
 		// botonEliminar.setDisable(true);

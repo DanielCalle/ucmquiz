@@ -42,7 +42,7 @@ public class SeleccionUsuarioControllerImp extends SeleccionUsuarioController {
     	
     	stage.close();
     	
-    	Contexto contexto = new Contexto(Events.SHOW_MENU_PROFESORES_ASIGNATURAS,null);
+    	Contexto contexto = new Contexto(Events.SHOW_MENU_PROFESORES_PREGUNTAS,null);
 		Controlador.getInstance().accion(contexto);
 		
     	
