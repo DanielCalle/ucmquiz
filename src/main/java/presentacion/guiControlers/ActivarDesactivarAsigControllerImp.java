@@ -10,16 +10,20 @@ import javax.persistence.EntityTransaction;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXToggleButton;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import negocio.EntityManagerUtil;
 import negocio.asignatura.Asignatura;
@@ -113,6 +117,9 @@ public class ActivarDesactivarAsigControllerImp extends ActivarDesactivarAsigCon
 
 	@Override
 	public void update(Contexto contexto) {
+		JFXDialogLayout content;
+		JFXDialog dialog;
+		JFXButton button;
 		switch (contexto.getEvent()) {
 		case ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE_OK:
 			list = (List<Asignatura>) contexto.getDato();
@@ -120,16 +127,80 @@ public class ActivarDesactivarAsigControllerImp extends ActivarDesactivarAsigCon
 		case ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE_KO:
 			break;
 		case ASIGNATURA_ACTIVATE_OK:
-			System.out.println("si");
+			content = new JFXDialogLayout();
+			content.setHeading(new Text("Asignatura activada"));
+			content.setBody(new Text(contexto.getEvent().getMessage()));
+			dialog = new JFXDialog(root, content, JFXDialog.DialogTransition.CENTER);
+
+			button = new JFXButton("Ok");
+			button.setOnAction(new EventHandler<ActionEvent>() {
+
+				@Override
+				public void handle(ActionEvent arg0) {
+					dialog.close();
+
+				}
+
+			});
+			content.setActions(button);
+			dialog.show();
 			break;
 		case ASIGNATURA_ACTIVATE_KO:
-			System.out.println("no");
+			content = new JFXDialogLayout();
+			content.setHeading(new Text("Error"));
+			content.setBody(new Text(contexto.getEvent().getMessage()));
+			dialog = new JFXDialog(root, content, JFXDialog.DialogTransition.CENTER);
+
+			button = new JFXButton("Ok");
+			button.setOnAction(new EventHandler<ActionEvent>() {
+
+				@Override
+				public void handle(ActionEvent arg0) {
+					dialog.close();
+
+				}
+
+			});
+			content.setActions(button);
+			dialog.show();
 			break;
 		case ASIGNATURA_DESACTIVATE_OK:
-			System.out.println("si2");
+			content = new JFXDialogLayout();
+			content.setHeading(new Text("Asignatura desactivada"));
+			content.setBody(new Text(contexto.getEvent().getMessage()));
+			dialog = new JFXDialog(root, content, JFXDialog.DialogTransition.CENTER);
+
+			button = new JFXButton("Ok");
+			button.setOnAction(new EventHandler<ActionEvent>() {
+
+				@Override
+				public void handle(ActionEvent arg0) {
+					dialog.close();
+
+				}
+
+			});
+			content.setActions(button);
+			dialog.show();
 			break;
 		case ASIGNATURA_DESACTIVATE_KO:
-			System.out.println("no2");
+			content = new JFXDialogLayout();
+			content.setHeading(new Text("Error"));
+			content.setBody(new Text(contexto.getEvent().getMessage()));
+			dialog = new JFXDialog(root, content, JFXDialog.DialogTransition.CENTER);
+
+			button = new JFXButton("Ok");
+			button.setOnAction(new EventHandler<ActionEvent>() {
+
+				@Override
+				public void handle(ActionEvent arg0) {
+					dialog.close();
+
+				}
+
+			});
+			content.setActions(button);
+			dialog.show();
 			break;
 		default:
 			break;
