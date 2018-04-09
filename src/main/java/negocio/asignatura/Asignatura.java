@@ -91,5 +91,9 @@ public class Asignatura extends RecursiveTreeObject<Asignatura> {
 		else return new SimpleStringProperty("Desactivada");
 		
 	}
+	public StringProperty getIdStringProperty() {
+		return new SimpleStringProperty(id.toString());
+		
+	}
 
 }
