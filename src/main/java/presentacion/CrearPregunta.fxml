@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-
 <StackPane fx:id="stackpane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F44336;">
@@ -23,12 +22,12 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Pane layoutY="78.0" prefHeight="325.0" prefWidth="600.0" style="-fx-background-color: white;">
+            <Pane layoutY="75.0" prefHeight="325.0" prefWidth="600.0" style="-fx-background-color: white;">
                <children>
-                  <JFXButton fx:id="btnCancelar" buttonType="RAISED" cache="true" cancelButton="true" depthTest="DISABLE" layoutX="279.0" layoutY="261.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#btnCancelListener" prefHeight="37.0" prefWidth="135.0" ripplerFill="BLACK" style="-fx-background-color: white;" text="Cancelar" textOverrun="CLIP" />
-                   <JFXTextField fx:id="textfieldPregunta" focusColor="#d32f2f" layoutX="214.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#textFieldPregunta" unFocusColor="#ff5252" />
+                  <JFXButton fx:id="btnCrear" buttonType="RAISED" cache="true" cancelButton="true" depthTest="DISABLE" layoutX="279.0" layoutY="261.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#btnCrearListener" prefHeight="37.0" prefWidth="135.0" ripplerFill="BLACK" style="-fx-background-color: white;" text="Cancelar" textOverrun="CLIP" />
 		            <Label layoutX="214.0" layoutY="67.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="135.0" text="Nombre de la pregunta" textFill="#9e9e9e" />
-                  <JFXButton fx:id="btnborrar" layoutX="443.0" layoutY="236.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnBorrar" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #F44336;" text="Borrar" textFill="WHITE" />
+                  <JFXButton fx:id="btnborrar" layoutX="451.0" layoutY="261.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnBorrar" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #F44336;" text="Borrar" textFill="WHITE" />
+                  <JFXTextArea fx:id="textArea" focusColor="#d03229" layoutX="70.0" layoutY="106.0" prefHeight="37.0" prefWidth="460.0" unFocusColor="#f44336" />
                </children>
             </Pane>
          </children>

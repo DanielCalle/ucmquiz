@@ -33,16 +33,16 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
 	private AnchorPane root;
 
 	@FXML
-	public TextArea txtText;
+	public TextArea textArea;
 
 	@FXML
 	private JFXButton btnCancelar;
 
-	@FXML
-	public Button btnConfirm;
+    @FXML
+    private JFXButton btnCrear;
 
 	@FXML
-	void btnCancelListener(ActionEvent event) {
+	void btnBorrar(ActionEvent event){
 		
 		Stage stage = (Stage) stackpane.getScene().getWindow();
     	
@@ -50,9 +50,9 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
 	}
 
 	@FXML
-	public void btnConfirmListener(ActionEvent event) {
+	 void btnCrearListener(ActionEvent event) {
 
-		if (txtText.getLength() == 0) {
+		if (textArea.getLength() == 0) {
 
 			JFXDialogLayout content = new JFXDialogLayout();
 			content.setHeading(new Text("Accion incorrecta"));
@@ -74,7 +74,7 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
 
 		} else {
 
-			Pregunta pregunta = new Pregunta(txtText.getText(), true);
+			Pregunta pregunta = new Pregunta(textArea.getText(), true);
 
 			Contexto contexto = new Contexto(Events.COMMAND_PREGUNTA_CREATE, pregunta);
 
@@ -87,18 +87,18 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		txtText.textProperty().addListener(new ChangeListener<String>() {
+		textArea.textProperty().addListener(new ChangeListener<String>() {
 
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 
-				if (txtText.getLength() > 0)
+				if (textArea.getLength() > 0)
 
-					txtText.setStyle("-fx-control-inner-background: lightgreen");
+					textArea.setStyle("-fx-control-inner-background: lightgreen");
 
 				else
 
-					txtText.setStyle("-fx-control-inner-background: white");
+					textArea.setStyle("-fx-control-inner-background: white");
 
 			}
 
