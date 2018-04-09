@@ -12,4 +12,5 @@
 
 	<command id="COMMAND_CREATE_SUBJECT">presentacion.commands.CommandCrearAsignatura</command>
 	
+	<command id="COMMAND_PREGUNTA_DELETE">presentacion.commands.pregunta.CommandPreguntaDelete</command>
 </commands>
