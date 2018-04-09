@@ -276,12 +276,16 @@ public class SAAsignaturaImp implements SAAsignatura {
 			}
 			else {
 				entityTransaction.rollback();
-				return new Contexto(Events.NO_ENTITY.setFilter(filter), id);
+				filter.addFilter("reason", "no esta la asignatura");
+				return new Contexto(Events.ASIGNATURA_ACTIVATE_KO.setFilter(filter), id);
 			}
 			
 			entityManager.close();
 		}
-		else return new Contexto(Events.WRONG_TYPE_PARAMETER.setFilter(filter), id);
+		else {
+			filter.addFilter("reason", "parametro equivocado");
+			return new Contexto(Events.ASIGNATURA_ACTIVATE_KO.setFilter(filter), id);
+		}
 		
 		return new Contexto(Events.ASIGNATURA_ACTIVATE_OK.setFilter(filter), id);
 	}
@@ -316,12 +320,16 @@ public class SAAsignaturaImp implements SAAsignatura {
 			}
 			else {
 				entityTransaction.rollback();
-				return new Contexto(Events.NO_ENTITY.setFilter(filter), id);
+				filter.addFilter("reason", "no esta la asignatura");
+				return new Contexto(Events.ASIGNATURA_DESACTIVATE_KO.setFilter(filter), id);
 			}
 			
 			entityManager.close();
 		}
-		else return new Contexto(Events.WRONG_TYPE_PARAMETER.setFilter(filter), id);
+		else {
+			filter.addFilter("reason", "parametro equivocado");
+			return new Contexto(Events.ASIGNATURA_DESACTIVATE_KO.setFilter(filter), id);
+		}
 		
 		return new Contexto(Events.ASIGNATURA_DESACTIVATE_OK.setFilter(filter), id);
 	}
