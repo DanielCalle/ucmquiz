@@ -6,6 +6,9 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import negocio.FactoriaNegocio;
+import presentacion.Contexto;
+import presentacion.Events;
+
 import static org.junit.Assert.assertEquals;
 
 import javax.persistence.EntityManager;
@@ -61,21 +64,19 @@ public class SAPreguntaTest {
 	}
 	
 	public void borrar_pregunta_deberia_dejar_su_asignatura_en_null(int idPregunta) {
-		Pregunta p = null;
-		EntityManager entitymanager = EntityManagerUtil.getEntityManager();
-		EntityTransaction entitytransaction = entitymanager.getTransaction();
-		entitytransaction.begin();
 		
-		try {
-			p = entitymanager.find(Pregunta.class, idPregunta); //se busca el objeto por la clave primaria (el id)
+		Pregunta p = new Pregunta("¿Quien es mejor profesor, Hector o Antonio?", true);
 		
-			assertEquals(p.getAsignatura(), null);
-			
-		}catch(IllegalArgumentException iae) { //si el id pasado no existe el entitymanager soltará error
-			iae.printStackTrace();
-			entitytransaction.rollback();
-		}finally {
-			entitymanager.close();
-		}
+		SAPregunta sap = new SAPreguntaImp();
+		
+		Contexto c = sap.create(p);
+		
+		Integer id = (Integer) c.getDato();
+		
+		c = sap.borrarPregunta(id);
+		
+		assertEquals("El evento de la operacion Delete en Pregunta tiene que estar OK"
+				,c.getEvent(),
+				Events.CRUD_DELETE_PREGUNTA_OK);
 	}
 }
