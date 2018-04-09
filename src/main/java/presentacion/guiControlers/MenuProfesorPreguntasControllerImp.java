@@ -13,6 +13,9 @@ import presentacion.controlador.Controlador;
 public class MenuProfesorPreguntasControllerImp extends MenuProfesorPreguntasController {
 
 	@FXML
+	private JFXButton botonEliminarPregunta;
+
+	@FXML
 	private AnchorPane root;
 
 	@FXML
@@ -39,10 +42,9 @@ public class MenuProfesorPreguntasControllerImp extends MenuProfesorPreguntasCon
 	@FXML
 	void botonCrearPreguntaAction(ActionEvent event) {
 
-		
 		Contexto contexto = new Contexto(Events.SHOW_PREGUNTA_CREATE, null);
 		Controlador.getInstance().accion(contexto);
-		
+
 	}
 
 	@FXML
@@ -53,6 +55,12 @@ public class MenuProfesorPreguntasControllerImp extends MenuProfesorPreguntasCon
 	@FXML
 	void botonRespuestasAction(ActionEvent event) {
 
+	}
+
+	@FXML
+	void botonEliminarPreguntaAction(ActionEvent event) {
+		Contexto contexto = new Contexto(Events.SHOW_PREGUNTA_DELETE, null);
+		Controlador.getInstance().accion(contexto);
 	}
 
 	@Override

@@ -29,10 +29,16 @@
                         <JFXButton fx:id="botonAsignaturas" alignment="CENTER" layoutY="70.0" onAction="#botonAsignaturasAction" prefHeight="35.0" prefWidth="171.0" style="-fx-border-color: grey;" text="Asignaturas" textFill="#bdbdbd" />
                      </children>
                   </Pane>
-                  <Pane layoutX="191.0" layoutY="60.0" prefHeight="159.0" prefWidth="558.0" style="-fx-border-color: #D8D8D8; -fx-background-color: white;">
+                  <Pane layoutX="191.0" layoutY="74.0" prefHeight="112.0" prefWidth="558.0" style="-fx-border-color: #D8D8D8; -fx-background-color: white;">
                      <children>
-                        <Label layoutX="61.0" layoutY="14.0" prefHeight="101.0" prefWidth="436.0" text="¡Crea preguntas para que tus alumnos puedan responderlas y entrenarse!" textFill="#a4a4a4" />
-                        <JFXButton fx:id="botonCrearPregunta" layoutX="230.0" layoutY="103.0" onAction="#botonCrearPreguntaAction" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: #F44336;" text="Crear pregunta" textFill="WHITE" />
+                        <Label layoutX="61.0" layoutY="14.0" prefHeight="44.0" prefWidth="436.0" text="¡Crea preguntas para que tus alumnos puedan responderlas y entrenarse!" textFill="#a4a4a4" />
+                        <JFXButton fx:id="botonCrearPregunta" layoutX="230.0" layoutY="58.0" onAction="#botonCrearPreguntaAction" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: #F44336;" text="Crear pregunta" textFill="WHITE" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="191.0" layoutY="194.0" prefHeight="112.0" prefWidth="558.0" style="-fx-border-color: #D8D8D8; -fx-background-color: white;">
+                     <children>
+                        <Label layoutX="227.0" layoutY="14.0" prefHeight="44.0" prefWidth="104.0" text="Elimina preguntas" textFill="#a4a4a4" />
+                        <JFXButton fx:id="botonEliminarPregunta" layoutX="221.0" layoutY="56.0" onAction="#botonEliminarPreguntaAction" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #F44336;" text="Eliminar pregunta" textFill="WHITE" />
                      </children>
                   </Pane>
                </children>
