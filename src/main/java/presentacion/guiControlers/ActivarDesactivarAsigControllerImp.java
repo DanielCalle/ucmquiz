@@ -1,7 +1,6 @@
 package presentacion.guiControlers;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -19,6 +18,8 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import negocio.EntityManagerUtil;
 import negocio.asignatura.Asignatura;
 import presentacion.Contexto;
@@ -27,6 +28,8 @@ import presentacion.controlador.Controlador;
 
 public class ActivarDesactivarAsigControllerImp extends ActivarDesactivarAsigController implements Initializable {
 
+    @FXML
+    private AnchorPane root;
     @FXML
     private JFXButton btncancelar;
 
@@ -44,7 +47,9 @@ public class ActivarDesactivarAsigControllerImp extends ActivarDesactivarAsigCon
 
     @FXML
     void btnCancelar(ActionEvent event) {
-    	System.out.println("a");
+    	Stage stage = (Stage) root.getScene().getWindow();
+    	
+    	stage.close();
     }
 
     @FXML
@@ -75,7 +80,7 @@ public class ActivarDesactivarAsigControllerImp extends ActivarDesactivarAsigCon
 	public void initialize(URL location, ResourceBundle resources) {
 		state = false;
 
-		Asignatura asignatura = null;
+		/*Asignatura asignatura = null;
 		asignatura = new Asignatura();
 		asignatura.setTitulo("MMI");
 		asignatura.setId(1);
@@ -85,7 +90,7 @@ public class ActivarDesactivarAsigControllerImp extends ActivarDesactivarAsigCon
 		EntityTransaction entitytransaction = entitymanager.getTransaction();
 		entitytransaction.begin();
 		entitymanager.persist(asignatura);
-		entitytransaction.commit();
+		entitytransaction.commit();*/
 		
 		Contexto contexto = new Contexto(Events.COMMAND_ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE, null);
 		Controlador.getInstance().accion(contexto);
