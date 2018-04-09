@@ -9,7 +9,6 @@ public class CommandListarAsignaturas implements Command{
 	@Override
 	public Contexto execute(Object data) {
 		return FactoriaNegocio.getInstance().generateSAAsignatura().readAll();
-		// TODO Auto-generated method stub
 	}
 
 }
