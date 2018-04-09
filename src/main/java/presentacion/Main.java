@@ -16,6 +16,7 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage stage) throws IOException {
+
 		try {
 			
 			FXMLLoader loader = new FXMLLoader();
@@ -36,7 +37,6 @@ public class Main extends Application {
 			
 			e.printStackTrace();
 		}		
-
 	}
 	
 	public static void main(String[] args) {

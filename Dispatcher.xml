@@ -50,4 +50,16 @@
     <gui id="ASIGNATURA_DESACTIVATE_OK">
     	<controler>presentacion.guiControlers.ActivarDesactivarAsigController</controler>
     </gui>
+        <gui id="SHOW_PREGUNTA_DELETE">
+    	<title>Borrar pregunta</title>
+    	<file>/presentacion/BorrarPregunta.fxml</file>
+    	<controler>presentacion.guiControlers.BorrarPreguntaController</controler>
+    </gui>
+    <gui id="CRUD_DELETE_PREGUNTA_OK">
+     	<controler>presentacion.guiControlers.BorrarPreguntaController</controler>
+    </gui>
+    <gui id="CRUD_DELETE_PREGUNTA_KO">
+     	<controler>presentacion.guiControlers.BorrarPreguntaController</controler>
+    </gui>
+	
 </guis>
