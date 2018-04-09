@@ -12,12 +12,12 @@
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F44336;">
          <children>
-            <Label layoutX="46.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="175.0" text="Borrar asignatura" textFill="WHITE">
+            <Label layoutX="46.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="175.0" text="Eliminar asignatura" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="46.0" layoutY="44.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="12.0" prefWidth="414.0" text="Introduzca el ID de la asignatura que desea borrar" textFill="#ffcdd2">
+            <Label layoutX="46.0" layoutY="44.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="12.0" prefWidth="414.0" text="Introduzca el ID de la asignatura que desea eliminar" textFill="#ffcdd2">
                <font>
                   <Font size="15.0" />
                </font>
@@ -27,7 +27,7 @@
                   <JFXButton fx:id="btncancelar" buttonType="RAISED" cache="true" cancelButton="true" depthTest="DISABLE" layoutX="289.0" layoutY="259.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#btnCancelar" prefHeight="37.0" prefWidth="135.0" ripplerFill="BLACK" style="-fx-background-color: white;" text="Cancelar" textOverrun="CLIP" />
                   <JFXTextField fx:id="textfieldAsignatura" focusColor="#d32f2f" layoutX="222.0" layoutY="117.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" unFocusColor="#ff5252" />
                   <Label layoutX="222.0" layoutY="90.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="135.0" text="ID de la asignatura" textFill="#9e9e9e" />
-                  <JFXButton fx:id="btnborrar" layoutX="451.0" layoutY="259.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnBorrar" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #F44336;" text="Borrar" textFill="WHITE" />
+                  <JFXButton fx:id="btnborrar" layoutX="451.0" layoutY="259.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnBorrar" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #F44336;" text="Eliminar" textFill="WHITE" />
                </children>
             </Pane>
          </children>
