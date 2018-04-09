@@ -196,7 +196,7 @@ public class SAAsignaturaImp implements SAAsignatura {
 			if (asignatura != null) { 
 				if (!asignatura.isActivo()) {
 					asignatura.setActivo(true);
-					entityManager.refresh(asignatura);
+					entityManager.persist(asignatura);
 					entityTransaction.commit();
 				} else {
 					entityTransaction.rollback();
@@ -211,7 +211,7 @@ public class SAAsignaturaImp implements SAAsignatura {
 		}
 		else return new Contexto(Events.WRONG_TYPE_PARAMETER.setFilter(filter), id);
 		
-		return new Contexto(Events.COMMAND_ASIGNATURA_ACTIVATE.setFilter(filter), id);
+		return new Contexto(Events.ASIGNATURA_ACTIVATE_OK.setFilter(filter), id);
 	}
 	
 	@Override
@@ -235,7 +235,7 @@ public class SAAsignaturaImp implements SAAsignatura {
 			if (asignatura != null) {
 				if (asignatura.isActivo()) {
 					asignatura.setActivo(false);
-					entityManager.refresh(asignatura);
+					entityManager.persist(asignatura);
 					entityTransaction.commit();
 				} 
 				else {			
@@ -251,7 +251,7 @@ public class SAAsignaturaImp implements SAAsignatura {
 		}
 		else return new Contexto(Events.WRONG_TYPE_PARAMETER.setFilter(filter), id);
 		
-		return new Contexto(Events.COMMAND_ASIGNATURA_DESACTIVATE.setFilter(filter), id);
+		return new Contexto(Events.ASIGNATURA_DESACTIVATE_OK.setFilter(filter), id);
 	}
 	
 	/**

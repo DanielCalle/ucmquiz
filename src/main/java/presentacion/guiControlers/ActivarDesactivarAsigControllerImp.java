@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXToggleButton;
@@ -16,6 +19,7 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import negocio.EntityManagerUtil;
 import negocio.asignatura.Asignatura;
 import presentacion.Contexto;
 import presentacion.Events;
@@ -49,9 +53,13 @@ public class ActivarDesactivarAsigControllerImp extends ActivarDesactivarAsigCon
     	if (index >= 0) {
 	    	Asignatura asignatura = list.get(index);
 	    	if (state != asignatura.isActivo()) { 
+	    		asignatura.setActivo(state);
+	    		list.set(index, asignatura);
 		    	Contexto contexto = new Contexto(
 		    			((state) ? Events.COMMAND_ASIGNATURA_ACTIVATE : Events.COMMAND_ASIGNATURA_DESACTIVATE), 
 		    			asignatura.getId());
+	    		state = !state;
+				btnonoff.setSelected(state);
 				Controlador.getInstance().accion(contexto);
 	    	}
     	}
@@ -66,6 +74,18 @@ public class ActivarDesactivarAsigControllerImp extends ActivarDesactivarAsigCon
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		state = false;
+
+		Asignatura asignatura = null;
+		asignatura = new Asignatura();
+		asignatura.setTitulo("MMI");
+		asignatura.setId(1);
+		asignatura.setActivo(true);
+		
+		EntityManager entitymanager = EntityManagerUtil.getEntityManager();
+		EntityTransaction entitytransaction = entitymanager.getTransaction();
+		entitytransaction.begin();
+		entitymanager.persist(asignatura);
+		entitytransaction.commit();
 		
 		Contexto contexto = new Contexto(Events.COMMAND_ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE, null);
 		Controlador.getInstance().accion(contexto);
@@ -88,26 +108,13 @@ public class ActivarDesactivarAsigControllerImp extends ActivarDesactivarAsigCon
 
 	@Override
 	public void update(Contexto contexto) {
-		List<Asignatura> l = new ArrayList<Asignatura>();
-		Asignatura asignatura = null;
-		asignatura = new Asignatura();
-		asignatura.setTitulo("MMI");
-		asignatura.setId(1);
-		asignatura.setActivo(false);
-		l.add(asignatura);
-		asignatura = new Asignatura();
-		asignatura.setTitulo("EDA");
-		asignatura.setId(1);
-		asignatura.setActivo(true);
-		l.add(asignatura);
-		
 		switch (contexto.getEvent()) {
-		case ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE_OK: list = l; break;
+		case ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE_OK: list = (List<Asignatura>) contexto.getDato(); break;
 		case ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE_KO: break;
-		case ASIGNATURA_ACTIVATE_OK: break;
-		case ASIGNATURA_ACTIVATE_KO: break;
-		case ASIGNATURA_DESACTIVATE_OK: break;
-		case ASIGNATURA_DESACTIVATE_KO: break;
+		case ASIGNATURA_ACTIVATE_OK: System.out.println("si"); break;
+		case ASIGNATURA_ACTIVATE_KO: System.out.println("no"); break;
+		case ASIGNATURA_DESACTIVATE_OK: System.out.println("si2"); break;
+		case ASIGNATURA_DESACTIVATE_KO: System.out.println("no2"); break;
 		default:
 			break;
 		}
