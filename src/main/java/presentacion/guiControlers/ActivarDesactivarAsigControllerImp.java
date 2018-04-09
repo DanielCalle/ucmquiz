@@ -80,7 +80,7 @@ public class ActivarDesactivarAsigControllerImp extends ActivarDesactivarAsigCon
 	public void initialize(URL location, ResourceBundle resources) {
 		state = false;
 
-		Asignatura asignatura = null;
+		/*Asignatura asignatura = null;
 		asignatura = new Asignatura();
 		asignatura.setTitulo("MMI");
 		asignatura.setId(1);
@@ -90,7 +90,7 @@ public class ActivarDesactivarAsigControllerImp extends ActivarDesactivarAsigCon
 		EntityTransaction entitytransaction = entitymanager.getTransaction();
 		entitytransaction.begin();
 		entitymanager.persist(asignatura);
-		entitytransaction.commit();
+		entitytransaction.commit();*/
 		
 		Contexto contexto = new Contexto(Events.COMMAND_ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE, null);
 		Controlador.getInstance().accion(contexto);
