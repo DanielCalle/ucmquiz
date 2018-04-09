@@ -10,10 +10,6 @@ import negocio.FactoriaNegocio;
 import presentacion.Contexto;
 import presentacion.Events;
 
-import static org.junit.Assert.assertThat;
-
-import org.hamcrest.core.IsEqual;
-import org.junit.Test;
 
 import presentacion.Filter;
 
