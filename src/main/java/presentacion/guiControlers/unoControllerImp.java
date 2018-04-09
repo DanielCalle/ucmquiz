@@ -1,6 +1,8 @@
 package presentacion.guiControlers;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -67,7 +69,7 @@ public class unoControllerImp extends unoController implements Initializable{
 				});
 
 		ObservableList<Asignatura> users = FXCollections.observableArrayList();
-		Contexto contexto = new Contexto(Events.COMMAND_ASIGNATURA_LISTAR,null);
+		Contexto contexto = new Contexto(Events.COMMAND_ASIGNATURA_LISTAR, null);
 		Controlador.getInstance().accion(contexto);
 
 		final TreeItem<Asignatura> root = new RecursiveTreeItem<Asignatura>(users, RecursiveTreeObject::getChildren);
@@ -82,6 +84,7 @@ public class unoControllerImp extends unoController implements Initializable{
 			botonEliminar.setDisable(false);
 		});
 	}
+
 
 	@FXML
 	void botonEliminarAction(ActionEvent event) {
@@ -153,6 +156,11 @@ public class unoControllerImp extends unoController implements Initializable{
 
 		}
 		else {
+			ObservableList<Asignatura> users = FXCollections.observableArrayList();
+			List<Asignatura> lista = (List<Asignatura>)contexto.getDato();
+			for (Asignatura a: lista) {
+				users.add(a);
+			}
 			
 		}
 	}

@@ -44,7 +44,7 @@
     	<controler>presentacion.guiControlers.unoController</controler>
     </gui>
     
-    <gui id="SHOW_ASIGNATURA_LISTAR">
+    <gui id="SHOW_ASIGNATURA_READ_ALL">
     <title>Listar asignaturas</title>
     <file>/presentacion/uno.fxml</file>
     <controler>presentacion.guiControlers.unoController</controler>

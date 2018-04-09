@@ -15,7 +15,9 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage stage) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/presentacion/uno.fxml"));
+		Contexto contexto = new Contexto(Events.SHOW_ASIGNATURA_READ_ALL,null);
+		Controlador.getInstance().accion(contexto);
+		//Parent root = FXMLLoader.load(getClass().getResource("/presentacion/uno.fxml"));
 	}
 }
 		/*
