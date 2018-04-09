@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -30,7 +31,11 @@
                            </children>
                         </Pane>
                         <JFXTreeTableView id="tabla" fx:id="treeView" layoutX="112.0" layoutY="86.0" prefHeight="348.0" prefWidth="608.0" stylesheets="@main.css" />
-                        <Pane layoutX="521.0" layoutY="392.0" prefHeight="84.0" prefWidth="242.0" />
+                        <Pane layoutX="521.0" layoutY="392.0" prefHeight="84.0" prefWidth="242.0">
+                           <children>
+                              <JFXButton fx:id="Atras" layoutX="170.0" layoutY="58.0" onAction="#AtrasAction" style="-fx-background-color: #F44336;" text="Atras" textFill="WHITE" />
+                           </children>
+                        </Pane>
                      </children>
                   </Pane>
                </children>

@@ -26,6 +26,7 @@ import javafx.scene.control.TreeTableColumn;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import negocio.FactoriaNegocio;
 import negocio.asignatura.Asignatura;
@@ -37,6 +38,10 @@ public class unoControllerImp extends unoController implements Initializable{
 
 	@FXML
 	private StackPane stackpane;
+	
+
+    @FXML
+    private JFXButton Atras;
 
 	@FXML
 	private JFXTreeTableView<Asignatura> treeView;
@@ -88,7 +93,12 @@ public class unoControllerImp extends unoController implements Initializable{
 
 	}
 
-
+	  @FXML
+	    void AtrasAction(ActionEvent event) {
+			Stage stage = (Stage) stackpane.getScene().getWindow();
+	    	
+	    	stage.close();
+	    }
 
 
 	@FXML
