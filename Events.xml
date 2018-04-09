@@ -131,4 +131,17 @@
 		No se borro correctamente el usuario debido a {reason} {info}
 	</event>
 	
+	<event id="ASIGNATURA_ACTIVATE_OK">
+		Se activo correctamente la asignatura con id {id}
+	</event>
+	<event id="ASIGNATURA_ACTIVATE_KO">
+		No se activo correctamente la asignatura debido a {reason}
+	</event>
+	<event id="ASIGNATURA_DESACTIVATE_OK">
+		Se desactivo correctamente la asignatura con id {id}
+	</event>
+	<event id="ASIGNATURA_DESACTIVATE_KO">
+		No se activo correctamente la asignatura debido a {reason}
+	</event>
+	
 </events>
