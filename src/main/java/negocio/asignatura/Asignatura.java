@@ -29,7 +29,7 @@ import javafx.beans.property.StringProperty;
 		query = "select obj from Asignatura obj where obj.titulo = :titulo"
 		),
 	@NamedQuery(name = "negocio.asignatura.Asignatura.readAll", 
-	query = "select obj from Asignatura obj where obj.activo = 1") })
+	query = "select obj from Asignatura obj") })
 
 public class Asignatura extends RecursiveTreeObject<Asignatura> {
 
