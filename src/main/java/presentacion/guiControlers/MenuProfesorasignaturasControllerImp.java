@@ -73,10 +73,10 @@ public class MenuProfesorasignaturasControllerImp extends MenuProfesorasignatura
 		treeView.setRoot(root);
 		treeView.setShowRoot(false);
 		treeView.getSelectionModel().getSelectedItem();
-		botonEliminar.setDisable(true);
+		//botonEliminar.setDisable(true);
 		treeView.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			e.consume();
-			botonEliminar.setDisable(false);
+			//botonEliminar.setDisable(false);
 		});
 	}
 
