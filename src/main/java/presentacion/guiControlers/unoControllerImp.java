@@ -49,6 +49,10 @@ public class unoControllerImp extends unoController implements Initializable{
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		//Asignatura asignatura = new Asignatura("EDA", true);
+
+		Contexto c = new Contexto(Events.COMMAND_CREATE_SUBJECT, asignatura);
+		Controlador.getInstance().accion(c);
 		JFXTreeTableColumn<Asignatura, String> deptName = new JFXTreeTableColumn<>("Nombre");
 		deptName.setPrefWidth(150);
 		deptName.setCellValueFactory(
@@ -72,10 +76,10 @@ public class unoControllerImp extends unoController implements Initializable{
 		Contexto contexto = new Contexto(Events.COMMAND_ASIGNATURA_LISTAR, null);
 		Controlador.getInstance().accion(contexto);
 
-		final TreeItem<Asignatura> root = new RecursiveTreeItem<Asignatura>(users, RecursiveTreeObject::getChildren);
+		//final TreeItem<Asignatura> root = new RecursiveTreeItem<Asignatura>(users, RecursiveTreeObject::getChildren);
 		treeView.getColumns().setAll(deptName, deptEstado);
 		// treeView.getColumns().setAll(deptEstado);
-		treeView.setRoot(root);
+	//	treeView.setRoot(root);
 		treeView.setShowRoot(false);
 		treeView.getSelectionModel().getSelectedItem();
 		botonEliminar.setDisable(true);
@@ -161,7 +165,8 @@ public class unoControllerImp extends unoController implements Initializable{
 			for (Asignatura a: lista) {
 				users.add(a);
 			}
-			
+			final TreeItem<Asignatura> root = new RecursiveTreeItem<Asignatura>(users, RecursiveTreeObject::getChildren);
+			treeView.setRoot(root);
 		}
 	}
 
