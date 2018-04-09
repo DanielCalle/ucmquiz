@@ -18,9 +18,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import presentacion.Contexto;
 import presentacion.Events;
-import presentacion.Filter;
 import presentacion.controlador.Controlador;
-
+/**
+ * Controlador para la GUI de borrar Asignatura
+ * @author Daniel Calle
+ *
+ */
 public class BorrarAsignaturaControllerImp extends BorrarAsignaturaController {
 	@FXML
 	private StackPane root;
@@ -36,6 +39,7 @@ public class BorrarAsignaturaControllerImp extends BorrarAsignaturaController {
 
     @FXML
     void btnBorrar(ActionEvent event) {
+    	//Se comprueba que el campo no esta vacio
 		if (textfieldAsignatura.getLength() == 0) {
 
 			JFXDialogLayout content = new JFXDialogLayout();
@@ -57,13 +61,16 @@ public class BorrarAsignaturaControllerImp extends BorrarAsignaturaController {
 			dialog.show();
 
 		} else {
+			//Se comprueba que es un numero
 			try {
 				Contexto contexto = new Contexto(Events.COMMAND_ASIGNATURA_DELETE, Integer.parseInt(textfieldAsignatura.getText()));
+				//Llamo al controlador y le paso el contexto con el ID
 				Controlador.getInstance().accion(contexto);
 			} catch (NumberFormatException e) {
+				//Muestro mensaje de error
 				JFXDialogLayout content = new JFXDialogLayout();
 				content.setHeading(new Text("Accion incorrecta"));
-				content.setBody(new Text("El ID tiene que ser numérico"));
+				content.setBody(new Text("El ID tiene que ser numï¿½rico"));
 				JFXDialog dialog = new JFXDialog(root, content, JFXDialog.DialogTransition.CENTER);
 
 				JFXButton button = new JFXButton("Ok");
@@ -117,11 +124,11 @@ public class BorrarAsignaturaControllerImp extends BorrarAsignaturaController {
 	@Override
 	public void update(Contexto contexto) {
 		switch (contexto.getEvent()) {
-
+		//Si se ha podido borrar muestro un mensaje con acierto
 		case CRUD_DELETE_ASIGNATURA_OK:
 
 			JFXDialogLayout content = new JFXDialogLayout();
-			content.setHeading(new Text("Pregunta Creada"));
+			content.setHeading(new Text("Asignatura borrada"));
 			content.setBody(new Text(contexto.getEvent().getMessage()));
 			JFXDialog dialog = new JFXDialog(root, content, JFXDialog.DialogTransition.CENTER);
 
@@ -139,7 +146,7 @@ public class BorrarAsignaturaControllerImp extends BorrarAsignaturaController {
 			dialog.show();
 
 			break;
-			
+		//Si no se ha podido borrar muestro un mensaje de error con el con la info
 		case CRUD_DELETE_ASIGNATURA_KO:
 			
 			content = new JFXDialogLayout();
@@ -163,7 +170,7 @@ public class BorrarAsignaturaControllerImp extends BorrarAsignaturaController {
 			break;
 
 		default:
-
+			
 			content = new JFXDialogLayout();
 			content.setHeading(new Text("Error"));
 			dialog = new JFXDialog(root, content, JFXDialog.DialogTransition.CENTER);
