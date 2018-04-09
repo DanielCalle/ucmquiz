@@ -144,4 +144,31 @@
 		No se activo correctamente la asignatura debido a {reason}
 	</event>
 	
+	<event id="SHOW_LOGIN">No message</event>
+	<event id="SHOW_ROL_MENU">No message</event>
+	<event id="SHOW_ASIGNATURA_ACTIVATE_DESACTIVATE">No message</event>
+	<event id="SHOW_MENU_PROFESORES_PREGUNTAS">No message</event>
+	<event id="SHOW_ASIGNATURA_DELETE">No message</event>
+	<event id="SHOW_ASIGNATURA_CREATE">No message</event>
+	<event id="SHOW_PREGUNTA_CREATE">No message</event>
+	<event id="SHOW_SELECCION_USUARIO">No message</event>
+	<event id="SHOW_MENU_PROFESORES_ASIGNATURAS">No message</event>
+	<event id="SHOW_PREGUNTA_DELETE">No message</event>
+	<event id="SHOW_ASIGNATURA_READ_ALL">No message</event>
+	<event id="COMMAND_USER_LOGIN">No message</event>
+	<event id="COMMAND_ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE">No message</event>
+	<event id="COMMAND_ASIGNATURA_LISTAR">No message</event>
+	<event id="ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE_OK">No message</event>
+	<event id="ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE_KO">No message</event>
+	<event id="WRONG_TYPE_PARAMETER">No message</event>
+	<event id="NO_ENTITY">No message</event>
+	<event id="ENTITY_NOT_ACTIVE">No message</event>
+	<event id="ENTITY_WITH_DEPENDENCIES">No message</event>
+	<event id="COMMAND_ASIGNATURA_DELETE">No message</event>
+	<event id="COMMAND_CREATE_SUBJECT">No message</event>
+	<event id="COMMAND_PREGUNTA_CREATE">No message</event>
+	<event id="COMMAND_ASIGNATURA_ACTIVATE">No message</event>
+	<event id="COMMAND_ASIGNATURA_DESACTIVATE">No message</event>
+	<event id="COMMAND_PREGUNTA_DELETE">No message</event>
+	
 </events>
