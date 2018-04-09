@@ -8,17 +8,15 @@ import negocio.pregunta.SAPreguntaImp;
 public class FactoriaNegocioImp extends FactoriaNegocio {
 
 	@Override
+	public SAAsignatura generateSAAsignatura() {
+		return new SAAsignaturaImp();
+	}
+
+	@Override
 	public SAPregunta generateSAPregunta() {
 		
 		return new SAPreguntaImp();
 	
 	}
 	
-	@Override
-	public SAAsignatura generateSAAsignatura() {
-		
-		return new SAAsignaturaImp();
-		
-	}
-
 }

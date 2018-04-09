@@ -12,8 +12,8 @@ public abstract class FactoriaNegocio {
 		return instance;
 	}
 	
-	public abstract SAPregunta generateSAPregunta();
-
 	public abstract SAAsignatura generateSAAsignatura();
+	
+	public abstract SAPregunta generateSAPregunta();
 
 }
