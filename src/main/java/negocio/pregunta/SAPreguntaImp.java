@@ -28,8 +28,9 @@ public class SAPreguntaImp implements SAPregunta {
 		try {
 			p = entitymanager.find(Pregunta.class, idPregunta); // se busca el objeto por la clave primaria (el id)
 
-			p.setAsignatura(null); // se desvincula la pregunta con la asignatura (haciendo la dependencia null)
-			entitymanager.refresh(p); // se actualiza la entidad en bbdd
+			//p.setAsignatura(null); // se desvincula la pregunta con la asignatura (haciendo la dependencia null)
+			//entitymanager.refresh(p); // se actualiza la entidad en bbdd
+			p.setActiva(false);
 			entitytransaction.commit();
 			event = Events.CRUD_DELETE_PREGUNTA_OK;
 			

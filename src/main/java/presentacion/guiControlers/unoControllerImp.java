@@ -26,6 +26,7 @@ import javafx.scene.control.TreeTableColumn;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import negocio.FactoriaNegocio;
 import negocio.asignatura.Asignatura;
@@ -37,6 +38,10 @@ public class unoControllerImp extends unoController implements Initializable{
 
 	@FXML
 	private StackPane stackpane;
+	
+
+    @FXML
+    private JFXButton Atras;
 
 	@FXML
 	private JFXTreeTableView<Asignatura> treeView;
@@ -47,6 +52,15 @@ public class unoControllerImp extends unoController implements Initializable{
 
 		//Contexto c = new Contexto(Events.COMMAND_CREATE_SUBJECT, asignatura);
 	//	Controlador.getInstance().accion(c);
+		JFXTreeTableColumn<Asignatura, String> id = new JFXTreeTableColumn<>("Id");
+		id.setPrefWidth(150);
+		id.setCellValueFactory(
+				new Callback<TreeTableColumn.CellDataFeatures<Asignatura, String>, ObservableValue<String>>() {
+					@Override
+					public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Asignatura, String> param) {
+						return param.getValue().getValue().getIdStringProperty();
+					}
+				});
 		JFXTreeTableColumn<Asignatura, String> deptName = new JFXTreeTableColumn<>("Nombre");
 		deptName.setPrefWidth(150);
 		deptName.setCellValueFactory(
@@ -71,7 +85,7 @@ public class unoControllerImp extends unoController implements Initializable{
 		Controlador.getInstance().accion(contexto);
 
 		//final TreeItem<Asignatura> root = new RecursiveTreeItem<Asignatura>(users, RecursiveTreeObject::getChildren);
-		treeView.getColumns().setAll(deptName, deptEstado);
+		treeView.getColumns().setAll(id,deptName, deptEstado);
 		// treeView.getColumns().setAll(deptEstado);
 	//	treeView.setRoot(root);
 		treeView.setShowRoot(false);
@@ -79,7 +93,12 @@ public class unoControllerImp extends unoController implements Initializable{
 
 	}
 
-
+	  @FXML
+	    void AtrasAction(ActionEvent event) {
+			Stage stage = (Stage) stackpane.getScene().getWindow();
+	    	
+	    	stage.close();
+	    }
 
 
 	@FXML
