@@ -11,8 +11,8 @@ import javax.persistence.*;
 	@NamedQuery(
 		name = "negocio.asignatura.Asignatura.findBytitulo", 
 		query = "select obj from Asignatura obj where obj.titulo = :titulo"
-	)
-})
+	),
+	@NamedQuery(name = "negocio.asignatura.Asignatura.readAll", query = "select obj from Asignatura obj where obj.activo = 1") })
 public class Asignatura {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
