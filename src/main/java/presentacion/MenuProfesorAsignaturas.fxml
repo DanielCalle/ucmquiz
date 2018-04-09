@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="488.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="root" prefHeight="488.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="777.0">
          <children>
@@ -25,9 +25,9 @@
                   </Pane>
                   <Pane layoutY="44.0" prefHeight="447.0" prefWidth="171.0" style="-fx-background-color: #2D435A;">
                      <children>
-                        <JFXButton alignment="CENTER" prefHeight="35.0" prefWidth="171.0" style="-fx-border-color: grey;" text="Prguntas" textFill="#bdbdbd" />
-                        <JFXButton alignment="CENTER" layoutY="35.0" prefHeight="35.0" prefWidth="171.0" style="-fx-border-color: grey;" text="Respuestas" textFill="#bdbdbd" />
-                        <JFXButton alignment="CENTER" layoutY="70.0" prefHeight="35.0" prefWidth="171.0" style="-fx-border-color: grey; -fx-background-color: #657585;" text="Asignaturas" textFill="#bdbdbd" />
+                        <JFXButton fx:id="BotonPreguntas" alignment="CENTER" onAction="#BotonPreguntasAction" prefHeight="35.0" prefWidth="171.0" style="-fx-border-color: grey;" text="Prguntas" textFill="#bdbdbd" />
+                        <JFXButton fx:id="BotonRespuestas" alignment="CENTER" layoutY="35.0" onAction="#BotonRespuestasAction" prefHeight="35.0" prefWidth="171.0" style="-fx-border-color: grey;" text="Respuestas" textFill="#bdbdbd" />
+                        <JFXButton fx:id="BotonAsignaturas" alignment="CENTER" layoutY="70.0" onAction="#BotonAsignaturasAction" prefHeight="35.0" prefWidth="171.0" style="-fx-border-color: grey; -fx-background-color: #657585;" text="Asignaturas" textFill="#bdbdbd" />
                      </children>
                   </Pane>
                   <JFXTreeTableView id="tabla" fx:id="treeView" layoutX="171.0" layoutY="44.0" prefHeight="348.0" prefWidth="608.0" stylesheets="@main.css" />

@@ -19,6 +19,7 @@ import javafx.scene.Node;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import negocio.asignatura.Asignatura;
@@ -28,14 +29,24 @@ import presentacion.controlador.Controlador;
 
 public class MenuProfesorasignaturasControllerImp extends MenuProfesorasignaturasController implements Initializable {
 
+    @FXML
+    private AnchorPane root;
+	@FXML
+	private JFXButton BotonPreguntas;
+
+	@FXML
+	private JFXButton BotonRespuestas;
+
+	@FXML
+	private JFXButton BotonAsignaturas;
 	@FXML
 	private JFXButton botonNuevo;
 
 	@FXML
 	private JFXButton botonEliminar;
-	
+
 	@FXML
-    private JFXButton botonActivarDesactivar;
+	private JFXButton botonActivarDesactivar;
 
 	@FXML
 	private JFXTreeTableView<Asignatura> treeView;
@@ -68,48 +79,67 @@ public class MenuProfesorasignaturasControllerImp extends MenuProfesorasignatura
 		users.add(new Asignatura("MS", true));
 
 		final TreeItem<Asignatura> root = new RecursiveTreeItem<Asignatura>(users, RecursiveTreeObject::getChildren);
-		treeView.getColumns().setAll(deptName,deptEstado);
-		//treeView.getColumns().setAll(deptEstado);
+		treeView.getColumns().setAll(deptName, deptEstado);
+		// treeView.getColumns().setAll(deptEstado);
 		treeView.setRoot(root);
 		treeView.setShowRoot(false);
 		treeView.getSelectionModel().getSelectedItem();
-		//botonEliminar.setDisable(true);
+		// botonEliminar.setDisable(true);
 		treeView.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			e.consume();
-			//botonEliminar.setDisable(false);
+			// botonEliminar.setDisable(false);
 		});
 	}
 
 	@FXML
 	void botonEliminarAction(ActionEvent event) {
-		
-		Contexto contexto = new Contexto(Events.SHOW_ASIGNATURA_DELETE,null);
+
+		Contexto contexto = new Contexto(Events.SHOW_ASIGNATURA_DELETE, null);
 		Controlador.getInstance().accion(contexto);
-		
+
 	}
 
 	@FXML
 	void botonNuevoAction(ActionEvent event) {
 		/*
-		Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		https://www.youtube.com/watch?v=LDVztNtJWOo&t=790s
-		*/
-		
-		Contexto contexto = new Contexto(Events.SHOW_ASIGNATURA_CREATE,null);
+		 * Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		 * https://www.youtube.com/watch?v=LDVztNtJWOo&t=790s
+		 */
+
+		Contexto contexto = new Contexto(Events.SHOW_ASIGNATURA_CREATE, null);
 		Controlador.getInstance().accion(contexto);
-		
+
 	}
 
 	@Override
 	public void update(Contexto contexto) {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	@FXML
+	void botonActivarDesactivarAction(ActionEvent event) {
+		Contexto contexto = new Contexto(Events.SHOW_ASIGNATURA_ACTIVATE_DESACTIVATE, null);
+		Controlador.getInstance().accion(contexto);
 	}
 	@FXML
-    void botonActivarDesactivarAction(ActionEvent event) {
-		Contexto contexto = new Contexto(Events.SHOW_ASIGNATURA_ACTIVATE_DESACTIVATE,null);
+    void BotonAsignaturasAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void BotonPreguntasAction(ActionEvent event) {
+    	
+    	Stage stage = (Stage) root.getScene().getWindow();
+    	
+    	stage.close();
+    	Contexto contexto = new Contexto(Events.SHOW_MENU_PROFESORES_PREGUNTAS, null);
 		Controlador.getInstance().accion(contexto);
     }
 
+    @FXML
+    void BotonRespuestasAction(ActionEvent event) {
+
+    }
 
 }

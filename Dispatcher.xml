@@ -61,6 +61,11 @@
     	<file>/presentacion/ActivarDesactivarAsig.fxml</file>
     	<controler>presentacion.guiControlers.ActivarDesactivarAsigController</controler>
     </gui>
+     <gui id="SHOW_MENU_PROFESORES_PREGUNTAS">
+    	<title>Menu</title>
+    	<file>/presentacion/MenuProfesoresPreguntas.fxml</file>
+    	<controler>presentacion.guiControlers.MenuProfesorPreguntasController</controler>
+    </gui>
     <gui id="ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE_OK">
     	<controler>presentacion.guiControlers.ActivarDesactivarAsigController</controler>
     </gui>
