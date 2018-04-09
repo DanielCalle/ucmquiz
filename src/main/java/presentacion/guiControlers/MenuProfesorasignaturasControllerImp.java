@@ -115,7 +115,8 @@ public class MenuProfesorasignaturasControllerImp extends MenuProfesorasignatura
 
     @FXML
     void botonlistarAction(ActionEvent event) {
-
+    	Contexto contexto = new Contexto(Events.SHOW_ASIGNATURA_READ_ALL,null);
+		Controlador.getInstance().accion(contexto);
     }
     
 }

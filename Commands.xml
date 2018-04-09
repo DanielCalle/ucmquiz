@@ -9,6 +9,7 @@
 	<command id="COMMAND_ASIGNATURA_DELETE">presentacion.commands.asignatura.CommandAsignaturaDelete</command>
 
 	<command id="COMMAND_PREGUNTA_CREATE">presentacion.commands.pregunta.CommandPreguntaCreate</command>
+	<command id="COMMAND_ASIGNATURA_LISTAR">presentacion.commands.asignatura.CommandListarAsignaturas</command>
 
 	<command id="COMMAND_CREATE_SUBJECT">presentacion.commands.CommandCrearAsignatura</command>
 	

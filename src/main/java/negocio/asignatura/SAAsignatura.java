@@ -1,8 +1,13 @@
 package negocio.asignatura;
 
+import java.util.List;
+
 import presentacion.Contexto;
 
 public interface SAAsignatura {
+	
+	public Contexto readAll();
+
 	
 	public Contexto delete(int id);
 
@@ -12,6 +17,5 @@ public interface SAAsignatura {
 	
 	public Contexto desactiveAsignatura(int id);
 
-	public Contexto readAll();
 	
 }

@@ -41,6 +41,7 @@
      <gui id="CRUD_CREATE_PREGUNTA_KO">
      	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
     </gui>
+
     <gui id="SHOW_MENU_PROFESORES_ASIGNATURAS">
     	<title>Menu asignatura profesores</title>
     	<file>/presentacion/MenuProfesorAsignaturas.fxml</file>
@@ -87,5 +88,19 @@
     <gui id="CRUD_DELETE_PREGUNTA_KO">
      	<controler>presentacion.guiControlers.BorrarPreguntaController</controler>
     </gui>
+    
+    <gui id="CRUD_READ_ALL_ASIGNATURA_OK">
+    <controler>presentacion.guiControlers.unoController</controler>
+    </gui>
+    <gui id="CRUD_READ_ALL_ASIGNATURA_KO">
+    	<controler>presentacion.guiControlers.unoController</controler>
+    </gui>
+    
+    <gui id="SHOW_ASIGNATURA_READ_ALL">
+    <title>Listar asignaturas</title>
+    <file>/presentacion/uno.fxml</file>
+    <controler>presentacion.guiControlers.unoController</controler>
+    </gui>
+	
 
 </guis>

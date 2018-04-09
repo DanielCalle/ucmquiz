@@ -2,8 +2,8 @@ package presentacion;
 
 public class Contexto {
 	
-	private Object dato;
 	private Events evento;
+	private Object dato;	
 	
 	public Contexto(Events evento, Object dato) {
 		this.dato = dato;

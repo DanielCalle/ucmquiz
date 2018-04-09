@@ -15,5 +15,4 @@ public abstract class FactoriaCommand {
 	}
 
 	public abstract Command generateCommand(Events event);
-	
 }

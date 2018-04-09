@@ -1,6 +1,8 @@
 
 .tree-table-view{
-    -fx-tree-table-color:  #F44336;
+
+    -fx-tree-table-color: #F44336;
+
     -fx-tree-table-rippler-color : rgba(255, 0, 0, 0.9);
 }
 .tree-table-view:focused .tree-table-row-cell:selected {
@@ -46,9 +48,11 @@
 }
 
 .tree-table-view .tree-table-cell{
+
     -fx-border-width:0 0 0 0;
     -fx-padding : 16 0 16 0 ;
     -fx-alignment : center;
+
 }
 
 .tree-table-view .column-overlay{
