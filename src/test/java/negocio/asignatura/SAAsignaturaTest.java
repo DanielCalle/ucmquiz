@@ -23,13 +23,17 @@ public class SAAsignaturaTest {
 	/**
 	 * 
 	 * Test para probar la clase activaAsignatura
-	 * Se ingresa el id de una asignatura y se espera COMMAND_ASIGNATURA_ACTIVATE si se ha hecho correctamente
+	 * Se ingresa el id de una asignatura y se espera ASIGNATURA_ACTIVATE_OK si se ha hecho correctamente
 	 */
 	
-	@Ignore
+	
 	@Test
 	public void testActivaAsignatura () {
-	
+		
+		Filter filter = new Filter();
+		filter
+			.addFilter("entity", "asignatura")
+			.addFilter("operation", "activar");
 		
 		Asignatura asignatura = new Asignatura("MDL", false);
 		
@@ -41,18 +45,17 @@ public class SAAsignaturaTest {
 		
 		contexto = sa.activeAsignatura(id);
 		
-		assertEquals("El evento de la operacion Activar en Asignatura tiene que dar el comando COMMAND_ASIGNATURA_ACTIVATE"
-				,contexto.getEvent(),Events.COMMAND_ASIGNATURA_ACTIVATE);
+		assertEquals("El evento de la operacion Activar en Asignatura tiene que dar ASIGNATURA_ACTIVATE_OK"
+				,contexto.getEvent(),Events.ASIGNATURA_ACTIVATE_OK.setFilter(filter));
 		
 	
 	}
 	
 	/**
 	 * Test para probar la clase desactivaAsignatura
-	 * Se ingresa el id de una asignatura y se espera COMMAND_ASIGNATURA_DESACTIVATE si se ha hecho correctamente
+	 * Se ingresa el id de una asignatura y se espera ASIGNATURA_DESACTIVATE_OK si se ha hecho correctamente
 	 */
 	
-	@Ignore
 	@Test 
 	public void testDesactivaAsignatura () {
 		
@@ -71,13 +74,13 @@ public class SAAsignaturaTest {
 		
 		contexto = sa.desactiveAsignatura(id);
 		
-		assertEquals("El evento de la operacion Desactivar en Asignatura tiene que dar el comando COMMAND_ASIGNATURA_DESACTIVATE "
-				,contexto.getEvent(),Events.COMMAND_ASIGNATURA_DESACTIVATE.setFilter(filter));
+		assertEquals("El evento de la operacion Desactivar en Asignatura tiene que dar el comando ASIGNATURA_DESACTIVATE_OK "
+				,contexto.getEvent(),Events.ASIGNATURA_DESACTIVATE_OK.setFilter(filter));
 	
 		
 	}
 	
-	@Ignore
+	
 	@Test
 	public void testCrearAsignatura() {
 		
@@ -96,7 +99,6 @@ public class SAAsignaturaTest {
 		
 	}
 	
-	@Ignore
 	@Test
 	public void testCrearAsignaturaNula() {
 		
@@ -107,7 +109,6 @@ public class SAAsignaturaTest {
 		
 	}
 	
-	@Ignore
 	@Test
 	public void testCrearAsignaturaNoActiva() {
 		
@@ -150,7 +151,7 @@ public class SAAsignaturaTest {
 		
 	}
 	
-	@Ignore
+
 	@Test
 	public void testIngracionAsignatura() {
 		
