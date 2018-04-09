@@ -64,7 +64,7 @@ public class SAAsignaturaTest {
 			.addFilter("entity", "asignatura")
 			.addFilter("operation", "desactivar");
 		
-		Asignatura asignatura = new Asignatura("MMI", true);
+		Asignatura asignatura = new Asignatura("MMI2", true);
 		
 		SAAsignatura sa = new  SAAsignaturaImp();
 		
@@ -169,7 +169,7 @@ public class SAAsignaturaTest {
 		
 		
 		//Crear asignatura (activa)
-		Asignatura asignatura = new Asignatura("MMI", true);
+		Asignatura asignatura = new Asignatura("MMI1", true);
 		SAAsignatura sa = new  SAAsignaturaImp();
 		Contexto contexto = sa.create(asignatura);
 		Integer id = (Integer) contexto.getDato();
@@ -205,13 +205,6 @@ public class SAAsignaturaTest {
 		assertEquals("El evento de la operacion Delete en Asignatura tiene que estar OK"
 				,contexto.getEvent(),
 				Events.CRUD_DELETE_ASIGNATURA_OK);
-
-		//Listar asiganturas
-		
-		contexto = sa.readAll();
-						
-		assertEquals("El evento de la operacion ReadAll en Asignatura tiene que dar el comando CRUD_READ_ALL_ASIGNATURA_OK"
-							,contexto.getEvent(),Events.CRUD_READ_ALL_ASIGNATURA_KO);
 		
 		
 		
@@ -222,7 +215,7 @@ public class SAAsignaturaTest {
 		 *----------------------------------------------*/
 		
 		//Crear Asignatura No activa
-		Asignatura asignaturaDos = new Asignatura("MMI", false);
+		Asignatura asignaturaDos = new Asignatura("MMI8", false);
 		SAAsignatura saDos = new  SAAsignaturaImp();
 		Contexto contextoDos = saDos.create(asignaturaDos);
 		Integer idOtro = (Integer) contextoDos.getDato();
