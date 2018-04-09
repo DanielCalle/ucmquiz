@@ -21,7 +21,7 @@ import presentacion.Filter;
 public class SAAsignaturaImp implements SAAsignatura {
 
 	@Override
-	public Contexto readAll() {
+	/*public Contexto readAll() {
 		List<Asignatura> lista = null;
 		Events event = null;
 		Filter filter = new Filter();
@@ -61,7 +61,35 @@ public class SAAsignaturaImp implements SAAsignatura {
 		catch(PersistenceException ex) {
 		}
 	return contexto;	
+	}*/
+	public Contexto readAll() {
+		List<Asignatura> lista = null;
+		Events event = null;
+		Filter filter = new Filter();
+		Contexto contexto = null;
+		try {
+			EntityManager entitymanager = EntityManagerUtil.getEntityManager();
+			EntityTransaction entitytransaction = entitymanager.getTransaction();
+			entitytransaction.begin();
+				
+			TypedQuery<Asignatura> query = entitymanager.createNamedQuery("negocio.asignatura.Asignatura.readAll", Asignatura.class);
+			lista = query.getResultList();
+			entitytransaction.commit();
+			event = Events.CRUD_READ_ALL_ASIGNATURA_OK;
+			filter.addFilter("info", "");
+			event.setFilter(filter);
+			contexto = new Contexto(event,lista);
+			entitymanager.close();
+		}
+		catch(PersistenceException ex) {
+			event = Events.CRUD_READ_ALL_ASIGNATURA_KO;
+			filter.addFilter("info", "");
+			filter.addFilter("reason", "problemas técnicos");
+			event.setFilter(filter);
+		}
+	return contexto;	
 	}
+
 	
 	 /**
 	 * Realiza la operacion de un borrado fisico sobre la entidad Asignatura

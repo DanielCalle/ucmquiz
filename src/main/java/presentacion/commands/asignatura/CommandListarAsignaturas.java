@@ -8,7 +8,8 @@ public class CommandListarAsignaturas implements Command{
 
 	@Override
 	public Contexto execute(Object data) {
-		return FactoriaNegocio.getInstance().generateSAAsignatura().readAll();
+		Contexto c = FactoriaNegocio.getInstance().generateSAAsignatura().readAll();
+		return c;
 	}
 
 }

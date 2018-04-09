@@ -152,6 +152,9 @@ public class unoControllerImp extends unoController implements Initializable{
 			dialog.show();
 
 		}
+		else {
+			
+		}
 	}
 
 }
