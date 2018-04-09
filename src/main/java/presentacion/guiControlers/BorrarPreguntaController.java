@@ -1,35 +1,14 @@
 package presentacion.guiControlers;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextField;
+import presentacion.GUI;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
+public abstract class BorrarPreguntaController implements GUI {
 
-public class BorrarPreguntaController {
+	public static BorrarPreguntaController instance;
 	
-	@FXML
-    private JFXButton btncancelar;
+	public static BorrarPreguntaController getInstance() {
+		if(instance == null) instance = new BorrarPreguntaControllerImp();
+		return instance;
+	}
 
-    @FXML
-    private JFXTextField textfieldPregunta;
-
-    @FXML
-    private JFXButton btnborrar;
-
-    @FXML
-    void btnCancelar(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnBorrar(ActionEvent event) {
-
-    }
-
-    @FXML
-    void textFieldPregunta(ActionEvent event) {
-
-    }
-    
 }
