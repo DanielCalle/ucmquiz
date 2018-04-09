@@ -11,13 +11,14 @@ import javafx.beans.property.StringProperty;
  * Entidad de negocio Asignatura.
  * Esta clase contiene una relacion 1 : N con la entidad Pregunta.
  */
-
-	@Entity
+@Entity
+@NamedQueries({
 	@NamedQuery(
 		name = "negocio.asignatura.Asignatura.findBytitulo", 
 		query = "select obj from Asignatura obj where obj.titulo = :titulo"
-	)
-	
+	),
+	@NamedQuery(name = "negocio.asignatura.Asignatura.readAll", query = "select obj from Asignatura obj where obj.activo = 1") })
+
 public class Asignatura extends RecursiveTreeObject<Asignatura>{
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
