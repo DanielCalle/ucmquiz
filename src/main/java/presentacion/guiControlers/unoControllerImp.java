@@ -1,6 +1,7 @@
 package presentacion.guiControlers;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
@@ -24,6 +25,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
+import negocio.FactoriaNegocio;
 import negocio.asignatura.Asignatura;
 import presentacion.Contexto;
 import presentacion.Events;
@@ -65,7 +67,7 @@ public class unoControllerImp extends unoController implements Initializable{
 				});
 
 		ObservableList<Asignatura> users = FXCollections.observableArrayList();
-		Contexto contexto = new Contexto(Events.COMMAND_ASIGNATURA_LISTAR, null);
+		Contexto contexto = new Contexto(Events.COMMAND_ASIGNATURA_LISTAR,null);
 		Controlador.getInstance().accion(contexto);
 
 		final TreeItem<Asignatura> root = new RecursiveTreeItem<Asignatura>(users, RecursiveTreeObject::getChildren);
