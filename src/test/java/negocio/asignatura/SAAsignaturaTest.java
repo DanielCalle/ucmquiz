@@ -6,11 +6,68 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import negocio.FactoriaNegocio;
 import presentacion.Contexto;
 import presentacion.Events;
+import presentacion.Filter;
 
 public class SAAsignaturaTest {
-
+	
+	/**
+	 * 
+	 * Test para probar la clase activaAsignatura
+	 * Se ingresa el id de una asignatura y se espera COMMAND_ASIGNATURA_ACTIVATE si se ha hecho correctamente
+	 */
+	
+	@Test
+	public void testActivaAsignatura () {
+	
+		
+		Asignatura asignatura = new Asignatura("MDL", false);
+		
+		SAAsignatura sa = new  SAAsignaturaImp();
+		
+		Contexto contexto = sa.create(asignatura);
+		
+		int id = (int) contexto.getDato();
+		
+		contexto = sa.activaAsignatura(id);
+		
+		assertEquals("El evento de la operacion Activar en Asignatura tiene que dar el comando COMMAND_ASIGNATURA_ACTIVATE"
+				,contexto.getEvent(),Events.COMMAND_ASIGNATURA_ACTIVATE);
+		
+	
+	}
+	
+	/**
+	 * Test para probar la clase desactivaAsignatura
+	 * Se ingresa el id de una asignatura y se espera COMMAND_ASIGNATURA_DESACTIVATE si se ha hecho correctamente
+	 */
+	
+	@Test 
+	public void testDesactivaAsignatura () {
+		
+		Filter filter = new Filter();
+		filter
+			.addFilter("entity", "asignatura")
+			.addFilter("operation", "activar");
+		
+		Asignatura asignatura = new Asignatura("MMI", true);
+		
+		SAAsignatura sa = new  SAAsignaturaImp();
+		
+		Contexto contexto = sa.create(asignatura);
+		
+		int id = (int) contexto.getDato();
+		
+		contexto = sa.desactivaAsignatura(id);
+		
+		assertEquals("El evento de la operacion Desactivar en Asignatura tiene que dar el comando COMMAND_ASIGNATURA_DESACTIVATE "
+				,contexto.getEvent(),Events.COMMAND_ASIGNATURA_DESACTIVATE.setFilter(filter));
+	
+		
+	}
+	
 	@Test
 	public void testCrearAsignatura() {
 		
@@ -32,17 +89,9 @@ public class SAAsignaturaTest {
 	@Test
 	public void testCrearAsignaturaNula() {
 		
-		Asignatura asignatura = null;
-		
-		SAAsignatura sa = new  SAAsignaturaImp();
-		
-		Contexto contexto = sa.create(asignatura);
-	
-		Integer id = (Integer) contexto.getDato();
-		
 		assertNull(
 			"No se puede crear una asignatura nula.", 
-			id
+			FactoriaNegocio.getInstance().generateSAAsignatura().create(null)
 		);
 		
 	}
