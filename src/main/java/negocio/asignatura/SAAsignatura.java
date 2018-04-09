@@ -6,10 +6,12 @@ public interface SAAsignatura {
 	
 	public Contexto delete(int id);
 
-	public Contexto activaAsignatura(int id);
+	public Contexto create(Asignatura asignatura);
+
+	public Contexto activeAsignatura(int id);
 	
-	public Contexto desactivaAsignatura(int id);
-	
-	Contexto create(Asignatura asignatura);
+	public Contexto desactiveAsignatura(int id);
+
+	public Contexto readAll();
 	
 }

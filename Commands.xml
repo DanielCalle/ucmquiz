@@ -4,6 +4,7 @@
 	<command id="COMMAND_USER_LOGIN">presentacion.commands.CommandUserLogin</command>
 	<command id="COMMAND_ASIGNATURA_ACTIVATE">presentacion.commands.asignatura.CommandAsignaturaActivate</command>
 	<command id="COMMAND_ASIGNATURA_DESACTIVATE">presentacion.commands.asignatura.CommandAsignaturaDesactivate</command>
+	<command id="COMMAND_ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE">presentacion.commands.asignatura.CommandAsignaturaReadAllActivateDesactivate</command>
 	
 	<command id="COMMAND_ASIGNATURA_DELETE">presentacion.commands.asignatura.CommandAsignaturaDelete</command>
 

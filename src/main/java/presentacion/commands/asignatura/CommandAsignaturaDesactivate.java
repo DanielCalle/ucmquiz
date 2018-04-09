@@ -9,7 +9,7 @@ public class CommandAsignaturaDesactivate implements Command {
 	@Override
 	public Contexto execute(Object data) {
 		int id = (int) data;
-		return FactoriaNegocio.getInstance().generateSAAsignatura().desactivaAsignatura(id);
+		return FactoriaNegocio.getInstance().generateSAAsignatura().desactiveAsignatura(id);
 	}
 
 }

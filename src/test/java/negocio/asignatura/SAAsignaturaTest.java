@@ -9,6 +9,12 @@ import org.junit.Test;
 import negocio.FactoriaNegocio;
 import presentacion.Contexto;
 import presentacion.Events;
+
+import static org.junit.Assert.assertThat;
+
+import org.hamcrest.core.IsEqual;
+import org.junit.Test;
+
 import presentacion.Filter;
 
 public class SAAsignaturaTest {
@@ -31,7 +37,7 @@ public class SAAsignaturaTest {
 		
 		int id = (int) contexto.getDato();
 		
-		contexto = sa.activaAsignatura(id);
+		contexto = sa.activeAsignatura(id);
 		
 		assertEquals("El evento de la operacion Activar en Asignatura tiene que dar el comando COMMAND_ASIGNATURA_ACTIVATE"
 				,contexto.getEvent(),Events.COMMAND_ASIGNATURA_ACTIVATE);
@@ -60,7 +66,7 @@ public class SAAsignaturaTest {
 		
 		int id = (int) contexto.getDato();
 		
-		contexto = sa.desactivaAsignatura(id);
+		contexto = sa.desactiveAsignatura(id);
 		
 		assertEquals("El evento de la operacion Desactivar en Asignatura tiene que dar el comando COMMAND_ASIGNATURA_DESACTIVATE "
 				,contexto.getEvent(),Events.COMMAND_ASIGNATURA_DESACTIVATE.setFilter(filter));
