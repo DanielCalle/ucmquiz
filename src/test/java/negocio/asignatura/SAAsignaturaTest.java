@@ -152,7 +152,7 @@ public class SAAsignaturaTest {
 	
 	@Ignore
 	@Test
-	public void testIngrecionAsignatura() {
+	public void testIngracionAsignatura() {
 		
 		/*----------------------------
 		 * Crear asigantura Activa
