@@ -8,4 +8,9 @@ public interface SAAsignatura {
 	
 	public Contexto readAll();
 
+	
+	public Contexto delete(int id);
+
+	Contexto create(Asignatura asignatura);
+	
 }

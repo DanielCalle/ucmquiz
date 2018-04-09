@@ -1,4 +1,4 @@
-package negocio.asignatura;
+package negocio.asignatura; 
 
 import javax.persistence.*;
 
@@ -11,9 +11,14 @@ import javafx.beans.property.StringProperty;
  * Entidad de negocio Asignatura.
  * Esta clase contiene una relacion 1 : N con la entidad Pregunta.
  */
-@Entity
-public class Asignatura extends RecursiveTreeObject<Asignatura>{
 
+	@Entity
+	@NamedQuery(
+		name = "negocio.asignatura.Asignatura.findBytitulo", 
+		query = "select obj from Asignatura obj where obj.titulo = :titulo"
+	)
+	
+public class Asignatura extends RecursiveTreeObject<Asignatura>{
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;

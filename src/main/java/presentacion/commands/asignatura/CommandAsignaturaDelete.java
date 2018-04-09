@@ -4,12 +4,12 @@ import negocio.FactoriaNegocio;
 import presentacion.Command;
 import presentacion.Contexto;
 
-public class CommandListarAsignaturas implements Command{
+public class CommandAsignaturaDelete implements Command {
 
 	@Override
 	public Contexto execute(Object data) {
-		return FactoriaNegocio.getInstance().generateSAAsignatura().readAll();
-		// TODO Auto-generated method stub
+		Integer id = (Integer) data;
+		return FactoriaNegocio.getInstance().generateSAAsignatura().delete(id);
 	}
-
+	
 }

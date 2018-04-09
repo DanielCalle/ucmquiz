@@ -109,8 +109,47 @@ public class unoControllerImp extends unoController implements Initializable{
 
 	@Override
 	public void update(Contexto contexto) {
-		// TODO Auto-generated method stub
-		
+		if (contexto.getEvent() == Events.CRUD_READ_ASIGNATURA_KO) {
+			JFXDialogLayout content = new JFXDialogLayout();
+			content.setHeading(new Text("Lista de asignaturas vacia"));
+			content.setBody(new Text(contexto.getEvent().getMessage()));
+			JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
+
+			JFXButton button = new JFXButton("Ok");
+			button.setOnAction(new EventHandler<ActionEvent>() {
+
+				@Override
+				public void handle(ActionEvent arg0) {
+					dialog.close();
+
+				}
+
+			});
+			content.setActions(button);
+			dialog.show();
+
+		}
+
+		else if (contexto.getEvent() != Events.CRUD_READ_ALL_ASIGNATURA_OK) {
+			
+			JFXDialogLayout content = new JFXDialogLayout();
+			content.setHeading(new Text("Error"));
+			JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
+
+			JFXButton button = new JFXButton("Ok");
+			button.setOnAction(new EventHandler<ActionEvent>() {
+
+				@Override
+				public void handle(ActionEvent arg0) {
+					dialog.close();
+
+				}
+
+			});
+			content.setActions(button);
+			dialog.show();
+
+		}
 	}
 
 }
