@@ -63,9 +63,10 @@ public class SAPreguntaTest {
 		
 	}
 	
-	public void borrar_pregunta_deberia_dejar_su_asignatura_en_null(int idPregunta) {
+	@Test
+	public void borrarPreguntaTest() {
 		
-		Pregunta p = new Pregunta("¿Quien es mejor profesor, Hector o Antonio?", true);
+		Pregunta p = new Pregunta("ï¿½Quien es mejor profesor, Hector o Antonio?", true);
 		
 		SAPregunta sap = new SAPreguntaImp();
 		
