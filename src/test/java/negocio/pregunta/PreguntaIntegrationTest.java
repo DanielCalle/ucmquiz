@@ -85,11 +85,10 @@ public class PreguntaIntegrationTest {
 		
 		assertThat("No esta en la BBDD, aun asi el contexto no deberia se nulo.", contexto.getEvent() , notNullValue() );
 		
-		assertThat("No esta en la BBDD, el identificador deberia ser nulo.", contexto.getDato() , notNullValue() );
+		assertThat("No esta en la BBDD, el identificador deberia ser nulo.", contexto.getDato() , nullValue() );
 		
 		assertThat("No esta en la BBDD, el evento de borrado deberia ser negativo.", contexto.getEvent() , is(equalTo(Events.CRUD_DELETE_PREGUNTA_KO)) );
-		
-		/*
+	
 		contexto = saPregunta.borrarPregunta(mmiId);
 		
 		assertThat("El contexto no deberia se nulo.", contexto.getEvent() , notNullValue() );
@@ -105,7 +104,6 @@ public class PreguntaIntegrationTest {
 		assertThat("El identificador deberia ser nulo.", contexto.getDato() , nullValue() );
 		
 		assertThat("El evento de borrado deberia ser positivo.", contexto.getEvent() , is(equalTo(Events.CRUD_DELETE_PREGUNTA_OK)) );
-		*/
 		
 	}
 
