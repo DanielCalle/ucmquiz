@@ -30,8 +30,6 @@ public class BorrarPreguntaControllerImp extends BorrarPreguntaController implem
 	@FXML
 	private JFXButton btncancelar;
 
-	@FXML
-	private AnchorPane root;
 
 	@FXML
 	private JFXTextField textfieldPregunta;
@@ -41,7 +39,7 @@ public class BorrarPreguntaControllerImp extends BorrarPreguntaController implem
 
 	@FXML
 	void btnCancelar(ActionEvent event) {
-		Stage stage = (Stage) root.getScene().getWindow();
+		Stage stage = (Stage) stackpane.getScene().getWindow();
 
 		stage.close();
 	}
