@@ -26,7 +26,7 @@
                   <Pane layoutY="44.0" prefHeight="447.0" prefWidth="171.0" style="-fx-background-color: #2D435A;">
                      <children>
                         <JFXButton fx:id="BotonPreguntas" alignment="CENTER" onAction="#BotonPreguntasAction" prefHeight="35.0" prefWidth="171.0" style="-fx-border-color: grey;" text="Preguntas" textFill="#bdbdbd" />
-                        <JFXButton fx:id="BotonRespuestas" alignment="CENTER" layoutY="35.0" onAction="#BotonRespuestasAction" prefHeight="35.0" prefWidth="171.0" style="-fx-border-color: grey;" text="Respuestas" textFill="#bdbdbd" />
+                        <JFXButton fx:id="BotonRespuestas" alignment="CENTER" layoutY="35.0" onAction="#BotonRespuestasAction" prefHeight="35.0" prefWidth="171.0" style="-fx-border-color: grey;" text="Respuestas" textFill="#bdbdbd" visible="false" />
                         <JFXButton fx:id="BotonAsignaturas" alignment="CENTER" layoutY="70.0" onAction="#BotonAsignaturasAction" prefHeight="35.0" prefWidth="171.0" style="-fx-border-color: grey; -fx-background-color: #657585;" text="Asignaturas" textFill="#bdbdbd" />
                      </children>
                   </Pane>

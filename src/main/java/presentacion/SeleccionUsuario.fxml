@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-
 <StackPane fx:id="root" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F44336;"> 
@@ -15,8 +14,8 @@
             <Pane layoutY="93.0" prefHeight="307.0" prefWidth="600.0" style="-fx-background-color: white;">
                <children>
                   <JFXButton fx:id="btnprofesor" buttonType="RAISED" layoutX="227.0" layoutY="55.0" onAction="#btnprofesorListener" prefHeight="37.0" prefWidth="147.0" style="-fx-background-color: #F44336;" text="Profesor" textFill="#ffcdd2" />
-                  <JFXButton fx:id="btnAdministrador" buttonType="RAISED" layoutX="227.0" layoutY="135.0" onAction="#btnAdministradorListener" prefHeight="37.0" prefWidth="147.0" style="-fx-background-color: #F44336;" text="Administrador" textFill="#ffcdd2" />
-                  <JFXButton fx:id="btnAlumno" buttonType="RAISED" layoutX="227.0" layoutY="209.0" onAction="#btnAlumnoListener" prefHeight="37.0" prefWidth="147.0" style="-fx-background-color: #F44336;" text="Alumno" textFill="#ffcdd2" />
+                  <JFXButton fx:id="btnAdministrador" buttonType="RAISED" layoutX="227.0" layoutY="135.0" onAction="#btnAdministradorListener" prefHeight="37.0" prefWidth="147.0" style="-fx-background-color: #F44336;" text="Administrador" textFill="#ffcdd2" visible="false" />
+                  <JFXButton fx:id="btnAlumno" buttonType="RAISED" layoutX="227.0" layoutY="209.0" onAction="#btnAlumnoListener" prefHeight="37.0" prefWidth="147.0" style="-fx-background-color: #F44336;" text="Alumno" textFill="#ffcdd2" visible="false" />
                </children>
             </Pane>
             <Label layoutX="27.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="244.0" text="UCM QUIZ" textFill="WHITE">

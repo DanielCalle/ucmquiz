@@ -17,35 +17,36 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import presentacion.Contexto;
 import presentacion.Events;
 import presentacion.controlador.Controlador;
 
 public class BorrarPreguntaControllerImp extends BorrarPreguntaController implements Initializable {
-	
+
 	@FXML
 	private StackPane stackpane;
-	
+
 	@FXML
-    private JFXButton btncancelar;
-	
+	private JFXButton btncancelar;
+
+
 	@FXML
-	private AnchorPane root;
+	private JFXTextField textfieldPregunta;
 
-    @FXML
-    private JFXTextField textfieldPregunta;
+	@FXML
+	private JFXButton btnborrar;
 
-    @FXML
-    private JFXButton btnborrar;
+	@FXML
+	void btnCancelar(ActionEvent event) {
+		Stage stage = (Stage) stackpane.getScene().getWindow();
 
-    @FXML
-    void btnCancelar(ActionEvent event) {
+		stage.close();
+	}
 
-    }
-
-    @FXML
-    void btnBorrar(ActionEvent event) {
-		if ( textfieldPregunta.getLength() == 0) {
+	@FXML
+	void btnBorrar(ActionEvent event) {
+		if (textfieldPregunta.getLength() == 0) {
 
 			JFXDialogLayout content = new JFXDialogLayout();
 			content.setHeading(new Text("Accion incorrecta"));
@@ -71,14 +72,14 @@ public class BorrarPreguntaControllerImp extends BorrarPreguntaController implem
 
 			Contexto contexto = new Contexto(Events.COMMAND_PREGUNTA_DELETE, idPregunta);
 
-			Controlador.getInstance().accion(contexto);	
-		}	
-    }
+			Controlador.getInstance().accion(contexto);
+		}
+	}
 
-    @FXML
-    void textFieldPregunta(ActionEvent event) {
+	@FXML
+	void textFieldPregunta(ActionEvent event) {
 
-    }
+	}
 
 	@Override
 	public void update(Contexto contexto) {
@@ -105,9 +106,9 @@ public class BorrarPreguntaControllerImp extends BorrarPreguntaController implem
 			dialog.show();
 
 			break;
-			
+
 		case CRUD_DELETE_PREGUNTA_KO:
-			
+
 			content = new JFXDialogLayout();
 			content.setHeading(new Text("Error"));
 			content.setBody(new Text(contexto.getEvent().getMessage()));
@@ -147,7 +148,7 @@ public class BorrarPreguntaControllerImp extends BorrarPreguntaController implem
 			content.setActions(button);
 			dialog.show();
 
-		}		
+		}
 	}
 
 	@Override
@@ -168,7 +169,7 @@ public class BorrarPreguntaControllerImp extends BorrarPreguntaController implem
 			}
 
 		});
-		
+
 	}
-    
+
 }

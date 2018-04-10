@@ -18,13 +18,13 @@ public class SeleccionUsuarioControllerImp extends SeleccionUsuarioController {
 	
 	@FXML
     private JFXButton btnprofesor;
-
-    @FXML
+	
+/*    @FXML
     private JFXButton btnAdministrador;
 
     @FXML
     private JFXButton btnAlumno;
-
+*/
     @FXML
     void btnAdministradorListener(ActionEvent event) {
 
