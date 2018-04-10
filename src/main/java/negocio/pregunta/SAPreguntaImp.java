@@ -25,12 +25,12 @@ public class SAPreguntaImp implements SAPregunta {
 		EntityTransaction entitytransaction = entitymanager.getTransaction();
 		entitytransaction.begin();
 
-		try {
-			p = entitymanager.find(Pregunta.class, idPregunta); // se busca el objeto por la clave primaria (el id)
+		p = entitymanager.find(Pregunta.class, idPregunta); // se busca el objeto por la clave primaria (el id)
 
-			//p.setAsignatura(null); // se desvincula la pregunta con la asignatura (haciendo la dependencia null)
+		if(p != null) {
+			entitymanager.remove(p);
 			//entitymanager.refresh(p); // se actualiza la entidad en bbdd
-			p.setActiva(false);
+			//p.setActiva(false);
 			entitytransaction.commit();
 			event = Events.CRUD_DELETE_PREGUNTA_OK;
 			
@@ -38,9 +38,8 @@ public class SAPreguntaImp implements SAPregunta {
 
 			event.setFilter(filter);
 			contexto = new Contexto(event, null);
-
-		} catch (IllegalArgumentException iae) { // si el id pasado no existe el entitymanager soltará error
-			iae.printStackTrace();
+		}else {
+			// si el id pasado no existe el entitymanager soltará error
 			entitytransaction.rollback();
 			event = Events.CRUD_DELETE_PREGUNTA_KO;
 			filter.addFilter("reason", "que el id introducido no exista");
@@ -49,9 +48,8 @@ public class SAPreguntaImp implements SAPregunta {
 
 			event.setFilter(filter);
 			contexto = new Contexto(event, null);
-		} finally {
-			entitymanager.close();
 		}
+		
 		return contexto;
 	}
 
