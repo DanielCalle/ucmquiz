@@ -49,6 +49,9 @@ public class ActivarDesactivarAsigControllerImp extends ActivarDesactivarAsigCon
 
 	private boolean state;
 	private List<Asignatura> list;
+	private JFXDialogLayout content;
+	private JFXDialog dialog;
+	private JFXButton button;
 
 	@FXML
 	void btnCancelar(ActionEvent event) {
@@ -68,9 +71,26 @@ public class ActivarDesactivarAsigControllerImp extends ActivarDesactivarAsigCon
 				Contexto contexto = new Contexto(
 						((state) ? Events.COMMAND_ASIGNATURA_ACTIVATE : Events.COMMAND_ASIGNATURA_DESACTIVATE),
 						asignatura.getId());
-				state = !state;
-				btnonoff.setSelected(state);
 				Controlador.getInstance().accion(contexto);
+			}
+			else {
+				content = new JFXDialogLayout();
+				content.setHeading(new Text("Error"));
+				content.setBody(new Text("La asignatura ya esta " + (state ? "activada" : "desactivada")));
+				dialog = new JFXDialog(root, content, JFXDialog.DialogTransition.CENTER);
+
+				button = new JFXButton("Ok");
+				button.setOnAction(new EventHandler<ActionEvent>() {
+
+					@Override
+					public void handle(ActionEvent arg0) {
+						dialog.close();
+
+					}
+
+				});
+				content.setActions(button);
+				dialog.show();
 			}
 		}
 	}
@@ -87,16 +107,6 @@ public class ActivarDesactivarAsigControllerImp extends ActivarDesactivarAsigCon
 	public void initialize(URL location, ResourceBundle resources) {
 		state = false;
 
-		/*
-		 * Asignatura asignatura = null; asignatura = new Asignatura();
-		 * asignatura.setTitulo("MMI"); asignatura.setId(1); asignatura.setActivo(true);
-		 * 
-		 * EntityManager entitymanager = EntityManagerUtil.getEntityManager();
-		 * EntityTransaction entitytransaction = entitymanager.getTransaction();
-		 * entitytransaction.begin(); entitymanager.persist(asignatura);
-		 * entitytransaction.commit();
-		 */
-
 		Contexto contexto = new Contexto(Events.COMMAND_ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE, null);
 		Controlador.getInstance().accion(contexto);
 
@@ -108,7 +118,7 @@ public class ActivarDesactivarAsigControllerImp extends ActivarDesactivarAsigCon
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 				Asignatura asig = list.stream().filter(a -> a.getTitulo() == newValue).findFirst().get();
-				state = !asig.isActivo();
+				state = asig.isActivo();
 				btnonoff.setSelected(state);
 			}
 
@@ -117,9 +127,6 @@ public class ActivarDesactivarAsigControllerImp extends ActivarDesactivarAsigCon
 
 	@Override
 	public void update(Contexto contexto) {
-		JFXDialogLayout content;
-		JFXDialog dialog;
-		JFXButton button;
 		switch (contexto.getEvent()) {
 		case ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE_OK:
 			list = (List<Asignatura>) contexto.getDato();
