@@ -49,6 +49,7 @@ Thumbs.db
 # Logs and databases #
 ######################
 *.log
+ucmquizDB.db
 
 # Packages #
 ############
@@ -61,3 +62,5 @@ Thumbs.db
 *.rar
 *.tar
 *.zip
+
+
