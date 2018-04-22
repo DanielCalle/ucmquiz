@@ -166,11 +166,10 @@ public class SAPreguntaImp implements SAPregunta {
 
 		if(p != null) {
 			respuesta.setPregunta(p);
-			entitymanager.remove(p);
 			//entitymanager.refresh(p); // se actualiza la entidad en bbdd
 			//p.setActiva(false);
 			entitytransaction.commit();
-			event = Events.CRUD_DELETE_PREGUNTA_OK;
+			event = Events.CRUD_ADD_RESPUESTA_OK;
 			
 			filter.addFilter("info", "");
 
@@ -179,8 +178,8 @@ public class SAPreguntaImp implements SAPregunta {
 		}else {
 			// si el id pasado no existe el entitymanager soltará error
 			entitytransaction.rollback();
-			event = Events.CRUD_DELETE_PREGUNTA_KO;
-			filter.addFilter("reason", "que el id introducido no exista");
+			event = Events.CRUD_ADD_RESPUESTA_KO;
+			filter.addFilter("reason", "el id para la pregunta no existe");
 			
 			filter.addFilter("info", "");
 
