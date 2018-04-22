@@ -1,5 +1,6 @@
 package negocio.pregunta;
 
+import negocio.respuesta.Respuesta;
 import presentacion.Contexto;
 
 public interface SAPregunta {
@@ -8,4 +9,6 @@ public interface SAPregunta {
 
 	public Contexto borrarPregunta(int idPregunta);
 	
+	public Contexto añadirRespuesta(int idPregunta, Respuesta respuesta);
+		
 }
