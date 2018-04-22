@@ -143,7 +143,12 @@
 	<event id="ASIGNATURA_DESACTIVATE_KO">
 		No se activo correctamente la asignatura debido a {reason}
 	</event>
-	
+	<event id="CRUD_ADD_RESPUESTA_OK">
+		Se anadio la respuesta correctamente a la pregunta con id {id}
+	</event> 
+	<event id ="CRUD_ADD_RESPUESTA_KO">
+		No se añadio la respuesta correctamente debido a {reason}
+	</event>
 	<event id="SHOW_LOGIN">No message</event>
 	<event id="SHOW_ROL_MENU">No message</event>
 	<event id="SHOW_ASIGNATURA_ACTIVATE_DESACTIVATE">No message</event>
