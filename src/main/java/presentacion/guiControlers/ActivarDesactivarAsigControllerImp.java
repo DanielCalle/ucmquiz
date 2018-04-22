@@ -131,6 +131,7 @@ public class ActivarDesactivarAsigControllerImp extends ActivarDesactivarAsigCon
 		case ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE_OK:
 			list = (List<Asignatura>) contexto.getDato();
 			break;
+			
 		case ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE_KO:
 			break;
 		case ASIGNATURA_ACTIVATE_OK:
