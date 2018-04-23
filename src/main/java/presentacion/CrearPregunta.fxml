@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -25,9 +26,13 @@
             <Pane layoutY="75.0" prefHeight="325.0" prefWidth="600.0" style="-fx-background-color: white;">
                <children>
                   <JFXButton fx:id="btnCrear" layoutX="451.0" layoutY="261.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnCrearListener" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #F44336;" text="Crear" textFill="WHITE" />
-		            <Label layoutX="214.0" layoutY="67.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="135.0" text="Nombre de la pregunta" textFill="#9e9e9e" />
+		            <Label layoutX="71.0" layoutY="106.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="135.0" text="Nombre de la pregunta" textFill="#9e9e9e" />
                   <JFXButton fx:id="btnCancelar" buttonType="RAISED" cache="true" cancelButton="true" depthTest="DISABLE" layoutX="279.0" layoutY="261.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#btnBorrar" prefHeight="37.0" prefWidth="135.0" ripplerFill="BLACK" style="-fx-background-color: white;" text="Cancelar" textOverrun="CLIP" />                  
-                  <JFXTextArea fx:id="textArea" focusColor="#d03229" layoutX="70.0" layoutY="106.0" prefHeight="37.0" prefWidth="460.0" unFocusColor="#f44336" />
+                  <JFXTextArea fx:id="textArea" focusColor="#d03229" layoutX="70.0" layoutY="123.0" prefHeight="25.0" prefWidth="460.0" unFocusColor="#f44336" />
+                  <Label layoutX="70.0" layoutY="45.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="135.0" text="Asignatura" textFill="#9e9e9e" />
+                  <JFXComboBox fx:id="cobobox" layoutX="70.0" layoutY="62.0" onAction="#coboboxAction" prefHeight="25.0" prefWidth="135.0" />
+                  <JFXButton fx:id="CrearRespuestas" buttonType="RAISED" cache="true" depthTest="DISABLE" layoutX="138.0" layoutY="175.0" onAction="#CrearRespuestasAction" ripplerFill="WHITE" style="-fx-background-color: #F44336;" text="Crear respuestas" textFill="WHITE" textOverrun="CLIP" />
+                  <JFXButton fx:id="BorrarRespuestas" buttonType="RAISED" cache="true" layoutX="333.0" layoutY="175.0" onAction="#BorrarRespuestasAction" style="-fx-background-color: #F44336;" text="Eliminar respuestas" textFill="WHITE" textOverrun="CLIP" />
                </children>
             </Pane>
          </children>
