@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXCheckBox;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -29,7 +30,7 @@ public class AñadirRespuestaControllerImp extends AñadirRespuestaController {
 	private JFXButton btnAñadir;
 	
 	@FXML
-	private JFXCheckBox chkAñadir;
+	private CheckBox chkCorrecta;
 
 	@FXML
 	void btnAñadir(ActionEvent event) {
@@ -37,6 +38,11 @@ public class AñadirRespuestaControllerImp extends AñadirRespuestaController {
 		// Stage stage = (Stage) stackpane.getScene().getWindow();
 		//
 		// stage.close();
+	}
+	
+	@FXML
+	void btnCancelarListener(ActionEvent event) {
+		
 	}
 
 	@FXML
