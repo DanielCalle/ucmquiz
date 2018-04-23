@@ -144,6 +144,19 @@
 		No se activo correctamente la asignatura debido a {reason}
 	</event>
 	
+	<event id="PREGUNTA_ACTIVATE_OK">
+		Se activo correctamente la pregunta con id {id}
+	</event>
+	<event id="PREGUNTA_ACTIVATE_KO">
+		No se activo correctamente la pregunta debido a {reason}
+	</event>
+	<event id="PREGUNTA_DESACTIVATE_OK">
+		Se desactivo correctamente la pregunta con id {id}
+	</event>
+	<event id="PREGUNTA_DESACTIVATE_KO">
+		No se activo correctamente la pregunta debido a {reason}
+	</event>
+	
 	<event id="SHOW_LOGIN">No message</event>
 	<event id="SHOW_ROL_MENU">No message</event>
 	<event id="SHOW_ASIGNATURA_ACTIVATE_DESACTIVATE">No message</event>
