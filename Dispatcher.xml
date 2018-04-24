@@ -115,11 +115,15 @@
     <gui id="CRUD_READ_ALL_ASIGNATURA_KO">
     	<controler>presentacion.guiControlers.unoController</controler>
     </gui>
-    
     <gui id="SHOW_ASIGNATURA_READ_ALL">
     <title>Listar asignaturas</title>
     <file>/presentacion/uno.fxml</file>
     <controler>presentacion.guiControlers.unoController</controler>
+    </gui>
+    <gui id="SHOW_PREGUNTA_ACTIVATE_DESACTIVATE">
+    <title>Crear pregunta</title>
+    <file>/presentacion/ActivarDesactivarPreg.fxml</file>
+    <controler>presentacion.guiControlers.ActivarDesactivarPregController</controler>
     </gui>
 
 </guis>

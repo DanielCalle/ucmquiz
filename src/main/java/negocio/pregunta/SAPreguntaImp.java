@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
 import negocio.ComprobadorSintactico;
@@ -264,6 +265,33 @@ public class SAPreguntaImp implements SAPregunta {
 		
 		return new Contexto(events.setFilter(filter),identifier);
 	
+	}
+	
+	@Override
+	public Contexto readAll() {
+		Events e;
+		Filter filter = new Filter();
+		List<Pregunta> lista = null;
+		
+		try {
+			EntityManager entitymanager = EntityManagerUtil.getEntityManager();
+			EntityTransaction entitytransaction = entitymanager.getTransaction();
+			entitytransaction.begin();
+				
+			TypedQuery<Pregunta> query = entitymanager.createNamedQuery("negocio.pregunta.Pregunta.readAll", Pregunta.class);
+			lista = query.getResultList();
+			entitytransaction.commit();
+			e = Events.CRUD_READ_ALL_PREGUNTA_OK;
+			filter.addFilter("info","");
+				
+			entitymanager.close();
+		} catch(PersistenceException ex) {
+			e = Events.CRUD_READ_ALL_PREGUNTA_KO;
+			filter.addFilter("reason","problemas técnicos");
+			filter.addFilter("info","");
+		}
+		
+		return new Contexto(e,lista);
 	}
 
 }

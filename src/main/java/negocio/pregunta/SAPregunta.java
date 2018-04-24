@@ -11,5 +11,7 @@ public interface SAPregunta {
 	public Contexto activatePregunta(int idPregunta);
 	
 	public Contexto deactivatePregunta(int idPregunta);
+
+	public Contexto readAll();
 	
 }
