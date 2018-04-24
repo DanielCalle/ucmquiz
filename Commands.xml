@@ -6,6 +6,10 @@
 	<command id="COMMAND_ASIGNATURA_DESACTIVATE">presentacion.commands.asignatura.CommandAsignaturaDesactivate</command>
 	<command id="COMMAND_ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE">presentacion.commands.asignatura.CommandAsignaturaReadAllActivateDesactivate</command>
 	
+	<command id="COMMAND_PREGUNTA_ACTIVATE">presentacion.commands.pregunta.CommandPreguntaActivate</command>
+	<command id="COMMAND_PREGUNTA_DESACTIVATE">presentacion.commands.pregunta.CommandPreguntaDesactivate</command>
+	<command id="COMMAND_PREGUNTA_READ_ALL_ACTIVATE_DESACTIVATE">presentacion.commands.pregunta.CommandPreguntaReadAllActivateDesactivate</command>
+	
 	<command id="COMMAND_ASIGNATURA_DELETE">presentacion.commands.asignatura.CommandAsignaturaDelete</command>
 
 	<command id="COMMAND_PREGUNTA_CREATE">presentacion.commands.pregunta.CommandPreguntaCreate</command>

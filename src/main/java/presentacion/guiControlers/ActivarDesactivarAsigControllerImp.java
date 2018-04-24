@@ -55,9 +55,13 @@ public class ActivarDesactivarAsigControllerImp extends ActivarDesactivarAsigCon
 
 	@FXML
 	void btnCancelar(ActionEvent event) {
+		
 		Stage stage = (Stage) root.getScene().getWindow();
 
 		stage.close();
+		
+		Controlador.getInstance().accion(new Contexto(Events.SHOW_MENU_PROFESORES_PREGUNTAS, null));
+		
 	}
 
 	@FXML

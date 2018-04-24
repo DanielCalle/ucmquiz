@@ -40,7 +40,7 @@ public class MenuProfesorPreguntasControllerImp extends MenuProfesorPreguntasCon
 
 		stage.close();
 
-		Contexto contexto = new Contexto(Events.SHOW_ASIGNATURA_ACTIVATE_DESACTIVATE, null);
+		Contexto contexto = new Contexto(Events.SHOW_PREGUNTA_ACTIVATE_DESACTIVATE, null);
 		
 		Controlador.getInstance().accion(contexto);
 		

@@ -160,6 +160,7 @@
 	<event id="SHOW_LOGIN">No message</event>
 	<event id="SHOW_ROL_MENU">No message</event>
 	<event id="SHOW_ASIGNATURA_ACTIVATE_DESACTIVATE">No message</event>
+	<event id="SHOW_PREGUNTA_ACTIVATE_DESACTIVATE">No message</event>
 	<event id="SHOW_MENU_PROFESORES_PREGUNTAS">No message</event>
 	<event id="SHOW_ASIGNATURA_DELETE">No message</event>
 	<event id="SHOW_ASIGNATURA_CREATE">No message</event>
