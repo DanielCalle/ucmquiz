@@ -116,9 +116,14 @@ public class SAPreguntaImp implements SAPregunta {
 		
 						event.setFilter(filter);
 		
-						contexto = new Contexto(event, pregunta.getId());
+						contexto = new Contexto(event, null);
 
 						entitymanager.persist(pregunta);
+						
+						
+						for (Respuesta r: pregunta.getRespuestas())
+							r.setPregunta(pregunta);
+							
 						entitytransaction.commit();
 					}
 					else {
