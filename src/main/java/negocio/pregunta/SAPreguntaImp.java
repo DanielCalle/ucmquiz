@@ -1,12 +1,14 @@
 
 package negocio.pregunta;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-
-import negocio.EntityManagerUtil;
-import java.util.List;
 import javax.persistence.TypedQuery;
+
+import negocio.ComprobadorSintactico;
+import negocio.EntityManagerUtil;
 import presentacion.Contexto;
 import presentacion.Events;
 import presentacion.Filter;
@@ -14,6 +16,7 @@ import presentacion.Filter;
 public class SAPreguntaImp implements SAPregunta {
 
 	public Contexto borrarPregunta(int idPregunta) {
+		
 		Events event = null;
 
 		Contexto contexto = null;
@@ -39,7 +42,7 @@ public class SAPreguntaImp implements SAPregunta {
 			event.setFilter(filter);
 			contexto = new Contexto(event, null);
 		}else {
-			// si el id pasado no existe el entitymanager soltará error
+			// si el id pasado no existe el entitymanager soltarï¿½ error
 			entitytransaction.rollback();
 			event = Events.CRUD_DELETE_PREGUNTA_KO;
 			filter.addFilter("reason", "que el id introducido no exista");
@@ -139,6 +142,128 @@ public class SAPreguntaImp implements SAPregunta {
 
 		return contexto;
 
+	}
+	
+	@Override
+	public Contexto activatePregunta(int id) {
+		
+		Events events = null;
+		Integer identifier = null;
+		Filter filter = new Filter();
+		
+		if (ComprobadorSintactico.isPositive(id)) {
+			
+			EntityManager entityManager = EntityManagerUtil.getEntityManager();
+			EntityTransaction entityTransaction = entityManager.getTransaction();
+			
+			entityTransaction.begin();
+
+			Pregunta pregunta = entityManager.find(Pregunta.class, id);
+			
+			if(pregunta != null) { 
+				
+				if(!pregunta.getActiva()) {
+			
+					pregunta.setActiva(true);
+					entityManager.persist(pregunta);
+					entityTransaction.commit();
+			
+					identifier = id;
+					events = Events.PREGUNTA_ACTIVATE_OK;
+					filter.addFilter("id",Integer.toString(id)+".");
+					
+				} else {
+					
+					entityTransaction.rollback();
+				
+					identifier = id;
+					events = Events.PREGUNTA_ACTIVATE_KO;
+					filter.addFilter("reason", "que la pregunta ya esta activa.");
+					
+				}
+			
+			} else {
+				
+				entityTransaction.rollback();
+
+				identifier = id;
+				events = Events.PREGUNTA_ACTIVATE_KO;
+				filter.addFilter("reason", "que la pregunta no existe.");
+			
+			}
+			
+			entityManager.close();
+		
+		} else {
+			
+			events = Events.PREGUNTA_ACTIVATE_KO;
+			filter.addFilter("reason", "que el parametro de busqueda fue incorrecto.");
+		
+		}
+		
+		return new Contexto(events.setFilter(filter),identifier);
+		
+	}
+	
+	@Override
+	public Contexto deactivatePregunta(int id) {
+	
+		Events events = null;
+		Integer identifier = null;
+		Filter filter = new Filter();
+		
+		if (ComprobadorSintactico.isPositive(id)) {
+			
+			EntityManager entityManager = EntityManagerUtil.getEntityManager();
+			EntityTransaction entityTransaction = entityManager.getTransaction();
+			
+			entityTransaction.begin();
+
+			Pregunta pregunta = entityManager.find(Pregunta.class, id);
+
+			if(pregunta != null) {
+				
+				if(pregunta.getActiva()) {
+					
+					pregunta.setActiva(false);
+					entityManager.persist(pregunta);
+					entityTransaction.commit();
+				
+					identifier = id;
+					events = Events.PREGUNTA_DESACTIVATE_OK;
+					filter.addFilter("id",Integer.toString(id)+".");
+					
+				} else {			
+					
+					entityTransaction.rollback();
+				
+					identifier = id;
+					events = Events.PREGUNTA_DESACTIVATE_KO;
+					filter.addFilter("reason", "que la pregunta ya esta desactivada.");
+					
+				}
+				
+			} else {
+				
+				entityTransaction.rollback();
+				
+				identifier = id;
+				events = Events.PREGUNTA_DESACTIVATE_KO;
+				filter.addFilter("reason", "que la pregunta no existe.");
+			
+			}
+			
+			entityManager.close();
+		
+		} else {
+			
+			events = Events.PREGUNTA_DESACTIVATE_KO;
+			filter.addFilter("reason", "que el parametro de busqueda fue incorrecto.");
+		
+		}
+		
+		return new Contexto(events.setFilter(filter),identifier);
+	
 	}
 
 }
