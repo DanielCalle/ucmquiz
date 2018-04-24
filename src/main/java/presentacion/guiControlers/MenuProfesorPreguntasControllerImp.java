@@ -31,6 +31,22 @@ public class MenuProfesorPreguntasControllerImp extends MenuProfesorPreguntasCon
 	private JFXButton botonCrearPregunta;
 
 	@FXML
+	private JFXButton botonActivarDesactivarPregunta;
+
+	@FXML
+	void botonActivarDesactivarPreguntaAction(ActionEvent event) {
+
+		Stage stage = (Stage) root.getScene().getWindow();
+
+		stage.close();
+
+		Contexto contexto = new Contexto(Events.SHOW_ASIGNATURA_ACTIVATE_DESACTIVATE, null);
+		
+		Controlador.getInstance().accion(contexto);
+		
+	}
+	
+	@FXML
 	void botonAsignaturasAction(ActionEvent event) {
 		Stage stage = (Stage) root.getScene().getWindow();
 
