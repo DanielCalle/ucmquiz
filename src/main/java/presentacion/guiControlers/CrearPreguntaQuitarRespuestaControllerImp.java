@@ -8,6 +8,8 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import presentacion.Contexto;
+import presentacion.Events;
+import presentacion.controlador.Controlador;
 
 public class CrearPreguntaQuitarRespuestaControllerImp extends CrearPreguntaQuitarRespuestaController {
 	
@@ -32,7 +34,9 @@ public class CrearPreguntaQuitarRespuestaControllerImp extends CrearPreguntaQuit
 	
 	@FXML
 	void btnQuitarAction(ActionEvent event) {
-		
+		String quitar = comboBoxRespuestas.getSelectionModel().getSelectedItem();
+		Contexto context = new Contexto(Events.COMMAND_PREGUNTA_CREATE_DELETE_RESPONSE , quitar);
+		Controlador.getInstance().accion(context);
 	}
 
 	@Override
