@@ -15,4 +15,5 @@
 	
 	<command id="COMMAND_PREGUNTA_DELETE">presentacion.commands.pregunta.CommandPreguntaDelete</command>
 	<command id="COMMAND_RM_RESPUESTA">presentacion.commands.respuesta.CommandRespuestaDelete</command>
+	
 </commands>

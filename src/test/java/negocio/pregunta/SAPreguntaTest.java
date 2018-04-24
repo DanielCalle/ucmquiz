@@ -3,6 +3,8 @@ package negocio.pregunta;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import org.junit.Test;
 
 import negocio.FactoriaNegocio;
@@ -79,5 +81,14 @@ public class SAPreguntaTest {
 		assertEquals("El evento de la operacion Delete en Pregunta tiene que estar OK"
 				,c.getEvent(),
 				Events.CRUD_DELETE_PREGUNTA_OK);
+	}
+	
+	@Test
+	public void listarPreguntaTest() {
+		SAPregunta sap = new SAPreguntaImp();
+		Contexto c = sap.readAll();
+		
+		assertEquals("El evento de la operacion ReadAll en Pregunta tiene que dar el comando CRUD_READ_ALL_PREGUNTA_OK"
+				,c.getEvent(),Events.CRUD_READ_ALL_PREGUNTA_OK);
 	}
 }

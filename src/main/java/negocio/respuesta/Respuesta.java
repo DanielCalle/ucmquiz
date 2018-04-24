@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Version;
 
 import negocio.pregunta.Pregunta;
@@ -14,6 +16,12 @@ import negocio.pregunta.Pregunta;
  * Esta relacion mantiene una relacion N : 1 con la entidad pregunta.
  */
 @Entity
+@NamedQueries({
+	@NamedQuery(
+			name = "negocio.respuesta.Respuesta.findBytexto", 
+			query = "select obj from Respuesta obj where obj.texto = :texto"
+		)
+})
 public class Respuesta {
 
 	@Id 

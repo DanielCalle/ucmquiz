@@ -24,7 +24,9 @@ import negocio.asignatura.Asignatura;
 	@NamedQuery(
 			name = "negocio.pregunta.Pregunta.findByAsignatura", 
 			query = "select obj from Pregunta obj where obj.asignatura = :asignatura"
-		)
+	),
+	@NamedQuery(name = "negocio.pregunta.Pregunta.readAll", 
+	query = "select obj from Pregunta obj")
 })
 public class Pregunta {
 	

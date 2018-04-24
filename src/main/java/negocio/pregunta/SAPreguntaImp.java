@@ -3,8 +3,11 @@ package negocio.pregunta;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceException;
 
 import negocio.EntityManagerUtil;
+import negocio.asignatura.Asignatura;
+
 import java.util.List;
 import javax.persistence.TypedQuery;
 import presentacion.Contexto;
@@ -140,5 +143,32 @@ public class SAPreguntaImp implements SAPregunta {
 		return contexto;
 
 	}
+
+		@Override
+		public Contexto readAll() {
+			Events e;
+			Filter filter = new Filter();
+			List<Pregunta> lista = null;
+			
+			try {
+				EntityManager entitymanager = EntityManagerUtil.getEntityManager();
+				EntityTransaction entitytransaction = entitymanager.getTransaction();
+				entitytransaction.begin();
+					
+				TypedQuery<Pregunta> query = entitymanager.createNamedQuery("negocio.pregunta.Pregunta.readAll", Pregunta.class);
+				lista = query.getResultList();
+				entitytransaction.commit();
+				e = Events.CRUD_READ_ALL_PREGUNTA_OK;
+				filter.addFilter("info","");
+					
+				entitymanager.close();
+			} catch(PersistenceException ex) {
+				e = Events.CRUD_READ_ALL_PREGUNTA_KO;
+				filter.addFilter("reason","problemas técnicos");
+				filter.addFilter("info","");
+			}
+			
+			return new Contexto(e,lista);
+		}
 
 }
