@@ -183,5 +183,10 @@
 	<event id="COMMAND_ASIGNATURA_ACTIVATE">No message</event>
 	<event id="COMMAND_ASIGNATURA_DESACTIVATE">No message</event>
 	<event id="COMMAND_PREGUNTA_DELETE">No message</event>
+	<event id="COMMAND_PREGUNTA_ACTIVATE">No message</event>
+	<event id="COMMAND_PREGUNTA_DESACTIVATE">No message</event>
+	<event id="COMMAND_PREGUNTA_READ_ALL_ACTIVATE_DESACTIVATE">No message</event>
+	<event id="PREGUNTA_READ_ALL_ACTIVATE_DESACTIVATE_OK">No message</event>
+	<event id="PREGUNTA_READ_ALL_ACTIVATE_DESACTIVATE_KO">No message</event>
 	
 </events>
