@@ -170,5 +170,6 @@
 	<event id="COMMAND_ASIGNATURA_ACTIVATE">No message</event>
 	<event id="COMMAND_ASIGNATURA_DESACTIVATE">No message</event>
 	<event id="COMMAND_PREGUNTA_DELETE">No message</event>
-	
+	<event id="COMMAND_RM_RESPUESTA">No message</event>
+
 </events>
