@@ -86,18 +86,55 @@ public class SAPreguntaImp implements SAPregunta {
 			List<Pregunta> lista = query.getResultList();
 
 			if (lista.isEmpty()) {
+				
+				List<Respuesta> respuestas = pregunta.getRespuestas();
+				if (respuestas.size() < 2) {
+					event = Events.CRUD_CREATE_PREGUNTA_KO;
 
-				entitymanager.persist(pregunta);
+					filter.addFilter("reason", "menos de dos respuestas");
 
-				entitytransaction.commit();
+					filter.addFilter("info", "");
 
-				event = Events.CRUD_CREATE_PREGUNTA_OK;
+					event.setFilter(filter);
 
-				filter.addFilter("info", "");
+					contexto = new Contexto(event, null);
+					
+					entitytransaction.rollback();
 
-				event.setFilter(filter);
+				}
+				else {
+					boolean correcta = false;
+					for (int i = 0; i < respuestas.size(); i++) {
+						if (respuestas.get(i).isCorrecta())
+							correcta = true;
+					}
+					if (correcta) {
+		
+						event = Events.CRUD_CREATE_PREGUNTA_OK;
+		
+						filter.addFilter("info", "");
+		
+						event.setFilter(filter);
+		
+						contexto = new Contexto(event, pregunta.getId());
 
-				contexto = new Contexto(event, pregunta.getId());
+						entitymanager.persist(pregunta);
+						entitytransaction.commit();
+					}
+					else {
+
+						event = Events.CRUD_CREATE_PREGUNTA_KO;
+
+						filter.addFilter("reason", "no tiene respuesta correcta");
+
+						filter.addFilter("info", "");
+
+						event.setFilter(filter);
+
+						contexto = new Contexto(event, null);
+						entitytransaction.rollback();
+					}
+				}
 
 			} else {
 
@@ -141,53 +178,6 @@ public class SAPreguntaImp implements SAPregunta {
 
 		return contexto;
 
-	}
-	/**
-	 * @param idPregunta : id de la pregunta a la que se añade la respuesta
-	 * @param respuesta : respuesta que se añade a la pregunta
-	 *  * @return Objeto que contiene un evento que indica el resultado de las
-	 *         operaciones y un dato.
-	 */
-
-	@Override
-	public Contexto añadirRespuesta(int idPregunta, Respuesta respuesta) {
-		Events event = null;
-
-		Contexto contexto = null;
-
-		Filter filter = new Filter();
-
-		Pregunta p = null;
-		EntityManager entitymanager = EntityManagerUtil.getEntityManager();
-		EntityTransaction entitytransaction = entitymanager.getTransaction();
-		entitytransaction.begin();
-
-		p = entitymanager.find(Pregunta.class, idPregunta); // se busca el objeto por la clave primaria (el id)
-
-		if(p != null) {
-			respuesta.setPregunta(p);
-			//entitymanager.refresh(p); // se actualiza la entidad en bbdd
-			//p.setActiva(false);
-			entitytransaction.commit();
-			event = Events.CRUD_ADD_RESPUESTA_OK;
-			
-			filter.addFilter("info", "");
-
-			event.setFilter(filter);
-			contexto = new Contexto(event, null);
-		}else {
-			// si el id pasado no existe el entitymanager soltará error
-			entitytransaction.rollback();
-			event = Events.CRUD_ADD_RESPUESTA_KO;
-			filter.addFilter("reason", "el id para la pregunta no existe");
-			
-			filter.addFilter("info", "");
-
-			event.setFilter(filter);
-			contexto = new Contexto(event, null);
-		}
-		
-		return contexto;
 	}
 
 

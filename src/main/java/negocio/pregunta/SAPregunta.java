@@ -9,6 +9,5 @@ public interface SAPregunta {
 
 	public Contexto borrarPregunta(int idPregunta);
 	
-	public Contexto añadirRespuesta(int idPregunta, Respuesta respuesta);
 		
 }
