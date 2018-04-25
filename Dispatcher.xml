@@ -125,5 +125,7 @@
     <file>/presentacion/ActivarDesactivarPreg.fxml</file>
     <controler>presentacion.guiControlers.ActivarDesactivarPregController</controler>
     </gui>
-
+	<gui id="PREGUNTA_READ_ALL_ACTIVATE_DESACTIVATE_OK">
+    	<controler>presentacion.guiControlers.ActivarDesactivarPregController</controler>
+    </gui>
 </guis>

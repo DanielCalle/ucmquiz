@@ -9,6 +9,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Version;
 
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+
 import negocio.asignatura.Asignatura;
 
 /**
@@ -24,9 +26,13 @@ import negocio.asignatura.Asignatura;
 	@NamedQuery(
 			name = "negocio.pregunta.Pregunta.findByAsignatura", 
 			query = "select obj from Pregunta obj where obj.asignatura = :asignatura"
+		),
+	@NamedQuery(
+			name = "negocio.pregunta.Pregunta.readAll", 
+			query = "select obj from Pregunta obj"
 		)
 })
-public class Pregunta {
+public class Pregunta extends RecursiveTreeObject<Pregunta> {
 	
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

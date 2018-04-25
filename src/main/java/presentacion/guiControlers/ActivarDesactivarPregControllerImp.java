@@ -21,7 +21,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import negocio.asignatura.Asignatura;
 import negocio.pregunta.Pregunta;
 import presentacion.Contexto;
 import presentacion.Events;
