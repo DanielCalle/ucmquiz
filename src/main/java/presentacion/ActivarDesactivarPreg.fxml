@@ -24,10 +24,10 @@
             </Label>
             <AnchorPane layoutY="82.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="318.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF; -fx-background-size: 10000;">
                <children>
-                  <JFXButton buttonType="RAISED" cache="true" cancelButton="true" depthTest="DISABLE" layoutX="281.0" layoutY="236.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#btnCancelar" prefHeight="37.0" prefWidth="135.0" ripplerFill="BLACK" style="-fx-background-color: white;" text="Cancelar" textOverrun="CLIP" />
+                  <JFXButton fx:id="btncancelar" buttonType="RAISED" cache="true" cancelButton="true" depthTest="DISABLE" layoutX="281.0" layoutY="236.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#btnCancelar" prefHeight="37.0" prefWidth="135.0" ripplerFill="BLACK" style="-fx-background-color: white;" text="Cancelar" textOverrun="CLIP" />
                   <Label layoutX="115.0" layoutY="68.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="135.0" text="Nombre de la pregunta" textFill="#9e9e9e" />
-                  <JFXButton layoutX="443.0" layoutY="236.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnCambiar" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #F44336;" text="Cambiar" textFill="WHITE" />
-                  <JFXToggleButton fx:id="btnonoff" layoutX="300.0" layoutY="64.0" text="Desactivado/Activado" />
+                  <JFXButton fx:id="btncambiar" layoutX="443.0" layoutY="236.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnCambiar" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #F44336;" text="Cambiar" textFill="WHITE" />
+                  <JFXToggleButton fx:id="btnonoff" layoutX="300.0" layoutY="64.0" onAction="#btnOnOFF" text="Desactivado/Activado" />
                   <JFXComboBox fx:id="nameQuestion" layoutX="119.0" layoutY="93.0" prefHeight="25.0" prefWidth="127.0" />
                </children>
             </AnchorPane>

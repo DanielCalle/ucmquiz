@@ -32,6 +32,12 @@ public class ActivarDesactivarPregControllerImp extends ActivarDesactivarPregCon
 	private StackPane root;
 	
 	@FXML
+	private JFXButton btncancelar;
+
+	@FXML
+	private JFXButton btncambiar;
+	
+	@FXML
 	private JFXToggleButton btnonoff;
 
 	@FXML
@@ -204,6 +210,13 @@ public class ActivarDesactivarPregControllerImp extends ActivarDesactivarPregCon
 
 		});
 		
+	}
+	@FXML
+	void btnOnOFF(ActionEvent event) {
+		if (state)
+			state = false;
+		else
+			state = true;
 	}
 
 }
