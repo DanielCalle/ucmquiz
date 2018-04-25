@@ -86,6 +86,10 @@ public class ActivarDesactivarPregControllerImp extends ActivarDesactivarPregCon
 		Stage stage = (Stage) root.getScene().getWindow();
 
 		stage.close();
+		
+		Contexto contexto = new Contexto(Events.SHOW_MENU_PROFESORES_PREGUNTAS, null);
+		
+		Controlador.getInstance().accion(contexto);
 
 	}
 	
