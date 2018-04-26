@@ -1,6 +1,7 @@
 package presentacion.guiControlers;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -25,193 +26,201 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import negocio.asignatura.Asignatura;
 import negocio.pregunta.Pregunta;
+import negocio.respuesta.Respuesta;
 import presentacion.Contexto;
 import presentacion.Events;
 import presentacion.controlador.Controlador;
 
 public class CrearPreguntaControllerImp extends CrearPreguntaController implements Initializable {
 
-	@FXML
-	private StackPane stackpane;
+    @FXML
+    private StackPane stackpane;
 
-	@FXML
-	private AnchorPane root;
+    @FXML
+    private AnchorPane root;
 
-	@FXML
-	public TextArea textArea;
+    @FXML
+    public TextArea textArea;
 
-	@FXML
-	private JFXButton btnCancelar;
+    @FXML
+    private JFXButton btnCancelar;
 
     @FXML
     private JFXButton btnCrear;
-    
+
     private List<Asignatura> list;
-    
+    private List<Respuesta> respuestas;
+
     @FXML
-    private JFXComboBox<String> cobobox;
-    
+    private JFXComboBox < String > cobobox;
+
     @FXML
     private JFXButton CrearRespuestas;
 
     @FXML
     private JFXButton BorrarRespuestas;
-    
+
     @FXML
-    private JFXTreeTableView<?> treeView;
+    private JFXTreeTableView <?> treeView;
 
-	@FXML
-	void btnBorrar(ActionEvent event){
-		
-		Stage stage = (Stage) stackpane.getScene().getWindow();
+    @FXML
+    void btnBorrar(ActionEvent event) {
+
+        Stage stage = (Stage) stackpane.getScene().getWindow();
+
+        stage.close();
+    }
+
+    @FXML
+    void btnCrearListener(ActionEvent event) {
+
+        if (textArea.getLength() == 0) {
+
+            JFXDialogLayout content = new JFXDialogLayout();
+            content.setHeading(new Text("Accion incorrecta"));
+            content.setBody(new Text("No se pueden crear una pregunta en blanco"));
+            JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
+
+            JFXButton button = new JFXButton("Ok");
+            button.setOnAction(new EventHandler < ActionEvent > () {
+
+                @Override
+                public void handle(ActionEvent arg0) {
+                    dialog.close();
+
+                }
+
+            });
+            content.setActions(button);
+            dialog.show();
+
+        } else {
+
+            Pregunta pregunta = new Pregunta(textArea.getText(), true);
+
+            Contexto contexto = new Contexto(Events.COMMAND_PREGUNTA_CREATE, pregunta);
+
+            Controlador.getInstance().accion(contexto);
+
+        }
+
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        //	state = false;
+    	respuestas = new ArrayList<Respuesta>();
     	
-    	stage.close();
-	}
+        Contexto contexto = new Contexto(Events.COMMAND_ASIGNATURA_READ_ALL_PREGUNTA_CREATE, null);
+        Controlador.getInstance().accion(contexto);
 
-	@FXML
-	 void btnCrearListener(ActionEvent event) {
+        List < String > value = list.stream().map(a -> a.getTitulo()).collect(Collectors.toList());
 
-		if (textArea.getLength() == 0) {
+        cobobox.setItems(FXCollections.observableArrayList(value));
+        cobobox.valueProperty().addListener(new ChangeListener < String > () {
 
-			JFXDialogLayout content = new JFXDialogLayout();
-			content.setHeading(new Text("Accion incorrecta"));
-			content.setBody(new Text("No se pueden crear una pregunta en blanco"));
-			JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
+            @Override
+            public void changed(ObservableValue<? extends String > observable, String oldValue, String newValue) {
+                Asignatura asig = list.stream().filter(a -> a.getTitulo() == newValue).findFirst().get();
+                //	state = asig.isActivo();
+                //	btnonoff.setSelected(state);
+            }
 
-			JFXButton button = new JFXButton("Ok");
-			button.setOnAction(new EventHandler<ActionEvent>() {
+        });
 
-				@Override
-				public void handle(ActionEvent arg0) {
-					dialog.close();
 
-				}
+    }
 
-			});
-			content.setActions(button);
-			dialog.show();
+    @Override
+    public void update(Contexto contexto) {
+        switch (contexto.getEvent()) {
+            case ASIGNATURA_READ_ALL_PREGUNTA_CREATE_OK:
+                list = (List<Asignatura>) contexto.getDato();
+                break;
 
-		} else {
+            case CRUD_CREATE_PREGUNTA_OK:
 
-			Pregunta pregunta = new Pregunta(textArea.getText(), true);
+                JFXDialogLayout content = new JFXDialogLayout();
+                content.setHeading(new Text("Pregunta Creada"));
+                content.setBody(new Text(contexto.getEvent().getMessage()));
+                JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
 
-			Contexto contexto = new Contexto(Events.COMMAND_PREGUNTA_CREATE, pregunta);
+                JFXButton button = new JFXButton("Ok");
+                button.setOnAction(new EventHandler < ActionEvent > () {
 
-			Controlador.getInstance().accion(contexto);
+                    @Override
+                    public void handle(ActionEvent arg0) {
+                        dialog.close();
 
-		}
+                    }
 
-	}
+                });
+                content.setActions(button);
+                dialog.show();
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		//	state = false;
+                break;
 
-			Contexto contexto = new Contexto(Events.COMMAND_ASIGNATURA_READ_ALL_PREGUNTA_CREATE, null);
-			Controlador.getInstance().accion(contexto);
+            case CRUD_CREATE_PREGUNTA_KO:
 
-			List<String> value = list.stream().map(a -> a.getTitulo()).collect(Collectors.toList());
+                content = new JFXDialogLayout();
+                content.setHeading(new Text("Error"));
+                content.setBody(new Text(contexto.getEvent().getMessage()));
+                dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
 
-			cobobox.setItems(FXCollections.observableArrayList(value));
-			cobobox.valueProperty().addListener(new ChangeListener<String>() {
+                button = new JFXButton("Ok");
+                button.setOnAction(new EventHandler < ActionEvent > () {
 
-				@Override
-				public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-					Asignatura asig = list.stream().filter(a -> a.getTitulo() == newValue).findFirst().get();
-				//	state = asig.isActivo();
-				//	btnonoff.setSelected(state);
-				}
+                    @Override
+                    public void handle(ActionEvent arg0) {
+                        dialog.close();
 
-			});
-		
+                    }
 
-	}
+                });
+                content.setActions(button);
+                dialog.show();
 
-	@Override
-	public void update(Contexto contexto) {
-		switch (contexto.getEvent()) {
-		case ASIGNATURA_READ_ALL_PREGUNTA_CREATE_OK:
-		list = (List<Asignatura>) contexto.getDato();
-		break;
+                break;
+                
+            case CRUD_CREATE_RESPUESTA_OK:
+            	respuestas.add((Respuesta) contexto.getDato());
+            	break;
 
-		case CRUD_CREATE_PREGUNTA_OK:
+            default:
 
-			JFXDialogLayout content = new JFXDialogLayout();
-			content.setHeading(new Text("Pregunta Creada"));
-			content.setBody(new Text(contexto.getEvent().getMessage()));
-			JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
+                content = new JFXDialogLayout();
+                content.setHeading(new Text("Error"));
+                dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
 
-			JFXButton button = new JFXButton("Ok");
-			button.setOnAction(new EventHandler<ActionEvent>() {
+                button = new JFXButton("Ok");
+                button.setOnAction(new EventHandler < ActionEvent > () {
 
-				@Override
-				public void handle(ActionEvent arg0) {
-					dialog.close();
+                    @Override
+                    public void handle(ActionEvent arg0) {
+                        dialog.close();
 
-				}
+                    }
 
-			});
-			content.setActions(button);
-			dialog.show();
+                });
+                content.setActions(button);
+                dialog.show();
 
-			break;
-			
-		case CRUD_CREATE_PREGUNTA_KO:
-			
-			content = new JFXDialogLayout();
-			content.setHeading(new Text("Error"));
-			content.setBody(new Text(contexto.getEvent().getMessage()));
-			dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
+        }
+    }
+    @FXML
+    void coboboxAction(ActionEvent event) {
 
-			button = new JFXButton("Ok");
-			button.setOnAction(new EventHandler<ActionEvent>() {
+    }
+    @FXML
+    void BorrarRespuestasAction(ActionEvent event) {
+    	
+    }
 
-				@Override
-				public void handle(ActionEvent arg0) {
-					dialog.close();
+    @FXML
+    void CrearRespuestasAction(ActionEvent event) {
+    	Contexto contexto = new Contexto(Events.SHOW_RESPUESTA_CREATE, null);
+        Controlador.getInstance().accion(contexto);
+    }
 
-				}
-
-			});
-			content.setActions(button);
-			dialog.show();
-
-			break;
-
-		default:
-
-			content = new JFXDialogLayout();
-			content.setHeading(new Text("Error"));
-			dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
-
-			button = new JFXButton("Ok");
-			button.setOnAction(new EventHandler<ActionEvent>() {
-
-				@Override
-				public void handle(ActionEvent arg0) {
-					dialog.close();
-
-				}
-
-			});
-			content.setActions(button);
-			dialog.show();
-
-		}
-	}
-	  @FXML
-	    void coboboxAction(ActionEvent event) {
-
-	    }
-	  @FXML
-	    void BorrarRespuestasAction(ActionEvent event) {
-
-	    }
-
-	    @FXML
-	    void CrearRespuestasAction(ActionEvent event) {
-
-	    }
-	   
 
 }
