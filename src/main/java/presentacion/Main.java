@@ -18,29 +18,8 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage stage) throws IOException {
-
-		Asignatura asig = new Asignatura();
-		asig.setTitulo("hola");
-		Contexto contexto = new Contexto(Events.COMMAND_CREATE_SUBJECT, asig);
-		Controlador.getInstance().accion(contexto);
-		asig.setId(1);
-		Pregunta preg = new Pregunta();
-		preg.setActiva(true);
-		preg.setAsignatura(asig);
-		preg.setTexto("aaa");
-		List<Respuesta> resp = new ArrayList<Respuesta>();
-		Respuesta r = new Respuesta();
-		r.setActiva(true);
-		r.setCorrecta(true);
-		r.setTexto("hufishfiw");
-		resp.add(r);
-		r = new Respuesta();
-		r.setActiva(true);
-		r.setCorrecta(false);
-		r.setTexto("false");
-		resp.add(r);
-		preg.setRespuestas(resp);
-		Contexto contexto2 = new Contexto(Events.COMMAND_PREGUNTA_CREATE,preg);
+		
+		Contexto contexto2 = new Contexto(Events.SHOW_SELECCION_USUARIO, null);
 		Controlador.getInstance().accion(contexto2);
 		
 	}

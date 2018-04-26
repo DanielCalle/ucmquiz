@@ -97,6 +97,7 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
         } else {
 
             Pregunta pregunta = new Pregunta(textArea.getText(), true);
+            pregunta.setRespuestas(respuestas);
 
             Contexto contexto = new Contexto(Events.COMMAND_PREGUNTA_CREATE, pregunta);
 
