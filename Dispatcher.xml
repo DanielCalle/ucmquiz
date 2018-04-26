@@ -30,10 +30,93 @@
     	<file>/presentacion/CrearPregunta.fxml</file>
     	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
     </gui>
+    <gui id="SHOW_SELECCION_USUARIO">
+    	<title>Seleccion Usuario</title>
+    	<file>/presentacion/SeleccionUsuario.fxml</file>
+    	<controler>presentacion.guiControlers.SeleccionUsuarioController</controler>
+    </gui>
     <gui id="CRUD_CREATE_PREGUNTA_OK">
      	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
     </gui>
      <gui id="CRUD_CREATE_PREGUNTA_KO">
      	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
     </gui>
+
+    <gui id="SHOW_MENU_PROFESORES_ASIGNATURAS">
+    	<title>Menu asignatura profesores</title>
+    	<file>/presentacion/MenuProfesorAsignaturas.fxml</file>
+    	<controler>presentacion.guiControlers.MenuProfesorasignaturasController</controler>
+    </gui>
+    <gui id="SHOW_ASIGNATURA_CREATE">
+    	<title>Crear asignatura</title>
+    	<file>/presentacion/CrearAsignatura.fxml</file>
+    	<controler>presentacion.guiControlers.CrearAsignaturaController</controler>
+    </gui>
+    <gui id="SHOW_ASIGNATURA_ACTIVATE_DESACTIVATE">
+    	<title>Crear asignatura</title>
+    	<file>/presentacion/ActivarDesactivarAsig.fxml</file>
+    	<controler>presentacion.guiControlers.ActivarDesactivarAsigController</controler>
+    </gui>
+    <gui id="SHOW_ASIGNATURA_ACTIVATE_DESACTIVATE">
+    	<title>Activar Desactivar asignatura</title>
+    	<file>/presentacion/ActivarDesactivarAsig.fxml</file>
+    	<controler>presentacion.guiControlers.ActivarDesactivarAsigController</controler>
+    </gui>
+     <gui id="SHOW_MENU_PROFESORES_PREGUNTAS">
+    	<title>Menu</title>
+    	<file>/presentacion/MenuProfesoresPreguntas.fxml</file>
+    	<controler>presentacion.guiControlers.MenuProfesorPreguntasController</controler>
+    </gui>
+    <gui id="ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE_OK">
+    	<controler>presentacion.guiControlers.ActivarDesactivarAsigController</controler>
+    </gui>
+    <gui id="ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE_OK">
+    	<controler>presentacion.guiControlers.ActivarDesactivarAsigController</controler>
+    </gui>
+    
+     <gui id="ASIGNATURA_READ_ALL_PREGUNTA_CREATE_OK">
+    	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
+    </gui>
+      <gui id="ASIGNATURA_READ_ALL_PREGUNTA_CREATE_KO">
+    	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
+    </gui>
+    
+    <gui id="ASIGNATURA_ACTIVATE_OK">
+    	<controler>presentacion.guiControlers.ActivarDesactivarAsigController</controler>
+    </gui>
+    <gui id="ASIGNATURA_ACTIVATE_KO">
+    	<controler>presentacion.guiControlers.ActivarDesactivarAsigController</controler>
+    </gui>
+    <gui id="ASIGNATURA_DESACTIVATE_OK">
+    	<controler>presentacion.guiControlers.ActivarDesactivarAsigController</controler>
+    </gui>
+    <gui id="ASIGNATURA_DESACTIVATE_KO">
+    	<controler>presentacion.guiControlers.ActivarDesactivarAsigController</controler>
+    </gui>
+
+        <gui id="SHOW_PREGUNTA_DELETE">
+    	<title>Borrar pregunta</title>
+    	<file>/presentacion/BorrarPregunta.fxml</file>
+    	<controler>presentacion.guiControlers.BorrarPreguntaController</controler>
+    </gui>
+    <gui id="CRUD_DELETE_PREGUNTA_OK">
+     	<controler>presentacion.guiControlers.BorrarPreguntaController</controler>
+    </gui>
+    <gui id="CRUD_DELETE_PREGUNTA_KO">
+     	<controler>presentacion.guiControlers.BorrarPreguntaController</controler>
+    </gui>
+    
+    <gui id="CRUD_READ_ALL_ASIGNATURA_OK">
+    <controler>presentacion.guiControlers.unoController</controler>
+    </gui>
+    <gui id="CRUD_READ_ALL_ASIGNATURA_KO">
+    	<controler>presentacion.guiControlers.unoController</controler>
+    </gui>
+    
+    <gui id="SHOW_ASIGNATURA_READ_ALL">
+    <title>Listar asignaturas</title>
+    <file>/presentacion/uno.fxml</file>
+    <controler>presentacion.guiControlers.unoController</controler>
+    </gui>
+
 </guis>

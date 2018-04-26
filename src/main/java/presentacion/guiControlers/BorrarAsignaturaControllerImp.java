@@ -18,7 +18,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import presentacion.Contexto;
 import presentacion.Events;
-import presentacion.Filter;
 import presentacion.controlador.Controlador;
 /**
  * Controlador para la GUI de borrar Asignatura
@@ -71,7 +70,7 @@ public class BorrarAsignaturaControllerImp extends BorrarAsignaturaController {
 				//Muestro mensaje de error
 				JFXDialogLayout content = new JFXDialogLayout();
 				content.setHeading(new Text("Accion incorrecta"));
-				content.setBody(new Text("El ID tiene que ser numérico"));
+				content.setBody(new Text("El ID tiene que ser numï¿½rico"));
 				JFXDialog dialog = new JFXDialog(root, content, JFXDialog.DialogTransition.CENTER);
 
 				JFXButton button = new JFXButton("Ok");
@@ -94,6 +93,10 @@ public class BorrarAsignaturaControllerImp extends BorrarAsignaturaController {
 
     @FXML
     void btnCancelar(ActionEvent event) {
+    	
+    	Stage stage = (Stage) root.getScene().getWindow();
+    	
+    	stage.close();
     }
 
     

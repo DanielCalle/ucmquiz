@@ -1,6 +1,22 @@
 package negocio.asignatura; 
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Version;
+
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 /**
  * Entidad de negocio Asignatura.
@@ -11,9 +27,13 @@ import javax.persistence.*;
 	@NamedQuery(
 		name = "negocio.asignatura.Asignatura.findBytitulo", 
 		query = "select obj from Asignatura obj where obj.titulo = :titulo"
-	)
-})
-public class Asignatura {
+		),
+	@NamedQuery(name = "negocio.asignatura.Asignatura.readAll", 
+	query = "select obj from Asignatura obj") })
+
+public class Asignatura extends RecursiveTreeObject<Asignatura> {
+
+
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
@@ -63,5 +83,17 @@ public class Asignatura {
 	public void setActivo(boolean activo) {
 		this.activo = activo;
 	}
-	
+	public StringProperty getTituloStringProperty() {
+		return new SimpleStringProperty(titulo);
+	}
+	public StringProperty getActivoStringProperty() {
+		if(activo)return new SimpleStringProperty("Activada");
+		else return new SimpleStringProperty("Desactivada");
+		
+	}
+	public StringProperty getIdStringProperty() {
+		return new SimpleStringProperty(id.toString());
+		
+	}
+
 }

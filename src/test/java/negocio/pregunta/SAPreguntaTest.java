@@ -6,6 +6,17 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import negocio.FactoriaNegocio;
+import presentacion.Contexto;
+import presentacion.Events;
+
+import static org.junit.Assert.assertEquals;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+
+import org.junit.Test;
+
+import negocio.EntityManagerUtil;
 
 public class SAPreguntaTest {
 
@@ -52,4 +63,21 @@ public class SAPreguntaTest {
 		
 	}
 	
+	@Test
+	public void borrarPreguntaTest() {
+		
+		Pregunta p = new Pregunta("�Quien es mejor profesor, Hector o Antonio?", true);
+		
+		SAPregunta sap = new SAPreguntaImp();
+		
+		Contexto c = sap.create(p);
+		
+		Integer id = (Integer) c.getDato();
+		
+		c = sap.borrarPregunta(id);
+		
+		assertEquals("El evento de la operacion Delete en Pregunta tiene que estar OK"
+				,c.getEvent(),
+				Events.CRUD_DELETE_PREGUNTA_OK);
+	}
 }

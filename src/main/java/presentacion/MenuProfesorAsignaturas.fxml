@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="488.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="777.0">
+         <children>
+            <Pane prefHeight="480.0" prefWidth="751.0">
+               <children>
+                  <Pane prefHeight="54.0" prefWidth="777.0" style="-fx-background-color: white;">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="44.0" prefWidth="171.0" style="-fx-background-color: #F44336;" text="UCM QUIZ" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutY="44.0" prefHeight="447.0" prefWidth="171.0" style="-fx-background-color: #2D435A;">
+                     <children>
+                        <JFXButton fx:id="BotonPreguntas" alignment="CENTER" onAction="#BotonPreguntasAction" prefHeight="35.0" prefWidth="171.0" style="-fx-border-color: grey;" text="Preguntas" textFill="#bdbdbd" />
+                        <JFXButton fx:id="BotonRespuestas" alignment="CENTER" layoutY="35.0" onAction="#BotonRespuestasAction" prefHeight="35.0" prefWidth="171.0" style="-fx-border-color: grey;" text="Respuestas" textFill="#bdbdbd" visible="false" />
+                        <JFXButton fx:id="BotonAsignaturas" alignment="CENTER" layoutY="70.0" onAction="#BotonAsignaturasAction" prefHeight="35.0" prefWidth="171.0" style="-fx-border-color: grey; -fx-background-color: #657585;" text="Asignaturas" textFill="#bdbdbd" />
+                     </children>
+                  </Pane>
+                  <ScrollPane layoutX="171.0" layoutY="52.0" prefHeight="432.0" prefWidth="608.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="512.0" prefWidth="590.0">
+                           <children>
+                              <Pane layoutX="16.0" layoutY="14.0" prefHeight="114.0" prefWidth="558.0" style="-fx-border-color: #D8D8D8; -fx-background-color: white;">
+                                 <children>
+                                    <Label layoutX="130.0" layoutY="14.0" prefHeight="54.0" prefWidth="299.0" text="¡Crea Asignaturas para poder clasificar tus preguntas!" textFill="#a4a4a4" />
+                                    <JFXButton fx:id="botonCrearAsignatura" layoutX="222.0" layoutY="68.0" onAction="#botonCrearAsignaturaAction" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: #F44336;" text="Crear asignatura" textFill="WHITE" />
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="16.0" layoutY="141.0" prefHeight="114.0" prefWidth="558.0" style="-fx-border-color: #D8D8D8; -fx-background-color: white;">
+                                 <children>
+                                    <Label layoutX="225.0" layoutY="14.0" prefHeight="54.0" prefWidth="108.0" text="Elimina asignaturas" textFill="#a4a4a4" />
+                                    <JFXButton fx:id="botonEliminar" layoutX="242.0" layoutY="63.0" onAction="#botonEliminarAction" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #F44336;" text="Eliminar" textFill="WHITE" />
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="18.0" layoutY="268.0" prefHeight="114.0" prefWidth="558.0" style="-fx-border-color: #D8D8D8; -fx-background-color: white;">
+                                 <children>
+                                    <JFXButton fx:id="botonActivarDesactivar" layoutX="214.0" layoutY="68.0" onAction="#botonActivarDesactivarAction" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #F44336;" text="Activar/Desactivar" textFill="WHITE" />
+                                    <Label layoutX="195.0" layoutY="14.0" prefHeight="54.0" prefWidth="171.0" text="Activa o desactiva asignaturas" textFill="#a4a4a4" />
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="16.0" layoutY="398.0" prefHeight="114.0" prefWidth="558.0" style="-fx-border-color: #D8D8D8; -fx-background-color: white;">
+                                 <children>
+                                    <JFXButton fx:id="botonlistar" layoutX="214.0" layoutY="68.0" onAction="#botonlistarAction" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #F44336;" text="Listar" textFill="WHITE" />
+                                    <Label layoutX="195.0" layoutY="14.0" prefHeight="54.0" prefWidth="171.0" text="Lista todas tus asignaturas" textFill="#a4a4a4" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

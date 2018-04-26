@@ -1,26 +1,29 @@
 package presentacion.guiControlers;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
+import com.jfoenix.controls.JFXTreeTableView;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
-import negocio.FactoriaNegocio;
+import javafx.stage.Stage;
+import negocio.asignatura.Asignatura;
 import negocio.pregunta.Pregunta;
 import presentacion.Contexto;
 import presentacion.Events;
@@ -35,23 +38,40 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
 	private AnchorPane root;
 
 	@FXML
-	public TextArea txtText;
+	public TextArea textArea;
 
 	@FXML
 	private JFXButton btnCancelar;
 
-	@FXML
-	public Button btnConfirm;
+    @FXML
+    private JFXButton btnCrear;
+    
+    private List<Asignatura> list;
+    
+    @FXML
+    private JFXComboBox<String> cobobox;
+    
+    @FXML
+    private JFXButton CrearRespuestas;
+
+    @FXML
+    private JFXButton BorrarRespuestas;
+    
+    @FXML
+    private JFXTreeTableView<?> treeView;
 
 	@FXML
-	void btnCancelListener(ActionEvent event) {
-
+	void btnBorrar(ActionEvent event){
+		
+		Stage stage = (Stage) stackpane.getScene().getWindow();
+    	
+    	stage.close();
 	}
 
 	@FXML
-	public void btnConfirmListener(ActionEvent event) {
+	 void btnCrearListener(ActionEvent event) {
 
-		if (txtText.getLength() == 0) {
+		if (textArea.getLength() == 0) {
 
 			JFXDialogLayout content = new JFXDialogLayout();
 			content.setHeading(new Text("Accion incorrecta"));
@@ -73,7 +93,7 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
 
 		} else {
 
-			Pregunta pregunta = new Pregunta(txtText.getText(), true);
+			Pregunta pregunta = new Pregunta(textArea.getText(), true);
 
 			Contexto contexto = new Contexto(Events.COMMAND_PREGUNTA_CREATE, pregunta);
 
@@ -85,29 +105,34 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		//	state = false;
 
-		txtText.textProperty().addListener(new ChangeListener<String>() {
+			Contexto contexto = new Contexto(Events.COMMAND_ASIGNATURA_READ_ALL_PREGUNTA_CREATE, null);
+			Controlador.getInstance().accion(contexto);
 
-			@Override
-			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+			List<String> value = list.stream().map(a -> a.getTitulo()).collect(Collectors.toList());
 
-				if (txtText.getLength() > 0)
+			cobobox.setItems(FXCollections.observableArrayList(value));
+			cobobox.valueProperty().addListener(new ChangeListener<String>() {
 
-					txtText.setStyle("-fx-control-inner-background: lightgreen");
+				@Override
+				public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+					Asignatura asig = list.stream().filter(a -> a.getTitulo() == newValue).findFirst().get();
+				//	state = asig.isActivo();
+				//	btnonoff.setSelected(state);
+				}
 
-				else
-
-					txtText.setStyle("-fx-control-inner-background: white");
-
-			}
-
-		});
+			});
+		
 
 	}
 
 	@Override
 	public void update(Contexto contexto) {
 		switch (contexto.getEvent()) {
+		case ASIGNATURA_READ_ALL_PREGUNTA_CREATE_OK:
+		list = (List<Asignatura>) contexto.getDato();
+		break;
 
 		case CRUD_CREATE_PREGUNTA_OK:
 
@@ -174,4 +199,19 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
 
 		}
 	}
+	  @FXML
+	    void coboboxAction(ActionEvent event) {
+
+	    }
+	  @FXML
+	    void BorrarRespuestasAction(ActionEvent event) {
+
+	    }
+
+	    @FXML
+	    void CrearRespuestasAction(ActionEvent event) {
+
+	    }
+	   
+
 }
