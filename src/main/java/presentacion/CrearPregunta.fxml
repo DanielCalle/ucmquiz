@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -10,7 +12,7 @@
 
 <StackPane fx:id="stackpane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F44336;">
+      <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="482.0" prefWidth="736.0" style="-fx-background-color: #F44336;">
          <children>
             <Label layoutX="46.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="175.0" text="Crear Pregunta" textFill="WHITE">
                <font>
@@ -22,12 +24,18 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Pane layoutY="75.0" prefHeight="325.0" prefWidth="600.0" style="-fx-background-color: white;">
+            <Pane layoutY="77.0" prefHeight="405.0" prefWidth="736.0" style="-fx-background-color: white;">
                <children>
-                  <JFXButton fx:id="btnCrear" layoutX="451.0" layoutY="261.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnCrearListener" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #F44336;" text="Crear" textFill="WHITE" />
-		            <Label layoutX="214.0" layoutY="67.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="135.0" text="Nombre de la pregunta" textFill="#9e9e9e" />
-                  <JFXButton fx:id="btnCancelar" buttonType="RAISED" cache="true" cancelButton="true" depthTest="DISABLE" layoutX="279.0" layoutY="261.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#btnBorrar" prefHeight="37.0" prefWidth="135.0" ripplerFill="BLACK" style="-fx-background-color: white;" text="Cancelar" textOverrun="CLIP" />                  
-                  <JFXTextArea fx:id="textArea" focusColor="#d03229" layoutX="70.0" layoutY="106.0" prefHeight="37.0" prefWidth="460.0" unFocusColor="#f44336" />
+                  <JFXButton fx:id="btnCrear" layoutX="587.0" layoutY="354.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnCrearListener" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #F44336;" text="Crear" textFill="WHITE" />
+		            <Label layoutX="70.0" layoutY="63.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="135.0" text="Nombre de la pregunta" textFill="#9e9e9e" />
+                  <JFXButton fx:id="btnCancelar" buttonType="RAISED" cache="true" cancelButton="true" depthTest="DISABLE" layoutX="424.0" layoutY="354.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#btnBorrar" prefHeight="37.0" prefWidth="135.0" ripplerFill="BLACK" style="-fx-background-color: white;" text="Cancelar" textOverrun="CLIP" />                  
+                  <JFXTextArea fx:id="textArea" focusColor="#d03229" layoutX="67.0" layoutY="80.0" prefHeight="17.0" prefWidth="329.0" unFocusColor="#f44336" />
+                  <Label layoutX="70.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="135.0" text="Asignatura" textFill="#9e9e9e" />
+                  <JFXComboBox fx:id="cobobox" layoutX="70.0" layoutY="31.0" onAction="#coboboxAction" prefHeight="25.0" prefWidth="135.0" />
+                  <JFXButton fx:id="CrearRespuestas" buttonType="RAISED" cache="true" depthTest="DISABLE" layoutX="566.0" layoutY="203.0" onAction="#CrearRespuestasAction" ripplerFill="WHITE" style="-fx-background-color: #F44336;" text="Crear respuestas" textFill="WHITE" textOverrun="CLIP" />
+                  <JFXButton fx:id="BorrarRespuestas" buttonType="RAISED" cache="true" layoutX="566.0" layoutY="260.0" onAction="#BorrarRespuestasAction" style="-fx-background-color: #F44336;" text="Eliminar respuestas" textFill="WHITE" textOverrun="CLIP" />
+                  <JFXTreeTableView fx:id="treeView" layoutX="70.0" layoutY="161.0" prefHeight="178.0" prefWidth="473.0" />
+                  <Label layoutX="71.0" layoutY="130.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="135.0" text="Respuestas" textFill="#9e9e9e" />
                </children>
             </Pane>
          </children>

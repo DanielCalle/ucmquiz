@@ -16,12 +16,11 @@ public class FactoriaNegocioImp extends FactoriaNegocio {
 	}
 
 	@Override
-
 	public SAPregunta generateSAPregunta() {
-		
 		return new SAPreguntaImp();
 	}
-	
+
+	@Override
 	public SARespuesta generateSARespuesta() {
 		return new SARespuestaImp();
 	}

@@ -1,10 +1,15 @@
 package presentacion;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.io.IOException;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import negocio.asignatura.Asignatura;
+import negocio.pregunta.Pregunta;
 import presentacion.controlador.Controlador;
+import negocio.respuesta.Respuesta;
 
 
 public class Main extends Application {
@@ -13,40 +18,9 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage stage) throws IOException {
-
-		/*try {
-			
-			FXMLLoader loader = new FXMLLoader();
-			loader.setController(Class.forName("presentacion.guiControlers.CrearAsignaturaController").getMethod("getInstance").invoke(null));
-			loader.setLocation(getClass().getResource("/presentacion/CrearAsignatura.fxml"));
-			   
-			Parent root = loader.load();
-			
-			stage.setTitle("Crear Asignatura");
-			      
-			stage.setResizable(false);
-			      
-			stage.setScene(new Scene(root));
-			      
-			stage.show();
-
-		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException | ClassNotFoundException e) {
-			
-			e.printStackTrace();
-		}	*/
-
-		/*
-		Parent root = FXMLLoader.load(getClass().getResource("/presentacion/SeleccionUsuario.fxml"));
-		stage.setTitle("UCM QUIZ");
 		
-		//stage.setResizable(false);
-		stage.setScene(new Scene(root));
-		stage.show();
-		stage.setScene(new Scene(root2));
-		stage.show();
-		*/
-		Contexto contexto = new Contexto(Events.SHOW_SELECCION_USUARIO,null);
-		Controlador.getInstance().accion(contexto);
+		Contexto contexto2 = new Contexto(Events.SHOW_SELECCION_USUARIO, null);
+		Controlador.getInstance().accion(contexto2);
 		
 	}
 	

@@ -57,13 +57,13 @@ public class CrearPreguntaQuitarRespuestaControllerImp extends CrearPreguntaQuit
 		if (index >= 0) {
 			Respuesta respuesta = list.get(index);
 			//respuesta.setActiva(false);
-			list.set(index, respuesta);
+			list.remove(index);
 			Contexto contexto = new Contexto(Events.COMMAND_RM_RESPUESTA, respuesta.getId());
 			Controlador.getInstance().accion(contexto);
 		}else{
 			content = new JFXDialogLayout();
 			content.setHeading(new Text("Error"));
-			content.setBody(new Text("La respuesta no existe o no ha sido elegida")));
+			content.setBody(new Text("La respuesta no existe o no ha sido elegida"));
 			dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
 
 			button = new JFXButton("Ok");
@@ -81,9 +81,9 @@ public class CrearPreguntaQuitarRespuestaControllerImp extends CrearPreguntaQuit
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void initialize(URL location, ResourceBundle resources) {
-		Contexto contexto = new Contexto(Events.COMMAND_RESPUESTA_READ_ALL, null); //hace falta un readall de respuestas
-		Controlador.getInstance().accion(contexto);
+		list = (List<Respuesta>) resources.getObject("respuestas");
 
 		List<String> value = list.stream().map(a -> a.getTexto()).collect(Collectors.toList());
 
