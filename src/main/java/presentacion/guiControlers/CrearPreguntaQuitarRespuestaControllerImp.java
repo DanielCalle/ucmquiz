@@ -81,15 +81,17 @@ public class CrearPreguntaQuitarRespuestaControllerImp extends CrearPreguntaQuit
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
+	public void comboBoxRespuestasAction(){}
+	
 	public void initialize(URL location, ResourceBundle resources) {
-		list = (List<Respuesta>) resources.getObject("respuestas");
+		/*list = (List<Respuesta>) resources.getObject("respuestas");
 
 		List<String> value = list.stream().map(a -> a.getTexto()).collect(Collectors.toList());
 
-		comboBoxRespuestas.setItems(FXCollections.observableArrayList(value));
+		comboBoxRespuestas.setItems(FXCollections.observableArrayList(value));*/
 	}
 	
+	@SuppressWarnings({ "unchecked", "incomplete-switch" })
 	@Override
 	public void update(Contexto contexto) {
 		switch (contexto.getEvent()) {
@@ -131,6 +133,10 @@ public class CrearPreguntaQuitarRespuestaControllerImp extends CrearPreguntaQuit
 			content.setActions(button);
 			dialog.show();
 			break;
+		case SHOW_RESPUESTA_DELETE:
+			list = (List<Respuesta>) contexto.getDato();
+			List<String> value = list.stream().map(a -> a.getTexto()).collect(Collectors.toList());
+			comboBoxRespuestas.setItems(FXCollections.observableArrayList(value));
 		}
 	}
 

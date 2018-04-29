@@ -132,5 +132,11 @@
     <file>/presentacion/AñadirRespuesta.fxml</file>
     <controler>presentacion.guiControlers.AñadirRespuestaController</controler>
     </gui>
+    
+    <gui id="SHOW_RESPUESTA_DELETE">
+    <title>Eliminar respuesta</title>
+    <file>/presentacion/CrearPreguntaQuitarRespuesta.fxml</file>
+    <controler>presentacion.guiControlers.CrearPreguntaQuitarRespuestaController</controler>
+    </gui>
 
 </guis>

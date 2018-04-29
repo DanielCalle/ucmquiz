@@ -216,6 +216,12 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
     void BorrarRespuestasAction(ActionEvent event) {
     	Contexto contexto = new Contexto(Events.SHOW_RESPUESTA_DELETE, null);
         Controlador.getInstance().accion(contexto);
+        try {
+        	Thread.sleep(1000);
+        	respuestas.add(new Respuesta("SI", true, true));
+        	Controlador.getInstance().accion(new Contexto(Events.COMMAND_GET_RESPUESTAS, respuestas));
+        }catch(Exception e) {}
+        
     }
 
     @FXML

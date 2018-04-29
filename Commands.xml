@@ -17,6 +17,7 @@
 
 	<command id="COMMAND_RM_RESPUESTA">presentacion.commands.respuesta.CommandRespuestaDelete</command>
 	
+	<command id="COMMAND_GET_RESPUESTAS">presentacion.commands.respuesta.CommandRespuestaGetList</command>
 
 	<command id="COMMAND_RESPUESTA_CREATE">presentacion.commands.respuesta.CommandRespuestaCreate</command>
 

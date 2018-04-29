@@ -1,6 +1,5 @@
 package presentacion.commands.respuesta;
 
-import negocio.FactoriaNegocio;
 import negocio.respuesta.Respuesta;
 import presentacion.Command;
 import presentacion.Contexto;
