@@ -10,20 +10,27 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
+import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableColumn;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import negocio.asignatura.Asignatura;
 import negocio.pregunta.Pregunta;
 import negocio.respuesta.Respuesta;
@@ -61,7 +68,7 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
     private JFXButton BorrarRespuestas;
 
     @FXML
-    private JFXTreeTableView <?> treeView;
+    private JFXTreeTableView <Respuesta> treeView;
 
     @FXML
     void btnBorrar(ActionEvent event) {
@@ -98,10 +105,36 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
 
             Pregunta pregunta = new Pregunta(textArea.getText(), true);
             pregunta.setRespuestas(respuestas);
+            pregunta.setAsignatura(list.get(cobobox.getSelectionModel().getSelectedIndex()));
+            
+            int respuestaCorrecta = 0;
+            for(Respuesta r : respuestas) {
+            	if(r.isCorrecta()) respuestaCorrecta += 1;
+            }
+            
+            if(respuestaCorrecta != 1) {
+            	 JFXDialogLayout content = new JFXDialogLayout();
+            	content.setHeading(new Text("Accion incorrecta"));
+                content.setBody(new Text("Hay mas de una pregunta correcta"));
+                JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
+                JFXButton button = new JFXButton("Ok");
+                button.setOnAction(new EventHandler < ActionEvent > () {
 
-            Contexto contexto = new Contexto(Events.COMMAND_PREGUNTA_CREATE, pregunta);
+                    @Override
+                    public void handle(ActionEvent arg0) {
+                        dialog.close();
 
-            Controlador.getInstance().accion(contexto);
+                    }
+
+                });
+                content.setActions(button);
+                dialog.show();
+            }
+            else {
+            	  Contexto contexto = new Contexto(Events.COMMAND_PREGUNTA_CREATE, pregunta);
+
+                  Controlador.getInstance().accion(contexto);
+            }
 
         }
 
@@ -109,6 +142,32 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+    	
+    	JFXTreeTableColumn<Respuesta, String> pregunta = new JFXTreeTableColumn<>("Pregunta");
+		pregunta.setPrefWidth(150);
+		pregunta.setCellValueFactory(
+				new Callback<TreeTableColumn.CellDataFeatures<Respuesta, String>, ObservableValue<String>>() {
+					@Override
+					public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Respuesta, String> param) {
+						return param.getValue().getValue().getTituloStringProperty();
+					}
+				});
+		JFXTreeTableColumn<Respuesta, String> deptEstado = new JFXTreeTableColumn<>("Estado");
+		deptEstado.setPrefWidth(150);
+		deptEstado.setCellValueFactory(
+				new Callback<TreeTableColumn.CellDataFeatures<Respuesta, String>, ObservableValue<String>>() {
+					@Override
+					public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Respuesta, String> param) {
+						return param.getValue().getValue().getCorrectaStringProperty();
+					}
+				});
+
+		ObservableList<Respuesta> users = FXCollections.observableArrayList();
+		treeView.getColumns().setAll(pregunta,deptEstado);
+		treeView.setShowRoot(false);
+		treeView.getSelectionModel().getSelectedItem();
+    	
+    	
         //	state = false;
     	respuestas = new ArrayList<Respuesta>();
     	
@@ -184,7 +243,16 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
                 break;
                 
             case CRUD_CREATE_RESPUESTA_OK:
+            	
             	respuestas.add((Respuesta) contexto.getDato());
+            	
+            	ObservableList<Respuesta> users = FXCollections.observableArrayList();
+    		
+    			for (Respuesta a: respuestas) {
+    				users.add(a);
+    			}
+    			final TreeItem<Respuesta> root = new RecursiveTreeItem<Respuesta>(users, RecursiveTreeObject::getChildren);
+    			treeView.setRoot(root);
             	break;
 
             default:

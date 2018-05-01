@@ -76,7 +76,7 @@ public class CrearPreguntaAgregarRespuestaControllerImp extends CrearPreguntaAgr
             dialog.show();
         } 
 		else {
-            Respuesta respuesta = new Respuesta(textArea.getText(), check, true);
+            Respuesta respuesta = new Respuesta(textArea.getText(), chkCorrecta.isSelected(), true);
             Contexto contexto = new Contexto(Events.COMMAND_RESPUESTA_CREATE, respuesta);
             Controlador.getInstance().accion(contexto);
         }
