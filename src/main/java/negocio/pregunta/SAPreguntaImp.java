@@ -213,4 +213,25 @@ public class SAPreguntaImp implements SAPregunta {
 			
 			return new Contexto(e,lista);
 		}
+		
+		public Contexto readRespuestas(int idPregunta) {
+			Events e;
+			Filter filter = new Filter();
+			Pregunta pregunta = null;
+			
+			try {
+				EntityManager entitymanager = EntityManagerUtil.getEntityManager();
+				EntityTransaction entitytransaction = entitymanager.getTransaction();
+				entitytransaction.begin();
+				pregunta = entitymanager.find(Pregunta.class, idPregunta);
+				List<Respuesta> lista = pregunta.getRespuestas();
+				
+				if (lista.isEmpty()) {
+					
+				}
+				else {
+					
+				}
+			
+		}
 }
