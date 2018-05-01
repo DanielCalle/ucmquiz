@@ -53,32 +53,7 @@ public class CrearPreguntaQuitarRespuestaControllerImp extends CrearPreguntaQuit
 	
 	@FXML
 	void btnQuitarAction(ActionEvent event) {
-		int index = comboBoxRespuestas.getSelectionModel().getSelectedIndex();
-		if (index >= 0) {
-			Respuesta respuesta = list.get(index);
-			//respuesta.setActiva(false);
-			list.remove(index);
-			Contexto contexto = new Contexto(Events.COMMAND_RM_RESPUESTA, respuesta.getId());
-			Controlador.getInstance().accion(contexto);
-		}else{
-			content = new JFXDialogLayout();
-			content.setHeading(new Text("Error"));
-			content.setBody(new Text("La respuesta no existe o no ha sido elegida"));
-			dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
-
-			button = new JFXButton("Ok");
-			button.setOnAction(new EventHandler<ActionEvent>() {
-
-				@Override
-				public void handle(ActionEvent arg0) {
-					dialog.close();
-
-				}
-
-			});
-			content.setActions(button);
-			dialog.show();
-		}
+		
 	}
 	
 	public void comboBoxRespuestasAction(){}
@@ -91,52 +66,19 @@ public class CrearPreguntaQuitarRespuestaControllerImp extends CrearPreguntaQuit
 		comboBoxRespuestas.setItems(FXCollections.observableArrayList(value));*/
 	}
 	
-	@SuppressWarnings({ "unchecked", "incomplete-switch" })
+	@SuppressWarnings("unchecked")
 	@Override
 	public void update(Contexto contexto) {
 		switch (contexto.getEvent()) {
-		case CRUD_DELETE_RESPUESTA_OK:
-			content = new JFXDialogLayout();
-			content.setHeading(new Text("Respuesta eliminada"));
-			content.setBody(new Text(contexto.getEvent().getMessage()));
-			dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
-
-			button = new JFXButton("Ok");
-			button.setOnAction(new EventHandler<ActionEvent>() {
-
-				@Override
-				public void handle(ActionEvent arg0) {
-					dialog.close();
-
-				}
-
-			});
-			content.setActions(button);
-			dialog.show();
-			break;
-		case CRUD_DELETE_RESPUESTA_KO:
-			content = new JFXDialogLayout();
-			content.setHeading(new Text("Error al eliminar respuesta"));
-			content.setBody(new Text(contexto.getEvent().getMessage()));
-			dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
-
-			button = new JFXButton("Ok");
-			button.setOnAction(new EventHandler<ActionEvent>() {
-
-				@Override
-				public void handle(ActionEvent arg0) {
-					dialog.close();
-
-				}
-
-			});
-			content.setActions(button);
-			dialog.show();
-			break;
-		case SHOW_RESPUESTA_DELETE:
+		case UPDATE_QUITAR_RESPUESTA:
 			list = (List<Respuesta>) contexto.getDato();
-			List<String> value = list.stream().map(a -> a.getTexto()).collect(Collectors.toList());
-			comboBoxRespuestas.setItems(FXCollections.observableArrayList(value));
+	        List < String > value = list.stream().map(a -> a.getTexto()).collect(Collectors.toList());
+	        
+	        comboBoxRespuestas.setItems(FXCollections.observableArrayList(value));
+	        
+			break;
+		default:
+			break;
 		}
 	}
 

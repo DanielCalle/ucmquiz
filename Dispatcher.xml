@@ -138,5 +138,9 @@
     <file>/presentacion/CrearPreguntaQuitarRespuesta.fxml</file>
     <controler>presentacion.guiControlers.CrearPreguntaQuitarRespuestaController</controler>
     </gui>
+    
+    <gui id="UPDATE_QUITAR_RESPUESTA">
+    <controler>presentacion.guiControlers.CrearPreguntaQuitarRespuestaController</controler>
+    </gui>
 
 </guis>

@@ -20,5 +20,5 @@
 	<command id="COMMAND_GET_RESPUESTAS">presentacion.commands.respuesta.CommandRespuestaGetList</command>
 
 	<command id="COMMAND_RESPUESTA_CREATE">presentacion.commands.respuesta.CommandRespuestaCreate</command>
-
+	<command id="UPDATE_QUITAR_RESPUESTA">presentacion.commands.pregunta.CommandUpdateQuitarRespuesta</command>
 </commands>
