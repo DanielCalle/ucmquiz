@@ -191,7 +191,8 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
 
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public void update(Contexto contexto) {
         switch (contexto.getEvent()) {
             case ASIGNATURA_READ_ALL_PREGUNTA_CREATE_OK:
@@ -254,6 +255,18 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
     			final TreeItem<Respuesta> root = new RecursiveTreeItem<Respuesta>(users, RecursiveTreeObject::getChildren);
     			treeView.setRoot(root);
             	break;
+            	
+            case QUITAR_RESPUESTA_OK:
+            	
+            	respuestas = (List<Respuesta>) contexto.getDato();
+            	ObservableList<Respuesta> users1 = FXCollections.observableArrayList();
+        		
+    			for (Respuesta a: respuestas) {
+    				users1.add(a);
+    			}
+    			final TreeItem<Respuesta> root1 = new RecursiveTreeItem<Respuesta>(users1, RecursiveTreeObject::getChildren);
+    			treeView.setRoot(root1);
+            	break;
 
             default:
 
@@ -284,10 +297,10 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
     void BorrarRespuestasAction(ActionEvent event) {
     	Contexto contexto = new Contexto(Events.SHOW_RESPUESTA_DELETE, null);
         Controlador.getInstance().accion(contexto);
-        List<Respuesta> r = new ArrayList<Respuesta>();
-        r.add(new Respuesta("Hola",true,true));
-        r.add(new Respuesta("Adios",false,true));
-        contexto = new Contexto(Events.UPDATE_QUITAR_RESPUESTA, r);
+        //List<Respuesta> r = new ArrayList<Respuesta>();
+        //r.add(new Respuesta("Hola",true,true));
+        //r.add(new Respuesta("Adios",false,true));
+        contexto = new Contexto(Events.UPDATE_QUITAR_RESPUESTA, respuestas);
         Controlador.getInstance().accion(contexto);
         
     }

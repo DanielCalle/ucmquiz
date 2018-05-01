@@ -142,5 +142,9 @@
     <gui id="UPDATE_QUITAR_RESPUESTA">
     <controler>presentacion.guiControlers.CrearPreguntaQuitarRespuestaController</controler>
     </gui>
+    
+    <gui id="QUITAR_RESPUESTA_OK">
+    <controler>presentacion.guiControlers.CrearPreguntaController</controler>
+    </gui>
 
 </guis>

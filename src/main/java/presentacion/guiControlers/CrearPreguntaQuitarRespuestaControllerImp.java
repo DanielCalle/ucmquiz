@@ -53,7 +53,9 @@ public class CrearPreguntaQuitarRespuestaControllerImp extends CrearPreguntaQuit
 	
 	@FXML
 	void btnQuitarAction(ActionEvent event) {
-		
+		list.remove(comboBoxRespuestas.getSelectionModel().getSelectedIndex());
+		Contexto contexto = new Contexto(Events.QUITAR_RESPUESTA_OK, list);
+        Controlador.getInstance().accion(contexto);
 	}
 	
 	public void comboBoxRespuestasAction(){}
