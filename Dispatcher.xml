@@ -129,8 +129,8 @@
     
     <gui id="SHOW_RESPUESTA_CREATE">
     <title>Crear respuesta</title>
-    <file>/presentacion/AñadirRespuesta.fxml</file>
-    <controler>presentacion.guiControlers.AñadirRespuestaController</controler>
+    <file>/presentacion/CrearPreguntaAgregarRespuesta.fxml</file>
+    <controler>presentacion.guiControlers.CrearPreguntaAgregarRespuestaController</controler>
     </gui>
     
     <gui id="SHOW_RESPUESTA_DELETE">

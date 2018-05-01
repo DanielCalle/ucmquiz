@@ -25,11 +25,11 @@
             </Label>
             <Pane layoutY="75.0" prefHeight="325.0" prefWidth="600.0" style="-fx-background-color: white;">
                <children>
-                  <JFXButton fx:id="btnAñadir" layoutX="451.0" layoutY="261.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnAñadirListener" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #F44336;" text="Añadir" textFill="WHITE" />
+                  <JFXButton fx:id="btnAgregar" layoutX="451.0" layoutY="261.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnAgregarListener" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #F44336;" text="Añadir" textFill="WHITE" />
 		            <Label layoutX="214.0" layoutY="67.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="135.0" text="Texto de la Respuesta" textFill="#9e9e9e" />
                   <JFXButton fx:id="btnCancelar" buttonType="RAISED" cache="true" cancelButton="true" depthTest="DISABLE" layoutX="279.0" layoutY="261.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#btnCancelarListener" prefHeight="37.0" prefWidth="135.0" ripplerFill="BLACK" style="-fx-background-color: white;" text="Cancelar" textOverrun="CLIP" />                  
                   <JFXTextArea fx:id="textArea" focusColor="#d03229" layoutX="70.0" layoutY="106.0" prefHeight="37.0" prefWidth="460.0" unFocusColor="#f44336" />
-                  <CheckBox fx:id="chkCorrecta" layoutX="69.0" layoutY="201.0" mnemonicParsing="false" onAction="#chkAñadirListener" prefHeight="17.0" prefWidth="150.0" text="Respuesta Correcta" />
+                  <CheckBox fx:id="chkCorrecta" layoutX="69.0" layoutY="201.0" mnemonicParsing="false" onAction="#chkAgregarListener" prefHeight="17.0" prefWidth="150.0" text="Respuesta Correcta" />
                </children>
             </Pane>
          </children>

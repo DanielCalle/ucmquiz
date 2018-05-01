@@ -20,7 +20,7 @@ import presentacion.Contexto;
 import presentacion.Events;
 import presentacion.controlador.Controlador;
 
-public class AñadirRespuestaControllerImp extends AñadirRespuestaController {
+public class CrearPreguntaAgregarRespuestaControllerImp extends CrearPreguntaAgregarRespuestaController {
 
 	@FXML
 	private StackPane stackpane;
@@ -35,7 +35,7 @@ public class AñadirRespuestaControllerImp extends AñadirRespuestaController {
 	private JFXButton btnCancelar;
 
 	@FXML
-	private JFXButton btnAñadir;
+	private JFXButton btnAgregar;
 	
 	@FXML
 	private CheckBox chkCorrecta;
@@ -49,13 +49,13 @@ public class AñadirRespuestaControllerImp extends AñadirRespuestaController {
 	}
 
 	@FXML
-	void chkAñadirListener(ActionEvent event) {
+	void chkAgregarListener(ActionEvent event) {
 		if (check) check = false;
 		else check = true;
 	}
 	
 	@FXML
-	void btnAñadirListener(ActionEvent event) {
+	void btnAgregarListener(ActionEvent event) {
 		
 		if (textArea.getLength() == 0) {
             JFXDialogLayout content = new JFXDialogLayout();
