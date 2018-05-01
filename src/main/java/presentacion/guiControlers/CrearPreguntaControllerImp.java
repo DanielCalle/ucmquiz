@@ -105,10 +105,36 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
 
             Pregunta pregunta = new Pregunta(textArea.getText(), true);
             pregunta.setRespuestas(respuestas);
+            pregunta.setAsignatura(list.get(cobobox.getSelectionModel().getSelectedIndex()));
+            
+            int respuestaCorrecta = 0;
+            for(Respuesta r : respuestas) {
+            	if(r.isCorrecta()) respuestaCorrecta += 1;
+            }
+            
+            if(respuestaCorrecta != 1) {
+            	 JFXDialogLayout content = new JFXDialogLayout();
+            	content.setHeading(new Text("Accion incorrecta"));
+                content.setBody(new Text("Hay mas de una pregunta correcta"));
+                JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
+                JFXButton button = new JFXButton("Ok");
+                button.setOnAction(new EventHandler < ActionEvent > () {
 
-            Contexto contexto = new Contexto(Events.COMMAND_PREGUNTA_CREATE, pregunta);
+                    @Override
+                    public void handle(ActionEvent arg0) {
+                        dialog.close();
 
-            Controlador.getInstance().accion(contexto);
+                    }
+
+                });
+                content.setActions(button);
+                dialog.show();
+            }
+            else {
+            	  Contexto contexto = new Contexto(Events.COMMAND_PREGUNTA_CREATE, pregunta);
+
+                  Controlador.getInstance().accion(contexto);
+            }
 
         }
 

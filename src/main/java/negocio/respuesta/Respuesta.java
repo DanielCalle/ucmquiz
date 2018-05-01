@@ -13,7 +13,6 @@ import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import negocio.asignatura.Asignatura;
 import negocio.pregunta.Pregunta;
 
 /**
