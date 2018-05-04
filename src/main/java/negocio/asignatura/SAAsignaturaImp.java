@@ -93,7 +93,7 @@ public class SAAsignaturaImp implements SAAsignatura {
 		catch(PersistenceException ex) {
 			event = Events.CRUD_READ_ALL_ASIGNATURA_KO;
 			filter.addFilter("info", "");
-			filter.addFilter("reason", "problemas técnicos");
+			filter.addFilter("reason", "problemas tecnicos");
 			event.setFilter(filter);
 		}
 	return contexto;	
@@ -358,7 +358,7 @@ public class SAAsignaturaImp implements SAAsignatura {
 			entitymanager.close();
 		} catch(PersistenceException ex) {
 			e = Events.CRUD_READ_ALL_ASIGNATURA_KO;
-			filter.addFilter("reason","problemas técnicos");
+			filter.addFilter("reason","problemas tecnicos");
 			filter.addFilter("info","");
 		}
 		
