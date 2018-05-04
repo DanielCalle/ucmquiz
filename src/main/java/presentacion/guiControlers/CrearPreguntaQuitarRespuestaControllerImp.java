@@ -75,6 +75,8 @@ public class CrearPreguntaQuitarRespuestaControllerImp extends CrearPreguntaQuit
 	        });
 	        content.setActions(button);
 	        dialog.show();
+	        List < String > value = list.stream().map(a -> a.getTexto()).collect(Collectors.toList());
+	        comboBoxRespuestas.setItems(FXCollections.observableArrayList(value));
 		}
 		else {
 	        content = new JFXDialogLayout();
