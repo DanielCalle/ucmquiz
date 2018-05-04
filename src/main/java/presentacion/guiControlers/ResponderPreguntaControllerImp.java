@@ -1,12 +1,16 @@
 package presentacion.guiControlers;
 
 import presentacion.Contexto;
+import presentacion.Events;
+import presentacion.controlador.Controlador;
 
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
@@ -16,6 +20,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -23,6 +28,8 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import negocio.pregunta.Pregunta;
 import negocio.respuesta.Respuesta;
@@ -50,38 +57,53 @@ public class ResponderPreguntaControllerImp extends ResponderPreguntaController 
 
 	@FXML
 	void btnConfirmarListener(ActionEvent event) {
+		JFXDialogLayout content = new JFXDialogLayout();
+        JFXDialog dialog = new JFXDialog(root, content, JFXDialog.DialogTransition.CENTER);
 
+        JFXButton button = new JFXButton("Ok");
+        button.setOnAction(new EventHandler < ActionEvent > () {
+
+            @Override
+            public void handle(ActionEvent arg0) {
+                dialog.close();
+                
+            }
+
+        });
+        content.setActions(button);
+        dialog.show();
+		TreeItem<Respuesta> respuesta = treeView.getSelectionModel().getSelectedItem();
+		if (respuesta != null) {
+	        content.setHeading(new Text("Validacion"));
+	        content.setBody(new Text(respuesta.getValue().getCorrectaStringProperty().get()));
+		}
+		else {
+	        content.setHeading(new Text("Error"));
+	        content.setBody(new Text("No respuesta seleccionada"));
+		}
 	}
 
 	@FXML
 	void btnGoBackListener(ActionEvent event) {
-
+		Stage stage = (Stage) root.getScene().getWindow();
+        stage.close();
 	}
-
-	@FXML
-	void treeViewSort(ActionEvent event) {
-
-	}
-	// Fin elementos FXML
 
 	@Override
 	public void update(Contexto contexto) {
 		switch (contexto.getEvent()) {
-		case CRUD_CREATE_RESPUESTA_OK:
-	      	
-	      	//respuestas.add((Respuesta) contexto.getDato());
+		case CRUD_READ_PREGUNTA_OK:
 	      	
 			Pregunta pregunta = (Pregunta) contexto.getDato();
-			List<Respuesta> respuestas = pregunta.getRespuestas();
+	      	ObservableList<Respuesta> respuestas = FXCollections.observableArrayList();
 			
-	      	ObservableList<Respuesta> users = FXCollections.observableArrayList();
+			for (Respuesta respuesta: pregunta.getRespuestas()) {
+				respuestas.add(respuesta);
+			}
 			
-				for (Respuesta a: respuestas) {
-					users.add(a);
-				}
-				final TreeItem<Respuesta> root = new RecursiveTreeItem<Respuesta>(users, RecursiveTreeObject::getChildren);
-				treeView.setRoot(root);
-				LabelPregunta.setText(pregunta.getTexto());
+			final TreeItem<Respuesta> root = new RecursiveTreeItem<Respuesta>(respuestas, RecursiveTreeObject::getChildren);
+			treeView.setRoot(root);
+			LabelPregunta.setText(pregunta.getTexto());
 	      	break;
 		}
 
@@ -89,17 +111,18 @@ public class ResponderPreguntaControllerImp extends ResponderPreguntaController 
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		JFXTreeTableColumn<Respuesta, String> pregunta = new JFXTreeTableColumn<>("Respuesta");
-		pregunta.setPrefWidth(150);
-		pregunta.setCellValueFactory(
-				new Callback<TreeTableColumn.CellDataFeatures<Respuesta, String>, ObservableValue<String>>() {
-					@Override
-					public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Respuesta, String> param) {
-						return param.getValue().getValue().getTituloStringProperty();
-					}
-				});
-		ObservableList<Respuesta> users = FXCollections.observableArrayList();
-		treeView.getColumns().setAll(pregunta);
+		JFXTreeTableColumn<Respuesta, String> respuestaColumn = new JFXTreeTableColumn<>("Respuesta");
+		respuestaColumn.setPrefWidth(150);
+		respuestaColumn.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Respuesta, String>, ObservableValue<String>>() {
+					
+			@Override
+			public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Respuesta, String> param) {
+				return param.getValue().getValue().getTituloStringProperty();
+			}
+			
+		});
+		
+		treeView.getColumns().setAll(respuestaColumn);
 		treeView.setShowRoot(false);
 		treeView.getSelectionModel().getSelectedItem();
 
