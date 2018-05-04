@@ -154,6 +154,12 @@
     <controler>presentacion.guiControlers.ResponderPreguntaController</controler>
     </gui>
     
+    <gui id="SHOW_ESCOGER_PREGUNTA_ASIGNATURA">
+    <title>Escoger pregunta de una Asignatura</title>
+    <file>/presentacion/SeleccionarPreguntaAsignatura.fxml</file>
+    <controler>presentacion.guiControlers.SeleccionarPreguntaAsignaturaController</controler>
+    </gui>
+    
     <gui id="ANADIR_PREGUNTA_PARA_RESPONDER">
      	<controler>presentacion.guiControlers.ResponderPreguntaController</controler>
     </gui>

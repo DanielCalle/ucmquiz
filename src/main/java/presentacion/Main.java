@@ -19,7 +19,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage stage) throws IOException {
 		
-		Contexto contexto2 = new Contexto(Events.SHOW_SELECCION_USUARIO, null);
+		Contexto contexto2 = new Contexto(Events.SHOW_ESCOGER_PREGUNTA_ASIGNATURA, null);
 		Controlador.getInstance().accion(contexto2);
 
 		
