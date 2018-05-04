@@ -79,6 +79,25 @@ public class CrearPreguntaAgregarRespuestaControllerImp extends CrearPreguntaAgr
             Respuesta respuesta = new Respuesta(textArea.getText(), chkCorrecta.isSelected(), true);
             Contexto contexto = new Contexto(Events.COMMAND_RESPUESTA_CREATE, respuesta);
             Controlador.getInstance().accion(contexto);
+            textArea.clear();
+            JFXDialogLayout content = new JFXDialogLayout();
+            content = new JFXDialogLayout();
+            content.setHeading(new Text("Respuesta agregada"));
+            content.setBody(new Text("La respuesta fue agregada correctamente de la pregunta"));
+            JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
+
+            JFXButton button = new JFXButton("Ok");
+            button.setOnAction(new EventHandler < ActionEvent > () {
+
+                @Override
+                public void handle(ActionEvent arg0) {
+                    dialog.close();
+
+                }
+
+            });
+            content.setActions(button);
+            dialog.show();
         }
 	}
 

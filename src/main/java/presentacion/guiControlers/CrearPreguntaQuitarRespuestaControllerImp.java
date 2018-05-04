@@ -53,10 +53,48 @@ public class CrearPreguntaQuitarRespuestaControllerImp extends CrearPreguntaQuit
 	
 	@FXML
 	void btnQuitarAction(ActionEvent event) {
-		list.remove(comboBoxRespuestas.getSelectionModel().getSelectedIndex());
-		Contexto contexto = new Contexto(Events.QUITAR_RESPUESTA_OK, list);
-        Controlador.getInstance().accion(contexto);
-        comboBoxRespuestas.getSelectionModel().clearSelection();
+		if(comboBoxRespuestas.getSelectionModel().getSelectedIndex()!=-1) {
+			list.remove(comboBoxRespuestas.getSelectionModel().getSelectedIndex());
+			Contexto contexto = new Contexto(Events.QUITAR_RESPUESTA_OK, list);
+	        Controlador.getInstance().accion(contexto);
+	        comboBoxRespuestas.getSelectionModel().clearSelection();
+	        content = new JFXDialogLayout();
+	        content.setHeading(new Text("Respuesta quitada"));
+	        content.setBody(new Text("La respuesta fue quitada correctamente de la pregunta"));
+	        dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
+	
+	        button = new JFXButton("Ok");
+	        button.setOnAction(new EventHandler < ActionEvent > () {
+	
+	            @Override
+	            public void handle(ActionEvent arg0) {
+	                dialog.close();
+	
+	            }
+	
+	        });
+	        content.setActions(button);
+	        dialog.show();
+		}
+		else {
+	        content = new JFXDialogLayout();
+	        content.setHeading(new Text("Accion incorrecta"));
+	        content.setBody(new Text("No se ha seleccionado respuesta"));
+	        dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
+	
+	        button = new JFXButton("Ok");
+	        button.setOnAction(new EventHandler < ActionEvent > () {
+	
+	            @Override
+	            public void handle(ActionEvent arg0) {
+	                dialog.close();
+	
+	            }
+	
+	        });
+	        content.setActions(button);
+	        dialog.show();
+		}
 	}
 	
 	public void comboBoxRespuestasAction(){}
