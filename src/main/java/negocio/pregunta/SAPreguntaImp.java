@@ -43,7 +43,7 @@ public class SAPreguntaImp implements SAPregunta {
 			event.setFilter(filter);
 			contexto = new Contexto(event, null);
 		}else {
-			// si el id pasado no existe el entitymanager soltará error
+			// si el id pasado no existe el entitymanager soltarï¿½ error
 			entitytransaction.rollback();
 			event = Events.CRUD_DELETE_PREGUNTA_KO;
 			filter.addFilter("reason", "que el id introducido no exista");
@@ -117,8 +117,6 @@ public class SAPreguntaImp implements SAPregunta {
 						filter.addFilter("info", "");
 		
 						event.setFilter(filter);
-		
-						contexto = new Contexto(event, null);
 
 						entitymanager.persist(pregunta);
 						
@@ -127,6 +125,8 @@ public class SAPreguntaImp implements SAPregunta {
 							r.setPregunta(pregunta);
 							
 						entitytransaction.commit();
+						
+						contexto = new Contexto(event, pregunta.getId());
 					}
 					else {
 
@@ -207,7 +207,7 @@ public class SAPreguntaImp implements SAPregunta {
 				entitymanager.close();
 			} catch(PersistenceException ex) {
 				e = Events.CRUD_READ_ALL_PREGUNTA_KO;
-				filter.addFilter("reason","problemas técnicos");
+				filter.addFilter("reason","problemas tï¿½cnicos");
 				filter.addFilter("info","");
 			}
 			
