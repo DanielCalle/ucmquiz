@@ -20,6 +20,7 @@ import negocio.pregunta.Pregunta;
  * Esta relacion mantiene una relacion N : 1 con la entidad pregunta.
  */
 @Entity
+
 @NamedQueries({
 	@NamedQuery(
 			name = "negocio.respuesta.Respuesta.findBytexto", 
@@ -31,6 +32,7 @@ import negocio.pregunta.Pregunta;
 	)
 })
 public class Respuesta extends RecursiveTreeObject<Respuesta> {
+
 
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

@@ -21,6 +21,7 @@ public class Main extends Application {
 		
 		Contexto contexto2 = new Contexto(Events.SHOW_SELECCION_USUARIO, null);
 		Controlador.getInstance().accion(contexto2);
+
 		
 	}
 	
