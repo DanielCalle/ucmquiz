@@ -56,6 +56,7 @@ public class CrearPreguntaQuitarRespuestaControllerImp extends CrearPreguntaQuit
 		list.remove(comboBoxRespuestas.getSelectionModel().getSelectedIndex());
 		Contexto contexto = new Contexto(Events.QUITAR_RESPUESTA_OK, list);
         Controlador.getInstance().accion(contexto);
+        comboBoxRespuestas.getSelectionModel().clearSelection();
 	}
 	
 	public void comboBoxRespuestasAction(){}
