@@ -3,6 +3,7 @@ package presentacion.guiControlers;
 import presentacion.Contexto;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTreeTableView;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +21,10 @@ public class BorrarRespuestaAdminControllerImp extends BorrarRespuestaAdminContr
 	private JFXButton btnborrar;
 	
 	@FXML
-	private JFXComboBox<?> comboboxRepuesta;
+	private JFXTreeTableView<?> tablaRespuestas;
+
+	@FXML
+	private JFXComboBox<?> comboboxPregunta;
 
 	@FXML
 	void btnBorrar(ActionEvent event) {

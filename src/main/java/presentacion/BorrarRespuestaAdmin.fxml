@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -21,9 +22,10 @@
       <AnchorPane layoutY="82.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="318.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF; -fx-background-size: 10000;">
          <children>
             <JFXButton fx:id="btncancelar" buttonType="RAISED" cache="true" cancelButton="true" depthTest="DISABLE" layoutX="281.0" layoutY="236.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#btnCancelar" prefHeight="37.0" prefWidth="135.0" ripplerFill="BLACK" style="-fx-background-color: white;" text="Cancelar" textOverrun="CLIP" />
-            <Label layoutX="206.0" layoutY="69.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="135.0" text="Seleccionar la repuesta" textFill="#9e9e9e" />
+            <Label layoutX="139.0" layoutY="66.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="135.0" text="Seleccionar una pregunta" textFill="#9e9e9e" />
             <JFXButton fx:id="btnborrar" layoutX="443.0" layoutY="236.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnBorrar" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #7B1FA2;" text="Borrar" textFill="WHITE" />
-            <JFXComboBox fx:id="comboboxRepuesta" layoutX="206.0" layoutY="95.0" prefHeight="25.0" prefWidth="135.0" />
+            <JFXTreeTableView fx:id="tablaRespuestas" layoutX="347.0" layoutY="9.0" prefHeight="204.0" prefWidth="205.0" />
+            <JFXComboBox fx:id="comboboxPregunta" layoutX="139.0" layoutY="98.0" prefHeight="25.0" prefWidth="135.0" />
          </children>
       </AnchorPane>
    </children>
