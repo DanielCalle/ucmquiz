@@ -3,9 +3,13 @@ package negocio.pregunta;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 import negocio.FactoriaNegocio;
+import negocio.respuesta.Respuesta;
 import presentacion.Contexto;
 import presentacion.Events;
 
@@ -24,7 +28,12 @@ public class SAPreguntaTest {
 	public void testCrearPregunta() {
 		
 		Pregunta p = new Pregunta("¿ Cual es la definicion sencilla del teorema de la integral de Riemann ?", true);
-		
+		Respuesta r1 = new Respuesta("A",true,true);
+		Respuesta r2 = new Respuesta("B",false,true);
+		List<Respuesta> respuestas = new ArrayList<>();
+		respuestas.add(r1);
+		respuestas.add(r2);
+		p.setRespuestas(respuestas);
 		Integer id = (Integer) FactoriaNegocio.getInstance().generateSAPregunta().create(p).getDato();
 		
 		assertTrue(
@@ -49,6 +58,12 @@ public class SAPreguntaTest {
 	public void testCrearPreguntaInactiva() {
 		 
 		Pregunta p = new Pregunta("¿ Cual es la definicion de Kernel para un sistema operativo ?", false);
+		Respuesta r1 = new Respuesta("A",true,true);
+		Respuesta r2 = new Respuesta("B",false,true);
+		List<Respuesta> respuestas = new ArrayList<>();
+		respuestas.add(r1);
+		respuestas.add(r2);
+		p.setRespuestas(respuestas);
 		
 		Integer id = (Integer) FactoriaNegocio.getInstance().generateSAPregunta().create(p).getDato(); 
 		
@@ -66,9 +81,15 @@ public class SAPreguntaTest {
 	@Test
 	public void borrarPreguntaTest() {
 		
-		Pregunta p = new Pregunta("�Quien es mejor profesor, Hector o Antonio?", true);
+		Pregunta p = new Pregunta("¿Quien es mejor profesor, Hector o Antonio?", true);
+		Respuesta r1 = new Respuesta("A",true,true);
+		Respuesta r2 = new Respuesta("B",false,true);
+		List<Respuesta> respuestas = new ArrayList<>();
+		respuestas.add(r1);
+		respuestas.add(r2);
+		p.setRespuestas(respuestas);
 		
-		SAPregunta sap = new SAPreguntaImp();
+		SAPregunta sap = FactoriaNegocio.getInstance().generateSAPregunta();
 		
 		Contexto c = sap.create(p);
 		
@@ -79,5 +100,14 @@ public class SAPreguntaTest {
 		assertEquals("El evento de la operacion Delete en Pregunta tiene que estar OK"
 				,c.getEvent(),
 				Events.CRUD_DELETE_PREGUNTA_OK);
+	}
+	
+	@Test
+	public void listarPreguntaTest() {
+		SAPregunta sap = new SAPreguntaImp();
+		Contexto c = sap.readAll();
+		
+		assertEquals("El evento de la operacion ReadAll en Pregunta tiene que dar el comando CRUD_READ_ALL_PREGUNTA_OK"
+				,c.getEvent(),Events.CRUD_READ_ALL_PREGUNTA_OK);
 	}
 }

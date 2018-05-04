@@ -25,6 +25,14 @@
     <gui id="CRUD_CREATE_ASIGNATURA_KO">
     	<controler>presentacion.guiControlers.CrearAsignaturaController</controler>
     </gui>
+    
+    <gui id="CRUD_CREATE_PREGUNTA_OK">
+    	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
+    </gui>
+    <gui id="CRUD_CREATE_PREGUNTA_KO">
+    	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
+    </gui>
+    
      <gui id="SHOW_PREGUNTA_CREATE">
     	<title>Crear pregunta</title>
     	<file>/presentacion/CrearPregunta.fxml</file>
@@ -35,10 +43,10 @@
     	<file>/presentacion/SeleccionUsuario.fxml</file>
     	<controler>presentacion.guiControlers.SeleccionUsuarioController</controler>
     </gui>
-    <gui id="CRUD_CREATE_PREGUNTA_OK">
+    <gui id="CRUD_CREATE_RESPUESTA_OK">
      	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
     </gui>
-     <gui id="CRUD_CREATE_PREGUNTA_KO">
+     <gui id="CRUD_CREATE_RESPUESTA_KO">
      	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
     </gui>
 
@@ -73,6 +81,14 @@
     <gui id="ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE_OK">
     	<controler>presentacion.guiControlers.ActivarDesactivarAsigController</controler>
     </gui>
+    
+     <gui id="ASIGNATURA_READ_ALL_PREGUNTA_CREATE_OK">
+    	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
+    </gui>
+      <gui id="ASIGNATURA_READ_ALL_PREGUNTA_CREATE_KO">
+    	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
+    </gui>
+    
     <gui id="ASIGNATURA_ACTIVATE_OK">
     	<controler>presentacion.guiControlers.ActivarDesactivarAsigController</controler>
     </gui>
@@ -109,6 +125,26 @@
     <title>Listar asignaturas</title>
     <file>/presentacion/uno.fxml</file>
     <controler>presentacion.guiControlers.unoController</controler>
+    </gui>
+    
+    <gui id="SHOW_RESPUESTA_CREATE">
+    <title>Crear respuesta</title>
+    <file>/presentacion/CrearPreguntaAgregarRespuesta.fxml</file>
+    <controler>presentacion.guiControlers.CrearPreguntaAgregarRespuestaController</controler>
+    </gui>
+    
+    <gui id="SHOW_RESPUESTA_DELETE">
+    <title>Eliminar respuesta</title>
+    <file>/presentacion/CrearPreguntaQuitarRespuesta.fxml</file>
+    <controler>presentacion.guiControlers.CrearPreguntaQuitarRespuestaController</controler>
+    </gui>
+    
+    <gui id="UPDATE_QUITAR_RESPUESTA">
+    <controler>presentacion.guiControlers.CrearPreguntaQuitarRespuestaController</controler>
+    </gui>
+    
+    <gui id="QUITAR_RESPUESTA_OK">
+    <controler>presentacion.guiControlers.CrearPreguntaController</controler>
     </gui>
 
 	<gui id="SHOW_PREGUNTA_RESPONDER">

@@ -143,7 +143,7 @@
 	<event id="ASIGNATURA_DESACTIVATE_KO">
 		No se activo correctamente la asignatura debido a {reason}
 	</event>
-	
+
 	<event id="SHOW_LOGIN">No message</event>
 	<event id="SHOW_ROL_MENU">No message</event>
 	<event id="SHOW_ASIGNATURA_ACTIVATE_DESACTIVATE">No message</event>
@@ -170,5 +170,17 @@
 	<event id="COMMAND_ASIGNATURA_ACTIVATE">No message</event>
 	<event id="COMMAND_ASIGNATURA_DESACTIVATE">No message</event>
 	<event id="COMMAND_PREGUNTA_DELETE">No message</event>
+	<event id="COMMAND_RM_RESPUESTA">No message</event>
+	<event id="COMMAND_RESPUESTA_CREATE">No message</event>
+	<event id="COMMAND_GET_RESPUESTAS">No message</event>
+	<event id="UPDATE_QUITAR_RESPUESTA">No message</event>
+	<event id="QUITAR_RESPUESTA_OK">No message</event>
+	<event id="SHOW_RESPUESTA_DELETE">No message</event>
+	<event id="SHOW_RESPUESTA_CREATE">No message</event>
+	<event id="COMMAND_ASIGNATURA_READ_ALL_PREGUNTA_CREATE">No message</event>
+	<event id="ASIGNATURA_READ_ALL_PREGUNTA_CREATE_OK">No message</event>
+	<event id="ASIGNATURA_READ_ALL_PREGUNTA_CREATE_KO">No message</event>
+	<event id="CRUD_ADD_RESPUESTA_OK">No message</event>
+	<event id="CRUD_ADD_RESPUESTA_KO">No message</event>
 	
 </events>

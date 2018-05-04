@@ -1,5 +1,8 @@
 package negocio.pregunta; 
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,11 +10,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
 import negocio.asignatura.Asignatura;
+import negocio.respuesta.Respuesta;
 
 /**
  * Entidad de negocio Pregunta.
@@ -26,7 +31,9 @@ import negocio.asignatura.Asignatura;
 	@NamedQuery(
 			name = "negocio.pregunta.Pregunta.findByAsignatura", 
 			query = "select obj from Pregunta obj where obj.asignatura = :asignatura"
-		)
+	),
+	@NamedQuery(name = "negocio.pregunta.Pregunta.readAll", 
+	query = "select obj from Pregunta obj")
 })
 public class Pregunta extends RecursiveTreeObject<Pregunta> {
 	
@@ -43,6 +50,9 @@ public class Pregunta extends RecursiveTreeObject<Pregunta> {
 	private String texto;
 	
 	private boolean activa;
+
+	@OneToMany(mappedBy="Pregunta", cascade = { CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST})
+	private List<Respuesta> respuestas;
 	
 	public Pregunta() {};
 	
@@ -120,6 +130,15 @@ public class Pregunta extends RecursiveTreeObject<Pregunta> {
 	 */
 	public void setAsignatura(Asignatura asignatura) {
 		this.asignatura = asignatura;
+	}
+
+	public List<Respuesta> getRespuestas() {
+		// TODO Auto-generated method stub
+		return this.respuestas;
+	}
+
+	public void setRespuestas(List<Respuesta> respuestas) {
+		this.respuestas = respuestas;
 	}
 
 }

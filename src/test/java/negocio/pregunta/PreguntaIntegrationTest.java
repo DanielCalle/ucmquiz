@@ -6,9 +6,13 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 import negocio.FactoriaNegocio;
+import negocio.respuesta.Respuesta;
 import presentacion.Contexto;
 import presentacion.Events;
 
@@ -40,6 +44,12 @@ public class PreguntaIntegrationTest {
 		assertThat("No se puede crear una pregunta nula.", saPregunta.create(preguntaMDL) , nullValue() );
 		
 		preguntaMDL = new Pregunta("¿ Es ( ^ , v , ¬ ) un conjunto universal ?", true);
+		Respuesta r1 = new Respuesta("A",true,true);
+		Respuesta r2 = new Respuesta("B",false,true);
+		List<Respuesta> respuestas = new ArrayList<>();
+		respuestas.add(r1);
+		respuestas.add(r2);
+		preguntaMDL.setRespuestas(respuestas);
 		
 		contexto = saPregunta.create(preguntaMDL);
 		
@@ -60,8 +70,14 @@ public class PreguntaIntegrationTest {
 		assertThat("La pregunta ha de devolver un evento de creacion incorrecto.", contexto.getEvent() , is(equalTo(Events.CRUD_CREATE_PREGUNTA_KO)) );
 		
 		preguntaMMI = new Pregunta("¿ Sum(0 ... n) = ((n * (n+1)) / 2)  ?", false);
-		
+		Respuesta r3 = new Respuesta("A",true,true);
+		Respuesta r4 = new Respuesta("B",false,true);
+		List<Respuesta> respuestas2 = new ArrayList<>();
+		respuestas2.add(r3);
+		respuestas2.add(r4);
+		preguntaMMI.setRespuestas(respuestas2);
 		contexto = saPregunta.create(preguntaMMI);
+
 		
 		mmiId = (Integer) contexto.getDato();
 		

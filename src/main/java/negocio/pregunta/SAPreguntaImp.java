@@ -3,8 +3,12 @@ package negocio.pregunta;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceException;
 
 import negocio.EntityManagerUtil;
+
+import negocio.respuesta.Respuesta;
+
 import java.util.List;
 import javax.persistence.TypedQuery;
 import presentacion.Contexto;
@@ -39,7 +43,7 @@ public class SAPreguntaImp implements SAPregunta {
 			event.setFilter(filter);
 			contexto = new Contexto(event, null);
 		}else {
-			// si el id pasado no existe el entitymanager soltará error
+			// si el id pasado no existe el entitymanager soltarï¿½ error
 			entitytransaction.rollback();
 			event = Events.CRUD_DELETE_PREGUNTA_KO;
 			filter.addFilter("reason", "que el id introducido no exista");
@@ -84,18 +88,60 @@ public class SAPreguntaImp implements SAPregunta {
 			List<Pregunta> lista = query.getResultList();
 
 			if (lista.isEmpty()) {
+				
+				List<Respuesta> respuestas = pregunta.getRespuestas();
+				if (respuestas.size() < 2) {
+					event = Events.CRUD_CREATE_PREGUNTA_KO;
 
-				entitymanager.persist(pregunta);
+					filter.addFilter("reason", "menos de dos respuestas");
 
-				entitytransaction.commit();
+					filter.addFilter("info", "");
 
-				event = Events.CRUD_CREATE_PREGUNTA_OK;
+					event.setFilter(filter);
 
-				filter.addFilter("info", "");
+					contexto = new Contexto(event, null);
+					
+					entitytransaction.rollback();
 
-				event.setFilter(filter);
+				}
+				else {
+					boolean correcta = false;
+					for (int i = 0; i < respuestas.size(); i++) {
+						if (respuestas.get(i).isCorrecta())
+							correcta = true;
+					}
+					if (correcta) {
+		
+						event = Events.CRUD_CREATE_PREGUNTA_OK;
+		
+						filter.addFilter("info", "");
+		
+						event.setFilter(filter);
 
-				contexto = new Contexto(event, pregunta.getId());
+						entitymanager.persist(pregunta);
+						
+						
+						for (Respuesta r: pregunta.getRespuestas())
+							r.setPregunta(pregunta);
+							
+						entitytransaction.commit();
+						
+						contexto = new Contexto(event, pregunta.getId());
+					}
+					else {
+
+						event = Events.CRUD_CREATE_PREGUNTA_KO;
+
+						filter.addFilter("reason", "no tiene respuesta correcta");
+
+						filter.addFilter("info", "");
+
+						event.setFilter(filter);
+
+						contexto = new Contexto(event, null);
+						entitytransaction.rollback();
+					}
+				}
 
 			} else {
 
@@ -141,4 +187,30 @@ public class SAPreguntaImp implements SAPregunta {
 
 	}
 
+		@Override
+		public Contexto readAll() {
+			Events e;
+			Filter filter = new Filter();
+			List<Pregunta> lista = null;
+			
+			try {
+				EntityManager entitymanager = EntityManagerUtil.getEntityManager();
+				EntityTransaction entitytransaction = entitymanager.getTransaction();
+				entitytransaction.begin();
+					
+				TypedQuery<Pregunta> query = entitymanager.createNamedQuery("negocio.pregunta.Pregunta.readAll", Pregunta.class);
+				lista = query.getResultList();
+				entitytransaction.commit();
+				e = Events.CRUD_READ_ALL_PREGUNTA_OK;
+				filter.addFilter("info","");
+					
+				entitymanager.close();
+			} catch(PersistenceException ex) {
+				e = Events.CRUD_READ_ALL_PREGUNTA_KO;
+				filter.addFilter("reason","problemas tï¿½cnicos");
+				filter.addFilter("info","");
+			}
+			
+			return new Contexto(e,lista);
+		}
 }

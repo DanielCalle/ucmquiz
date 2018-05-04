@@ -16,6 +16,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -23,50 +24,63 @@ import javafx.util.Callback;
 import negocio.pregunta.Pregunta;
 import negocio.respuesta.Respuesta;
 
-public class ResponderPreguntaControllerImp extends ResponderPreguntaController implements Initializable{
+public class ResponderPreguntaControllerImp extends ResponderPreguntaController implements Initializable {
 
-	//Elementos FXML
-	 @FXML
-	    private StackPane root;
+	// Elementos FXML
+	@FXML
+	private StackPane root;
 
-	    @FXML
-	    private AnchorPane anchorPane;
+	@FXML
+	private AnchorPane anchorPane;
 
-	    @FXML
-	    private JFXButton btnGoBack;
+	@FXML
+	private JFXButton btnGoBack;
 
-	    @FXML
-	    private Label LabelPregunta;
+	@FXML
+	private Label LabelPregunta;
 
-	    @FXML
-	    private JFXButton btnConfirmar;
+	@FXML
+	private JFXButton btnConfirmar;
 
-	    @FXML
-	    private JFXTreeTableView<Respuesta> treeView;
+	@FXML
+	private JFXTreeTableView<Respuesta> treeView;
 
-	    @FXML
-	    void btnConfirmarListener(ActionEvent event) {
+	@FXML
+	void btnConfirmarListener(ActionEvent event) {
 
-	    }
+	}
 
-	    @FXML
-	    void btnGoBackListener(ActionEvent event) {
+	@FXML
+	void btnGoBackListener(ActionEvent event) {
 
-	    }
+	}
 
-	    @FXML
-	    void treeViewSort(ActionEvent event) {
+	@FXML
+	void treeViewSort(ActionEvent event) {
 
-	    }
-	//Fin elementos FXML
-	
+	}
+	// Fin elementos FXML
 
-	
-	
 	@Override
 	public void update(Contexto contexto) {
-		// TODO Auto-generated method stub
-		
+		switch (contexto.getEvent()) {
+		case CRUD_CREATE_RESPUESTA_OK:
+	      	
+	      	//respuestas.add((Respuesta) contexto.getDato());
+	      	
+			Pregunta pregunta = (Pregunta) contexto.getDato();
+			List<Respuesta> respuestas = pregunta.res
+			
+	      	ObservableList<Respuesta> users = FXCollections.observableArrayList();
+			
+				for (Respuesta a: respuestas) {
+					users.add(a);
+				}
+				final TreeItem<Respuesta> root = new RecursiveTreeItem<Respuesta>(users, RecursiveTreeObject::getChildren);
+				treeView.setRoot(root);
+	      	break;
+		}
+
 	}
 
 	@Override
@@ -84,7 +98,7 @@ public class ResponderPreguntaControllerImp extends ResponderPreguntaController 
 		treeView.getColumns().setAll(pregunta);
 		treeView.setShowRoot(false);
 		treeView.getSelectionModel().getSelectedItem();
-		
+
 	}
 
 }

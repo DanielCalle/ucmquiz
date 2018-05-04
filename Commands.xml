@@ -5,7 +5,7 @@
 	<command id="COMMAND_ASIGNATURA_ACTIVATE">presentacion.commands.asignatura.CommandAsignaturaActivate</command>
 	<command id="COMMAND_ASIGNATURA_DESACTIVATE">presentacion.commands.asignatura.CommandAsignaturaDesactivate</command>
 	<command id="COMMAND_ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE">presentacion.commands.asignatura.CommandAsignaturaReadAllActivateDesactivate</command>
-	
+	<command id="COMMAND_ASIGNATURA_READ_ALL_PREGUNTA_CREATE">presentacion.commands.asignatura.CommandReadAllAsignaturaCreatePregunta</command>
 	<command id="COMMAND_ASIGNATURA_DELETE">presentacion.commands.asignatura.CommandAsignaturaDelete</command>
 
 	<command id="COMMAND_PREGUNTA_CREATE">presentacion.commands.pregunta.CommandPreguntaCreate</command>
@@ -14,4 +14,12 @@
 	<command id="COMMAND_CREATE_SUBJECT">presentacion.commands.CommandCrearAsignatura</command>
 	
 	<command id="COMMAND_PREGUNTA_DELETE">presentacion.commands.pregunta.CommandPreguntaDelete</command>
+
+	<command id="COMMAND_RM_RESPUESTA">presentacion.commands.respuesta.CommandRespuestaDelete</command>
+	
+	<command id="COMMAND_GET_RESPUESTAS">presentacion.commands.respuesta.CommandRespuestaGetList</command>
+
+	<command id="COMMAND_RESPUESTA_CREATE">presentacion.commands.respuesta.CommandRespuestaCreate</command>
+	<command id="UPDATE_QUITAR_RESPUESTA">presentacion.commands.pregunta.CommandUpdateQuitarRespuesta</command>
+	<command id="QUITAR_RESPUESTA_OK">presentacion.commands.pregunta.CommandQuitarRespuestaOk</command>
 </commands>

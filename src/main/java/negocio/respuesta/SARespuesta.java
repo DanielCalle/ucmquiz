@@ -1,5 +1,12 @@
 package negocio.respuesta;
 
-public interface SARespuesta {
+import presentacion.Contexto;
 
+public interface SARespuesta {
+	
+	public Contexto create(Respuesta respuesta);
+
+	public Contexto borrarRespuesta(String respuesta);
+	
+	public Contexto borrarRespuesta(int idRespuesta);
 }

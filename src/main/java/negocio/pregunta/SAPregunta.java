@@ -8,4 +8,6 @@ public interface SAPregunta {
 
 	public Contexto borrarPregunta(int idPregunta);
 	
+	public Contexto readAll();
+	
 }
