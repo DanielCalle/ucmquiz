@@ -111,4 +111,9 @@
     <controler>presentacion.guiControlers.unoController</controler>
     </gui>
 
+	<gui id="SHOW_PREGUNTA_RESPONDER">
+    <title>Responder preguntas</title>
+    <file>/presentacion/ResponderPregunta.fxml</file>
+    <controler>presentacion.guiControlers.ResponderPreguntaController</controler>
+    </gui>
 </guis>

@@ -7,6 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import negocio.pregunta.Pregunta;
 
 /**
@@ -14,7 +18,7 @@ import negocio.pregunta.Pregunta;
  * Esta relacion mantiene una relacion N : 1 con la entidad pregunta.
  */
 @Entity
-public class Respuesta {
+public class Respuesta extends RecursiveTreeObject<Respuesta>{
 
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -126,6 +130,15 @@ public class Respuesta {
 	 */
 	public void setPregunta(Pregunta p) {
 		this.pregunta = p;
+	}
+	public StringProperty getTituloStringProperty() {
+		return new SimpleStringProperty(texto);
+		
+	}
+	public StringProperty getCorrectaStringProperty() {
+		if(correcta) return new SimpleStringProperty("CORRECTA");
+		else return new SimpleStringProperty("INCORRECTA");
+		
 	}
 	
 }

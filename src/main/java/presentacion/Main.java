@@ -45,7 +45,7 @@ public class Main extends Application {
 		stage.setScene(new Scene(root2));
 		stage.show();
 		*/
-		Contexto contexto = new Contexto(Events.SHOW_SELECCION_USUARIO,null);
+		Contexto contexto = new Contexto(Events.SHOW_PREGUNTA_RESPONDER,null);
 		Controlador.getInstance().accion(contexto);
 		
 	}
