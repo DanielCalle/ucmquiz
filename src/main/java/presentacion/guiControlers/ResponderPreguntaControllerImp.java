@@ -3,11 +3,14 @@ package presentacion.guiControlers;
 import presentacion.Contexto;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -69,7 +72,7 @@ public class ResponderPreguntaControllerImp extends ResponderPreguntaController 
 	      	//respuestas.add((Respuesta) contexto.getDato());
 	      	
 			Pregunta pregunta = (Pregunta) contexto.getDato();
-			List<Respuesta> respuestas = pregunta.res
+			List<Respuesta> respuestas = pregunta.getRespuestas();
 			
 	      	ObservableList<Respuesta> users = FXCollections.observableArrayList();
 			
@@ -78,6 +81,7 @@ public class ResponderPreguntaControllerImp extends ResponderPreguntaController 
 				}
 				final TreeItem<Respuesta> root = new RecursiveTreeItem<Respuesta>(users, RecursiveTreeObject::getChildren);
 				treeView.setRoot(root);
+				LabelPregunta.setText(pregunta.getTexto());
 	      	break;
 		}
 

@@ -46,6 +46,7 @@
     <gui id="CRUD_CREATE_RESPUESTA_OK">
      	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
     </gui>
+    
      <gui id="CRUD_CREATE_RESPUESTA_KO">
      	<controler>presentacion.guiControlers.CrearPreguntaController</controler>
     </gui>
@@ -151,5 +152,9 @@
     <title>Responder preguntas</title>
     <file>/presentacion/ResponderPregunta.fxml</file>
     <controler>presentacion.guiControlers.ResponderPreguntaController</controler>
+    </gui>
+    
+    <gui id="ANADIR_PREGUNTA_PARA_RESPONDER">
+     	<controler>presentacion.guiControlers.ResponderPreguntaController</controler>
     </gui>
 </guis>
