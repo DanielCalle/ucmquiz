@@ -8,6 +8,10 @@
 	<command id="COMMAND_ASIGNATURA_READ_ALL_PREGUNTA_CREATE">presentacion.commands.asignatura.CommandReadAllAsignaturaCreatePregunta</command>
 	<command id="COMMAND_ASIGNATURA_DELETE">presentacion.commands.asignatura.CommandAsignaturaDelete</command>
 
+	<command id="COMMAND_PREGUNTA_READ_ALL">presentacion.commands.pregunta.CommandPreguntaReadAll</command>
+
+	<command id="COMMAND_PREGUNTA_DELETE_PROFESOR_ADMIN">presentacion.commands.pregunta.CommandPreguntaDeleteProfesorAdmin</command>
+
 	<command id="COMMAND_PREGUNTA_CREATE">presentacion.commands.pregunta.CommandPreguntaCreate</command>
 	<command id="COMMAND_ASIGNATURA_LISTAR">presentacion.commands.asignatura.CommandListarAsignaturas</command>
 

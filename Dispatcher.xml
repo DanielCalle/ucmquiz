@@ -56,6 +56,14 @@
     	<file>/presentacion/MenuProfesorAsignaturas.fxml</file>
     	<controler>presentacion.guiControlers.MenuProfesorasignaturasController</controler>
     </gui>
+    
+    <gui id="SHOW_MENU_ADMIN_PREGUNTAS">
+    	<title>Menu preguntas admin</title>
+    	<file>/presentacion/MenuAdminPreguntas.fxml</file>
+    	<controler>presentacion.guiControlers.MenuAdminPreguntasController</controler>
+    </gui>
+    
+    
     <gui id="SHOW_ASIGNATURA_CREATE">
     	<title>Crear asignatura</title>
     	<file>/presentacion/CrearAsignatura.fxml</file>
@@ -153,6 +161,30 @@
     <file>/presentacion/ResponderPregunta.fxml</file>
     <controler>presentacion.guiControlers.ResponderPreguntaController</controler>
     </gui>
+
+    
+    <gui id="SHOW_PREGUNTA_DELETE_PROFESOR_ADMIN">
+    <title>Borrar respuestas</title>
+    <file>/presentacion/BorrarPreguntaProfesorAdmin.fxml</file>
+    <controler>presentacion.guiControlers.BorrarPreguntaProfesorAdminController</controler>
+    </gui>
+    
+    <gui id="CRUD_READ_ALL_PREGUNTA_OK">
+    <controler>presentacion.guiControlers.BorrarPreguntaProfesorAdminController</controler>
+    </gui>
+    
+    <gui id="CRUD_READ_ALL_PREGUNTA_KO">
+    <controler>presentacion.guiControlers.BorrarPreguntaProfesorAdminController</controler>
+    </gui>
+    
+    <gui id="PREGUNTA_DELETE_PROFESOR_ADMIN_OK">
+    <controler>presentacion.guiControlers.BorrarPreguntaProfesorAdminController</controler>
+    </gui>
+    
+    <gui id="PREGUNTA_DELETE_PROFESOR_ADMIN_KO">
+    <controler>presentacion.guiControlers.BorrarPreguntaProfesorAdminController</controler>
+    </gui>
+    
     
     <gui id="ANADIR_PREGUNTA_PARA_RESPONDER">
      	<controler>presentacion.guiControlers.ResponderPreguntaController</controler>

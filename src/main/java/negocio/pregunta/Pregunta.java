@@ -15,6 +15,8 @@ import javax.persistence.Version;
 
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import negocio.asignatura.Asignatura;
 import negocio.respuesta.Respuesta;
 
@@ -139,6 +141,10 @@ public class Pregunta extends RecursiveTreeObject<Pregunta> {
 
 	public void setRespuestas(List<Respuesta> respuestas) {
 		this.respuestas = respuestas;
+	}
+	public StringProperty getTituloStringProperty() {
+		return new SimpleStringProperty(texto);
+		
 	}
 
 }
