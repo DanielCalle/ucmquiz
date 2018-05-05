@@ -110,6 +110,12 @@
     <gui id="ASIGNATURA_DESACTIVATE_KO">
     	<controler>presentacion.guiControlers.ActivarDesactivarAsigController</controler>
     </gui>
+    <gui id="CRUD_READ_PREGUNTA_OK">
+    	<controler>presentacion.guiControlers.ResponderPreguntaController</controler>
+    </gui>
+    <gui id="CRUD_READ_PREGUNTA_KO">
+    	<controler>presentacion.guiControlers.ResponderPreguntaController</controler>
+    </gui>
 
         <gui id="SHOW_PREGUNTA_DELETE">
     	<title>Borrar pregunta</title>

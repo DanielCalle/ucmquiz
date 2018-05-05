@@ -13,8 +13,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage stage) throws IOException {
 		
-		Contexto contexto2 = new Contexto(Events.SHOW_SELECCION_USUARIO, null);
-		Controlador.getInstance().accion(contexto2);
+		Contexto contexto = new Contexto(Events.SHOW_SELECCION_USUARIO, null);
+		Controlador.getInstance().accion(contexto);
 
 		
 	}
