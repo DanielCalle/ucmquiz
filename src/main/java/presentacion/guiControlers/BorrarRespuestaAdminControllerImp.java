@@ -55,7 +55,7 @@ public class BorrarRespuestaAdminControllerImp extends BorrarRespuestaAdminContr
 			if (tablaRespuestas.getSelectionModel().getSelectedItem() != null) {
 				TreeItem<Respuesta> resp = tablaRespuestas.getSelectionModel().getSelectedItem();
 				Respuesta r = resp.getValue();
-				Contexto contexto = new Contexto(Events.COMMAND_RM_RESPUESTA, r.getTexto());
+				Contexto contexto = new Contexto(Events.COMMAND_RESPUESTA_DELETE_ADMIN, r.getTexto());
 				Controlador.getInstance().accion(contexto);
 			}
 			else {
@@ -108,7 +108,7 @@ public class BorrarRespuestaAdminControllerImp extends BorrarRespuestaAdminContr
 	public void update(Contexto contexto) {
 		switch (contexto.getEvent()) {
 		//Si se ha podido borrar muestro un mensaje con acierto
-		case CRUD_DELETE_RESPUESTA_OK:
+		case RESPUESTA_DELETE_ADMIN_OK:
 
 			JFXDialogLayout content = new JFXDialogLayout();
 			content.setHeading(new Text("Respuesta borrada"));
@@ -130,7 +130,7 @@ public class BorrarRespuestaAdminControllerImp extends BorrarRespuestaAdminContr
 
 			break;
 		//Si no se ha podido borrar muestro un mensaje de error con el con la info
-		case CRUD_DELETE_ASIGNATURA_KO:
+		case RESPUESTA_DELETE_ADMIN_KO:
 			
 			content = new JFXDialogLayout();
 			content.setHeading(new Text("Error al eliminar la respuesta"));

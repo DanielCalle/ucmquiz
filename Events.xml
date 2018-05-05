@@ -182,5 +182,8 @@
 	<event id="ASIGNATURA_READ_ALL_PREGUNTA_CREATE_KO">No message</event>
 	<event id="CRUD_ADD_RESPUESTA_OK">No message</event>
 	<event id="CRUD_ADD_RESPUESTA_KO">No message</event>
+	<event id="RESPUESTA_DELETE_ADMIN_KO">No message</event>
+	<event id="RESPUESTA_DELETE_ADMIN_OK">No message</event>
+	<event id="COMMAND_RESPUESTA_DELETE_ADMIN">No message</event>
 	
 </events>

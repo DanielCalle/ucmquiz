@@ -157,4 +157,15 @@
     <gui id="ANADIR_PREGUNTA_PARA_RESPONDER">
      	<controler>presentacion.guiControlers.ResponderPreguntaController</controler>
     </gui>
+    <gui id="COMMAND_RESPUESTA_DELETE_ADMIN">
+   	 <title>Borrar respuestas como admin</title>
+   	 <file>/presentacion/BorrarRespuestaAdmin.fxml</file>
+  	 <controler>presentaicon.guiControlers.BorrarRespuestaAdminController</controler>
+    </gui>
+    <gui id="RESPUESTA_DELETE_ADMIN_KO">
+  	  <controler>presentaicon.guiControlers.BorrarRespuestaAdminController</controler>
+    </gui>
+    <gui id="RESPUESTA_DELETE_ADMIN_OK">
+  	  <controler>presentaicon.guiControlers.BorrarRespuestaAdminController</controler>
+    </gui>
 </guis>
