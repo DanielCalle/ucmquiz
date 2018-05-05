@@ -13,6 +13,7 @@ import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,9 +21,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableColumn;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Callback;
+import negocio.pregunta.Pregunta;
 import negocio.respuesta.Respuesta;
 import presentacion.Contexto;
 import presentacion.Events;
@@ -205,21 +209,21 @@ public class BorrarRespuestaAdminControllerImp extends BorrarRespuestaAdminContr
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		JFXTreeTableColumn<Respuesta, String> respuestas = new JFXTreeTableColumn<>("Pregunta");
-		pregunta.setPrefWidth(630);
-		pregunta.setCellValueFactory(
-				new Callback<TreeTableColumn.CellDataFeatures<Pregunta, String>, ObservableValue<String>>() {
+		JFXTreeTableColumn<Respuesta, String> respuesta = new JFXTreeTableColumn<>("Respuestas");
+		respuesta.setPrefWidth(630);
+		respuesta.setCellValueFactory(
+				new Callback<TreeTableColumn.CellDataFeatures<Respuesta, String>, ObservableValue<String>>() {
 					@Override
-					public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Pregunta, String> param) {
+					public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Respuesta, String> param) {
 						return param.getValue().getValue().getTituloStringProperty();
 					}
 				});
 		ObservableList<Pregunta> users = FXCollections.observableArrayList();
-		treeView.getColumns().setAll(pregunta);
-		treeView.setShowRoot(false);
-		treeView.getSelectionModel().getSelectedItem();
+		tablaRespuestas.getColumns().setAll(respuesta);
+		tablaRespuestas.setShowRoot(false);
+		tablaRespuestas.getSelectionModel().getSelectedItem();
 
-		Contexto contexto = new Contexto(Events.COMMAND_PREGUNTA_READ_ALL, null);
+		Contexto contexto = new Contexto(Events.COMMAND_RESPUESTA_READ_ALL, null);
 		Controlador.getInstance().accion(contexto);
 
 		
