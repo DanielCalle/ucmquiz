@@ -95,6 +95,12 @@ public class PreguntaIntegrationTest {
 		
 		assertThat("La pregunta ha de devolver un evento de creacion correcto.", contexto.getEvent() , is(equalTo(Events.CRUD_CREATE_PREGUNTA_OK)) );
 		
+		// READ ****************************************************************************************************
+		
+		contexto = saPregunta.read(mdlId);
+		assertThat("El evento de read deberia ser positivo.", contexto.getEvent() , is(equalTo(Events.CRUD_READ_PREGUNTA_OK)) );
+		
+		
 		// DELETE ****************************************************************************************************
 		
 		contexto = saPregunta.borrarPregunta(inventedId);
@@ -121,6 +127,11 @@ public class PreguntaIntegrationTest {
 		
 		assertThat("El evento de borrado deberia ser positivo.", contexto.getEvent() , is(equalTo(Events.CRUD_DELETE_PREGUNTA_OK)) );
 		
+		// READ ****************************************************************************************************
+		
+		contexto = saPregunta.read(mdlId);
+		assertThat("No esta en la BBDD, el evento de borrado deberia ser negativo.", contexto.getEvent() , is(equalTo(Events.CRUD_READ_PREGUNTA_KO)) );
 	}
+
 
 }

@@ -23,7 +23,8 @@ import org.junit.Test;
 import negocio.EntityManagerUtil;
 
 public class SAPreguntaTest {
-
+	
+	
 	@Test
 	public void testCrearPregunta() {
 		
@@ -110,4 +111,58 @@ public class SAPreguntaTest {
 		assertEquals("El evento de la operacion ReadAll en Pregunta tiene que dar el comando CRUD_READ_ALL_PREGUNTA_OK"
 				,c.getEvent(),Events.CRUD_READ_ALL_PREGUNTA_OK);
 	}
+
+	
+	@Test
+	
+	public void responderPreguntaTestOk () {
+		
+		Pregunta p = new Pregunta("¿ Cual es la definicion sencilla del teorema de la integral de Riemann ?", true);
+		Respuesta r1 = new Respuesta("A",true,true);
+		Respuesta r2 = new Respuesta("B",false,true);
+		List<Respuesta> respuestas = new ArrayList<>();
+		respuestas.add(r1);
+		respuestas.add(r2);
+		p.setRespuestas(respuestas);
+		
+		SAPregunta sa = FactoriaNegocio.getInstance().generateSAPregunta();
+		
+		Contexto contexto = sa.create(p);
+		
+		Integer id = (Integer) contexto.getDato();
+		
+		contexto = sa.read(id);
+		
+		assertEquals("El evento de la operacion Read en Pregunta tiene que estar OK"
+				,contexto.getEvent(),
+				Events.CRUD_READ_PREGUNTA_OK);
+		
+		
+	}
+	
+	@Test
+	public void responderPreguntaTestKO () {
+		Pregunta p = new Pregunta("¿Quien es mejor profesor, Hector o Antonio?", true);
+		Respuesta r1 = new Respuesta("A",true,true);
+		Respuesta r2 = new Respuesta("B",false,true);
+		List<Respuesta> respuestas = new ArrayList<>();
+		respuestas.add(r1);
+		respuestas.add(r2);
+		p.setRespuestas(respuestas);
+		
+		SAPregunta sap = FactoriaNegocio.getInstance().generateSAPregunta();
+		
+		Contexto c = sap.create(p);
+		
+		Integer id = (Integer) c.getDato();
+		
+		c = sap.borrarPregunta(id);
+		
+		c = sap.read(id);
+		
+		assertEquals("El evento de la operacion Read en Pregunta tiene que estar KO"
+				,c.getEvent(),
+				Events.CRUD_READ_PREGUNTA_KO);
+	}
+	
 }
