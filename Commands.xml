@@ -24,7 +24,7 @@
 	<command id="COMMAND_GET_RESPUESTAS">presentacion.commands.respuesta.CommandRespuestaGetList</command>
 	<command id="COMMAND_PREGUNTA_READ">presentacion.commands.pregunta.CommandPreguntaRead</command>
 	<command id="COMMAND_PREGUNTA_READ_ALL">presentacion.commands.pregunta.CommandPreguntaReadAll</command>
-	<command id="COMMAND_UPDATE_SELECCIONAR_PREGUNTA">presentacion.commands.pregunta.CommandUpdateSeleccionarPregunta</command>
+	<command id="COMMAND_ASIGNATURA_READ">presentacion.commands.asignatura.CommandAsignaturaRead</command>
 
 	<command id="COMMAND_RESPUESTA_CREATE">presentacion.commands.respuesta.CommandRespuestaCreate</command>
 	<command id="UPDATE_QUITAR_RESPUESTA">presentacion.commands.pregunta.CommandUpdateQuitarRespuesta</command>

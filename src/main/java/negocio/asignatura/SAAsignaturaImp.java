@@ -364,5 +364,43 @@ public class SAAsignaturaImp implements SAAsignatura {
 		
 		return new Contexto(e,lista);
 	}
+	
+	@Override
+	public Contexto read(int id) {
+		Events event = null;
+		Contexto contexto = null;
+		Filter filter = new Filter();
+		
+		if (ComprobadorSintactico.isPositive(id)) {
+			EntityManager entitymanager = EntityManagerUtil.getEntityManager();
+			EntityTransaction entitytransaction = entitymanager.getTransaction();
+			entitytransaction.begin();
+
+			Asignatura asignatura = entitymanager.find(Asignatura.class, id); // se busca el objeto por la clave primaria (el id)
+
+			if(asignatura != null) {
+				entitytransaction.commit();
+				event = Events.CRUD_READ_ASIGNATURA_OK;
+				filter.addFilter("info", "");
+				event.setFilter(filter);
+				contexto = new Contexto(event, asignatura);
+			}
+			else {
+				entitytransaction.rollback();
+				event = Events.CRUD_READ_ASIGNATURA_KO;
+				filter.addFilter("reason", "la asignatura con id {id} no existe");
+				filter.addFilter("id", id + "");
+				event.setFilter(filter);
+				contexto = new Contexto(event, null);
+			}
+		}
+		else {
+			event = Events.CRUD_READ_ASIGNATURA_KO;
+			filter.addFilter("reason","el ID que se quiere borrar no tiene formato adecuado");
+			filter.addFilter("info","con ID " + id);
+		}
+		
+		return contexto;
+	}
 
 }

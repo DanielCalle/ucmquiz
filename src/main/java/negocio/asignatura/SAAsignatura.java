@@ -16,6 +16,8 @@ public interface SAAsignatura {
 	public Contexto activeAsignatura(int id);
 	
 	public Contexto desactiveAsignatura(int id);
+	
+	public Contexto read(int id);
 
 	
 }

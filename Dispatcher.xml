@@ -116,6 +116,12 @@
     <gui id="CRUD_READ_PREGUNTA_KO">
     	<controler>presentacion.guiControlers.ResponderPreguntaController</controler>
     </gui>
+    <gui id="CRUD_READ_ASIGNATURA_OK">
+    	<controler>presentacion.guiControlers.SeleccionarPreguntaAsignaturaController</controler>
+    </gui>
+    <gui id="CRUD_READ_ASIGNATURA_KO">
+    	<controler>presentacion.guiControlers.SeleccionarPreguntaAsignaturaController</controler>
+    </gui>
 
         <gui id="SHOW_PREGUNTA_DELETE">
     	<title>Borrar pregunta</title>
