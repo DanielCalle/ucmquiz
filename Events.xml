@@ -175,6 +175,9 @@
 	<event id="COMMAND_RESPUESTA_CREATE">No message</event>
 	<event id="COMMAND_GET_RESPUESTAS">No message</event>
 	<event id="UPDATE_QUITAR_RESPUESTA">No message</event>
+	<event id="UPDATE_SELECCIONAR_PREGUNTA">No message</event>
+	<event id="COMMAND_PREGUNTA_READ_ALL">No message</event>
+	<event id="COMMAND_UPDATE_SELECCIONAR_PREGUNTA">No message</event>
 	<event id="QUITAR_RESPUESTA_OK">No message</event>
 	<event id="SHOW_RESPUESTA_DELETE">No message</event>
 	<event id="SHOW_RESPUESTA_CREATE">No message</event>
