@@ -27,7 +27,7 @@ public class PreguntaIntegrationTest {
 		
 		Integer mdlId = null;
 		
-		Integer inventedId = 999;
+		Integer inventedId = -1;
 		
 		Contexto contexto = null;
 		
@@ -115,7 +115,7 @@ public class PreguntaIntegrationTest {
 		
 		contexto = saPregunta.borrarPregunta(mdlId);
 		
-		assertThat("El contexto no deberia se nulo.", contexto.getEvent() , notNullValue() );
+		assertThat("El contexto no deberia ser nulo.", contexto.getEvent() , notNullValue() );
 		
 		assertThat("El identificador deberia ser nulo.", contexto.getDato() , nullValue() );
 		
