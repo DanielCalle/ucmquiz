@@ -59,8 +59,8 @@ public class MenuProfesorPreguntasControllerImp extends MenuProfesorPreguntasCon
 
 	@FXML
 	void botonEliminarPreguntaAction(ActionEvent event) {
-		Contexto contexto = new Contexto(Events.SHOW_PREGUNTA_DELETE, null);
-		Controlador.getInstance().accion(contexto);
+		Contexto contexto2 = new Contexto(Events.SHOW_PREGUNTA_DELETE_PROFESOR_ADMIN, null);
+		Controlador.getInstance().accion(contexto2);
 	}
 
 	@Override
