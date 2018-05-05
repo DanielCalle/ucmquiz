@@ -158,8 +158,16 @@
     <controler>presentacion.guiControlers.CrearPreguntaQuitarRespuestaController</controler>
     </gui>
     
+    <gui id="UPDATE_SELECCIONAR_PREGUNTA">
+    <controler>presentacion.guiControlers.SeleccionarPreguntaAsignaturaController</controler>
+    </gui>
+    
     <gui id="QUITAR_RESPUESTA_OK">
     <controler>presentacion.guiControlers.CrearPreguntaController</controler>
+    </gui>
+    
+    <gui id="CRUD_READ_ALL_PREGUNTA_OK">
+    <controler>presentacion.guiControlers.SeleccionarPreguntaAsignaturaController</controler>
     </gui>
 
 	<gui id="SHOW_PREGUNTA_RESPONDER">
@@ -191,6 +199,12 @@
     <controler>presentacion.guiControlers.BorrarPreguntaProfesorAdminController</controler>
     </gui>
     
+    
+    <gui id="SHOW_ESCOGER_PREGUNTA_ASIGNATURA">
+    <title>Escoger pregunta de una Asignatura</title>
+    <file>/presentacion/SeleccionarPreguntaAsignatura.fxml</file>
+    <controler>presentacion.guiControlers.SeleccionarPreguntaAsignaturaController</controler>
+    </gui>
     
     <gui id="ANADIR_PREGUNTA_PARA_RESPONDER">
      	<controler>presentacion.guiControlers.ResponderPreguntaController</controler>

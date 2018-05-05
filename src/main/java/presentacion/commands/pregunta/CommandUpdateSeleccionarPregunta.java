@@ -1,14 +1,15 @@
 package presentacion.commands.pregunta;
 
-import negocio.FactoriaNegocio;
 import presentacion.Command;
 import presentacion.Contexto;
+import presentacion.Events;
 
-public class CommandPreguntaReadAll implements Command{
+public class CommandUpdateSeleccionarPregunta implements Command{
 
 	@Override
 	public Contexto execute(Object data) {
 		// TODO Auto-generated method stub
-		return FactoriaNegocio.getInstance().generateSAPregunta().readAll();
+		return new Contexto(Events.UPDATE_SELECCIONAR_PREGUNTA,data);
 	}
+
 }
