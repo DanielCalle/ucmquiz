@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
 
+import negocio.ComprobadorSintactico;
 import negocio.EntityManagerUtil;
 
 import negocio.respuesta.Respuesta;
@@ -212,5 +213,43 @@ public class SAPreguntaImp implements SAPregunta {
 			}
 			
 			return new Contexto(e,lista);
+		}
+
+		@Override
+		public Contexto read(int id) {
+			Events event = null;
+			Contexto contexto = null;
+			Filter filter = new Filter();
+			
+			if (ComprobadorSintactico.isPositive(id)) {
+				EntityManager entitymanager = EntityManagerUtil.getEntityManager();
+				EntityTransaction entitytransaction = entitymanager.getTransaction();
+				entitytransaction.begin();
+	
+				Pregunta pregunta = entitymanager.find(Pregunta.class, id); // se busca el objeto por la clave primaria (el id)
+	
+				if(pregunta != null) {
+					entitytransaction.commit();
+					event = Events.CRUD_READ_PREGUNTA_OK;
+					filter.addFilter("info", "");
+					event.setFilter(filter);
+					contexto = new Contexto(event, pregunta);
+				}
+				else {
+					entitytransaction.rollback();
+					event = Events.CRUD_READ_PREGUNTA_KO;
+					filter.addFilter("reason", "la pregunta con id {id} no existe");
+					filter.addFilter("id", id + "");
+					event.setFilter(filter);
+					contexto = new Contexto(event, null);
+				}
+			}
+			else {
+				event = Events.CRUD_READ_PREGUNTA_KO;
+				filter.addFilter("reason","el ID que se quiere borrar no tiene formato adecuado");
+				filter.addFilter("info","con ID " + id);
+			}
+			
+			return contexto;
 		}
 }

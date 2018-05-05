@@ -10,4 +10,6 @@ public interface SAPregunta {
 	
 	public Contexto readAll();
 	
+	public Contexto read(int id);
+	
 }

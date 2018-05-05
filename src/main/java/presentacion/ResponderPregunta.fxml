@@ -21,7 +21,7 @@
                   <JFXButton fx:id="btnGoBack" buttonType="RAISED" cache="true" cancelButton="true" depthTest="DISABLE" layoutX="14.0" layoutY="267.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#btnGoBackListener" prefHeight="37.0" prefWidth="135.0" ripplerFill="BLACK" style="-fx-background-color: white;" text="Cancelar" textOverrun="CLIP" />
                   <Label fx:id="LabelPregunta" layoutX="17.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="56.0" prefWidth="566.0" textFill="#9e9e9e" />
                   <JFXButton fx:id="btnConfirmar" layoutX="451.0" layoutY="267.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnConfirmarListener" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #F44336;" text="Confirmar" textFill="WHITE" />
-                  <JFXTreeTableView fx:id="treeView" layoutX="17.0" layoutY="73.0" onSort="#treeViewSort" prefHeight="181.0" prefWidth="566.0" />
+                  <JFXTreeTableView fx:id="treeView" layoutX="17.0" layoutY="73.0" prefHeight="181.0" prefWidth="566.0" />
                </children>
             </AnchorPane>
          </children>
