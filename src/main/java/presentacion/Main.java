@@ -21,9 +21,9 @@ public class Main extends Application {
 	@Override
 	public void start(Stage stage) throws IOException {
 		
-		//Contexto contexto = new Contexto(Events.SHOW_SELECCION_USUARIO, null);
-		//Controlador.getInstance().accion(contexto);
-		Asignatura asignatura = new Asignatura("ABD", true);
+		Contexto contexto = new Contexto(Events.SHOW_SELECCION_USUARIO, null);
+		Controlador.getInstance().accion(contexto);
+		/*Asignatura asignatura = new Asignatura("ABD", true);
 		FactoriaNegocio.getInstance().generateSAAsignatura().create(asignatura);
 		List<Respuesta> respuestas = new ArrayList<Respuesta>();
 		Respuesta respuesta = new Respuesta("ABD1T", true, true);
@@ -64,7 +64,7 @@ public class Main extends Application {
 		Contexto contexto2 = new Contexto(Events.SHOW_ESCOGER_PREGUNTA_ASIGNATURA, null);
 		Controlador.getInstance().accion(contexto2);
 		Contexto contexto = new Contexto(Events.COMMAND_ASIGNATURA_READ, 1);
-		Controlador.getInstance().accion(contexto);
+		Controlador.getInstance().accion(contexto);*/
 	}
 	
 	public static void main(String[] args) {
