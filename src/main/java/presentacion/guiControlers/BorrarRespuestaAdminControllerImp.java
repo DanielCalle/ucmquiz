@@ -1,14 +1,20 @@
 package presentacion.guiControlers;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
+import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -141,6 +147,39 @@ public class BorrarRespuestaAdminControllerImp extends BorrarRespuestaAdminContr
 			dialog.show();
 
 			break;
+		case CRUD_READ_ALL_RESPUESTA_OK:
+
+			List<Respuesta> lista = (List<Respuesta>) contexto.getDato();
+			ObservableList<Respuesta> users = FXCollections.observableArrayList();
+
+			for (Respuesta r : lista) {
+				users.add(r);
+			}
+			final TreeItem<Respuesta> raiz = new RecursiveTreeItem<Respuesta>(users, RecursiveTreeObject::getChildren);
+			tablaRespuestas.setRoot(raiz);
+
+			System.out.println("OK");
+			break;
+
+		case CRUD_READ_ALL_RESPUESTA_KO:
+			JFXDialogLayout contenido = new JFXDialogLayout();
+			contenido.setHeading(new Text("Error al leer las respuestas"));
+			contenido.setBody(new Text(contexto.getEvent().getMessage()));
+			JFXDialog dialogo = new JFXDialog(root, contenido, JFXDialog.DialogTransition.CENTER);
+
+			JFXButton button1 = new JFXButton("Ok");
+			button1.setOnAction(new EventHandler<ActionEvent>() {
+
+				@Override
+				public void handle(ActionEvent arg0) {
+					dialogo.close();
+
+				}
+
+			});
+			contenido.setActions(button1);
+			dialogo.show();
+			break;
 
 		default:
 			
@@ -148,8 +187,8 @@ public class BorrarRespuestaAdminControllerImp extends BorrarRespuestaAdminContr
 			content.setHeading(new Text("Error"));
 			dialog = new JFXDialog(root, content, JFXDialog.DialogTransition.CENTER);
 
-			button = new JFXButton("Ok");
-			button.setOnAction(new EventHandler<ActionEvent>() {
+			button1 = new JFXButton("Ok");
+			button1.setOnAction(new EventHandler<ActionEvent>() {
 
 				@Override
 				public void handle(ActionEvent arg0) {
@@ -158,7 +197,7 @@ public class BorrarRespuestaAdminControllerImp extends BorrarRespuestaAdminContr
 				}
 
 			});
-			content.setActions(button);
+			content.setActions(button1);
 			dialog.show();
 
 		}
@@ -166,7 +205,23 @@ public class BorrarRespuestaAdminControllerImp extends BorrarRespuestaAdminContr
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+		JFXTreeTableColumn<Respuesta, String> respuestas = new JFXTreeTableColumn<>("Pregunta");
+		pregunta.setPrefWidth(630);
+		pregunta.setCellValueFactory(
+				new Callback<TreeTableColumn.CellDataFeatures<Pregunta, String>, ObservableValue<String>>() {
+					@Override
+					public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Pregunta, String> param) {
+						return param.getValue().getValue().getTituloStringProperty();
+					}
+				});
+		ObservableList<Pregunta> users = FXCollections.observableArrayList();
+		treeView.getColumns().setAll(pregunta);
+		treeView.setShowRoot(false);
+		treeView.getSelectionModel().getSelectedItem();
+
+		Contexto contexto = new Contexto(Events.COMMAND_PREGUNTA_READ_ALL, null);
+		Controlador.getInstance().accion(contexto);
+
 		
 	}
 
