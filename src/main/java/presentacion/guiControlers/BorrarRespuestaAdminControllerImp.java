@@ -1,8 +1,7 @@
 package presentacion.guiControlers;
 
-import presentacion.Contexto;
-import presentacion.Events;
-import presentacion.controlador.Controlador;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -13,14 +12,17 @@ import com.jfoenix.controls.JFXTreeTableView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TreeItem;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import negocio.respuesta.Respuesta;
+import presentacion.Contexto;
+import presentacion.Events;
+import presentacion.controlador.Controlador;
 
-public class BorrarRespuestaAdminControllerImp extends BorrarRespuestaAdminController{
+public class BorrarRespuestaAdminControllerImp extends BorrarRespuestaAdminController implements Initializable{
 	
 	@FXML
     private StackPane root;
@@ -160,6 +162,11 @@ public class BorrarRespuestaAdminControllerImp extends BorrarRespuestaAdminContr
 			dialog.show();
 
 		}
+		
+	}
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
 		
 	}
 
