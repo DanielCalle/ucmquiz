@@ -32,7 +32,7 @@ public class SeleccionUsuarioControllerImp extends SeleccionUsuarioController {
 		
 		Stage stage = (Stage) root.getScene().getWindow();
 
-	//	stage.close();
+		stage.close();
 
 		Contexto contexto = new Contexto(Events.SHOW_MENU_ADMIN_PREGUNTAS, null);
 		Controlador.getInstance().accion(contexto);
@@ -48,7 +48,7 @@ public class SeleccionUsuarioControllerImp extends SeleccionUsuarioController {
 
 		Stage stage = (Stage) root.getScene().getWindow();
 
-	//	stage.close();
+		stage.close();
 
 		Contexto contexto = new Contexto(Events.SHOW_MENU_PROFESORES_PREGUNTAS, null);
 		Controlador.getInstance().accion(contexto);
