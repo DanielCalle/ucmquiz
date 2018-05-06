@@ -62,6 +62,7 @@ public class SeleccionarPreguntaAsignaturaControllerImp extends SeleccionarPregu
 
     @FXML
     void btnContestarListener(ActionEvent event) {
+    	// Coge la pregunta seleccionada y pasa a la siguiente vista
     	if(cobobox.getSelectionModel().getSelectedIndex()!=-1) {
     		Pregunta pregunta = preguntas.get(cobobox.getSelectionModel().getSelectedIndex());
     		Contexto contexto = new Contexto(Events.SHOW_PREGUNTA_RESPONDER, null);
@@ -80,25 +81,30 @@ public class SeleccionarPreguntaAsignaturaControllerImp extends SeleccionarPregu
     	
     }
 
+
 	@Override
     public void update(Contexto contexto) {
 		switch(contexto.getEvent()) {
 		case CRUD_READ_ALL_PREGUNTA_OK:
+			// Recibe todas las preguntas
 			List<Pregunta> list = (List<Pregunta>) contexto.getDato();
 			preguntas = new ArrayList<Pregunta>();
 	        
+			// Filtra por asignatura
 			for(Pregunta p : list) {
 				if(p.getAsignatura().getId() == (asignatura.getId())) {
 					preguntas.add(p);
 				}
 			}
 			
+			// Saca el titulo solo
 			List < String > value = preguntas.stream().map(a -> a.getTexto()).collect(Collectors.toList());
 	        cobobox.setItems(FXCollections.observableArrayList(value));
 	        
 			break;
 		case CRUD_READ_ASIGNATURA_OK:
 			
+			// Recibe la asignatura lo pone como titulo y llama al read all
 			asignatura = (Asignatura) contexto.getDato();
 			textArea.setText(asignatura.getTitulo());
 			Contexto context = new Contexto(Events.COMMAND_PREGUNTA_READ_ALL, null);

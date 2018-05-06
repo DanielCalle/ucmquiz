@@ -215,17 +215,26 @@ public class SAPreguntaImp implements SAPregunta {
 			return new Contexto(e,lista);
 		}
 
+		/**
+		 * Lee una pregunta
+		 * @param id Id de la pregunta
+		 * @return Contexto con la pregunta correspondiente si se encontro y null si no
+		 * @author Zihao
+		 */
 		@Override
 		public Contexto read(int id) {
 			Events event = null;
 			Contexto contexto = null;
+			// Filtro de mensajes
 			Filter filter = new Filter();
 			
+			// Comprobar si el id es un int positivo
 			if (ComprobadorSintactico.isPositive(id)) {
 				EntityManager entitymanager = EntityManagerUtil.getEntityManager();
 				EntityTransaction entitytransaction = entitymanager.getTransaction();
 				entitytransaction.begin();
 	
+				// Busqueda en base de datos
 				Pregunta pregunta = entitymanager.find(Pregunta.class, id); // se busca el objeto por la clave primaria (el id)
 	
 				if(pregunta != null) {

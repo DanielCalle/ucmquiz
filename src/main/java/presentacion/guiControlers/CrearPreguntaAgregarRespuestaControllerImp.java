@@ -57,7 +57,9 @@ public class CrearPreguntaAgregarRespuestaControllerImp extends CrearPreguntaAgr
 	@FXML
 	void btnAgregarListener(ActionEvent event) {
 		
+		// Coge dato de la respuesta
 		if (textArea.getLength() == 0) {
+			// Si no hay texto saca un mensaje de error
             JFXDialogLayout content = new JFXDialogLayout();
             content.setHeading(new Text("Accion incorrecta"));
             content.setBody(new Text("No se pueden crear una respuesta en blanco"));
@@ -76,6 +78,7 @@ public class CrearPreguntaAgregarRespuestaControllerImp extends CrearPreguntaAgr
             dialog.show();
         } 
 		else {
+			// Si hay se crea la respuesta
             Respuesta respuesta = new Respuesta(textArea.getText(), chkCorrecta.isSelected(), true);
             Contexto contexto = new Contexto(Events.COMMAND_RESPUESTA_CREATE, respuesta);
             Controlador.getInstance().accion(contexto);

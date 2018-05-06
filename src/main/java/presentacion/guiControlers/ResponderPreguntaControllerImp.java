@@ -57,6 +57,8 @@ public class ResponderPreguntaControllerImp extends ResponderPreguntaController 
 
 	@FXML
 	void btnConfirmarListener(ActionEvent event) {
+		// Valida si la respuesta seleccionada es correcta
+		
 		JFXDialogLayout content = new JFXDialogLayout();
         JFXDialog dialog = new JFXDialog(root, content, JFXDialog.DialogTransition.CENTER);
 
@@ -93,7 +95,7 @@ public class ResponderPreguntaControllerImp extends ResponderPreguntaController 
 	public void update(Contexto contexto) {
 		switch (contexto.getEvent()) {
 		case CRUD_READ_PREGUNTA_OK:
-	      	
+	      	// Recibe la pregunta y saca las respueestas correspondientes
 			Pregunta pregunta = (Pregunta) contexto.getDato();
 	      	ObservableList<Respuesta> respuestas = FXCollections.observableArrayList();
 			
@@ -111,6 +113,7 @@ public class ResponderPreguntaControllerImp extends ResponderPreguntaController 
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		// Columna de respuesta
 		JFXTreeTableColumn<Respuesta, String> respuestaColumn = new JFXTreeTableColumn<>("Respuesta");
 		respuestaColumn.setPrefWidth(150);
 		respuestaColumn.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Respuesta, String>, ObservableValue<String>>() {

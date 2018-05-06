@@ -365,17 +365,26 @@ public class SAAsignaturaImp implements SAAsignatura {
 		return new Contexto(e,lista);
 	}
 	
+	/**
+	 * Lee una asignatura
+	 * @param id Id de la asignatura
+	 * @return Contexto con la asignatura correspondiente si se encontro y null si no
+	 * @author Zihao
+	 */
 	@Override
 	public Contexto read(int id) {
 		Events event = null;
 		Contexto contexto = null;
+		// Filtro de mensajes
 		Filter filter = new Filter();
 		
+		// Comprobar si el id es un int positivo
 		if (ComprobadorSintactico.isPositive(id)) {
 			EntityManager entitymanager = EntityManagerUtil.getEntityManager();
 			EntityTransaction entitytransaction = entitymanager.getTransaction();
 			entitytransaction.begin();
 
+			// Busqueda de la asignatura
 			Asignatura asignatura = entitymanager.find(Asignatura.class, id); // se busca el objeto por la clave primaria (el id)
 
 			if(asignatura != null) {
