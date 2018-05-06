@@ -115,7 +115,7 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
             if(respuestaCorrecta != 1) {
             	 JFXDialogLayout content = new JFXDialogLayout();
             	content.setHeading(new Text("Accion incorrecta"));
-                content.setBody(new Text("Hay mas de una pregunta correcta"));
+                content.setBody(new Text("Las respuestas no fueron creadas correctamente"));
                 JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
                 JFXButton button = new JFXButton("Ok");
                 button.setOnAction(new EventHandler < ActionEvent > () {

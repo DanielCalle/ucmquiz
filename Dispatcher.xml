@@ -148,6 +148,19 @@
     <controler>presentacion.guiControlers.unoController</controler>
     </gui>
     
+    <gui id="SHOW_MENU_ALUMNO_RESPONDER">
+    <title>Menu responder alumno</title>
+    <file>/presentacion/MenuAlumnoResponder.fxml</file>
+    <controler>presentacion.guiControlers.MenuAlumnoResponderController</controler>
+    </gui>
+    
+    <gui id="SHOW_RESPONDER_ELEGIR_ASIGNATURA">
+    <title>Menu responder alumno</title>
+    <file>/presentacion/ResponderPreguntaElegirAsignatura.fxml</file>
+    <controler>presentacion.guiControlers.ResponderPreguntaElegirAsignaturaController</controler>
+    </gui>
+    
+    
     <gui id="SHOW_RESPUESTA_CREATE">
     <title>Crear respuesta</title>
     <file>/presentacion/CrearPreguntaAgregarRespuesta.fxml</file>

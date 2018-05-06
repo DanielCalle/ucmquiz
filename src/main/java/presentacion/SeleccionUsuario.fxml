@@ -14,7 +14,7 @@
             <Pane layoutY="93.0" prefHeight="307.0" prefWidth="600.0" style="-fx-background-color: white;">
                <children>
                   <JFXButton fx:id="btnprofesor" buttonType="RAISED" layoutX="227.0" layoutY="55.0" onAction="#btnprofesorListener" prefHeight="37.0" prefWidth="147.0" style="-fx-background-color: #F44336;" text="Profesor" textFill="#ffcdd2" />
-                  <JFXButton fx:id="btnAlumno" buttonType="RAISED" layoutX="227.0" layoutY="209.0" onAction="#btnAlumnoListener" prefHeight="37.0" prefWidth="147.0" style="-fx-background-color: #F44336;" text="Alumno" textFill="#ffcdd2" visible="false" />
+                  <JFXButton fx:id="btnAlumno" buttonType="RAISED" layoutX="227.0" layoutY="176.0" onAction="#btnAlumnoListener" prefHeight="37.0" prefWidth="147.0" style="-fx-background-color: #F44336;" text="Alumno" textFill="#ffcdd2" />
                   <JFXButton fx:id="Administrador" buttonType="RAISED" layoutX="227.0" layoutY="117.0" onAction="#AdministradorListener" prefHeight="37.0" prefWidth="147.0" style="-fx-background-color: #F44336;" text="Administrador" textFill="#ffcdd2" />
                </children>
             </Pane>

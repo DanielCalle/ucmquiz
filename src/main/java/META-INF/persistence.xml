@@ -8,7 +8,7 @@
 			<property name="javax.persistence.jdbc.url" value="jdbc:sqlite:ucmquizDB.db" />
 			<property name="javax.persistence.jdbc.user" value="admin" />
 			<property name="javax.persistence.jdbc.password" value="1234" />
-			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+			<property name="eclipselink.ddl-generation" value="create-tables" />
       		<property name="eclipselink.ddl-generation.output-mode" value="database" />
 		</properties>			
 	</persistence-unit>

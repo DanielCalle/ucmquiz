@@ -190,5 +190,6 @@
 	<event id="RESPUESTA_DELETE_ADMIN_KO">No message</event>
 	<event id="RESPUESTA_DELETE_ADMIN_OK">No message</event>
 	<event id="COMMAND_RESPUESTA_DELETE_ADMIN">No message</event>
-
+	<event id="SHOW_MENU_ALUMNO_RESPONDER">No message</event>
+	<event id="SHOW_RESPONDER_ELEGIR_ASIGNATURA">No message</event>
 </events>
