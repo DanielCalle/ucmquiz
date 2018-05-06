@@ -151,12 +151,14 @@
 	<event id="SHOW_ASIGNATURA_DELETE">No message</event>
 	<event id="SHOW_ASIGNATURA_CREATE">No message</event>
 	<event id="SHOW_PREGUNTA_CREATE">No message</event>
+	<event id="SHOW_PREGUNTA_RESPONDER">No message</event>
 	<event id="SHOW_SELECCION_USUARIO">No message</event>
 	<event id="SHOW_MENU_PROFESORES_ASIGNATURAS">No message</event>
 	<event id="SHOW_PREGUNTA_DELETE">No message</event>
 	<event id="SHOW_ASIGNATURA_READ_ALL">No message</event>
 	<event id="SHOW_ESCOGER_PREGUNTA_ASIGNATURA">No message</event>
 	<event id="COMMAND_USER_LOGIN">No message</event>
+	<event id="COMMAND_RESPUESTA_READ_ALL">No message</event>
 	<event id="COMMAND_ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE">No message</event>
 	<event id="COMMAND_ASIGNATURA_LISTAR">No message</event>
 	<event id="ASIGNATURA_READ_ALL_ACTIVATE_DESACTIVATE_OK">No message</event>
