@@ -18,10 +18,16 @@ import presentacion.Events;
 
 public class PreguntaIntegrationTest {
 
+	/**
+	 * Test de integración de la clase Pregunta.
+	 * Se prueban todas las operaciones desarrolladas:
+	 * + create
+	 * + read
+	 * + delete
+	 * Se han probado todas las casuísticas  de las operaciones.
+	 */
 	@Test
 	public void integrationTest() {
-		
-		// DATA ****************************************************************************************************
 		
 		Integer mmiId = null;
 		
@@ -39,8 +45,6 @@ public class PreguntaIntegrationTest {
 		
 		SAPregunta saPregunta = factoriaNegocio.generateSAPregunta();
 
-		// CREATE ****************************************************************************************************
-		
 		assertThat("No se puede crear una pregunta nula.", saPregunta.create(preguntaMDL) , nullValue() );
 		
 		preguntaMDL = new Pregunta("¿ Es ( ^ , v , ¬ ) un conjunto universal ?", true);
@@ -77,7 +81,6 @@ public class PreguntaIntegrationTest {
 		respuestas2.add(r4);
 		preguntaMMI.setRespuestas(respuestas2);
 		contexto = saPregunta.create(preguntaMMI);
-
 		
 		mmiId = (Integer) contexto.getDato();
 		
@@ -95,13 +98,8 @@ public class PreguntaIntegrationTest {
 		
 		assertThat("La pregunta ha de devolver un evento de creacion correcto.", contexto.getEvent() , is(equalTo(Events.CRUD_CREATE_PREGUNTA_OK)) );
 		
-		// READ ****************************************************************************************************
-		
 		contexto = saPregunta.read(mdlId);
 		assertThat("El evento de read deberia ser positivo.", contexto.getEvent() , is(equalTo(Events.CRUD_READ_PREGUNTA_OK)) );
-		
-		
-		// DELETE ****************************************************************************************************
 		
 		contexto = saPregunta.borrarPregunta(inventedId);
 		
@@ -127,11 +125,9 @@ public class PreguntaIntegrationTest {
 		
 		assertThat("El evento de borrado deberia ser positivo.", contexto.getEvent() , is(equalTo(Events.CRUD_DELETE_PREGUNTA_OK)) );
 		
-		// READ ****************************************************************************************************
-		
 		contexto = saPregunta.read(mdlId);
 		assertThat("No esta en la BBDD, el evento de borrado deberia ser negativo.", contexto.getEvent() , is(equalTo(Events.CRUD_READ_PREGUNTA_KO)) );
-	}
 
+	}
 
 }
