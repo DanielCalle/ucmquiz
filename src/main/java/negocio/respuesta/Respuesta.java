@@ -23,10 +23,6 @@ import negocio.pregunta.Pregunta;
 
 @NamedQueries({
 	@NamedQuery(
-			name = "negocio.respuesta.Respuesta.findBytexto", 
-			query = "select obj from Respuesta obj where obj.texto = :texto"
-		),
-	@NamedQuery(
 		name = "negocio.respuesta.Respuesta.findBytexto", 
 		query = "select obj from Respuesta obj where obj.texto = :texto"
 	)

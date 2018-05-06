@@ -29,6 +29,7 @@
 	<command id="COMMAND_RESPUESTA_CREATE">presentacion.commands.respuesta.CommandRespuestaCreate</command>
 	<command id="UPDATE_QUITAR_RESPUESTA">presentacion.commands.pregunta.CommandUpdateQuitarRespuesta</command>
 	<command id="QUITAR_RESPUESTA_OK">presentacion.commands.pregunta.CommandQuitarRespuestaOk</command>
-	
-	
+
+	<command id="COMMAND_RESPUESTA_DELETE_ADMIN">presentacion.commands.respuesta.CommandRespuestaDeleteAdmin</command>
+
 </commands>

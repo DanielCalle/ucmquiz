@@ -17,6 +17,9 @@ public class SeleccionUsuarioControllerImp extends SeleccionUsuarioController {
 
 	@FXML
 	private JFXButton btnprofesor;
+	
+	@FXML
+	private JFXButton btnAlumno;
 
 	@FXML
 	private JFXButton btnAdministrador;
@@ -40,7 +43,12 @@ public class SeleccionUsuarioControllerImp extends SeleccionUsuarioController {
 
 	@FXML
 	void btnAlumnoListener(ActionEvent event) {
+		Stage stage = (Stage) root.getScene().getWindow();
 
+		stage.close();
+
+		Contexto contexto = new Contexto(Events.SHOW_MENU_ALUMNO_RESPONDER, null);
+		Controlador.getInstance().accion(contexto);
 	}
 
 	@FXML
