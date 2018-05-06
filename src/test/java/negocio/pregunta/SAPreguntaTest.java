@@ -17,6 +17,9 @@ import presentacion.Events;
 
 public class SAPreguntaTest {
 
+	/**
+	 * Test que comprueba la creación de una pregunta.
+	 */
 	@Test
 	public void testCrearPregunta() {
 		
@@ -33,6 +36,9 @@ public class SAPreguntaTest {
 		
 	}
 	
+	/**
+	 * Test que comprueba que no se puedan crear preguntas nulas.
+	 */
 	@Test
 	public void testCrearPreguntaNula() {
 		
@@ -42,6 +48,9 @@ public class SAPreguntaTest {
 		
 	}
 	
+	/**
+	 * Test que comprueba que se puedan crear preguntas inactivas.
+	 */
 	@Test
 	public void testCrearPreguntaInactiva() {
 		 
@@ -60,10 +69,13 @@ public class SAPreguntaTest {
 		
 	}
 	
+	/**
+	 * Test que comprueba que se puedan borrar correctamente las preguntas.
+	 */
 	@Test
 	public void borrarPreguntaTest() {
 		
-		Pregunta p = new Pregunta("�Quien es mejor profesor, Hector o Antonio?", true);
+		Pregunta p = new Pregunta("¿Quien es mejor profesor, Hector o Antonio?", true);
 		
 		SAPregunta sap = new SAPreguntaImp();
 		
@@ -78,6 +90,10 @@ public class SAPreguntaTest {
 				Events.CRUD_DELETE_PREGUNTA_OK);
 	}
 	
+	
+	/**
+	 * Test que comprueba que no puedan activarse preguntas inexistentes.
+	 */
 	@Test
 	public void activarPreguntaParametroIncorrectoPreguntaTest() {
 		
@@ -97,6 +113,9 @@ public class SAPreguntaTest {
 		
 	}
 	
+	/**
+	 * Test que comprueba que las preguntas se activan correctamente.
+	 */
 	@Test
 	public void activarPreguntaTest() {
 		
@@ -132,6 +151,9 @@ public class SAPreguntaTest {
 		
 	}
 	
+	/**
+	 * Test que comprueba que no se puede activar una pregunta ya activa.
+	 */
 	@Test
 	public void activarPreguntaYaActivaPreguntaTest() {
 		
@@ -167,6 +189,9 @@ public class SAPreguntaTest {
 	
 	}
 
+	/**
+	 * Test que comprueba que no se pueda activar una pregunta inexistente.
+	 */
 	@Test
 	public void activarPreguntaInexistentePreguntaTest() {
 		
@@ -196,6 +221,9 @@ public class SAPreguntaTest {
 		
 	}
 	
+	/**
+	 * Test que comprueba que no se pueda desactivar una pregunta inexistente.
+	 */
 	@Test
 	public void desactivarPreguntaParametroIncorrectoPreguntaTest() {
 		
@@ -215,6 +243,9 @@ public class SAPreguntaTest {
 		
 	}
 	
+	/**
+	 * Test que comprueba que las preguntas se desactivan correctamente.
+	 */
 	@Test
 	public void desactivarPreguntaTest() {
 		
@@ -250,6 +281,9 @@ public class SAPreguntaTest {
 		
 	}
 	
+	/**
+	 * Test que comprueba que no se  pueda desactivar una pregunta ya desactivada.
+	 */
 	@Test
 	public void desactivarPreguntaYaDesactivadaPreguntaTest() {
 		
@@ -285,6 +319,9 @@ public class SAPreguntaTest {
 	
 	}
 	
+	/**
+	 * Test que comprueba que no se puede activar una pregunta inexitente.
+	 */
 	@Test
 	public void desactivarPreguntaInexistentePreguntaTest() {
 		

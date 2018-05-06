@@ -143,7 +143,12 @@ public class SAPreguntaImp implements SAPregunta {
 		return contexto;
 
 	}
+
 	
+	/**
+	 * Método que activa una pregunta existente y desactivada.
+	 * @param id Identificador de la pregunta que se va a activar.
+	 */
 	@Override
 	public Contexto activatePregunta(int id) {
 		
@@ -205,6 +210,10 @@ public class SAPreguntaImp implements SAPregunta {
 		
 	}
 	
+	/**
+	 * Metodo que desactiva una pregunta existente y activa.
+	 * @param id Identificador de la pregunta que se va a desactivar.
+	 */
 	@Override
 	public Contexto deactivatePregunta(int id) {
 	
