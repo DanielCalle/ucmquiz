@@ -12,6 +12,14 @@ import presentacion.Events;
 
 public class RespuestaIntegrationTest {
 
+	/**
+	 * Test de integración de la clase Respuesta.
+	 * Se prueban todas las operaciones creadas hasta el momento:
+	 * + create
+	 * + delete
+	 * Se han probado todas las casuísticas de las operaciones del
+	 * servicio de aplicación de Respuesta.
+	 */
 	@Test
 	public void integrationTest() {
 
