@@ -187,4 +187,5 @@
 	<event id="PREGUNTA_DELETE_PROFESOR_ADMIN_OK">No message</event>
 	<event id="PREGUNTA_DELETE_PROFESOR_ADMIN_KO">No message</event>
 	<event id="SHOW_PREGUNTA_DELETE_PROFESOR_ADMIN">No message</event>
+	<event id="COMMAND_PREGUNTA_READ_ALL">No message</event>
 </events>

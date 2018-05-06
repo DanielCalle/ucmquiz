@@ -49,6 +49,12 @@ public class BorrarPreguntaProfesorAdminControllerImp extends BorrarPreguntaProf
 	@FXML
 	private JFXTreeTableView<Pregunta> treeView;
 
+	/**
+	 * 
+	 * @param event
+	 * Detecta cuando se hace click en la tabla y guarda la pregunta
+	 * sobre la que se hace click
+	 */
 	@FXML
 	void click(MouseEvent event) {
 		TreeItem<Pregunta> TreeItempregunta = treeView.getSelectionModel().getSelectedItem();
@@ -64,6 +70,10 @@ public class BorrarPreguntaProfesorAdminControllerImp extends BorrarPreguntaProf
 		
 
 	}
+	/**
+	 * Borra la pregunta
+	 * @param event
+	 */
 
 	@FXML
 	void btnBorrar(ActionEvent event) {
@@ -82,6 +92,10 @@ public class BorrarPreguntaProfesorAdminControllerImp extends BorrarPreguntaProf
 		}
 	}
 
+	/**
+	 * Lleva hacia atras
+	 * @param event
+	 */
 	@FXML
 	void btnCancelar(ActionEvent event) {
 		Stage stage = (Stage) stackpane.getScene().getWindow();
@@ -95,6 +109,10 @@ public class BorrarPreguntaProfesorAdminControllerImp extends BorrarPreguntaProf
 
 	// FIN ELEMENTOS FXML
 
+	/**
+	 * LLeva a cabo los updates:
+	 * Carga todas las preguntas, da los mensajes de confirmacion
+	 */
 	@Override
 	public void update(Contexto contexto) {
 
@@ -132,6 +150,9 @@ public class BorrarPreguntaProfesorAdminControllerImp extends BorrarPreguntaProf
 
 	}
 
+	/**
+	 * Inicializa la tabla
+	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		JFXTreeTableColumn<Pregunta, String> pregunta = new JFXTreeTableColumn<>("Pregunta");
