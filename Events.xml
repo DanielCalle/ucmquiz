@@ -182,5 +182,9 @@
 	<event id="ASIGNATURA_READ_ALL_PREGUNTA_CREATE_KO">No message</event>
 	<event id="CRUD_ADD_RESPUESTA_OK">No message</event>
 	<event id="CRUD_ADD_RESPUESTA_KO">No message</event>
-	
+	<event id="COMMAND_PREGUNTA_DELETE_PROFESOR_ADMIN">No message</event>
+	<event id="SHOW_MENU_ADMIN_PREGUNTAS">No message</event>
+	<event id="PREGUNTA_DELETE_PROFESOR_ADMIN_OK">No message</event>
+	<event id="PREGUNTA_DELETE_PROFESOR_ADMIN_KO">No message</event>
+	<event id="SHOW_PREGUNTA_DELETE_PROFESOR_ADMIN">No message</event>
 </events>
