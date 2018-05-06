@@ -192,4 +192,14 @@
 	<event id="COMMAND_RESPUESTA_DELETE_ADMIN">No message</event>
 	<event id="SHOW_MENU_ALUMNO_RESPONDER">No message</event>
 	<event id="SHOW_RESPONDER_ELEGIR_ASIGNATURA">No message</event>
+	<event id="COMMAND_PREGUNTA_DELETE_PROFESOR_ADMIN">No message</event>
+	<event id="SHOW_MENU_ADMIN_PREGUNTAS">No message</event>
+	<event id="PREGUNTA_DELETE_PROFESOR_ADMIN_OK">No message</event>
+	<event id="PREGUNTA_DELETE_PROFESOR_ADMIN_KO">No message</event>
+	<event id="SHOW_PREGUNTA_DELETE_PROFESOR_ADMIN">No message</event>
+	<event id="COMMAND_PREGUNTA_READ_ALL">No message</event>
+	<event id="SHOW_PREGUNTA_RESPONDER">No message</event>
+	<event id="COMMAND_PREGUNTA_READ">No message</event>
+	
+	
 </events>
