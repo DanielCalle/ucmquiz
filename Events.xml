@@ -165,6 +165,12 @@
 		No se activo correctamente la asignatura debido a
 		{reason}
 	</event>
+	<event id="SELECT_ASIGNATURA_READ_ALL_OK">
+		No se leyo correctamente las asignaturas debido a {reason}
+	</event>
+	<event id="SELECT_ASIGNATURA_READ_ALL_KO">
+		No se leyo correctamente las asignaturas debido a {reason}
+	</event>
 	<event id="PREGUNTA_ACTIVATE_OK">
 		Se activo correctamente la pregunta con id {id}
 	</event>
@@ -236,9 +242,13 @@
 	<event id="COMMAND_PREGUNTA_READ_ALL">No message</event>
 	<event id="SHOW_PREGUNTA_RESPONDER">No message</event>
 	<event id="COMMAND_PREGUNTA_READ">No message</event>
+
 	<event id="COMMAND_READ_ALL_PREGUNTA_DELETE_PROFESOR_ADMIN">No message</event>
 	<event id="CRUD_READALL_DELETE_PREGUNTA_PROFESOR_ADMIN_OK">No message</event>
 	<event id="CRUD_READALL_DELETE_PREGUNTA_PROFESOR_ADMIN_KO">No message</event>
+
+
+	<event id="COMMAND_SELECT_ASIGNATURA_READ_ALL">No message</event>
 
 	
 
