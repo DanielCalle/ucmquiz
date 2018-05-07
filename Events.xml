@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <events>
-	
+
 	<event id="CRUD_CREATE_ASIGNATURA_OK">
 		Se dio de alta correctamente la asignatura {info}
 	</event>
@@ -13,20 +13,24 @@
 	<event id="CRUD_CREATE_USUARIO_OK">
 		Se dio de alta correctamente al usuario {info}
 	</event>
-	
+
 	<event id="CRUD_CREATE_ASIGNATURA_KO">
-		No se pudo dar de alta la asignatura debido a {reason} {info}
+		No se pudo dar de alta la asignatura debido a {reason}
+		{info}
 	</event>
 	<event id="CRUD_CREATE_PREGUNTA_KO">
-		No se pudo dar de alta la pregunta debido a {reason} {info}
+		No se pudo dar de alta la pregunta debido a {reason}
+		{info}
 	</event>
 	<event id="CRUD_CREATE_RESPUESTA_KO">
-		No se pudo dar de alta la respuesta debido a {reason} {info}
+		No se pudo dar de alta la respuesta debido a {reason}
+		{info}
 	</event>
 	<event id="CRUD_CREATE_USUARIO_KO">
-		No se pudo dar de alta al usuario debido a {reason} {info}
+		No se pudo dar de alta al usuario debido a {reason}
+		{info}
 	</event>
-	
+
 	<event id="CRUD_READ_ASIGNATURA_OK">
 		Se leyo correctamente la asignatura {info}
 	</event>
@@ -39,20 +43,24 @@
 	<event id="CRUD_READ_USUARIO_OK">
 		Se leyo correctamente el usuario {info}
 	</event>
-	
+
 	<event id="CRUD_READ_ASIGNATURA_KO">
-		No se leyo correctamente la asignatura debido a {reason} {info}
+		No se leyo correctamente la asignatura debido a
+		{reason} {info}
 	</event>
 	<event id="CRUD_READ_PREGUNTA_KO">
-		No se leyo correctamente la pregunta debido a {reason} {info}
+		No se leyo correctamente la pregunta debido a {reason}
+		{info}
 	</event>
 	<event id="CRUD_READ_RESPUESTA_KO">
-		No se leyo correctamente la respuesta debido a {reason} {info}
+		No se leyo correctamente la respuesta debido a {reason}
+		{info}
 	</event>
 	<event id="CRUD_READ_USUARIO_KO">
-		No se leyo correctamente el usuario debido a {reason} {info}
+		No se leyo correctamente el usuario debido a {reason}
+		{info}
 	</event>
-	
+
 	<event id="CRUD_READ_ALL_ASIGNATURA_OK">
 		Se leyeron correctamente las asignaturas {info}
 	</event>
@@ -65,20 +73,24 @@
 	<event id="CRUD_READ_ALL_USUARIO_OK">
 		Se leyeron correctamente los usuarios {info}
 	</event>
-	
+
 	<event id="CRUD_READ_ALL_ASIGNATURA_KO">
-		No se leyeron correctamente las asignaturas debido a {reason} {info}
+		No se leyeron correctamente las asignaturas debido a
+		{reason} {info}
 	</event>
 	<event id="CRUD_READ_ALL_PREGUNTA_KO">
-		No se leyeron correctamente las preguntas debido a {reason} {info}
+		No se leyeron correctamente las preguntas debido a
+		{reason} {info}
 	</event>
 	<event id="CRUD_READ_ALL_RESPUESTA_KO">
-		No se leyeron correctamente las respuestas debido a {reason} {info}
+		No se leyeron correctamente las respuestas debido a
+		{reason} {info}
 	</event>
 	<event id="CRUD_READ_ALL_USUARIO_KO">
-		No se leyeron correctamente los usuarios debido a {reason} {info}
+		No se leyeron correctamente los usuarios debido a
+		{reason} {info}
 	</event>
-	
+
 	<event id="CRUD_UPDATE_ASIGNATURA_OK">
 		Se actualizo correctamente la asignatura {info}
 	</event>
@@ -91,20 +103,24 @@
 	<event id="CRUD_UPDATE_USUARIO_OK">
 		Se actualizo correctamente el usuario {info}
 	</event>
-	
+
 	<event id="CRUD_UPDATE_ASIGNATURA_KO">
-		No se actualizo correctamente la asignatura debido a {reason} {info}
+		No se actualizo correctamente la asignatura debido a
+		{reason} {info}
 	</event>
 	<event id="CRUD_UPDATE_PREGUNTA_KO">
-		No se actualizo correctamente la pregunta debido a {reason} {info}
+		No se actualizo correctamente la pregunta debido a
+		{reason} {info}
 	</event>
 	<event id="CRUD_UPDATE_RESPUESTA_KO">
-		No se actualizo correctamente la respuesta debido a {reason} {info}
+		No se actualizo correctamente la respuesta debido a
+		{reason} {info}
 	</event>
 	<event id="CRUD_UPDATE_USUARIO_KO">
-		No se actualizo correctamente el usuario debido a {reason} {info}
+		No se actualizo correctamente el usuario debido a
+		{reason} {info}
 	</event>
-	
+
 	<event id="CRUD_DELETE_ASIGNATURA_OK">
 		Se borro correctamente la asignatura {info}
 	</event>
@@ -117,31 +133,57 @@
 	<event id="CRUD_DELETE_USUARIO_OK">
 		Se borro correctamente el usuario {info}
 	</event>
-	
+
 	<event id="CRUD_DELETE_ASIGNATURA_KO">
-		No se borro correctamente la asignatura debido a {reason} {info}
+		No se borro correctamente la asignatura debido a
+		{reason} {info}
 	</event>
 	<event id="CRUD_DELETE_PREGUNTA_KO">
-		No se borro correctamente la pregunta debido a {reason} {info}
+		No se borro correctamente la pregunta debido a {reason}
+		{info}
 	</event>
 	<event id="CRUD_DELETE_RESPUESTA_KO">
-		No se borro correctamente la respuesta debido a {reason} {info}
+		No se borro correctamente la respuesta debido a
+		{reason} {info}
 	</event>
 	<event id="CRUD_DELETE_USUARIO_KO">
-		No se borro correctamente el usuario debido a {reason} {info}
+		No se borro correctamente el usuario debido a {reason}
+		{info}
 	</event>
-	
+
 	<event id="ASIGNATURA_ACTIVATE_OK">
 		Se activo correctamente la asignatura con id {id}
 	</event>
 	<event id="ASIGNATURA_ACTIVATE_KO">
-		No se activo correctamente la asignatura debido a {reason}
+		No se activo correctamente la asignatura debido a
+		{reason}
 	</event>
 	<event id="ASIGNATURA_DESACTIVATE_OK">
 		Se desactivo correctamente la asignatura con id {id}
 	</event>
 	<event id="ASIGNATURA_DESACTIVATE_KO">
-		No se activo correctamente la asignatura debido a {reason}
+		No se activo correctamente la asignatura debido a
+		{reason}
+	</event>
+	<event id="SELECT_ASIGNATURA_READ_ALL_OK">
+		No se leyo correctamente las asignaturas debido a {reason}
+	</event>
+	<event id="SELECT_ASIGNATURA_READ_ALL_KO">
+		No se leyo correctamente las asignaturas debido a {reason}
+	</event>
+	<event id="PREGUNTA_ACTIVATE_OK">
+		Se activo correctamente la pregunta con id {id}
+	</event>
+	<event id="PREGUNTA_ACTIVATE_KO">
+		No se activo correctamente la pregunta debido a
+		{reason}
+	</event>
+	<event id="PREGUNTA_DESACTIVATE_OK">
+		Se desactivo correctamente la pregunta con id {id}
+	</event>
+	<event id="PREGUNTA_DESACTIVATE_KO">
+		No se activo correctamente la pregunta debido a
+		{reason}
 	</event>
 
 	<event id="SHOW_LOGIN">No message</event>
@@ -200,6 +242,18 @@
 	<event id="COMMAND_PREGUNTA_READ_ALL">No message</event>
 	<event id="SHOW_PREGUNTA_RESPONDER">No message</event>
 	<event id="COMMAND_PREGUNTA_READ">No message</event>
+
+	<event id="COMMAND_READ_ALL_PREGUNTA_DELETE_PROFESOR_ADMIN">No message</event>
+	<event id="CRUD_READALL_DELETE_PREGUNTA_PROFESOR_ADMIN_OK">No message</event>
+	<event id="CRUD_READALL_DELETE_PREGUNTA_PROFESOR_ADMIN_KO">No message</event>
+
+
+	<event id="COMMAND_SELECT_ASIGNATURA_READ_ALL">No message</event>
+
 	
-	
+
+
+
+
+
 </events>

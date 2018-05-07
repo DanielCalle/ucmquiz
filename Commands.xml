@@ -32,4 +32,8 @@
 
 	<command id="COMMAND_RESPUESTA_DELETE_ADMIN">presentacion.commands.respuesta.CommandRespuestaDeleteAdmin</command>
 
+	<command id="COMMAND_READ_ALL_PREGUNTA_DELETE_PROFESOR_ADMIN">presentacion.commands.pregunta.CommandReadAllPreguntaDeleteProfesorAdmin</command>
+
+	<command id="COMMAND_SELECT_ASIGNATURA_READ_ALL">presentacion.commands.asignatura.CommandSelectAsignaturaReadAll</command>
+
 </commands>

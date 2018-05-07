@@ -123,7 +123,19 @@
     	<controler>presentacion.guiControlers.SeleccionarPreguntaAsignaturaController</controler>
     </gui>
 
-        <gui id="SHOW_PREGUNTA_DELETE">
+	<gui id="PREGUNTA_ACTIVATE_OK">
+    	<controler>presentacion.guiControlers.ActivarDesactivarPreguntaController</controler>
+    </gui>
+    <gui id="PREGUNTA_ACTIVATE_KO">
+    	<controler>presentacion.guiControlers.ActivarDesactivarPreguntaController</controler>
+    </gui>
+    <gui id="PREGUNTA_DESACTIVATE_OK">
+    	<controler>presentacion.guiControlers.ActivarDesactivarPreguntaController</controler>
+    </gui>
+    <gui id="PREGUNTA_DESACTIVATE_KO">
+    	<controler>presentacion.guiControlers.ActivarDesactivarPreguntaController</controler>
+    </gui>
+    <gui id="SHOW_PREGUNTA_DELETE">
     	<title>Borrar pregunta</title>
     	<file>/presentacion/BorrarPregunta.fxml</file>
     	<controler>presentacion.guiControlers.BorrarPreguntaController</controler>
@@ -218,6 +230,14 @@
     <controler>presentacion.guiControlers.BorrarPreguntaProfesorAdminController</controler>
     </gui>
     
+    <gui id="CRUD_READALL_DELETE_PREGUNTA_PROFESOR_ADMIN_OK">
+    <controler>presentacion.guiControlers.BorrarPreguntaProfesorAdminController</controler>
+    </gui>
+    
+    <gui id="CRUD_READALL_DELETE_PREGUNTA_PROFESOR_ADMIN_KO">
+    <controler>presentacion.guiControlers.BorrarPreguntaProfesorAdminController</controler>
+    </gui>
+    
     
     <gui id="SHOW_ESCOGER_PREGUNTA_ASIGNATURA">
     <title>Escoger pregunta de una Asignatura</title>
@@ -238,5 +258,11 @@
     </gui>
     <gui id="RESPUESTA_DELETE_ADMIN_OK">
   	  <controler>presentaicon.guiControlers.BorrarRespuestaAdminController</controler>
+    </gui>
+    <gui id="SELECT_ASIGNATURA_READ_ALL_OK">
+  	  <controler>presentacion.guiControlers.ResponderPreguntaElegirAsignaturaController</controler>
+    </gui>
+    <gui id="SELECT_ASIGNATURA_READ_ALL_KO">
+  	  <controler>presentacion.guiControlers.ResponderPreguntaElegirAsignaturaController</controler>
     </gui>
 </guis>
