@@ -239,4 +239,10 @@
     <gui id="RESPUESTA_DELETE_ADMIN_OK">
   	  <controler>presentaicon.guiControlers.BorrarRespuestaAdminController</controler>
     </gui>
+    <gui id="SELECT_ASIGNATURA_READ_ALL_OK">
+  	  <controler>presentacion.guiControlers.ResponderPreguntaElegirAsignaturaController</controler>
+    </gui>
+    <gui id="SELECT_ASIGNATURA_READ_ALL_KO">
+  	  <controler>presentacion.guiControlers.ResponderPreguntaElegirAsignaturaController</controler>
+    </gui>
 </guis>

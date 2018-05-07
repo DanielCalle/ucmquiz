@@ -143,6 +143,12 @@
 	<event id="ASIGNATURA_DESACTIVATE_KO">
 		No se activo correctamente la asignatura debido a {reason}
 	</event>
+	<event id="SELECT_ASIGNATURA_READ_ALL_OK">
+		No se leyo correctamente las asignaturas debido a {reason}
+	</event>
+	<event id="SELECT_ASIGNATURA_READ_ALL_KO">
+		No se leyo correctamente las asignaturas debido a {reason}
+	</event>
 
 	<event id="SHOW_LOGIN">No message</event>
 	<event id="SHOW_ROL_MENU">No message</event>
@@ -200,6 +206,7 @@
 	<event id="COMMAND_PREGUNTA_READ_ALL">No message</event>
 	<event id="SHOW_PREGUNTA_RESPONDER">No message</event>
 	<event id="COMMAND_PREGUNTA_READ">No message</event>
+	<event id="COMMAND_SELECT_ASIGNATURA_READ_ALL">No message</event>
 	
 	
 </events>
