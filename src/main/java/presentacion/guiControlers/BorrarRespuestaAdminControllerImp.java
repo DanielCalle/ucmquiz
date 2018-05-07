@@ -59,8 +59,6 @@ public class BorrarRespuestaAdminControllerImp extends BorrarRespuestaAdminContr
 	@FXML
 	void btnBorrar(ActionEvent event) {
 		if (comboboxPregunta.getSelectionModel().getSelectedItem() != null) {
-				Contexto contexto = new Contexto(Events.CRUD_READ_PREGUNTA_OK, listaPreguntas.get(comboboxPregunta.getSelectionModel().getSelectedIndex()));
-				this.update(contexto);
 			if (tablaRespuestas.getSelectionModel().getSelectedItem() != null) {
 				TreeItem<Respuesta> resp = tablaRespuestas.getSelectionModel().getSelectedItem();
 				Respuesta r = resp.getValue();
@@ -194,7 +192,6 @@ public class BorrarRespuestaAdminControllerImp extends BorrarRespuestaAdminContr
 			break;
 			
 		case CRUD_READ_PREGUNTA_OK:
-			// Recibe la asignatura lo pone como titulo y llama al read all
 			Pregunta preguntaActual = (Pregunta) contexto.getDato();
 			List<Respuesta> respuestas = preguntaActual.getRespuestas();
 			ObservableList<Respuesta> respuestasList = FXCollections.observableArrayList();
@@ -243,6 +240,21 @@ public class BorrarRespuestaAdminControllerImp extends BorrarRespuestaAdminContr
 		}
 		
 	}
+	
+	@FXML
+	void comboBoxPreguntaAction(ActionEvent event) {
+		Pregunta preg = this.listaPreguntas.get(this.comboboxPregunta.getSelectionModel().getSelectedIndex());
+		this.listaRespuestas = preg.getRespuestas();
+		ObservableList<Respuesta> users = FXCollections.observableArrayList();
+
+		for (Respuesta r : listaRespuestas) {
+			users.add(r);
+		}
+		final TreeItem<Respuesta> raiz = new RecursiveTreeItem<Respuesta>(users, RecursiveTreeObject::getChildren);
+		tablaRespuestas.setRoot(raiz);
+
+	}
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		Contexto contexto = new Contexto(Events.COMMAND_PREGUNTA_READ_ALL, null);
