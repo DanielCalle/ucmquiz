@@ -21,12 +21,12 @@ public class Main extends Application {
 	@Override
 	public void start(Stage stage) throws IOException {
 		
-		Asignatura asignatura = new Asignatura("ABD", true);
+		/*Asignatura asignatura = new Asignatura("ABD", true);
 		FactoriaNegocio.getInstance().generateSAAsignatura().create(asignatura);
 		List<Respuesta> respuestas = new ArrayList<Respuesta>();
 		Respuesta respuesta = new Respuesta("ABD1T", true, true);
 		respuestas.add(respuesta);
-		respuesta = new Respuesta("ABD1F", true, false);
+		respuesta = new Respuesta("ABD1F", false, true);
 		respuestas.add(respuesta);
 		
 		Pregunta pregunta = new Pregunta("ABD1", true);
@@ -37,7 +37,7 @@ public class Main extends Application {
 		respuestas = new ArrayList<Respuesta>();
 		respuesta = new Respuesta("ABD2T", true, true);
 		respuestas.add(respuesta);
-		respuesta = new Respuesta("ABD2F", true, false);
+		respuesta = new Respuesta("ABD2F", false, true);
 		respuestas.add(respuesta);
 		
 		pregunta = new Pregunta("ABD2", true);
@@ -51,13 +51,13 @@ public class Main extends Application {
 		respuestas = new ArrayList<Respuesta>();
 		respuesta = new Respuesta("GPS1T", true, true);
 		respuestas.add(respuesta);
-		respuesta = new Respuesta("GPS1F", true, false);
+		respuesta = new Respuesta("GPS1F", false, true);
 		respuestas.add(respuesta);
 		
 		pregunta = new Pregunta("GPS1", true);
 		pregunta.setAsignatura(asignatura);
 		pregunta.setRespuestas(respuestas);
-		FactoriaNegocio.getInstance().generateSAPregunta().create(pregunta);
+		FactoriaNegocio.getInstance().generateSAPregunta().create(pregunta);*/
 		
 		Contexto contexto = new Contexto(Events.SHOW_SELECCION_USUARIO, null);
 		Controlador.getInstance().accion(contexto);

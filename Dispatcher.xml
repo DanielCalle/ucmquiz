@@ -123,7 +123,19 @@
     	<controler>presentacion.guiControlers.SeleccionarPreguntaAsignaturaController</controler>
     </gui>
 
-        <gui id="SHOW_PREGUNTA_DELETE">
+	<gui id="PREGUNTA_ACTIVATE_OK">
+    	<controler>presentacion.guiControlers.ActivarDesactivarPreguntaController</controler>
+    </gui>
+    <gui id="PREGUNTA_ACTIVATE_KO">
+    	<controler>presentacion.guiControlers.ActivarDesactivarPreguntaController</controler>
+    </gui>
+    <gui id="PREGUNTA_DESACTIVATE_OK">
+    	<controler>presentacion.guiControlers.ActivarDesactivarPreguntaController</controler>
+    </gui>
+    <gui id="PREGUNTA_DESACTIVATE_KO">
+    	<controler>presentacion.guiControlers.ActivarDesactivarPreguntaController</controler>
+    </gui>
+    <gui id="SHOW_PREGUNTA_DELETE">
     	<title>Borrar pregunta</title>
     	<file>/presentacion/BorrarPregunta.fxml</file>
     	<controler>presentacion.guiControlers.BorrarPreguntaController</controler>
