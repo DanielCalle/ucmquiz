@@ -150,7 +150,7 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
             	if(r.isCorrecta()) respuestaCorrecta += 1;
             }
             
-            if(respuestaCorrecta != 1) {
+            if(respuestaCorrecta < 1) {
             	 JFXDialogLayout content = new JFXDialogLayout();
             	content.setHeading(new Text("Accion incorrecta"));
                 content.setBody(new Text("No se pudo crear la pregunta: no hay ninguna respuesta correcta"));
