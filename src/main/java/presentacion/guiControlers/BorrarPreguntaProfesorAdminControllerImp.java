@@ -118,7 +118,7 @@ public class BorrarPreguntaProfesorAdminControllerImp extends BorrarPreguntaProf
 
 		switch (contexto.getEvent()) {
 
-		case CRUD_READ_ALL_PREGUNTA_OK:
+		case CRUD_READALL_DELETE_PREGUNTA_PROFESOR_ADMIN_OK:
 
 			List<Pregunta> lista = (List<Pregunta>) contexto.getDato();
 			ObservableList<Pregunta> users = FXCollections.observableArrayList();
@@ -132,7 +132,7 @@ public class BorrarPreguntaProfesorAdminControllerImp extends BorrarPreguntaProf
 			System.out.println("OK");
 			break;
 
-		case CRUD_READ_ALL_PREGUNTA_KO:
+		case CRUD_READALL_DELETE_PREGUNTA_PROFESOR_ADMIN_KO:
 			mostrarDialog("ERROR","Error al leer la lista");
 			break;
 		case PREGUNTA_DELETE_PROFESOR_ADMIN_OK:
@@ -169,7 +169,7 @@ public class BorrarPreguntaProfesorAdminControllerImp extends BorrarPreguntaProf
 		treeView.setShowRoot(false);
 		treeView.getSelectionModel().getSelectedItem();
 
-		Contexto contexto = new Contexto(Events.COMMAND_PREGUNTA_READ_ALL, null);
+		Contexto contexto = new Contexto(Events.COMMAND_READ_ALL_PREGUNTA_DELETE_PROFESOR_ADMIN, null);
 		Controlador.getInstance().accion(contexto);
 
 	}

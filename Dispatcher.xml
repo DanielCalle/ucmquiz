@@ -230,6 +230,14 @@
     <controler>presentacion.guiControlers.BorrarPreguntaProfesorAdminController</controler>
     </gui>
     
+    <gui id="CRUD_READALL_DELETE_PREGUNTA_PROFESOR_ADMIN_OK">
+    <controler>presentacion.guiControlers.BorrarPreguntaProfesorAdminController</controler>
+    </gui>
+    
+    <gui id="CRUD_READALL_DELETE_PREGUNTA_PROFESOR_ADMIN_KO">
+    <controler>presentacion.guiControlers.BorrarPreguntaProfesorAdminController</controler>
+    </gui>
+    
     
     <gui id="SHOW_ESCOGER_PREGUNTA_ASIGNATURA">
     <title>Escoger pregunta de una Asignatura</title>

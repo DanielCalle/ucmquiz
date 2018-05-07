@@ -31,5 +31,5 @@
 	<command id="QUITAR_RESPUESTA_OK">presentacion.commands.pregunta.CommandQuitarRespuestaOk</command>
 
 	<command id="COMMAND_RESPUESTA_DELETE_ADMIN">presentacion.commands.respuesta.CommandRespuestaDeleteAdmin</command>
-
+	<command id="COMMAND_READ_ALL_PREGUNTA_DELETE_PROFESOR_ADMIN">presentacion.commands.pregunta.CommandReadAllPreguntaDeleteProfesorAdmin</command>
 </commands>
