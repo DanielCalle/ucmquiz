@@ -208,7 +208,7 @@ public class SAPreguntaImp implements SAPregunta {
 				entitymanager.close();
 			} catch(PersistenceException ex) {
 				e = Events.CRUD_READ_ALL_PREGUNTA_KO;
-				filter.addFilter("reason","problemas t�cnicos");
+				filter.addFilter("reason","problemas tecnicos");
 				filter.addFilter("info","");
 			}
 			

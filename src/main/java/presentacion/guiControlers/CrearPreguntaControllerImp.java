@@ -81,11 +81,49 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
     @FXML
     void btnCrearListener(ActionEvent event) {
 
-        if (textArea.getLength() == 0) {
+    	if (list.isEmpty()) {
+    		 JFXDialogLayout content = new JFXDialogLayout();
+             content.setHeading(new Text("Accion incorrecta"));
+             content.setBody(new Text("No se pueden crear preguntas si no existe ninguna asignatura"));
+             JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
+
+             JFXButton button = new JFXButton("Ok");
+             button.setOnAction(new EventHandler < ActionEvent > () {
+
+                 @Override
+                 public void handle(ActionEvent arg0) {
+                     dialog.close();
+
+                 }
+
+             });
+             content.setActions(button);
+             dialog.show();
+    	}
+    	else if (cobobox.getSelectionModel().getSelectedItem() == null) {
+    		 JFXDialogLayout content = new JFXDialogLayout();
+             content.setHeading(new Text("Accion incorrecta"));
+             content.setBody(new Text("No se pueden crear preguntas si no seleccionas ninguna asignatura"));
+             JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
+
+             JFXButton button = new JFXButton("Ok");
+             button.setOnAction(new EventHandler < ActionEvent > () {
+
+                 @Override
+                 public void handle(ActionEvent arg0) {
+                     dialog.close();
+
+                 }
+
+             });
+             content.setActions(button);
+             dialog.show();
+    	}
+    	else  if (textArea.getLength() == 0) {
 
             JFXDialogLayout content = new JFXDialogLayout();
             content.setHeading(new Text("Accion incorrecta"));
-            content.setBody(new Text("No se pueden crear una pregunta en blanco"));
+            content.setBody(new Text("No se puede crear una pregunta en blanco"));
             JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
 
             JFXButton button = new JFXButton("Ok");
@@ -115,7 +153,7 @@ public class CrearPreguntaControllerImp extends CrearPreguntaController implemen
             if(respuestaCorrecta != 1) {
             	 JFXDialogLayout content = new JFXDialogLayout();
             	content.setHeading(new Text("Accion incorrecta"));
-                content.setBody(new Text("Las respuestas no fueron creadas correctamente"));
+                content.setBody(new Text("No se pudo crear la pregunta: no hay ninguna respuesta correcta"));
                 JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
                 JFXButton button = new JFXButton("Ok");
                 button.setOnAction(new EventHandler < ActionEvent > () {
