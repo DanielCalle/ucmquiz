@@ -1,5 +1,6 @@
 package negocio.pregunta; 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -56,7 +57,9 @@ public class Pregunta extends RecursiveTreeObject<Pregunta> {
 	@OneToMany(mappedBy="Pregunta", cascade = { CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST})
 	private List<Respuesta> respuestas;
 	
-	public Pregunta() {};
+	public Pregunta() {
+		this.respuestas = new ArrayList<Respuesta>();
+	};
 	
 	/**
 	 * @param texto Texto de la pregunta.
@@ -65,6 +68,7 @@ public class Pregunta extends RecursiveTreeObject<Pregunta> {
 	public Pregunta(String texto, boolean activa) {		
 		this.texto = texto;
 		this.activa = activa;
+		this.respuestas = new ArrayList<Respuesta>();
 	}
 
 	/**
@@ -76,6 +80,7 @@ public class Pregunta extends RecursiveTreeObject<Pregunta> {
 		this.id = id;		
 		this.texto = texto;
 		this.activa = activa;
+		this.respuestas = new ArrayList<Respuesta>();
 	}
 
 	/**
