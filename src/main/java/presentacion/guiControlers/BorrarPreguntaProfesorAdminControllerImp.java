@@ -137,7 +137,7 @@ public class BorrarPreguntaProfesorAdminControllerImp extends BorrarPreguntaProf
 			break;
 		case PREGUNTA_DELETE_PROFESOR_ADMIN_OK:
 			mostrarDialog("","Se elimino la pregunta del sistema");
-			contexto = new Contexto(Events.COMMAND_PREGUNTA_READ_ALL, null);
+			contexto = new Contexto(Events.COMMAND_READ_ALL_PREGUNTA_DELETE_PROFESOR_ADMIN, null);
 			Controlador.getInstance().accion(contexto);
 			break;
 		case PREGUNTA_DELETE_PROFESOR_ADMIN_KO:

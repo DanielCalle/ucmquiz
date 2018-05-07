@@ -28,7 +28,7 @@ public class SeleccionUsuarioControllerImp extends SeleccionUsuarioController {
 	 * @FXML private JFXButton btnAdministrador;
 	 * 
 	 * @FXML private JFXButton btnAlumno;
-	 */
+	*/
 	@FXML
 	void AdministradorListener(ActionEvent event) {
 		
